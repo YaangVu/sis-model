@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
+use Database\Factories\TermFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -24,7 +25,7 @@ use YaangVu\Constant\CodeConstant;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
- * @method static \Database\Factories\TermFactory factory(...$parameters)
+ * @method static TermFactory factory(...$parameters)
  * @method static Builder|Term newModelQuery()
  * @method static Builder|Term newQuery()
  * @method static \Illuminate\Database\Query\Builder|Term onlyTrashed()

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
