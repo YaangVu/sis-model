@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Seeders;
+namespace YaangVu\SisModel\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use YaangVu\SisModel\App\Models\Term;
+use YaangVu\SisModel\Database\Factories\TermFactory;
 
 class TermSeeder extends Seeder
 {
@@ -14,6 +14,6 @@ class TermSeeder extends Seeder
      */
     public function run()
     {
-        Term::factory()->times(50)->create();
+        TermFactory::times(50)->create();
     }
 }

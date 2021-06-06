@@ -3,7 +3,8 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../helpers.php';
 
-load_php_file(dirname(__DIR__) . '/app', true);
+load_php_file(dirname(__DIR__) . '/database');
+load_php_file(dirname(__DIR__) . '/app');
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
     dirname(__DIR__)
@@ -25,6 +26,8 @@ date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
+
+$app->register(\YaangVu\SisModel\App\Providers\PreServiceProvider::class);
 
 // $app->withFacades();
 

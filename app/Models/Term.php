@@ -28,7 +28,7 @@ use YaangVu\Constant\CodeConstant;
  * @property Carbon|null             $deleted_at
  * @property-read Collection|Clazz[] $classes
  * @property-read int|null           $classes_count
- * @method static \Database\Factories\TermFactory factory(...$parameters)
+ * @method static \YaangVu\SisModel\Database\Factories\TermFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Term newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Term newQuery()
  * @method static \Illuminate\Database\Query\Builder|Term onlyTrashed()

@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace YaangVu\SisModel\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use YaangVu\SisModel\App\Models\Division;

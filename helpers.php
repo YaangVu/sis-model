@@ -7,7 +7,7 @@
  * @param int    $depth (optional)
  * @param int    $maxDepth
  */
-function load_php_file(string $dir, int $depth = 0, int $maxDepth = 0)
+function load_php_file(string $dir, int $maxDepth = 0, int $depth = 0)
 {
     if ($depth > $maxDepth && $maxDepth > 0) {
         return;
@@ -17,9 +17,10 @@ function load_php_file(string $dir, int $depth = 0, int $maxDepth = 0)
     $scan = glob("$dir/*");
     foreach ($scan as $path) {
         if (preg_match('/\.php$/', $path)) {
+            echo "$path \n ";
             require_once $path;
         } elseif (is_dir($path)) {
-            load_php_file($path, $depth + 1, $maxDepth);
+            load_php_file($path, $maxDepth, $depth + 1);
         }
     }
 }

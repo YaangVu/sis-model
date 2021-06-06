@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Database\Seeders;
+namespace YaangVu\SisModel\Database\Seeders;
 
 
 use Illuminate\Database\Seeder;

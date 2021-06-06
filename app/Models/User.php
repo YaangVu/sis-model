@@ -20,7 +20,7 @@ use Laravel\Lumen\Auth\Authorizable;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @method static \Database\Factories\UserFactory factory(...$parameters)
+ * @method static \YaangVu\SisModel\Database\Factories\UserFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User query()

@@ -2,13 +2,13 @@
 
 namespace YaangVu\SisModel\App\Models;
 
-use Database\Factories\CourseFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
+use YaangVu\SisModel\Database\Factories\CourseFactory;
 
 /**
  * YaangVu\SisModel\App\Models\Course
