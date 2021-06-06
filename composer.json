@@ -6,11 +6,12 @@
         "model"
     ],
     "license": "MIT",
+    "type": "project",
     "require": {
         "php": "^8.0",
+        "laravel/lumen-framework": "^8.0",
         "flipbox/lumen-generator": "^8.2",
         "jenssegers/mongodb": "^3.8",
-        "laravel/lumen-framework": "^8.0",
         "phpoffice/phpspreadsheet": "^1.18",
         "spatie/laravel-permission": "^4.1",
         "yaangvu/laravel-aws": "^1.0",
@@ -22,10 +23,23 @@
         "mockery/mockery": "^1.3.1",
         "phpunit/phpunit": "^9.3"
     },
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "YaangVu\\SisModel\\": "/src"
+            "YaangVu\\SisModel\\App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         }
-    }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
