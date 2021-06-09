@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use YaangVu\Constant\CodeConstant;
 
-class CreateTermsTable extends Migration
+class CreateCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,21 +14,21 @@ class CreateTermsTable extends Migration
      */
     public function up()
     {
-        Schema::create('terms', function (Blueprint $table) {
+        Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->enum('status', ['Active', 'Inactive'])->nullable();
-            $table->unsignedBigInteger('school_id')->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->string(CodeConstant::LMS_SYSTEM)->nullable();
+            $table->unsignedBigInteger('school_lms_id')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('school_id')->references('id')->on('schools');
+            $table->foreign('school_lms_id')->references('id')->on('school_lms');
 
         });
     }
@@ -40,6 +40,6 @@ class CreateTermsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('terms');
+        Schema::dropIfExists('courses');
     }
 }

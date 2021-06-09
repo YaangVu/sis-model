@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use YaangVu\Constant\CodeConstant;
 
 class CreateUsersTable extends Migration
 {
@@ -17,9 +18,16 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('username')->unique()->nullable(false);
             $table->string('uid')->nullable();
-            $table->string("external_id")->nullable();
+            $table->string(CodeConstant::EX_ID)->nullable();
+            $table->unsignedBigInteger('grade_id')->nullable();
+            $table->unsignedBigInteger('division_id')->nullable();
+
+            $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('grade_id')->references('id')->on('grades');
+            $table->foreign('division_id')->references('id')->on('divisions');
         });
     }
 

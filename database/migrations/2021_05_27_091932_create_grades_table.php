@@ -17,6 +17,8 @@ class CreateGradesTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->unsignedBigInteger('school_id');
+
+            $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

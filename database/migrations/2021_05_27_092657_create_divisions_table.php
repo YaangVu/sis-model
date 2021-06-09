@@ -17,6 +17,8 @@ class CreateDivisionsTable extends Migration
             $table->id();
             $table->string('name')->unique()->nullable(false);
             $table->unsignedBigInteger('school_id');
+
+            $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

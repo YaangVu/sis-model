@@ -17,7 +17,6 @@ function load_php_file(string $dir, int $maxDepth = 0, int $depth = 0)
     $scan = glob("$dir/*");
     foreach ($scan as $path) {
         if (preg_match('/\.php$/', $path)) {
-            echo "$path \n ";
             require_once $path;
         } elseif (is_dir($path)) {
             load_php_file($path, $maxDepth, $depth + 1);
