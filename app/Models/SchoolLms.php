@@ -2,8 +2,35 @@
 
 namespace YaangVu\SisModel\App\Models;
 
+use Barryvdh\LaravelIdeHelper\Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
+/**
+ * YaangVu\SisModel\App\Models\SchoolLms
+ *
+ * @property int $id
+ * @property string|null $external_id
+ * @property int|null $school_id
+ * @property int|null $lms_id
+ * @property int|null $created_by
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @method static Builder|SchoolLms newModelQuery()
+ * @method static Builder|SchoolLms newQuery()
+ * @method static Builder|SchoolLms query()
+ * @method static Builder|SchoolLms whereCreatedAt($value)
+ * @method static Builder|SchoolLms whereCreatedBy($value)
+ * @method static Builder|SchoolLms whereDeletedAt($value)
+ * @method static Builder|SchoolLms whereExternalId($value)
+ * @method static Builder|SchoolLms whereId($value)
+ * @method static Builder|SchoolLms whereLmsId($value)
+ * @method static Builder|SchoolLms whereSchoolId($value)
+ * @method static Builder|SchoolLms whereUpdatedAt($value)
+ * @mixin Eloquent
+ */
 class SchoolLms extends Model
 {
     protected $table = 'school_lms';

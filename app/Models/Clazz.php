@@ -2,8 +2,11 @@
 
 namespace YaangVu\SisModel\App\Models;
 
+use Barryvdh\LaravelIdeHelper\Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * YaangVu\SisModel\App\Models\Clazz
@@ -15,31 +18,33 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $status
  * @property string|null $external_id
  * @property string|null $lms_system
+ * @property float|null $credit
+ * @property int|null $grade_scale_id
+ * @property int|null $graduation_category_id
+ * @property int|null $term_id
  * @property int|null $created_by
- * @property int|null $credit
- * @property int|null $course_id
- * @property int|null $grade_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz query()
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereCourseId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereCredit($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereEndDate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereExternalId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereGradeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereLmsSystem($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereStartDate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Clazz whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @method static Builder|Clazz newModelQuery()
+ * @method static Builder|Clazz newQuery()
+ * @method static Builder|Clazz query()
+ * @method static Builder|Clazz whereCreatedAt($value)
+ * @method static Builder|Clazz whereCreatedBy($value)
+ * @method static Builder|Clazz whereCredit($value)
+ * @method static Builder|Clazz whereDeletedAt($value)
+ * @method static Builder|Clazz whereEndDate($value)
+ * @method static Builder|Clazz whereExternalId($value)
+ * @method static Builder|Clazz whereGradeScaleId($value)
+ * @method static Builder|Clazz whereGraduationCategoryId($value)
+ * @method static Builder|Clazz whereId($value)
+ * @method static Builder|Clazz whereLmsSystem($value)
+ * @method static Builder|Clazz whereName($value)
+ * @method static Builder|Clazz whereStartDate($value)
+ * @method static Builder|Clazz whereStatus($value)
+ * @method static Builder|Clazz whereTermId($value)
+ * @method static Builder|Clazz whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class Clazz extends Model
 {

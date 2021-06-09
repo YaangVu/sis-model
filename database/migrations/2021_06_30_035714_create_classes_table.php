@@ -23,7 +23,6 @@ class CreateClassesTable extends Migration
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->string(CodeConstant::LMS_SYSTEM)->nullable();
             $table->unsignedDouble('credit')->nullable();
-            $table->unsignedBigInteger('course_id')->nullable();
             $table->unsignedBigInteger('grade_scale_id')->nullable();
             $table->unsignedBigInteger('graduation_category_id')->nullable();
             $table->unsignedBigInteger('term_id')->nullable();
@@ -32,7 +31,6 @@ class CreateClassesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('course_id')->references('id')->on('courses');
             $table->foreign('grade_scale_id')->references('id')->on('grade_scales');
             $table->foreign('graduation_category_id')->references('id')->on('graduation_categories');
             $table->foreign('term_id')->references('id')->on('terms');

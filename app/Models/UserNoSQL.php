@@ -29,7 +29,7 @@ use YaangVu\LaravelAws\S3Service;
  * @property Carbon|null $deleted_at
  * @method static Builder|UserNoSQL newModelQuery()
  * @method static Builder|UserNoSQL newQuery()
- * @method static \Illuminate\Database\Query\Builder|UserNoSQL onlyTrashed()
+ * @method static Builder|UserNoSQL onlyTrashed()
  * @method static Builder|UserNoSQL query()
  * @method static Builder|UserNoSQL whereCreatedAt($value)
  * @method static Builder|UserNoSQL whereDeletedAt($value)
@@ -38,8 +38,8 @@ use YaangVu\LaravelAws\S3Service;
  * @method static Builder|UserNoSQL whereUpdatedAt($value)
  * @method static Builder|UserNoSQL whereUsername($value)
  * @method static Builder|UserNoSQL whereEmail($value)
- * @method static \Illuminate\Database\Query\Builder|UserNoSQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|UserNoSQL withoutTrashed()
+ * @method static Builder|UserNoSQL withTrashed()
+ * @method static Builder|UserNoSQL withoutTrashed()
  * @mixin Eloquent
  */
 class UserNoSQL extends Model implements AuthenticatableContract, AuthorizableContract

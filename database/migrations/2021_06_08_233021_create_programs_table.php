@@ -17,10 +17,13 @@ class CreateProgramsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->unsignedBigInteger('school_id')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('school_id')->references('id')->on('schools');
         });
     }
 

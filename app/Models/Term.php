@@ -14,21 +14,20 @@ use YaangVu\Constant\CodeConstant;
 /**
  * YaangVu\SisModel\App\Models\Term
  *
- * @property int                     $id
- * @property string                  $name
- * @property string|null             $start_date
- * @property string|null             $end_date
- * @property string|null             $status
- * @property int|null                $school_id
- * @property string|null             $external_id
- * @property string|null             $lms_system
- * @property int|null                $created_by
- * @property Carbon|null             $created_at
- * @property Carbon|null             $updated_at
- * @property Carbon|null             $deleted_at
- * @property-read Collection|Clazz[] $classes
- * @property-read int|null           $classes_count
- * @method static \YaangVu\SisModel\Database\Factories\TermFactory factory(...$parameters)
+ * @property int $id
+ * @property string $name
+ * @property string|null $start_date
+ * @property string|null $end_date
+ * @property string|null $status
+ * @property int|null $school_id
+ * @property string|null $external_id
+ * @property string|null $lms_system
+ * @property int|null $created_by
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property-read Collection|\YaangVu\SisModel\App\Models\Clazz[] $classes
+ * @property-read int|null $classes_count
  * @method static \Illuminate\Database\Eloquent\Builder|Term newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Term newQuery()
  * @method static \Illuminate\Database\Query\Builder|Term onlyTrashed()
