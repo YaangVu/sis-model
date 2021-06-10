@@ -17,7 +17,6 @@ class CreateProgramGraduationCategoriesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('program_id')->nullable();
             $table->unsignedBigInteger('graduation_category_id')->nullable();
-            $table->unsignedDouble('credit')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
