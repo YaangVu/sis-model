@@ -41,8 +41,10 @@ class Dossier extends Model
 {
     use HasFactory;
 
+    protected $connection = 'mongodb';
+
     protected $fillable
-        = [
+                          = [
             'file_url',
             'action',
             'status',

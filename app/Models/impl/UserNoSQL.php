@@ -1,11 +1,9 @@
 <?php
 
-namespace YaangVu\SisModel\App\Models;
+namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,6 +13,7 @@ use Jenssegers\Mongodb\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\LaravelAws\S3Service;
+use YaangVu\SisModel\App\Models\User;
 
 
 /**
@@ -42,7 +41,7 @@ use YaangVu\LaravelAws\S3Service;
  * @method static Builder|UserNoSQL withoutTrashed()
  * @mixin Eloquent
  */
-class UserNoSQL extends Model implements AuthenticatableContract, AuthorizableContract
+class UserNoSQL extends Model implements User
 {
     use Authenticatable, Authorizable, HasFactory, SoftDeletes;
 

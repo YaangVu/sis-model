@@ -1,11 +1,9 @@
 <?php
 
-namespace YaangVu\SisModel\App\Models;
+namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,25 +15,26 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 use YaangVu\Constant\CodeConstant;
+use YaangVu\SisModel\App\Models\User;
 
 
 /**
  * YaangVu\SisModel\App\Models\UserSQL
  *
- * @property int $id
- * @property string $username
- * @property string|null $uid
- * @property string|null $external_id
- * @property int|null $grade_id
- * @property int|null $division_id
- * @property int|null $created_by
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property Carbon|null $deleted_at
+ * @property int                          $id
+ * @property string                       $username
+ * @property string|null                  $uid
+ * @property string|null                  $external_id
+ * @property int|null                     $grade_id
+ * @property int|null                     $division_id
+ * @property int|null                     $created_by
+ * @property Carbon|null                  $created_at
+ * @property Carbon|null                  $updated_at
+ * @property Carbon|null                  $deleted_at
  * @property-read Collection|Permission[] $permissions
- * @property-read int|null $permissions_count
- * @property-read Collection|Role[] $roles
- * @property-read int|null $roles_count
+ * @property-read int|null                $permissions_count
+ * @property-read Collection|Role[]       $roles
+ * @property-read int|null                $roles_count
  * @method static Builder|UserSQL newModelQuery()
  * @method static Builder|UserSQL newQuery()
  * @method static Builder|UserSQL onlyTrashed()
@@ -56,7 +55,7 @@ use YaangVu\Constant\CodeConstant;
  * @method static Builder|UserSQL withoutTrashed()
  * @mixin Eloquent
  */
-class UserSQL extends Model implements AuthenticatableContract, AuthorizableContract
+class UserSQL extends Model implements User
 {
     use Authenticatable, Authorizable, HasFactory, HasRoles, SoftDeletes;
 

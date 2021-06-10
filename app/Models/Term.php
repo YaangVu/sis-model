@@ -2,6 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models;
 
+use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -46,7 +47,7 @@ use YaangVu\Constant\CodeConstant;
  * @method static \Illuminate\Database\Eloquent\Builder|Term whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|Term withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Term withoutTrashed()
- * @mixin \Eloquent
+ * @mixin Eloquent
  */
 class Term extends Model
 {
