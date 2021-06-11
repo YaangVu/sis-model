@@ -4,7 +4,9 @@ namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
 /**
@@ -31,5 +33,5 @@ use Illuminate\Support\Carbon;
  */
 class GradeScale extends Model
 {
-    //
+    use SoftDeletes, HasFactory;
 }

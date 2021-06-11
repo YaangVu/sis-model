@@ -4,18 +4,20 @@ namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
 /**
  * YaangVu\SisModel\App\Models\GradeLetter
  *
- * @property int $id
- * @property string $letter
- * @property float|null $score
- * @property float|null $gpa
- * @property int|null $grade_scale_id
- * @property int|null $created_by
+ * @property int         $id
+ * @property string      $letter
+ * @property float|null  $score
+ * @property float|null  $gpa
+ * @property int|null    $grade_scale_id
+ * @property int|null    $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
@@ -35,5 +37,5 @@ use Illuminate\Support\Carbon;
  */
 class GradeLetter extends Model
 {
-    //
+    use SoftDeletes, HasFactory;
 }

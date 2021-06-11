@@ -6,23 +6,24 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
 /**
  * YaangVu\SisModel\App\Models\Clazz
  *
- * @property int $id
- * @property string $name
+ * @property int         $id
+ * @property string      $name
  * @property string|null $start_date
  * @property string|null $end_date
  * @property string|null $status
  * @property string|null $external_id
  * @property string|null $lms_system
- * @property float|null $credit
- * @property int|null $grade_scale_id
- * @property int|null $graduation_category_id
- * @property int|null $term_id
- * @property int|null $created_by
+ * @property float|null  $credit
+ * @property int|null    $grade_scale_id
+ * @property int|null    $graduation_category_id
+ * @property int|null    $term_id
+ * @property int|null    $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
@@ -48,7 +49,7 @@ use Illuminate\Support\Carbon;
  */
 class Clazz extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'classes';
 }
