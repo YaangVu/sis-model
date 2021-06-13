@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
 
         // TODO SCHOOL
-        $this->call([ClassAssignmentSeeder::class, LmsSeeder::class]);
+        $this->call([SchoolSeeder::class, LmsSeeder::class]);
         $this->call([TermSeeder::class]);
         $this->call([DivisionSeeder::class, GradeSeeder::class]);
 
