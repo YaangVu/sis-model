@@ -1,8 +1,10 @@
 <?php
 
-namespace Database\Seeders;
+namespace YaangVu\SisModel\Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use YaangVu\Constant\LmsSystemConstant;
+use YaangVu\SisModel\App\Models\Lms;
 
 class LmsSeeder extends Seeder
 {
@@ -13,6 +15,7 @@ class LmsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Lms::create(['name' => LmsSystemConstant::EDMENTUM,]);
+        Lms::create(['name' => LmsSystemConstant::FLVS,]);
     }
 }

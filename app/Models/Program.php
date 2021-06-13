@@ -12,11 +12,11 @@ use Illuminate\Support\Carbon;
 /**
  * YaangVu\SisModel\App\Models\Program
  *
- * @property int $id
- * @property string $name
+ * @property int         $id
+ * @property string      $name
  * @property string|null $description
- * @property int|null $school_id
- * @property int|null $created_by
+ * @property int|null    $school_id
+ * @property int|null    $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at

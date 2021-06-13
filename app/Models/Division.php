@@ -13,16 +13,16 @@ use YaangVu\Constant\CodeConstant;
 /**
  * YaangVu\SisModel\App\Models\Division
  *
- * @property int $id
- * @property string $name
- * @property int $school_id
- * @property int|null $created_by
+ * @property int         $id
+ * @property string      $name
+ * @property int         $school_id
+ * @property int|null    $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
  * @method static Builder|Division newModelQuery()
  * @method static Builder|Division newQuery()
- * @method static \Illuminate\Database\Query\Builder|Division onlyTrashed()
+ * @method static Builder|Division onlyTrashed()
  * @method static Builder|Division query()
  * @method static Builder|Division whereCreatedAt($value)
  * @method static Builder|Division whereCreatedBy($value)

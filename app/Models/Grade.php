@@ -12,16 +12,16 @@ use Illuminate\Support\Carbon;
 /**
  * YaangVu\SisModel\App\Models\Grade
  *
- * @property int $id
- * @property string $name
- * @property int $school_id
- * @property int|null $created_by
+ * @property int         $id
+ * @property string      $name
+ * @property int         $school_id
+ * @property int|null    $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
  * @method static Builder|Grade newModelQuery()
  * @method static Builder|Grade newQuery()
- * @method static \Illuminate\Database\Query\Builder|Grade onlyTrashed()
+ * @method static Builder|Grade onlyTrashed()
  * @method static Builder|Grade query()
  * @method static Builder|Grade whereCreatedAt($value)
  * @method static Builder|Grade whereCreatedBy($value)

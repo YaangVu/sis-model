@@ -23,7 +23,7 @@ use YaangVu\Constant\CodeConstant;
  * @property integer|null $created_by
  * @property Carbon|null  $updated_at
  * @property Carbon|null  $deleted_at
- * @method static \Illuminate\Database\Query\Builder|Dossier onlyTrashed()
+ * @method static Builder|Dossier onlyTrashed()
  * @method static Builder|Dossier whereCreatedAt($value)
  * @method static Builder|Dossier whereUpdatedAt($value)
  * @method static Builder|Dossier whereDeletedAt($value)
@@ -44,7 +44,7 @@ class Dossier extends Model
     protected $connection = 'mongodb';
 
     protected $fillable
-                          = [
+        = [
             'file_url',
             'action',
             'status',

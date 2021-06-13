@@ -10,13 +10,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
-use YaangVu\SisModel\Database\Factories\SchoolFactory;
 
 /**
  * YaangVu\SisModel\App\Models\School
  *
- * @property int $id
- * @property string $name
+ * @property int         $id
+ * @property string      $name
  * @property string|null $year_founded Năm thành lập
  * @property string|null $sc_id
  * @property string|null $created_by
@@ -25,7 +24,7 @@ use YaangVu\SisModel\Database\Factories\SchoolFactory;
  * @property Carbon|null $deleted_at
  * @method static Builder|School newModelQuery()
  * @method static Builder|School newQuery()
- * @method static \Illuminate\Database\Query\Builder|School onlyTrashed()
+ * @method static Builder|School onlyTrashed()
  * @method static Builder|School query()
  * @method static Builder|School whereCreatedAt($value)
  * @method static Builder|School whereCreatedBy($value)

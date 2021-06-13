@@ -7,8 +7,7 @@ namespace YaangVu\SisModel\Database\Seeders;
 use Illuminate\Database\Seeder;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Spatie\Permission\Models\Permission;
-use YaangVu\Constant\CodeConstant;
-use YaangVu\Constant\RoleConstant;
+use YaangVu\SisModel\App\Models\School;
 
 class PermissionSeeder extends Seeder
 {
@@ -27,18 +26,18 @@ class PermissionSeeder extends Seeder
             // Store data from the activeSheet to the variable in the form of Array
             $sheetToArray = [1, $sheet->toArray(null, true, true, false)];
             $arrRole      = $sheetToArray[1][0];
-
-            foreach ($sheetToArray[1] as $k => $v) {
-                if ($k < 1) continue;
-                $permission
-                       = Permission::create(['name' => $v[0], CodeConstant::SC_ID => RoleConstant::DEFAULT_ROLE, 'guard_name' => 'api']);
-                $ticks = array_keys($v, "1");
-                if ($ticks) {
-                    foreach ($ticks as $tick) {
-                        $permission->assignRole(trim($arrRole[$tick]));
+            $schools      = School::all();
+            foreach ($schools as $school)
+                foreach ($sheetToArray[1] as $k => $v) {
+                    if ($k < 1) continue;
+                    $permission = Permission::create(['name' => $v[0], 'guard_name' => $school->sc_id]);
+                    $ticks      = array_keys($v, "1");
+                    if ($ticks) {
+                        foreach ($ticks as $tick) {
+                            $permission->assignRole(trim($arrRole[$tick]));
+                        }
                     }
                 }
-            }
         }
     }
 }

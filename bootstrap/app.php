@@ -29,9 +29,9 @@ $app = new Laravel\Lumen\Application(
 
 $app->register(\YaangVu\SisModel\App\Providers\PreServiceProvider::class);
 
-// $app->withFacades();
+ $app->withFacades();
 
-// $app->withEloquent();
+ $app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------

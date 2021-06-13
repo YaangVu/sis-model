@@ -13,9 +13,9 @@ use Illuminate\Support\Carbon;
 use Laravel\Lumen\Auth\Authorizable;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Traits\HasRoles;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\SisModel\App\Models\User;
+use YaangVu\SisModel\App\Traits\HasRoles;
 
 
 /**
@@ -58,8 +58,6 @@ use YaangVu\SisModel\App\Models\User;
 class UserSQL extends Model implements User
 {
     use Authenticatable, Authorizable, HasFactory, HasRoles, SoftDeletes;
-
-    public static string $guard_name = 'api';
 
     protected $table = 'users';
 
