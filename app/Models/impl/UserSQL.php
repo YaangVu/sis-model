@@ -13,9 +13,9 @@ use Illuminate\Support\Carbon;
 use Laravel\Lumen\Auth\Authorizable;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\SisModel\App\Models\User;
-use YaangVu\SisModel\App\Traits\HasRoles;
 
 
 /**

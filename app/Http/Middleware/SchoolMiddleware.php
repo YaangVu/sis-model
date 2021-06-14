@@ -5,9 +5,9 @@ namespace YaangVu\SisModel\App\Http\Middleware;
 use Closure;
 use Exception;
 use Illuminate\Http\Request;
+use Spatie\Permission\Traits\HasRoles;
 use YaangVu\Exceptions\BadRequestException;
 use YaangVu\SisModel\App\Models\School;
-use YaangVu\SisModel\App\Traits\HasRoles;
 
 class SchoolMiddleware
 {
@@ -36,7 +36,6 @@ class SchoolMiddleware
                                           new Exception);
 
         self::$currentSchool = $school;
-        $this->setGuardName($scId);
 
         return $next($request);
     }
