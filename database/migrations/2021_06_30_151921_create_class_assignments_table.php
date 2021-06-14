@@ -19,9 +19,10 @@ class CreateClassAssignmentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('class_id');
             $table->enum('assignment', [
+                ClassAssignmentConstant::GUEST,
                 ClassAssignmentConstant::STUDENT,
-                ClassAssignmentConstant::TEACHER,
-                ClassAssignmentConstant::TEACHING_ASSISTANT
+                ClassAssignmentConstant::PRIMARY_TEACHER,
+                ClassAssignmentConstant::SECONDARY_TEACHER,
             ]);
 
             $table->unsignedBigInteger('created_by')->nullable();

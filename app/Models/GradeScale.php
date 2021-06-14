@@ -3,6 +3,7 @@
 namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
+use Database\Factories\GradeScaleFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -30,6 +31,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder|GradeScale whereName($value)
  * @method static Builder|GradeScale whereUpdatedAt($value)
  * @mixin Eloquent
+ * @method static GradeScaleFactory factory(...$parameters)
+ * @method static Builder|GradeScale onlyTrashed()
+ * @method static Builder|GradeScale withTrashed()
+ * @method static Builder|GradeScale withoutTrashed()
  */
 class GradeScale extends Model
 {

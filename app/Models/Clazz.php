@@ -46,6 +46,9 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Clazz whereTermId($value)
  * @method static Builder|Clazz whereUpdatedAt($value)
  * @mixin Eloquent
+ * @method static Builder|Clazz onlyTrashed()
+ * @method static Builder|Clazz withTrashed()
+ * @method static Builder|Clazz withoutTrashed()
  */
 class Clazz extends Model
 {

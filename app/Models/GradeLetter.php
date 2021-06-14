@@ -3,6 +3,7 @@
 namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
+use Database\Factories\GradeLetterFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -34,6 +35,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder|GradeLetter whereScore($value)
  * @method static Builder|GradeLetter whereUpdatedAt($value)
  * @mixin Eloquent
+ * @method static GradeLetterFactory factory(...$parameters)
+ * @method static Builder|GradeLetter onlyTrashed()
+ * @method static Builder|GradeLetter withTrashed()
+ * @method static Builder|GradeLetter withoutTrashed()
  */
 class GradeLetter extends Model
 {

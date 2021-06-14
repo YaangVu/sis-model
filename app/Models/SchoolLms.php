@@ -3,6 +3,7 @@
 namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
+use Database\Factories\SchoolLmsFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -32,6 +33,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder|SchoolLms whereSchoolId($value)
  * @method static Builder|SchoolLms whereUpdatedAt($value)
  * @mixin Eloquent
+ * @method static SchoolLmsFactory factory(...$parameters)
+ * @method static Builder|SchoolLms onlyTrashed()
+ * @method static Builder|SchoolLms withTrashed()
+ * @method static Builder|SchoolLms withoutTrashed()
  */
 class SchoolLms extends Model
 {

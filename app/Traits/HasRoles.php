@@ -13,6 +13,11 @@ trait HasRoles
 
     public static string $guardName;
 
+    /**
+     * @param $role
+     *
+     * @return Role
+     */
     protected function getStoredRole($role): Role
     {
         $roleClass = $this->getRoleClass();
@@ -29,9 +34,17 @@ trait HasRoles
         return $role;
     }
 
-    public static function setGuardName($guardName)
+    /**
+     * Set guard name
+     *
+     * @param $guardName
+     *
+     * @return $this
+     */
+    public function setGuardName($guardName): static
     {
         self::$guardName = $guardName;
-    }
 
+        return $this;
+    }
 }

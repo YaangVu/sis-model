@@ -3,6 +3,7 @@
 namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
+use Database\Factories\GraduationCategoryFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -34,6 +35,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder|GraduationCategory whereStatus($value)
  * @method static Builder|GraduationCategory whereUpdatedAt($value)
  * @mixin Eloquent
+ * @method static GraduationCategoryFactory factory(...$parameters)
+ * @method static Builder|GraduationCategory onlyTrashed()
+ * @method static Builder|GraduationCategory withTrashed()
+ * @method static Builder|GraduationCategory withoutTrashed()
  */
 class GraduationCategory extends Model
 {

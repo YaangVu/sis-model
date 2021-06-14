@@ -3,6 +3,7 @@
 namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
+use Database\Factories\ProgramFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -32,6 +33,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Program whereSchoolId($value)
  * @method static Builder|Program whereUpdatedAt($value)
  * @mixin Eloquent
+ * @method static ProgramFactory factory(...$parameters)
+ * @method static Builder|Program onlyTrashed()
+ * @method static Builder|Program withTrashed()
+ * @method static Builder|Program withoutTrashed()
  */
 class Program extends Model
 {

@@ -7949,16 +7949,16 @@
         },
         {
             "name": "yaangvu/sis-constant",
-            "version": "v1.0.19",
+            "version": "v1.0.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/YaangVu/sis-constant.git",
-                "reference": "7631d6d00aac55f3e376ec2b9362ae2cbac5cc49"
+                "reference": "ab1724dced38947baa0d8560a41079fbca2eda2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YaangVu/sis-constant/zipball/7631d6d00aac55f3e376ec2b9362ae2cbac5cc49",
-                "reference": "7631d6d00aac55f3e376ec2b9362ae2cbac5cc49",
+                "url": "https://api.github.com/repos/YaangVu/sis-constant/zipball/ab1724dced38947baa0d8560a41079fbca2eda2a",
+                "reference": "ab1724dced38947baa0d8560a41079fbca2eda2a",
                 "shasum": ""
             },
             "require": {
@@ -7988,9 +7988,9 @@
             ],
             "support": {
                 "issues": "https://github.com/YaangVu/sis-constant/issues",
-                "source": "https://github.com/YaangVu/sis-constant/tree/v1.0.19"
+                "source": "https://github.com/YaangVu/sis-constant/tree/v1.0.20"
             },
-            "time": "2021-06-13T15:18:06+00:00"
+            "time": "2021-06-14T03:31:16+00:00"
         }
     ],
     "packages-dev": [

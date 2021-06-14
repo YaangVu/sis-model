@@ -3,6 +3,7 @@
 namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
+use Database\Factories\LmsFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -28,6 +29,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Lms whereName($value)
  * @method static Builder|Lms whereUpdatedAt($value)
  * @mixin Eloquent
+ * @method static LmsFactory factory(...$parameters)
+ * @method static Builder|Lms onlyTrashed()
+ * @method static Builder|Lms withTrashed()
+ * @method static Builder|Lms withoutTrashed()
  */
 class Lms extends Model
 {
