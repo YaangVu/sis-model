@@ -61,6 +61,8 @@ class UserSQL extends Model implements User
 
     protected $table = 'users';
 
+    public static string $guard_name = 'api';
+
     public string $code = CodeConstant::UID;
 
 }

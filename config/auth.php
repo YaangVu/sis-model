@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => env('AUTH_GUARD', 'default'),
+        'guard' => env('AUTH_GUARD', 'api'),
     ],
 
     /*
