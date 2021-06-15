@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.184.2",
+            "version": "3.184.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "78fe691ab466fecf195209672f6c00c5d4ed219a"
+                "reference": "2e1e8544258ea1a8f6c6ccaf651c8b5830a03a03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/78fe691ab466fecf195209672f6c00c5d4ed219a",
-                "reference": "78fe691ab466fecf195209672f6c00c5d4ed219a",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2e1e8544258ea1a8f6c6ccaf651c8b5830a03a03",
+                "reference": "2e1e8544258ea1a8f6c6ccaf651c8b5830a03a03",
                 "shasum": ""
             },
             "require": {
@@ -92,9 +92,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.184.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.184.3"
             },
-            "time": "2021-06-11T18:20:15+00:00"
+            "time": "2021-06-14T18:18:58+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1605,16 +1605,16 @@
         },
         {
             "name": "flipbox/lumen-generator",
-            "version": "8.2.0",
+            "version": "8.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flipboxstudio/lumen-generator.git",
-                "reference": "831485667a2abd8bd73eb50e1145fd0d204285ba"
+                "reference": "78edd7588ffb711fe39c34089b532c0d24d737b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flipboxstudio/lumen-generator/zipball/831485667a2abd8bd73eb50e1145fd0d204285ba",
-                "reference": "831485667a2abd8bd73eb50e1145fd0d204285ba",
+                "url": "https://api.github.com/repos/flipboxstudio/lumen-generator/zipball/78edd7588ffb711fe39c34089b532c0d24d737b5",
+                "reference": "78edd7588ffb711fe39c34089b532c0d24d737b5",
                 "shasum": ""
             },
             "require": {
@@ -1647,9 +1647,9 @@
             "description": "A Lumen Generator You Are Missing",
             "support": {
                 "issues": "https://github.com/flipboxstudio/lumen-generator/issues",
-                "source": "https://github.com/flipboxstudio/lumen-generator/tree/8.2.0"
+                "source": "https://github.com/flipboxstudio/lumen-generator/tree/8.2.1"
             },
-            "time": "2020-12-14T16:22:20+00:00"
+            "time": "2021-06-14T19:43:48+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -7949,16 +7949,16 @@
         },
         {
             "name": "yaangvu/sis-constant",
-            "version": "v1.0.20",
+            "version": "v1.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/YaangVu/sis-constant.git",
-                "reference": "ab1724dced38947baa0d8560a41079fbca2eda2a"
+                "reference": "548d13f863412c92eb22d8204058c775ecaa2728"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YaangVu/sis-constant/zipball/ab1724dced38947baa0d8560a41079fbca2eda2a",
-                "reference": "ab1724dced38947baa0d8560a41079fbca2eda2a",
+                "url": "https://api.github.com/repos/YaangVu/sis-constant/zipball/548d13f863412c92eb22d8204058c775ecaa2728",
+                "reference": "548d13f863412c92eb22d8204058c775ecaa2728",
                 "shasum": ""
             },
             "require": {
@@ -7988,9 +7988,9 @@
             ],
             "support": {
                 "issues": "https://github.com/YaangVu/sis-constant/issues",
-                "source": "https://github.com/YaangVu/sis-constant/tree/v1.0.20"
+                "source": "https://github.com/YaangVu/sis-constant/tree/v1.0.21"
             },
-            "time": "2021-06-14T03:31:16+00:00"
+            "time": "2021-06-15T03:41:54+00:00"
         }
     ],
     "packages-dev": [
@@ -9988,5 +9988,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }

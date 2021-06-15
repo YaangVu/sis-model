@@ -62,9 +62,4 @@ class Term extends Model
      * @var string
      */
     public string $code = CodeConstant::SC_ID;
-
-    public function classes(): HasMany
-    {
-        return $this->hasMany(Clazz::class, 'school_id');
-    }
 }
