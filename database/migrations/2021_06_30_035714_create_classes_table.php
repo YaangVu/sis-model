@@ -20,8 +20,11 @@ class CreateClassesTable extends Migration
             $table->string('name');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
-            $table->enum('status', [StatusConstant::PENDING, StatusConstant::ONGOING, StatusConstant::CONCLUDED])
-                  ->nullable();
+            $table->enum('status', [
+                StatusConstant::PENDING,
+                StatusConstant::ON_GOING,
+                StatusConstant::CONCLUDED
+            ])->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->string(CodeConstant::LMS_SYSTEM)->nullable();
             $table->unsignedDouble('credit')->nullable();
