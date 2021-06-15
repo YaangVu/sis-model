@@ -39,4 +39,16 @@ class SchoolMiddleware
 
         return $next($request);
     }
+
+    /**
+     * @param School $school
+     *
+     * @return $this
+     */
+    public function setCurrentSchool(School $school): static
+    {
+        self::$currentSchool = $school;
+
+        return $this;
+    }
 }
