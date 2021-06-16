@@ -6,6 +6,7 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\DbConnectionConstant;
 
 /**
  * YaangVu\SisModel\App\Models\ClassAssignment
@@ -33,5 +34,5 @@ use Illuminate\Support\Carbon;
  */
 class ClassAssignment extends Model
 {
-    //
+    protected $connection = DbConnectionConstant::SQL;
 }

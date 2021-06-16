@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
+use YaangVu\Constant\DbConnectionConstant;
 
 
 /**
@@ -62,4 +63,6 @@ class Term extends Model
      * @var string
      */
     public string $code = CodeConstant::SC_ID;
+
+    protected $connection = DbConnectionConstant::SQL;
 }

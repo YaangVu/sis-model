@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\CodeConstant;
+use YaangVu\Constant\DbConnectionConstant;
 
 /**
  * YaangVu\SisModel\App\Models\Dossier
@@ -41,7 +42,7 @@ class Dossier extends Model
 {
     use HasFactory;
 
-    protected $connection = 'mongodb';
+    protected $connection = DbConnectionConstant::NOSQL;
 
     protected $fillable
         = [

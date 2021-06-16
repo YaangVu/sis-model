@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\DbConnectionConstant;
 
 /**
  * YaangVu\SisModel\App\Models\Grade
@@ -37,4 +38,6 @@ use Illuminate\Support\Carbon;
 class Grade extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $connection = DbConnectionConstant::SQL;
 }

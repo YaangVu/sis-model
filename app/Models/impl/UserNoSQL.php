@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\URL;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 use YaangVu\Constant\CodeConstant;
+use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\LaravelAws\S3Service;
 use YaangVu\SisModel\App\Models\User;
 
@@ -45,7 +46,7 @@ class UserNoSQL extends Model implements User
 {
     use Authenticatable, Authorizable, HasFactory, SoftDeletes;
 
-    protected $connection = 'mongodb';
+    protected $connection = DbConnectionConstant::NOSQL;
 
     public string $code = CodeConstant::UID;
 

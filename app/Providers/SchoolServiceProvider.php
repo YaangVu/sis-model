@@ -1,0 +1,47 @@
+<?php
+
+namespace YaangVu\SisModel\App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use YaangVu\SisModel\App\Models\School;
+
+class SchoolServiceProvider extends ServiceProvider
+{
+    public static ?School $currentSchool = null;
+
+    /**
+     * Bootstrap the application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $scId = request()->header('X-sc-id');
+        if ($scId) {
+            $school = School::whereScId($scId)->first();
+            $this->setCurrentSchool($school);
+        }
+    }
+
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * @param School $school
+     *
+     * @return $this
+     */
+    public function setCurrentSchool(School $school): static
+    {
+        self::$currentSchool = $school;
+
+        return $this;
+    }
+}

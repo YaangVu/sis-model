@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
+use YaangVu\Constant\DbConnectionConstant;
 
 /**
  * YaangVu\SisModel\App\Models\School
@@ -50,4 +51,6 @@ class School extends Model
      * @var array
      */
     public $code = CodeConstant::SC_ID;
+
+    protected $connection = DbConnectionConstant::SQL;
 }

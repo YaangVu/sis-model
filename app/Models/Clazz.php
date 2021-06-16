@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\DbConnectionConstant;
 
 /**
  * YaangVu\SisModel\App\Models\Clazz
@@ -55,4 +56,6 @@ class Clazz extends Model
     use HasFactory, SoftDeletes;
 
     protected $table = 'classes';
+
+    protected $connection = DbConnectionConstant::SQL;
 }

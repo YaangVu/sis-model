@@ -15,6 +15,7 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 use YaangVu\Constant\CodeConstant;
+use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\User;
 
 
@@ -58,6 +59,8 @@ use YaangVu\SisModel\App\Models\User;
 class UserSQL extends Model implements User
 {
     use Authenticatable, Authorizable, HasFactory, HasRoles, SoftDeletes;
+
+    protected $connection = DbConnectionConstant::SQL;
 
     protected $table = 'users';
 
