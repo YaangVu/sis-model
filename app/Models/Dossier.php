@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
-use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 
 /**
@@ -44,14 +43,5 @@ class Dossier extends Model
 
     protected $connection = DbConnectionConstant::NOSQL;
 
-    protected $fillable
-        = [
-            'file_url',
-            'action',
-            'status',
-            'storage_type',
-            'path',
-            CodeConstant::SC_ID,
-            'exchange_name'
-        ];
+    protected $fillable = ['*'];
 }
