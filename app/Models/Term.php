@@ -24,6 +24,7 @@ use YaangVu\Constant\DbConnectionConstant;
  * @property string|null             $status
  * @property int|null                $school_id
  * @property string|null             $external_id
+ * @property string|null             $description
  * @property string|null             $lms_system
  * @property int|null                $created_by
  * @property Carbon|null             $created_at
@@ -40,6 +41,7 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Term whereDeletedAt($value)
  * @method static Builder|Term whereEndDate($value)
  * @method static Builder|Term whereExternalId($value)
+ * @method static Builder|Term whereDescription($value)
  * @method static Builder|Term whereId($value)
  * @method static Builder|Term whereLmsSystem($value)
  * @method static Builder|Term whereName($value)

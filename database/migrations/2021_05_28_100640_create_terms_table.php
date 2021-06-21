@@ -20,6 +20,7 @@ class CreateTermsTable extends Migration
             $table->string('name');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
+            $table->string('description')->nullable();
             $table->enum('status', [
                 StatusConstant::PENDING,
                 StatusConstant::ON_GOING,
