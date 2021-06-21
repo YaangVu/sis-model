@@ -45,5 +45,7 @@ class GraduationCategory extends Model
 {
     use SoftDeletes, HasFactory;
 
+    protected $fillable = ['name', 'description', 'credit', 'status'];
+
     protected $connection = DbConnectionConstant::SQL;
 }

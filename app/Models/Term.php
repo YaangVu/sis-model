@@ -6,7 +6,6 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Carbon;
@@ -25,7 +24,6 @@ use YaangVu\Constant\DbConnectionConstant;
  * @property int|null                $school_id
  * @property string|null             $external_id
  * @property string|null             $description
- * @property string|null             $lms_system
  * @property int|null                $created_by
  * @property Carbon|null             $created_at
  * @property Carbon|null             $updated_at
@@ -43,7 +41,6 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Term whereExternalId($value)
  * @method static Builder|Term whereDescription($value)
  * @method static Builder|Term whereId($value)
- * @method static Builder|Term whereLmsSystem($value)
  * @method static Builder|Term whereName($value)
  * @method static Builder|Term whereSchoolId($value)
  * @method static Builder|Term whereStartDate($value)
@@ -57,7 +54,7 @@ class Term extends Model
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ['name', 'start_date', 'end_date', 'status', 'school_id', CodeConstant::EX_ID, CodeConstant::LMS_SYSTEM, 'created_by'];
+    protected $fillable = ['name', 'start_date', 'end_date', 'status', 'school_id', CodeConstant::EX_ID, 'description'];
 
     /**
      * The attributes excluded from the model's JSON form.

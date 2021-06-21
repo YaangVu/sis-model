@@ -35,4 +35,8 @@ use YaangVu\Constant\DbConnectionConstant;
 class ClassAssignment extends Model
 {
     protected $connection = DbConnectionConstant::SQL;
+
+    protected $fillable = ['user_id', 'assignment', 'class_id'];
+
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 }

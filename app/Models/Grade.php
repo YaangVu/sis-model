@@ -34,10 +34,14 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Grade withTrashed()
  * @method static Builder|Grade withoutTrashed()
  * @mixin Eloquent
+ * @property string|null $description
+ * @method static Builder|Grade whereDescription($value)
  */
 class Grade extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $connection = DbConnectionConstant::SQL;
+
+    protected $fillable = ['id', 'name', 'school_id'];
 }

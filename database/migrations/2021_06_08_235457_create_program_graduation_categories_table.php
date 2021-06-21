@@ -13,10 +13,11 @@ class CreateProgramGraduationCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('program_graduation_categories', function (Blueprint $table) {
+        Schema::create('program_graduation_category', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('program_id')->nullable();
             $table->unsignedBigInteger('graduation_category_id')->nullable();
+            $table->unsignedDouble('credit')->nullable()->default(0);
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
@@ -34,6 +35,6 @@ class CreateProgramGraduationCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('program_graduation_categories');
+        Schema::dropIfExists('program_graduation_category');
     }
 }

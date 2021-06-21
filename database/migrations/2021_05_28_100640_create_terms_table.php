@@ -28,7 +28,6 @@ class CreateTermsTable extends Migration
             ])->nullable();
             $table->unsignedBigInteger('school_id')->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
-            $table->string(CodeConstant::LMS_SYSTEM)->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 
 /**
@@ -44,6 +45,8 @@ class SchoolLms extends Model
     use SoftDeletes, HasFactory;
 
     protected $table = 'school_lms';
+
+    protected $fillable = ['school_id', 'lms_id', CodeConstant::EX_ID];
 
     protected $connection = DbConnectionConstant::SQL;
 }

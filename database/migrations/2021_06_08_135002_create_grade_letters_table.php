@@ -19,6 +19,7 @@ class CreateGradeLettersTable extends Migration
             $table->unsignedDouble('score', 3)->nullable()->default(0);
             $table->unsignedDouble('gpa', 3)->nullable()->default(0);
             $table->unsignedBigInteger('grade_scale_id')->nullable();
+            $table->text('description')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();

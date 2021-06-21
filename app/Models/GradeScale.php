@@ -42,4 +42,6 @@ class GradeScale extends Model
     use SoftDeletes, HasFactory;
 
     protected $connection = DbConnectionConstant::SQL;
+
+    protected $fillable = ['name', 'description'];
 }

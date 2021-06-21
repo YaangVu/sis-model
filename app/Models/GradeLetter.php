@@ -40,10 +40,14 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|GradeLetter onlyTrashed()
  * @method static Builder|GradeLetter withTrashed()
  * @method static Builder|GradeLetter withoutTrashed()
+ * @property string|null $description
+ * @method static Builder|GradeLetter whereDescription($value)
  */
 class GradeLetter extends Model
 {
     use SoftDeletes, HasFactory;
 
     protected $connection = DbConnectionConstant::SQL;
+
+    protected $fillable = ['letter', 'score', 'gpa', 'grade_scale_id'];
 }

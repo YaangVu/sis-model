@@ -38,6 +38,8 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|School withTrashed()
  * @method static Builder|School withoutTrashed()
  * @mixin Eloquent
+ * @property string|null $description
+ * @method static Builder|School whereDescription($value)
  */
 class School extends Model
 {

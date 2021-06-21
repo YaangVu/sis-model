@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 
 /**
@@ -50,12 +51,23 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Clazz onlyTrashed()
  * @method static Builder|Clazz withTrashed()
  * @method static Builder|Clazz withoutTrashed()
+ * @property string|null $description
+ * @property int|null $course_id
+ * @method static Builder|Clazz whereCourseId($value)
+ * @method static Builder|Clazz whereDescription($value)
  */
 class Clazz extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $table = 'classes';
+
+    protected $fillable
+        = ['name', 'start_date', 'end_date', 'status',
+           CodeConstant::EX_ID, CodeConstant::LMS_SYSTEM, 'credit',
+           'grade_cale_id', 'graduation_category_id', 'term_id'];
+
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     protected $connection = DbConnectionConstant::SQL;
 }

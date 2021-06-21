@@ -13,6 +13,7 @@ class CreateUsersNoSqlTable extends Migration
      */
     public function up()
     {
+        Schema::connection('mongodb')->dropIfExists('users');
         Schema::connection('mongodb')->create('users', function (Blueprint $table) {
             $table->id();
 

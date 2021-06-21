@@ -19,6 +19,7 @@ class CreateSchoolsTable extends Migration
             $table->string('name');
             $table->dateTimeTz('year_founded')->nullable()->comment('Năm thành lập');
             $table->string(CodeConstant::SC_ID)->nullable();
+            $table->text('description')->nullable();
 
             $table->string('created_by')->nullable();
             $table->timestamps();

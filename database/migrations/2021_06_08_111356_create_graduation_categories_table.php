@@ -17,7 +17,6 @@ class CreateGraduationCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->unsignedDouble('credit')->nullable()->default(0);
             $table->enum('status', ['Active', 'Inactive'])->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();

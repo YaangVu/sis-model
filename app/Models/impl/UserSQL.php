@@ -66,7 +66,7 @@ class UserSQL extends Model implements User
 
     protected string $guard_name = 'api';
 
-    protected $fillable = ['username', 'uid', 'external_id', 'created_by'];
+    protected $fillable = ['username', CodeConstant::UID, CodeConstant::EX_ID];
 
     public string $code = CodeConstant::UID;
 

@@ -16,6 +16,7 @@ class CreateLmsTable extends Migration
         Schema::create('lms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->text('description')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();

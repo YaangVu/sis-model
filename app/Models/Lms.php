@@ -34,10 +34,14 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Lms onlyTrashed()
  * @method static Builder|Lms withTrashed()
  * @method static Builder|Lms withoutTrashed()
+ * @property string|null $description
+ * @method static Builder|Lms whereDescription($value)
  */
 class Lms extends Model
 {
     use SoftDeletes, HasFactory;
 
     protected $connection = DbConnectionConstant::SQL;
+
+    protected $fillable = ['name'];
 }
