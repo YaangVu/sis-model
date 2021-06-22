@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\URL;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 use YaangVu\Constant\CodeConstant;
@@ -77,7 +76,7 @@ class UserNoSQL extends Model implements User
 
             return $this->S3Service->createPresigned($value);
         } else {
-            return URL::asset('avatar.png');
+            return null;
         }
     }
 }
