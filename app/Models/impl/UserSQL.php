@@ -25,7 +25,6 @@ use YaangVu\SisModel\App\Models\User;
  * @property int                          $id
  * @property string                       $username
  * @property string|null                  $uid
- * @property string|null                  $external_id
  * @property int|null                     $grade_id
  * @property int|null                     $division_id
  * @property int|null                     $created_by
@@ -46,7 +45,6 @@ use YaangVu\SisModel\App\Models\User;
  * @method static Builder|UserSQL whereCreatedBy($value)
  * @method static Builder|UserSQL whereDeletedAt($value)
  * @method static Builder|UserSQL whereDivisionId($value)
- * @method static Builder|UserSQL whereExternalId($value)
  * @method static Builder|UserSQL whereGradeId($value)
  * @method static Builder|UserSQL whereId($value)
  * @method static Builder|UserSQL whereUid($value)
@@ -55,6 +53,8 @@ use YaangVu\SisModel\App\Models\User;
  * @method static Builder|UserSQL withTrashed()
  * @method static Builder|UserSQL withoutTrashed()
  * @mixin Eloquent
+ * @property string|null $external_id
+ * @method static Builder|UserSQL whereExternalId($value)
  */
 class UserSQL extends Model implements User
 {
@@ -66,7 +66,7 @@ class UserSQL extends Model implements User
 
     protected string $guard_name = 'api';
 
-    protected $fillable = ['username', CodeConstant::UID, CodeConstant::EX_ID];
+    protected $fillable = ['username', CodeConstant::UID];
 
     public string $code = CodeConstant::UID;
 

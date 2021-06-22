@@ -36,10 +36,14 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|ProgramGraduationCategory onlyTrashed()
  * @method static Builder|ProgramGraduationCategory withTrashed()
  * @method static Builder|ProgramGraduationCategory withoutTrashed()
+ * @property float|null $credit
+ * @method static Builder|ProgramGraduationCategory whereCredit($value)
  */
 class ProgramGraduationCategory extends Model
 {
     use SoftDeletes, HasFactory;
+
+    protected $table = 'program_graduation_category';
 
     protected $fillable = ['program_id', 'graduation_category_id'];
 

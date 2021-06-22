@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('username')->unique()->nullable(false);
             $table->string('uid')->nullable();
-            $table->string(CodeConstant::EX_ID)->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
