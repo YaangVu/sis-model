@@ -2,7 +2,9 @@
 
 namespace YaangVu\SisModel\App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Barryvdh\LaravelIdeHelper\Eloquent;
+use Jenssegers\Mongodb\Eloquent\Model;
+use YaangVu\Constant\DbConnectionConstant;
 
 /**
  * YaangVu\SisModel\App\Models\MongoModel
@@ -10,9 +12,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|MongoModel newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|MongoModel newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|MongoModel query()
- * @mixin \Eloquent
+ * @mixin Eloquent
  */
 class MongoModel extends Model
 {
-    //
+    protected $connection = DbConnectionConstant::NOSQL;
 }

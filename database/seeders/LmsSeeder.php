@@ -16,6 +16,6 @@ class LmsSeeder extends Seeder
     public function run()
     {
         Lms::create(['name' => LmsSystemConstant::EDMENTUM,]);
-        Lms::create(['name' => LmsSystemConstant::FLVS,]);
+        Lms::create(['name' => LmsSystemConstant::AGILIX,]);
     }
 }

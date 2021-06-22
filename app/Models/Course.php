@@ -6,6 +6,7 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 
 /**
@@ -33,10 +34,12 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Course whereSchoolId($value)
  * @method static Builder|Course whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property string|null $external_id
+ * @method static Builder|Course whereExternalId($value)
  */
 class Course extends Model
 {
-    protected $fillable = ['lms_id', 'school_id', 'description'];
+    protected $fillable = ['lms_id', 'school_id', 'description', 'name', CodeConstant::EX_ID];
 
     protected $connection = DbConnectionConstant::SQL;
 }
