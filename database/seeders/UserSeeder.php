@@ -17,8 +17,7 @@ class UserSeeder extends Seeder
     {
         $user = [
             'username'    => 'yaangvu',
-            'uid'         => 'e63e8f1f-2f8c-4c6b-a5d3-f0b80df50c31',
-            'external_id' => null,
+            'uid'         => 'e63e8f1f-2f8c-4c6b-a5d3-f0b80df50c31'
         ];
         UserSQL::create($user);
 
