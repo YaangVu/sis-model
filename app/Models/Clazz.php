@@ -20,7 +20,7 @@ use YaangVu\Constant\DbConnectionConstant;
  * @property string|null $end_date
  * @property string|null $status
  * @property string|null $external_id
- * @property string|null $lms_system
+ * @property string|null $lms_id
  * @property float|null  $credit
  * @property int|null    $grade_scale_id
  * @property int|null    $graduation_category_id
@@ -38,6 +38,7 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Clazz whereDeletedAt($value)
  * @method static Builder|Clazz whereEndDate($value)
  * @method static Builder|Clazz whereExternalId($value)
+ * @method static Builder|Clazz whereLmsId($value)
  * @method static Builder|Clazz whereGradeScaleId($value)
  * @method static Builder|Clazz whereGraduationCategoryId($value)
  * @method static Builder|Clazz whereId($value)
@@ -52,7 +53,7 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Clazz withTrashed()
  * @method static Builder|Clazz withoutTrashed()
  * @property string|null $description
- * @property int|null $course_id
+ * @property int|null    $course_id
  * @method static Builder|Clazz whereCourseId($value)
  * @method static Builder|Clazz whereDescription($value)
  */
@@ -64,7 +65,7 @@ class Clazz extends Model
 
     protected $fillable
         = ['name', 'start_date', 'end_date', 'status',
-           CodeConstant::EX_ID, CodeConstant::LMS_SYSTEM, 'credit',
+           CodeConstant::EX_ID, 'lms_id', 'credit',
            'grade_cale_id', 'graduation_category_id', 'term_id'];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];

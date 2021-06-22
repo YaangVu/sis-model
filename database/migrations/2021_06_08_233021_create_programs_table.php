@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use YaangVu\Constant\CodeConstant;
 
 class CreateProgramsTable extends Migration
 {
@@ -18,6 +19,7 @@ class CreateProgramsTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->unsignedBigInteger('school_id')->nullable();
+            $table->string(CodeConstant::EX_ID)->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();

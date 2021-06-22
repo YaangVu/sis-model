@@ -45,7 +45,7 @@ class School extends Model
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ['name', 'year_founded', CodeConstant::EX_ID, CodeConstant::LMS_SYSTEM];
+    protected $fillable = ['name', 'year_founded', CodeConstant::EX_ID, 'lms_id'];
 
     /**
      * The attributes excluded from the model's JSON form.

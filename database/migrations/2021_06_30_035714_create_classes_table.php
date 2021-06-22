@@ -26,13 +26,13 @@ class CreateClassesTable extends Migration
                 StatusConstant::CONCLUDED
             ])->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
-            $table->string(CodeConstant::LMS_SYSTEM)->nullable();
             $table->unsignedDouble('credit')->nullable();
             $table->text('description')->nullable();
             $table->unsignedBigInteger('grade_scale_id')->nullable();
             $table->unsignedBigInteger('graduation_category_id')->nullable();
-            $table->unsignedBigInteger('term_id');
+            $table->unsignedBigInteger('term_id')->nullable();
             $table->unsignedBigInteger('course_id')->nullable();
+            $table->unsignedBigInteger('lms_id')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
@@ -42,6 +42,7 @@ class CreateClassesTable extends Migration
             $table->foreign('graduation_category_id')->references('id')->on('graduation_categories');
             $table->foreign('term_id')->references('id')->on('terms');
             $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('lms_id')->references('id')->on('lms');
         });
     }
 

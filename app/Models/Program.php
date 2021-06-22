@@ -38,6 +38,8 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Program onlyTrashed()
  * @method static Builder|Program withTrashed()
  * @method static Builder|Program withoutTrashed()
+ * @property string|null $external_id
+ * @method static Builder|Program whereExternalId($value)
  */
 class Program extends Model
 {
