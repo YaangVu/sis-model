@@ -16,7 +16,8 @@
     "spatie/laravel-permission": "^4.1",
     "yaangvu/laravel-aws": "^1.0",
     "yaangvu/sis-constant": "^1.0",
-    "barryvdh/laravel-ide-helper": "^2.10"
+    "barryvdh/laravel-ide-helper": "^2.10",
+    "yaangvu/laravel-rabbitmq": "^1.0"
   },
   "require-dev": {
     "fakerphp/faker": "^1.9.1",

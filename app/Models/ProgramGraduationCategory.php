@@ -36,7 +36,7 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|ProgramGraduationCategory onlyTrashed()
  * @method static Builder|ProgramGraduationCategory withTrashed()
  * @method static Builder|ProgramGraduationCategory withoutTrashed()
- * @property float|null $credit
+ * @property float|null  $credit
  * @method static Builder|ProgramGraduationCategory whereCredit($value)
  */
 class ProgramGraduationCategory extends Model

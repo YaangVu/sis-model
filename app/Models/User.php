@@ -9,5 +9,5 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
 interface User extends AuthenticatableContract, AuthorizableContract
 {
-
+    public const table = 'users';
 }

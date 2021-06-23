@@ -53,7 +53,7 @@ use YaangVu\SisModel\App\Models\User;
  * @method static Builder|UserSQL withTrashed()
  * @method static Builder|UserSQL withoutTrashed()
  * @mixin Eloquent
- * @property string|null $external_id
+ * @property string|null                  $external_id
  * @method static Builder|UserSQL whereExternalId($value)
  */
 class UserSQL extends Model implements User
@@ -62,7 +62,7 @@ class UserSQL extends Model implements User
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $table = 'users';
+    protected $table = self::table;
 
     protected string $guard_name = 'api';
 
