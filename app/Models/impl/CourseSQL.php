@@ -37,6 +37,8 @@ use YaangVu\SisModel\App\Models\Course;
  * @mixin Eloquent
  * @property string|null $external_id
  * @method static Builder|CourseSQL whereExternalId($value)
+ * @property string|null $co_id course id
+ * @method static Builder|CourseSQL whereCoId($value)
  */
 class CourseSQL extends Model implements Course
 {
@@ -46,5 +48,5 @@ class CourseSQL extends Model implements Course
 
     protected $fillable = ['lms_id', 'school_id', 'description', 'name', CodeConstant::EX_ID];
 
-    public string $code = CodeConstant::COURSE_ID;
+    public string $code = CodeConstant::CO_ID;
 }

@@ -10,7 +10,6 @@ use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Clazz;
-use YaangVu\SisModel\App\Traits\SetFillable;
 
 /**
  * YaangVu\SisModel\App\Models\ClassSQL
@@ -60,11 +59,11 @@ use YaangVu\SisModel\App\Traits\SetFillable;
  */
 class ClassNoSQL extends Model implements Clazz
 {
-    use HasFactory, SoftDeletes, SetFillable;
+    use HasFactory, SoftDeletes;
 
     protected $table = self::table;
 
-    protected $fillable = ['*'];
+    protected $fillable = [];
 
     protected $connection = DbConnectionConstant::NOSQL;
 

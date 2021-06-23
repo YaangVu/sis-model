@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Traits\SetFillable;
+
 
 /**
  * YaangVu\SisModel\App\Models\MongoModel
@@ -19,7 +19,7 @@ use YaangVu\SisModel\App\Traits\SetFillable;
  */
 class MongoModel extends Model
 {
-    use SetFillable, SoftDeletes;
+    use SoftDeletes;
 
     protected $connection = DbConnectionConstant::NOSQL;
 }

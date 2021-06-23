@@ -6,5 +6,5 @@ namespace YaangVu\SisModel\App\Models;
 
 interface Course
 {
-    public const table = "course";
+    public const table = "courses";
 }

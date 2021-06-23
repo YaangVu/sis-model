@@ -14,7 +14,6 @@ use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\LaravelAws\S3Service;
 use YaangVu\SisModel\App\Models\User;
-use YaangVu\SisModel\App\Traits\SetFillable;
 
 
 /**
@@ -44,7 +43,7 @@ use YaangVu\SisModel\App\Traits\SetFillable;
  */
 class UserNoSQL extends Model implements User
 {
-    use Authenticatable, Authorizable, HasFactory, SoftDeletes, SetFillable;
+    use Authenticatable, Authorizable, HasFactory, SoftDeletes;
 
     protected $connection = DbConnectionConstant::NOSQL;
 

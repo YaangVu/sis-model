@@ -27,6 +27,7 @@ class CreateTermsTable extends Migration
                 StatusConstant::CONCLUDED
             ])->nullable();
             $table->unsignedBigInteger('school_id')->nullable();
+            $table->string(CodeConstant::TID)->nullable()->comment('term id');
             $table->string(CodeConstant::EX_ID)->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();

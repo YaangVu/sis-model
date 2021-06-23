@@ -13,7 +13,6 @@ use Laravel\Lumen\Auth\Authorizable;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Course;
-use YaangVu\SisModel\App\Traits\SetFillable;
 
 /**
  * YaangVu\SisModel\App\Models\CourseNoSQL
@@ -45,13 +44,13 @@ use YaangVu\SisModel\App\Traits\SetFillable;
  */
 class CourseNoSQL extends Model implements Course
 {
-    use Authenticatable, Authorizable, HasFactory, SoftDeletes, SetFillable;
+    use Authenticatable, Authorizable, HasFactory, SoftDeletes;
 
     protected $connection = DbConnectionConstant::NOSQL;
 
     protected $table = self::table;
 
-    public string $code = CodeConstant::COURSE_ID;
+    public string $code = CodeConstant::CO_ID;
 
-    protected $fillable = ['*'];
+    protected $fillable = [];
 }
