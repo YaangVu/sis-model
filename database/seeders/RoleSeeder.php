@@ -7,7 +7,7 @@ namespace YaangVu\SisModel\Database\Seeders;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use YaangVu\Constant\RoleConstant;
-use YaangVu\SisModel\App\Models\School;
+use YaangVu\SisModel\App\Models\impl\SchoolSQL;
 
 class RoleSeeder extends Seeder
 {
@@ -19,7 +19,7 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $data    = [];
-        $schools = School::all();
+        $schools = SchoolSQL::all();
         $roles   = [
             ['name' => RoleConstant::ADMIN, 'group' => RoleConstant::STAFF],
             ['name' => RoleConstant::TEACHING_ASSISTANT, 'group' => RoleConstant::STAFF],

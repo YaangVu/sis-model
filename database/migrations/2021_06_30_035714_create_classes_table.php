@@ -24,7 +24,7 @@ class CreateClassesTable extends Migration
                 StatusConstant::PENDING,
                 StatusConstant::ON_GOING,
                 StatusConstant::CONCLUDED
-            ])->nullable();
+            ])->default(StatusConstant::ON_GOING)->nullable();
             $table->string(CodeConstant::CID)->nullable()->comment('class id');
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->unsignedDouble('credit')->nullable();

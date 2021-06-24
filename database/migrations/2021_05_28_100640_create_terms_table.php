@@ -25,7 +25,7 @@ class CreateTermsTable extends Migration
                 StatusConstant::PENDING,
                 StatusConstant::ON_GOING,
                 StatusConstant::CONCLUDED
-            ])->nullable();
+            ])->default(StatusConstant::ON_GOING)->nullable();
             $table->unsignedBigInteger('school_id')->nullable();
             $table->string(CodeConstant::TID)->nullable()->comment('term id');
             $table->string(CodeConstant::EX_ID)->nullable();

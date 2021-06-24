@@ -14,6 +14,7 @@ class CreateSchoolsTable extends Migration
      */
     public function up()
     {
+        Schema::connection('mongodb')->dropIfExists('schools');
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -34,6 +35,7 @@ class CreateSchoolsTable extends Migration
      */
     public function down()
     {
+        Schema::connection('mongodb')->dropIfExists('schools');
         Schema::dropIfExists('schools');
     }
 }

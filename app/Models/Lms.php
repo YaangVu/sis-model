@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 
 /**
@@ -36,6 +37,8 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Lms withoutTrashed()
  * @property string|null $description
  * @method static Builder|Lms whereDescription($value)
+ * @property string|null $lid
+ * @method static Builder|Lms whereLid($value)
  */
 class Lms extends Model
 {
@@ -43,5 +46,5 @@ class Lms extends Model
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', CodeConstant::LID];
 }

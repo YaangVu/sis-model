@@ -23,7 +23,7 @@ class TermFactory extends Factory
             'start_date' => $start_date,
             'end_date'   => $end_date,
             'status'     => StatusConstant::ON_GOING,
-            'school_id'  => $this->faker->numberBetween(1, 50),
+            'school_id'  => $this->faker->numberBetween(1, 2),
         ];
     }
 }

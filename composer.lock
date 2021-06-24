@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.184.7",
+            "version": "3.185.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "d5d5fe5fdfca6c7a56f2f8364d09c3100d5c2149"
+                "reference": "6c919bc226f7ff3fbcbce948f31e618066d02ad0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d5d5fe5fdfca6c7a56f2f8364d09c3100d5c2149",
-                "reference": "d5d5fe5fdfca6c7a56f2f8364d09c3100d5c2149",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6c919bc226f7ff3fbcbce948f31e618066d02ad0",
+                "reference": "6c919bc226f7ff3fbcbce948f31e618066d02ad0",
                 "shasum": ""
             },
             "require": {
@@ -92,9 +92,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.184.7"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.185.0"
             },
-            "time": "2021-06-21T18:37:16+00:00"
+            "time": "2021-06-23T18:21:07+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1953,7 +1953,7 @@
         },
         {
             "name": "illuminate/auth",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/auth.git",
@@ -2010,7 +2010,7 @@
         },
         {
             "name": "illuminate/broadcasting",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/broadcasting.git",
@@ -2066,7 +2066,7 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -2119,7 +2119,7 @@
         },
         {
             "name": "illuminate/cache",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/cache.git",
@@ -2176,7 +2176,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -2230,7 +2230,7 @@
         },
         {
             "name": "illuminate/config",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/config.git",
@@ -2278,7 +2278,7 @@
         },
         {
             "name": "illuminate/console",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/console.git",
@@ -2338,7 +2338,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -2389,7 +2389,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -2437,16 +2437,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "3a462117f0945d2b8e411e67ebf1fbff13520a39"
+                "reference": "0b03c43e314fe7323ee34f8bd05d83e7284e55f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/3a462117f0945d2b8e411e67ebf1fbff13520a39",
-                "reference": "3a462117f0945d2b8e411e67ebf1fbff13520a39",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/0b03c43e314fe7323ee34f8bd05d83e7284e55f7",
+                "reference": "0b03c43e314fe7323ee34f8bd05d83e7284e55f7",
                 "shasum": ""
             },
             "require": {
@@ -2501,11 +2501,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-06-21T14:30:10+00:00"
+            "time": "2021-06-23T13:40:33+00:00"
         },
         {
             "name": "illuminate/encryption",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/encryption.git",
@@ -2556,7 +2556,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -2611,7 +2611,7 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
@@ -2673,7 +2673,7 @@
         },
         {
             "name": "illuminate/hashing",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/hashing.git",
@@ -2721,7 +2721,7 @@
         },
         {
             "name": "illuminate/http",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/http.git",
@@ -2779,7 +2779,7 @@
         },
         {
             "name": "illuminate/log",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/log.git",
@@ -2828,7 +2828,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -2874,7 +2874,7 @@
         },
         {
             "name": "illuminate/pagination",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pagination.git",
@@ -2924,7 +2924,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -2972,7 +2972,7 @@
         },
         {
             "name": "illuminate/queue",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/queue.git",
@@ -3037,7 +3037,7 @@
         },
         {
             "name": "illuminate/session",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/session.git",
@@ -3093,7 +3093,7 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
@@ -3161,7 +3161,7 @@
         },
         {
             "name": "illuminate/testing",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/testing.git",
@@ -3219,7 +3219,7 @@
         },
         {
             "name": "illuminate/translation",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/translation.git",
@@ -3271,7 +3271,7 @@
         },
         {
             "name": "illuminate/validation",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/validation.git",
@@ -3330,7 +3330,7 @@
         },
         {
             "name": "illuminate/view",
-            "version": "v8.48.0",
+            "version": "v8.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
@@ -8301,16 +8301,16 @@
         },
         {
             "name": "yaangvu/sis-constant",
-            "version": "v1.0.28",
+            "version": "v1.0.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/YaangVu/sis-constant.git",
-                "reference": "0da4d3726b61a29b2aeb53dddbd711ab1230f3d9"
+                "reference": "4caf7362f96978d98e4dac2f492e9fdbfc862d24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YaangVu/sis-constant/zipball/0da4d3726b61a29b2aeb53dddbd711ab1230f3d9",
-                "reference": "0da4d3726b61a29b2aeb53dddbd711ab1230f3d9",
+                "url": "https://api.github.com/repos/YaangVu/sis-constant/zipball/4caf7362f96978d98e4dac2f492e9fdbfc862d24",
+                "reference": "4caf7362f96978d98e4dac2f492e9fdbfc862d24",
                 "shasum": ""
             },
             "require": {
@@ -8340,9 +8340,9 @@
             ],
             "support": {
                 "issues": "https://github.com/YaangVu/sis-constant/issues",
-                "source": "https://github.com/YaangVu/sis-constant/tree/v1.0.28"
+                "source": "https://github.com/YaangVu/sis-constant/tree/v1.0.29"
             },
-            "time": "2021-06-23T09:33:31+00:00"
+            "time": "2021-06-24T08:55:13+00:00"
         }
     ],
     "packages-dev": [

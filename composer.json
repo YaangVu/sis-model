@@ -17,7 +17,8 @@
     "yaangvu/laravel-aws": "^1.0",
     "yaangvu/sis-constant": "^1.0",
     "barryvdh/laravel-ide-helper": "^2.10",
-    "yaangvu/laravel-rabbitmq": "^1.0"
+    "yaangvu/laravel-rabbitmq": "^1.0",
+    "ext-mongodb": "*"
   },
   "require-dev": {
     "fakerphp/faker": "^1.9.1",

@@ -7,7 +7,7 @@ namespace YaangVu\SisModel\Database\Seeders;
 use Illuminate\Database\Seeder;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Spatie\Permission\Models\Permission;
-use YaangVu\SisModel\App\Models\School;
+use YaangVu\SisModel\App\Models\impl\SchoolSQL;
 
 class PermissionSeeder extends Seeder
 {
@@ -26,7 +26,7 @@ class PermissionSeeder extends Seeder
             // Store data from the activeSheet to the variable in the form of Array
             $sheetToArray = [1, $sheet->toArray(null, true, true, false)];
             $arrRole      = $sheetToArray[1][0];
-            $schools      = School::all();
+            $schools      = SchoolSQL::all();
 
             foreach ($sheetToArray[1] as $k => $v) {
                 if ($k < 1) continue;

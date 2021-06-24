@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use YaangVu\Constant\CodeConstant;
 
 class CreateLmsTable extends Migration
 {
@@ -16,6 +17,7 @@ class CreateLmsTable extends Migration
         Schema::create('lms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string(CodeConstant::LID)->nullable();
             $table->text('description')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();

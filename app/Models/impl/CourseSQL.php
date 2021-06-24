@@ -46,7 +46,7 @@ class CourseSQL extends Model implements Course
 
     protected $table = self::table;
 
-    protected $fillable = ['lms_id', 'school_id', 'description', 'name', CodeConstant::EX_ID];
+    protected $fillable = ['lms_id', 'school_id', 'description', 'name', CodeConstant::EX_ID, CodeConstant::CO_ID];
 
     public string $code = CodeConstant::CO_ID;
 }

@@ -4,9 +4,10 @@ namespace YaangVu\SisModel\Database\Seeders;
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use MongoDB\BSON\UTCDateTime;
 use YaangVu\Constant\SchoolConstant;
-use YaangVu\SisModel\App\Models\School;
-use YaangVu\SisModel\Database\Factories\SchoolFactory;
+use YaangVu\SisModel\App\Models\impl\SchoolNoSQL;
+use YaangVu\SisModel\App\Models\impl\SchoolSQL;
 
 class SchoolSeeder extends Seeder
 {
@@ -17,18 +18,30 @@ class SchoolSeeder extends Seeder
      */
     public function run()
     {
-        $school               = new School();
+        $school               = new SchoolSQL();
         $school->name         = SchoolConstant::DEFAULT_SCHOOL;
-        $school->year_founded = Carbon::now();
         $school->sc_id        = SchoolConstant::DEFAULT_SCHOOL;
-        $school->save();
-
-        $school               = new School();
-        $school->name         = SchoolConstant::IVG;
         $school->year_founded = Carbon::now();
-        $school->sc_id        = SchoolConstant::IVG;
         $school->save();
 
-        SchoolFactory::times(50)->create();
+        $school               = new SchoolSQL();
+        $school->name         = SchoolConstant::IGS;
+        $school->sc_id        = SchoolConstant::IGS;
+        $school->year_founded = Carbon::now();
+        $school->save();
+
+        $school               = new SchoolNoSQL();
+        $school->name         = SchoolConstant::DEFAULT_SCHOOL;
+        $school->sc_id        = SchoolConstant::DEFAULT_SCHOOL;
+        $school->year_founded = new UTCDateTime(Carbon::now()->toDateTime());
+        $school->save();
+
+        $school               = new SchoolNoSQL();
+        $school->name         = SchoolConstant::IGS;
+        $school->sc_id        = SchoolConstant::IGS;
+        $school->year_founded = new UTCDateTime(Carbon::now()->toDateTime());
+        $school->save();
+
+        //SchoolFactory::times(50)->create();
     }
 }
