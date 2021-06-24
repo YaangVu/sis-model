@@ -6,7 +6,7 @@ use Closure;
 use Exception;
 use Illuminate\Http\Request;
 use YaangVu\Exceptions\BadRequestException;
-use YaangVu\SisModel\App\Models\School;
+use YaangVu\SisModel\App\Models\impl\SchoolSQL;
 
 class SchoolMiddleware
 {
@@ -25,7 +25,7 @@ class SchoolMiddleware
             throw new BadRequestException(['message' => __("validation.required", ['attribute' => "X-sc-id"])],
                                           new Exception);
 
-        $school = School::whereScId($scId)->first();
+        $school = SchoolSQL::whereScId($scId)->first();
         if (!$school)
             throw new BadRequestException(['message' => __("validation.exists", ['attribute' => "X-sc-id"])],
                                           new Exception);
