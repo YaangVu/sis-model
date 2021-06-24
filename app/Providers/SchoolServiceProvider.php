@@ -8,7 +8,7 @@ use YaangVu\SisModel\App\Models\School;
 
 class SchoolServiceProvider extends ServiceProvider
 {
-    public static ?School $currentSchool = null;
+    public static ?SchoolSQL $currentSchool = null;
 
     /**
      * Bootstrap the application services.
@@ -39,7 +39,7 @@ class SchoolServiceProvider extends ServiceProvider
      *
      * @return $this
      */
-    public function setCurrentSchool(School $school): static
+    public function setCurrentSchool(SchoolSQL $school): static
     {
         self::$currentSchool = $school;
 
