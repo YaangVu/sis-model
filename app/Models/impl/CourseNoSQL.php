@@ -52,5 +52,7 @@ class CourseNoSQL extends Model implements Course
 
     public string $code = CodeConstant::CO_ID;
 
-    protected $fillable = [];
+    protected $fillable = ['*'];
+
+    protected $guarded = [];
 }

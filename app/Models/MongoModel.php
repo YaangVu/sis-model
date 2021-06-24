@@ -22,4 +22,8 @@ class MongoModel extends Model
     use SoftDeletes;
 
     protected $connection = DbConnectionConstant::NOSQL;
+
+    protected $fillable = [];
+
+    protected $guarded = [];
 }

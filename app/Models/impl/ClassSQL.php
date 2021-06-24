@@ -74,4 +74,6 @@ class ClassSQL extends Model implements Clazz
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     protected $connection = DbConnectionConstant::SQL;
+
+    protected string $code = CodeConstant::CID;
 }

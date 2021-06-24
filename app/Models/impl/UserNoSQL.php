@@ -60,6 +60,8 @@ class UserNoSQL extends Model implements User
      */
     protected $hidden = ['password', 'uid'];
 
+    protected $guarded = [];
+
     protected S3Service $S3Service;
 
     /**

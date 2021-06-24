@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
+use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Clazz;
 
@@ -63,8 +64,11 @@ class ClassNoSQL extends Model implements Clazz
 
     protected $table = self::table;
 
-    protected $fillable = [];
-
     protected $connection = DbConnectionConstant::NOSQL;
 
+    protected $fillable = ['*'];
+
+    protected $guarded = [];
+
+    protected string $code = CodeConstant::CID;
 }
