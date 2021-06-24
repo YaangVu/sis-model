@@ -3,6 +3,7 @@
 namespace YaangVu\SisModel\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use YaangVu\SisModel\App\Models\impl\SchoolSQL;
 use YaangVu\SisModel\App\Models\School;
 
 class SchoolServiceProvider extends ServiceProvider
@@ -18,7 +19,7 @@ class SchoolServiceProvider extends ServiceProvider
     {
         $scId = request()->header('X-sc-id');
         if ($scId) {
-            $school = School::whereScId($scId)->first();
+            $school = SchoolSQL::whereScId($scId)->first();
             $this->setCurrentSchool($school);
         }
     }
