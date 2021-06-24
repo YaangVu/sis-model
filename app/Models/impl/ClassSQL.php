@@ -69,7 +69,8 @@ class ClassSQL extends Model implements Clazz
     protected $fillable
         = ['name', 'start_date', 'end_date', 'status',
            CodeConstant::EX_ID, 'lms_id', 'credit',
-           'grade_cale_id', 'graduation_category_id', 'term_id'];
+           'grade_cale_id', 'graduation_category_id', 'term_id',
+           'course_id', 'description', CodeConstant::CID];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 

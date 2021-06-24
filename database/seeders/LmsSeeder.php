@@ -17,7 +17,7 @@ class LmsSeeder extends Seeder
      */
     public function run()
     {
-        Lms::create(['name' => LmsSystemConstant::EDMENTUM, CodeConstant::LID => Uuid::uuid()]);
-        Lms::create(['name' => LmsSystemConstant::AGILIX, CodeConstant::LID => Uuid::uuid()]);
+        Lms::create(['name' => LmsSystemConstant::EDMENTUM, CodeConstant::LID => LmsSystemConstant::EDMENTUM . ' -' . Uuid::uuid()]);
+        Lms::create(['name' => LmsSystemConstant::AGILIX, CodeConstant::LID => LmsSystemConstant::AGILIX . '-' . Uuid::uuid()]);
     }
 }
