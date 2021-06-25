@@ -59,6 +59,8 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @mixin Eloquent
  * @property string|null $cid class id
  * @method static Builder|ClassSQL whereCid($value)
+ * @property string|null $zone
+ * @method static Builder|ClassSQL whereZone($value)
  */
 class ClassSQL extends Model implements Clazz
 {
@@ -70,7 +72,7 @@ class ClassSQL extends Model implements Clazz
         = ['name', 'start_date', 'end_date', 'status',
            CodeConstant::EX_ID, 'lms_id', 'credit',
            'grade_cale_id', 'graduation_category_id', 'term_id',
-           'course_id', 'description', CodeConstant::CID];
+           'course_id', 'description', CodeConstant::CID, 'zone'];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 

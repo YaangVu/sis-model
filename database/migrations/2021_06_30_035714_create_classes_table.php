@@ -29,6 +29,7 @@ class CreateClassesTable extends Migration
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->unsignedDouble('credit')->nullable();
             $table->text('description')->nullable();
+            $table->string('zone')->nullable();
             $table->unsignedBigInteger('grade_scale_id')->nullable();
             $table->unsignedBigInteger('graduation_category_id')->nullable();
             $table->unsignedBigInteger('term_id')->nullable();
