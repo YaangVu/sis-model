@@ -3,13 +3,11 @@
 namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
-use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
-use Laravel\Lumen\Auth\Authorizable;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Course;
@@ -44,7 +42,7 @@ use YaangVu\SisModel\App\Models\Course;
  */
 class CourseNoSQL extends Model implements Course
 {
-    use Authenticatable, Authorizable, HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $connection = DbConnectionConstant::NOSQL;
 

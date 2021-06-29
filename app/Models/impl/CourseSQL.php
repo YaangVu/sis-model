@@ -4,7 +4,9 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
@@ -39,9 +41,14 @@ use YaangVu\SisModel\App\Models\Course;
  * @method static Builder|CourseSQL whereExternalId($value)
  * @property string|null $co_id course id
  * @method static Builder|CourseSQL whereCoId($value)
+ * @method static \Illuminate\Database\Query\Builder|CourseSQL onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|CourseSQL withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|CourseSQL withoutTrashed()
  */
 class CourseSQL extends Model implements Course
 {
+    use HasFactory, SoftDeletes;
+
     protected $connection = DbConnectionConstant::SQL;
 
     protected $table = self::table;

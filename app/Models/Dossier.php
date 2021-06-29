@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 use YaangVu\Constant\DbConnectionConstant;
 
 /**
@@ -39,7 +40,7 @@ use YaangVu\Constant\DbConnectionConstant;
  */
 class Dossier extends Model
 {
-    use HasFactory;
+    use SoftDeletes, HasFactory;
 
     protected $connection = DbConnectionConstant::NOSQL;
 

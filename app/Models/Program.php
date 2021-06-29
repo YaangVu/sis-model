@@ -47,7 +47,7 @@ class Program extends Model
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ['name', 'description', 'school_id','status'];
+    protected $fillable = ['name', 'description', 'school_id', 'status'];
 
     protected $connection = DbConnectionConstant::SQL;
 }
