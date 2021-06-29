@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use YaangVu\Constant\CodeConstant;
+use YaangVu\Constant\StatusConstant;
 
 class CreateProgramsTable extends Migration
 {
@@ -18,6 +19,7 @@ class CreateProgramsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->enum('status', [StatusConstant::ACTIVE, StatusConstant::INACTIVE])->default(StatusConstant::ACTIVE);
             $table->unsignedBigInteger('school_id')->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
 

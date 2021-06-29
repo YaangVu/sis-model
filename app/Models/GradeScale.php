@@ -36,6 +36,8 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|GradeScale onlyTrashed()
  * @method static Builder|GradeScale withTrashed()
  * @method static Builder|GradeScale withoutTrashed()
+ * @property boolean     $is_calculate_gpa
+ * @method static Builder|Program whereIsCalculateGpa($value)
  */
 class GradeScale extends Model
 {
@@ -43,5 +45,5 @@ class GradeScale extends Model
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description', 'is_calculate_gpa'];
 }

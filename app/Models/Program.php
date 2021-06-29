@@ -40,12 +40,14 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Program withoutTrashed()
  * @property string|null $external_id
  * @method static Builder|Program whereExternalId($value)
+ * @property string|null $status
+ * @method static Builder|Program whereStatus($value)
  */
 class Program extends Model
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ['name', 'description', 'school_id'];
+    protected $fillable = ['name', 'description', 'school_id','status'];
 
     protected $connection = DbConnectionConstant::SQL;
 }
