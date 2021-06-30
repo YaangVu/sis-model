@@ -54,12 +54,7 @@ class CalendarNoSQL extends Model implements Calendar
 {
     use HasFactory;
 
-    protected $fillable
-        = [
-            'type', 'name', 'description', 'school_id',
-            'class_id', 'group', 'start', 'end',
-            'is_all_day', 'repeat', 'timezone'
-        ];
+    protected $fillable = ['*'];
 
     protected $table = self::table;
 

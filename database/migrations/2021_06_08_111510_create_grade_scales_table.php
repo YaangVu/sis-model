@@ -17,6 +17,7 @@ class CreateGradeScalesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->unsignedDouble('score_to_pass', 3)->nullable()->default(0);
             $table->boolean('is_calculate_gpa')->default(false);
 
             $table->unsignedBigInteger('created_by')->nullable();
