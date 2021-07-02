@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use YaangVu\Constant\ClassAssignmentConstant;
+use YaangVu\Constant\CodeConstant;
 
 class CreateClassAssignmentsTable extends Migration
 {
@@ -24,7 +25,7 @@ class CreateClassAssignmentsTable extends Migration
                 ClassAssignmentConstant::PRIMARY_TEACHER,
                 ClassAssignmentConstant::SECONDARY_TEACHER,
             ]);
-
+            $table->string(CodeConstant::EX_ID)->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();

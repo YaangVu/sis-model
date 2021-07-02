@@ -6,7 +6,9 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\SisModel\App\Models\impl\ClassSQL;
 
 /**
  * YaangVu\SisModel\App\Models\ClassAssignment
@@ -31,12 +33,14 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|ClassAssignment whereUpdatedAt($value)
  * @method static Builder|ClassAssignment whereUserId($value)
  * @mixin Eloquent
+ * @property string|null $external_id
+ * @method static Builder|ClassSQL whereExternalId($value)
  */
 class ClassAssignment extends Model
 {
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['user_id', 'assignment', 'class_id'];
+    protected $fillable = ['user_id', 'assignment', 'class_id', CodeConstant::EX_ID];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 }
