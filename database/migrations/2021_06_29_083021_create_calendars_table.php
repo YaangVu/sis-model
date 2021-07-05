@@ -37,6 +37,7 @@ class CreateCalendarsTable extends Migration
                 CalendarRepeatTypeConstant::WEEKLY,
                 CalendarRepeatTypeConstant::MONTHLY,
                 CalendarRepeatTypeConstant::ANNUAL,
+                CalendarRepeatTypeConstant::IRREGULARLY,
             ])->nullable();
             $table->string('timezone')->nullable()->default('UTC');
 

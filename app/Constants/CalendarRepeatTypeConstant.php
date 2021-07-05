@@ -11,4 +11,5 @@ class CalendarRepeatTypeConstant
     const WEEKLY  = 'weekly';
     const MONTHLY = 'monthly';
     const ANNUAL  = 'annual';
+    const IRREGULARLY = 'irregularly';
 }
