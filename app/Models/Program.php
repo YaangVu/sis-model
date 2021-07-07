@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 
 /**
@@ -42,12 +43,16 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Program whereExternalId($value)
  * @property string|null $status
  * @method static Builder|Program whereStatus($value)
+ * @property int|null    $lms_id
+ * @method static Builder|Program whereLmsId($value)
+ * @property string|null $sc_id
+ * @method static Builder|Program whereScId($value)
  */
 class Program extends Model
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ['name', 'description', 'school_id', 'status'];
+    protected $fillable = ['name', 'description', 'school_id', 'status', 'lms_id', CodeConstant::SC_ID];
 
     protected $connection = DbConnectionConstant::SQL;
 }

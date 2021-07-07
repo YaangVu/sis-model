@@ -11,6 +11,7 @@ use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Course;
+use YaangVu\SisModel\App\Models\Program;
 
 /**
  * YaangVu\SisModel\App\Models\CourseNoSQL
@@ -39,6 +40,8 @@ use YaangVu\SisModel\App\Models\Course;
  * @mixin Eloquent
  * @property string|null $external_id
  * @method static Builder|CourseNoSQL whereExternalId($value)
+ * @property string|null $sc_id
+ * @method static Builder|Program whereScId($value)
  */
 class CourseNoSQL extends Model implements Course
 {

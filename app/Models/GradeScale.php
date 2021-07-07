@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 
 /**
@@ -40,6 +41,10 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Program whereIsCalculateGpa($value)
  * @property boolean     $score_to_pass
  * @method static Builder|Program whereScoreToPass($value)
+ * @property int|null    $lms_id
+ * @method static Builder|Program whereLmsId($value)
+ * @property string|null $sc_id
+ * @method static Builder|Program whereScId($value)
  */
 class GradeScale extends Model
 {
@@ -47,5 +52,5 @@ class GradeScale extends Model
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['name', 'description', 'is_calculate_gpa', 'score_to_pass'];
+    protected $fillable = ['name', 'description', 'is_calculate_gpa', 'score_to_pass', 'lms_id', CodeConstant::SC_ID];
 }

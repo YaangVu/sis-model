@@ -11,6 +11,7 @@ use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Course;
+use YaangVu\SisModel\App\Models\Program;
 
 /**
  * YaangVu\SisModel\App\Models\CourseSQL
@@ -41,6 +42,8 @@ use YaangVu\SisModel\App\Models\Course;
  * @method static Builder|CourseSQL whereExternalId($value)
  * @property string|null $co_id course id
  * @method static Builder|CourseSQL whereCoId($value)
+ * @property string|null $sc_id
+ * @method static Builder|Program whereScId($value)
  * @method static \Illuminate\Database\Query\Builder|CourseSQL onlyTrashed()
  * @method static \Illuminate\Database\Query\Builder|CourseSQL withTrashed()
  * @method static \Illuminate\Database\Query\Builder|CourseSQL withoutTrashed()
@@ -53,7 +56,7 @@ class CourseSQL extends Model implements Course
 
     protected $table = self::table;
 
-    protected $fillable = ['lms_id', 'school_id', 'description', 'name', CodeConstant::EX_ID, CodeConstant::CO_ID];
+    protected $fillable = ['lms_id', 'school_id', 'description', 'name', CodeConstant::EX_ID, CodeConstant::CO_ID, CodeConstant::SC_ID];
 
     public string $code = CodeConstant::CO_ID;
 }
