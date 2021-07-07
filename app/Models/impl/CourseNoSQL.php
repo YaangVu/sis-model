@@ -42,6 +42,8 @@ use YaangVu\SisModel\App\Models\Program;
  * @method static Builder|CourseNoSQL whereExternalId($value)
  * @property string|null $sc_id
  * @method static Builder|Program whereScId($value)
+ * @property string|null $weight
+ * @method static Builder|Program whereWeight($value)
  */
 class CourseNoSQL extends Model implements Course
 {

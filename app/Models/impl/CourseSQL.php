@@ -44,6 +44,8 @@ use YaangVu\SisModel\App\Models\Program;
  * @method static Builder|CourseSQL whereCoId($value)
  * @property string|null $sc_id
  * @method static Builder|Program whereScId($value)
+ * @property string|null $weight
+ * @method static Builder|Program whereWeight($value)
  * @method static \Illuminate\Database\Query\Builder|CourseSQL onlyTrashed()
  * @method static \Illuminate\Database\Query\Builder|CourseSQL withTrashed()
  * @method static \Illuminate\Database\Query\Builder|CourseSQL withoutTrashed()
@@ -56,7 +58,7 @@ class CourseSQL extends Model implements Course
 
     protected $table = self::table;
 
-    protected $fillable = ['lms_id', 'school_id', 'description', 'name', CodeConstant::EX_ID, CodeConstant::CO_ID, CodeConstant::SC_ID];
+    protected $fillable = ['lms_id', 'school_id', 'description', 'name', CodeConstant::EX_ID, CodeConstant::CO_ID, CodeConstant::SC_ID, 'weight'];
 
     public string $code = CodeConstant::CO_ID;
 }
