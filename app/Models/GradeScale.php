@@ -39,7 +39,7 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|GradeScale withoutTrashed()
  * @property boolean     $is_calculate_gpa
  * @method static Builder|Program whereIsCalculateGpa($value)
- * @property boolean     $score_to_pass
+ * @property float       $score_to_pass
  * @method static Builder|Program whereScoreToPass($value)
  * @property int|null    $lms_id
  * @method static Builder|Program whereLmsId($value)
