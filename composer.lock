@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10de3771cb272119aca9226a9b6f080a",
+    "content-hash": "98073661f7d0bcd46383c2499e72356d",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -8206,6 +8206,69 @@
                 "source": "https://github.com/YaangVu/laravel-aws/tree/v1.0.9"
             },
             "time": "2021-06-01T16:48:21+00:00"
+        },
+        {
+            "name": "yaangvu/laravel-base",
+            "version": "v1.1.38",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/YaangVu/Laravel-Base.git",
+                "reference": "982b8f3cb772be8d7a6710e1d78f6891dc12deb3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/YaangVu/Laravel-Base/zipball/982b8f3cb772be8d7a6710e1d78f6891dc12deb3",
+                "reference": "982b8f3cb772be8d7a6710e1d78f6891dc12deb3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^7|^8|^9",
+                "illuminate/database": "^7|^8|^9",
+                "illuminate/http": "^7|^8|^9",
+                "illuminate/pagination": "^7|^8|^9",
+                "illuminate/support": "^7|^8|^9",
+                "php": "^8.0",
+                "yaangvu/laravel-exception": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7|^8|^9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "YaangVu\\LaravelBase\\LaravelBaseServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "YaangVu\\LaravelBase\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yaang Vu",
+                    "email": "yaangvu@gmail.com"
+                }
+            ],
+            "description": "Laravel YaangVu Base",
+            "keywords": [
+                "api",
+                "base",
+                "laravel",
+                "lumen",
+                "toprate"
+            ],
+            "support": {
+                "issues": "https://github.com/YaangVu/Laravel-Base/issues",
+                "source": "https://github.com/YaangVu/Laravel-Base/tree/v1.1.38"
+            },
+            "time": "2021-07-08T04:34:21+00:00"
         },
         {
             "name": "yaangvu/laravel-exception",
