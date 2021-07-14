@@ -17,6 +17,8 @@ class CreateClassesTable extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
+            $table->string(CodeConstant::UUID)->nullable()->comment('class id');
+            $table->string(CodeConstant::EX_ID)->nullable();
             $table->string('name');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
@@ -25,8 +27,6 @@ class CreateClassesTable extends Migration
                 StatusConstant::ON_GOING,
                 StatusConstant::CONCLUDED
             ])->default(StatusConstant::ON_GOING)->nullable();
-            $table->string(CodeConstant::CID)->nullable()->comment('class id');
-            $table->string(CodeConstant::EX_ID)->nullable();
             $table->unsignedDouble('credit')->nullable();
             $table->text('description')->nullable();
             $table->string('zone')->nullable();
@@ -34,17 +34,19 @@ class CreateClassesTable extends Migration
             $table->unsignedBigInteger('graduation_category_id')->nullable();
             $table->unsignedBigInteger('term_id')->nullable();
             $table->unsignedBigInteger('course_id')->nullable();
+            $table->unsignedBigInteger('school_id')->nullable();
             $table->unsignedBigInteger('lms_id')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('grade_scale_id')->references('id')->on('grade_scales');
-            $table->foreign('graduation_category_id')->references('id')->on('graduation_categories');
-            $table->foreign('term_id')->references('id')->on('terms');
-            $table->foreign('course_id')->references('id')->on('courses');
-            $table->foreign('lms_id')->references('id')->on('lms');
+            $table->foreign('grade_scale_id')->references('id')->on('grade_scales')->cascadeOnDelete();
+            $table->foreign('graduation_category_id')->references('id')->on('graduation_categories')->cascadeOnDelete();
+            $table->foreign('term_id')->references('id')->on('terms')->cascadeOnDelete();
+            $table->foreign('course_id')->references('id')->on('courses')->cascadeOnDelete();
+            $table->foreign('lms_id')->references('id')->on('lms')->cascadeOnDelete();
+            $table->foreign('school_id')->references('id')->on('schools')->cascadeOnDelete();
         });
     }
 

@@ -43,8 +43,12 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Program whereScoreToPass($value)
  * @property int|null    $lms_id
  * @method static Builder|Program whereLmsId($value)
- * @property string|null $sc_id
- * @method static Builder|Program whereScId($value)
+ * @property string|null $uuid
+ * @property string|null $external_id
+ * @property int|null    $school_id
+ * @method static Builder|GradeScale whereExternalId($value)
+ * @method static Builder|GradeScale whereSchoolId($value)
+ * @method static Builder|GradeScale whereUuid($value)
  */
 class GradeScale extends Model
 {
@@ -52,5 +56,5 @@ class GradeScale extends Model
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['name', 'description', 'is_calculate_gpa', 'score_to_pass', 'lms_id', CodeConstant::SC_ID];
+    protected $fillable = ['name', 'description', 'is_calculate_gpa', 'score_to_pass', 'lms_id', CodeConstant::UUID];
 }

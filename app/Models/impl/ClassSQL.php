@@ -11,7 +11,6 @@ use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Clazz;
-use YaangVu\SisModel\App\Models\Program;
 
 /**
  * YaangVu\SisModel\App\Models\ClassSQL
@@ -58,12 +57,14 @@ use YaangVu\SisModel\App\Models\Program;
  * @method static Builder|ClassNoSQL whereCourseId($value)
  * @method static Builder|ClassNoSQL whereDescription($value)
  * @mixin Eloquent
- * @property string|null $cid class id
+ * @property string|null $cid  class id
  * @method static Builder|ClassSQL whereCid($value)
  * @property string|null $zone
  * @method static Builder|ClassSQL whereZone($value)
- * @property string|null $sc_id
- * @method static Builder|Program whereScId($value)
+ * @property string|null $uuid class id
+ * @property int|null    $school_id
+ * @method static Builder|ClassSQL whereSchoolId($value)
+ * @method static Builder|ClassSQL whereUuid($value)
  */
 class ClassSQL extends Model implements Clazz
 {
@@ -75,11 +76,11 @@ class ClassSQL extends Model implements Clazz
         = ['name', 'start_date', 'end_date', 'status',
            CodeConstant::EX_ID, 'lms_id', 'credit',
            'grade_scale_id', 'graduation_category_id', 'term_id',
-           'course_id', 'description', CodeConstant::CID, 'zone','lms_id',CodeConstant::SC_ID];
+           'course_id', 'description', CodeConstant::UUID, 'zone', 'lms_id', CodeConstant::UUID];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected string $code = CodeConstant::CID;
+    protected string $code = CodeConstant::UUID;
 }

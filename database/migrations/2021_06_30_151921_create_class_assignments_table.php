@@ -17,6 +17,8 @@ class CreateClassAssignmentsTable extends Migration
     {
         Schema::create('class_assignments', function (Blueprint $table) {
             $table->id();
+            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::EX_ID)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('class_id');
             $table->enum('assignment', [
@@ -25,13 +27,12 @@ class CreateClassAssignmentsTable extends Migration
                 ClassAssignmentConstant::PRIMARY_TEACHER,
                 ClassAssignmentConstant::SECONDARY_TEACHER,
             ]);
-            $table->string(CodeConstant::EX_ID)->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('class_id')->references('id')->on('classes');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('class_id')->references('id')->on('classes')->cascadeOnDelete();
         });
     }
 

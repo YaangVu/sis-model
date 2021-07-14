@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use YaangVu\Constant\CodeConstant;
 
 class CreateProgramGraduationCategoriesTable extends Migration
 {
@@ -15,6 +16,8 @@ class CreateProgramGraduationCategoriesTable extends Migration
     {
         Schema::create('program_graduation_category', function (Blueprint $table) {
             $table->id();
+            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::EX_ID)->nullable();
             $table->unsignedBigInteger('program_id')->nullable();
             $table->unsignedBigInteger('graduation_category_id')->nullable();
             $table->unsignedDouble('credit')->nullable()->default(0);
@@ -23,8 +26,8 @@ class CreateProgramGraduationCategoriesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('program_id')->references('id')->on('programs');
-            $table->foreign('graduation_category_id')->references('id')->on('graduation_categories');
+            $table->foreign('program_id')->references('id')->on('programs')->cascadeOnDelete();
+            $table->foreign('graduation_category_id')->references('id')->on('graduation_categories')->cascadeOnDelete();
         });
     }
 

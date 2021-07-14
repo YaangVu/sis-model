@@ -22,7 +22,7 @@ use YaangVu\SisModel\App\Models\User;
  * @property int         $id
  * @property string      $username
  * @property string      $email
- * @property string|null $uid
+ * @property string|null $uuid
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
@@ -47,7 +47,7 @@ class UserNoSQL extends Model implements User
 
     protected $connection = DbConnectionConstant::NOSQL;
 
-    public string $code = CodeConstant::UID;
+    public string $code = CodeConstant::UUID;
 
     protected $fillable = ['*'];
 
@@ -58,7 +58,7 @@ class UserNoSQL extends Model implements User
      *
      * @var array
      */
-    protected $hidden = ['password', 'uid'];
+    protected $hidden = ['password', 'uuid'];
 
     protected $guarded = [];
 

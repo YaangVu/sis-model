@@ -19,7 +19,6 @@ use YaangVu\SisModel\App\Models\School;
  * @property int         $id
  * @property string      $name
  * @property string|null $year_founded Năm thành lập
- * @property string|null $sc_id
  * @property string|null $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -41,6 +40,10 @@ use YaangVu\SisModel\App\Models\School;
  * @mixin Eloquent
  * @property string|null $description
  * @method static Builder|SchoolSQL whereDescription($value)
+ * @property string|null $uuid
+ * @property string|null $external_id
+ * @method static Builder|SchoolSQL whereExternalId($value)
+ * @method static Builder|SchoolSQL whereUuid($value)
  */
 class SchoolSQL extends Model implements School
 {
@@ -55,7 +58,7 @@ class SchoolSQL extends Model implements School
      *
      * @var array
      */
-    public $code = CodeConstant::SC_ID;
+    public $code = CodeConstant::UUID;
 
     protected $connection = DbConnectionConstant::SQL;
 }

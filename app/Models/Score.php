@@ -3,6 +3,7 @@
 namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
+use Database\Factories\ScoreFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -36,12 +37,16 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Score whereUserId($value)
  * @property int|null     $lms_id
  * @method static Builder|Program whereLmsId($value)
- * @property string|null  $sc_id
- * @method static Builder|Program whereScId($value)
  * @property boolean|null $is_pass
  * @method static Builder|Program whereIsPass($value)
  * @mixin Eloquent
- * @method static \Database\Factories\ScoreFactory factory(...$parameters)
+ * @method static ScoreFactory factory(...$parameters)
+ * @property string|null  $uuid
+ * @property string|null  $external_id
+ * @property int|null     $school_id
+ * @method static Builder|Score whereExternalId($value)
+ * @method static Builder|Score whereSchoolId($value)
+ * @method static Builder|Score whereUuid($value)
  */
 class Score extends Model
 {
@@ -49,7 +54,7 @@ class Score extends Model
 
     protected $table = 'scores';
 
-    protected $fillable = ['score', 'class_id', 'user_id', 'grade_letter_id', 'lms_id', CodeConstant::SC_ID, 'is_pass'];
+    protected $fillable = ['score', 'class_id', 'user_id', 'grade_letter_id', 'lms_id', CodeConstant::UUID, 'is_pass'];
 
     protected $connection = DbConnectionConstant::SQL;
 }

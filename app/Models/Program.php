@@ -45,14 +45,14 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Program whereStatus($value)
  * @property int|null    $lms_id
  * @method static Builder|Program whereLmsId($value)
- * @property string|null $sc_id
- * @method static Builder|Program whereScId($value)
+ * @property string|null $uuid
+ * @method static Builder|Program whereUuid($value)
  */
 class Program extends Model
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ['name', 'description', 'school_id', 'status', 'lms_id', CodeConstant::SC_ID];
+    protected $fillable = ['name', 'description', 'school_id', 'status', 'lms_id', CodeConstant::UUID];
 
     protected $connection = DbConnectionConstant::SQL;
 }

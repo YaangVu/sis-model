@@ -37,6 +37,10 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|ProgramGraduationCategory withoutTrashed()
  * @property float|null  $credit
  * @method static Builder|ProgramGraduationCategory whereCredit($value)
+ * @property string|null $uuid
+ * @property string|null $external_id
+ * @method static Builder|ProgramGraduationCategory whereExternalId($value)
+ * @method static Builder|ProgramGraduationCategory whereUuid($value)
  */
 class ProgramGraduationCategory extends Model
 {

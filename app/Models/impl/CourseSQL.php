@@ -40,15 +40,13 @@ use YaangVu\SisModel\App\Models\Program;
  * @mixin Eloquent
  * @property string|null $external_id
  * @method static Builder|CourseSQL whereExternalId($value)
- * @property string|null $co_id course id
- * @method static Builder|CourseSQL whereCoId($value)
- * @property string|null $sc_id
- * @method static Builder|Program whereScId($value)
  * @property string|null $weight
  * @method static Builder|Program whereWeight($value)
  * @method static \Illuminate\Database\Query\Builder|CourseSQL onlyTrashed()
  * @method static \Illuminate\Database\Query\Builder|CourseSQL withTrashed()
  * @method static \Illuminate\Database\Query\Builder|CourseSQL withoutTrashed()
+ * @property string|null $uuid course id
+ * @method static Builder|CourseSQL whereUuid($value)
  */
 class CourseSQL extends Model implements Course
 {
@@ -58,7 +56,7 @@ class CourseSQL extends Model implements Course
 
     protected $table = self::table;
 
-    protected $fillable = ['lms_id', 'school_id', 'description', 'name', CodeConstant::EX_ID, CodeConstant::CO_ID, CodeConstant::SC_ID, 'weight'];
+    protected $fillable = ['lms_id', 'school_id', 'description', 'name', CodeConstant::EX_ID, CodeConstant::UUID, CodeConstant::UUID, 'weight'];
 
-    public string $code = CodeConstant::CO_ID;
+    public string $code = CodeConstant::UUID;
 }

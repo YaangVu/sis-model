@@ -39,6 +39,10 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Lms whereDescription($value)
  * @property string|null $lid
  * @method static Builder|Lms whereLid($value)
+ * @property string|null $uuid
+ * @property string|null $external_id
+ * @method static Builder|Lms whereExternalId($value)
+ * @method static Builder|Lms whereUuid($value)
  */
 class Lms extends Model
 {
@@ -46,5 +50,5 @@ class Lms extends Model
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['name', CodeConstant::LID];
+    protected $fillable = ['name', CodeConstant::UUID];
 }

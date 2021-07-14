@@ -17,6 +17,8 @@ class CreateTermsTable extends Migration
     {
         Schema::create('terms', function (Blueprint $table) {
             $table->id();
+            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::EX_ID)->nullable();
             $table->string('name');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
@@ -27,14 +29,14 @@ class CreateTermsTable extends Migration
                 StatusConstant::CONCLUDED
             ])->default(StatusConstant::ON_GOING)->nullable();
             $table->unsignedBigInteger('school_id')->nullable();
-            $table->string(CodeConstant::TID)->nullable()->comment('term id');
-            $table->string(CodeConstant::EX_ID)->nullable();
+            $table->unsignedBigInteger('lms_id')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('school_id')->references('id')->on('schools');
+            $table->foreign('school_id')->references('id')->on('schools')->cascadeOnDelete();
+            $table->foreign('lms_id')->references('id')->on('lms')->cascadeOnDelete();
 
         });
     }

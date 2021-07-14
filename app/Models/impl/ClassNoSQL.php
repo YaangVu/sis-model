@@ -11,7 +11,6 @@ use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Clazz;
-use YaangVu\SisModel\App\Models\Program;
 
 /**
  * YaangVu\SisModel\App\Models\ClassSQL
@@ -62,8 +61,6 @@ use YaangVu\SisModel\App\Models\Program;
  * @method static Builder|ClassSQL whereCid($value)
  * @property string|null $zone
  * @method static Builder|ClassSQL whereZone($value)
- * @property string|null $sc_id
- * @method static Builder|Program whereScId($value)
  */
 class ClassNoSQL extends Model implements Clazz
 {
@@ -77,5 +74,5 @@ class ClassNoSQL extends Model implements Clazz
 
     protected $guarded = [];
 
-    protected string $code = CodeConstant::CID;
+    protected string $code = CodeConstant::UUID;
 }

@@ -36,6 +36,10 @@ use YaangVu\Constant\DbConnectionConstant;
  * @mixin Eloquent
  * @property string|null $description
  * @method static Builder|Grade whereDescription($value)
+ * @property string|null $uuid
+ * @property string|null $external_id
+ * @method static Builder|Grade whereExternalId($value)
+ * @method static Builder|Grade whereUuid($value)
  */
 class Grade extends Model
 {

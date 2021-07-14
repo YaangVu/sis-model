@@ -40,6 +40,10 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|GraduationCategory onlyTrashed()
  * @method static Builder|GraduationCategory withTrashed()
  * @method static Builder|GraduationCategory withoutTrashed()
+ * @property string|null $uuid
+ * @property string|null $external_id
+ * @method static Builder|GraduationCategory whereExternalId($value)
+ * @method static Builder|GraduationCategory whereUuid($value)
  */
 class GraduationCategory extends Model
 {

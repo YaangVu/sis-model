@@ -24,7 +24,7 @@ use YaangVu\SisModel\App\Models\User;
  *
  * @property int                          $id
  * @property string                       $username
- * @property string|null                  $uid
+ * @property string|null                  $uuid
  * @property int|null                     $grade_id
  * @property int|null                     $division_id
  * @property int|null                     $created_by
@@ -55,6 +55,7 @@ use YaangVu\SisModel\App\Models\User;
  * @mixin Eloquent
  * @property string|null                  $external_id
  * @method static Builder|UserSQL whereExternalId($value)
+ * @method static Builder|UserSQL whereUuid($value)
  */
 class UserSQL extends Model implements User
 {
@@ -66,8 +67,8 @@ class UserSQL extends Model implements User
 
     protected string $guard_name = 'api';
 
-    protected $fillable = ['username', CodeConstant::UID];
+    protected $fillable = ['username', CodeConstant::UUID];
 
-    public string $code = CodeConstant::UID;
+    public string $code = CodeConstant::UUID;
 
 }

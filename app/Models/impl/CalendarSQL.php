@@ -49,6 +49,10 @@ use YaangVu\SisModel\App\Models\Calendar;
  * @method static Builder|CalendarSQL whereType($value)
  * @method static Builder|CalendarSQL whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property string|null $uuid
+ * @property string|null $external_id
+ * @method static Builder|CalendarSQL whereExternalId($value)
+ * @method static Builder|CalendarSQL whereUuid($value)
  */
 class CalendarSQL extends Model implements Calendar
 {

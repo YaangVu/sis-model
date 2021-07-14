@@ -53,21 +53,21 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static \Illuminate\Database\Eloquent\Builder|Term whereTid($value)
  * @property int|null                $lms_id
  * @method static \Illuminate\Database\Eloquent\Builder|Program whereLmsId($value)
- * @property string|null             $sc_id
- * @method static Builder|Program whereScId($value)
+ * @property string|null             $uuid
+ * @method static \Illuminate\Database\Eloquent\Builder|Term whereUuid($value)
  */
 class Term extends Model
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ['name', 'start_date', 'end_date', 'status', 'school_id', CodeConstant::EX_ID, 'description', 'lms_id', CodeConstant::SC_ID];
+    protected $fillable = ['name', 'start_date', 'end_date', 'status', 'school_id', CodeConstant::EX_ID, 'description', 'lms_id', CodeConstant::UUID];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var string
      */
-    public string $code = CodeConstant::SC_ID;
+    public string $code = CodeConstant::UUID;
 
     protected $connection = DbConnectionConstant::SQL;
 }

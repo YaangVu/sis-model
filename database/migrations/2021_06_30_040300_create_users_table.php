@@ -16,8 +16,9 @@ class CreateUsersTable extends Migration
     {
         Schema::connection('pgsql')->create('users', function (Blueprint $table) {
             $table->id();
+            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::EX_ID)->nullable();
             $table->string('username')->unique()->nullable(false);
-            $table->string('uid')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();

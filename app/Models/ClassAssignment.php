@@ -35,6 +35,8 @@ use YaangVu\SisModel\App\Models\impl\ClassSQL;
  * @mixin Eloquent
  * @property string|null $external_id
  * @method static Builder|ClassSQL whereExternalId($value)
+ * @property string|null $uuid
+ * @method static Builder|ClassAssignment whereUuid($value)
  */
 class ClassAssignment extends Model
 {

@@ -41,6 +41,10 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|GradeLetter withoutTrashed()
  * @property string|null $description
  * @method static Builder|GradeLetter whereDescription($value)
+ * @property string|null $uuid
+ * @property string|null $external_id
+ * @method static Builder|GradeLetter whereExternalId($value)
+ * @method static Builder|GradeLetter whereUuid($value)
  */
 class GradeLetter extends Model
 {

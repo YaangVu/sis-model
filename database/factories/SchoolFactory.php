@@ -12,13 +12,13 @@ class SchoolFactory extends Factory
 {
     protected $model = School::class;
 
-    #[ArrayShape(['name' => "string", 'year_founded' => "\DateTime", CodeConstant::SC_ID => "string"])]
+    #[ArrayShape(['name' => "string", 'year_founded' => "\DateTime", CodeConstant::UUID => "string"])]
     public function definition(): array
     {
         return [
             'name'              => $this->faker->name(),
             'year_founded'      => $this->faker->dateTime(),
-            CodeConstant::SC_ID => strtoupper(Str::random(6)),
+            CodeConstant::UUID => strtoupper(Str::random(6)),
         ];
     }
 }

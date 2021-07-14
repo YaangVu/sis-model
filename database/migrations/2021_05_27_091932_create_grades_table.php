@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use YaangVu\Constant\CodeConstant;
 
 class CreateGradesTable extends Migration
 {
@@ -15,6 +16,8 @@ class CreateGradesTable extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
+            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::EX_ID)->nullable();
             $table->string('name')->unique();
             $table->unsignedBigInteger('school_id');
             $table->text('description')->nullable();
@@ -23,7 +26,7 @@ class CreateGradesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('school_id')->references('id')->on('schools');
+            $table->foreign('school_id')->references('id')->on('schools')->cascadeOnDelete();
         });
     }
 

@@ -19,7 +19,7 @@ use YaangVu\Constant\DbConnectionConstant;
  * @property string|null  $status
  * @property string|null  $storage_type
  * @property string|null  $path
- * @property string|null  $sc_id
+ * @property string|null  $uuid
  * @property string|null  $exchange_name
  * @property integer|null $created_by
  * @property Carbon|null  $updated_at

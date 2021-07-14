@@ -17,17 +17,20 @@ class CreateProgramsTable extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
+            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::EX_ID)->nullable();
             $table->string('name');
             $table->text('description')->nullable();
             $table->enum('status', [StatusConstant::ACTIVE, StatusConstant::INACTIVE])->default(StatusConstant::ACTIVE);
             $table->unsignedBigInteger('school_id')->nullable();
-            $table->string(CodeConstant::EX_ID)->nullable();
+            $table->unsignedBigInteger('lms_id')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('school_id')->references('id')->on('schools');
+            $table->foreign('school_id')->references('id')->on('schools')->cascadeOnDelete();
+            $table->foreign('lms_id')->references('id')->on('lms')->cascadeOnDelete();
         });
     }
 

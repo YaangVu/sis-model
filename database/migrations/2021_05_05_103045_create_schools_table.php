@@ -17,9 +17,10 @@ class CreateSchoolsTable extends Migration
         Schema::connection('mongodb')->dropIfExists('schools');
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
+            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::EX_ID)->nullable();
             $table->string('name');
             $table->dateTimeTz('year_founded')->nullable()->comment('Năm thành lập');
-            $table->string(CodeConstant::SC_ID)->nullable();
             $table->text('description')->nullable();
 
             $table->string('created_by')->nullable();

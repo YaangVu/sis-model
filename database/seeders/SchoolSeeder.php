@@ -20,25 +20,25 @@ class SchoolSeeder extends Seeder
     {
         $school               = new SchoolSQL();
         $school->name         = SchoolConstant::DEFAULT_SCHOOL;
-        $school->sc_id        = SchoolConstant::DEFAULT_SCHOOL;
+        $school->uuid        = SchoolConstant::DEFAULT_SCHOOL;
         $school->year_founded = Carbon::now();
         $school->save();
 
         $school               = new SchoolSQL();
         $school->name         = SchoolConstant::IGS;
-        $school->sc_id        = SchoolConstant::IGS;
+        $school->uuid        = SchoolConstant::IGS;
         $school->year_founded = Carbon::now();
         $school->save();
 
         $school               = new SchoolNoSQL();
         $school->name         = SchoolConstant::DEFAULT_SCHOOL;
-        $school->sc_id        = SchoolConstant::DEFAULT_SCHOOL;
+        $school->uuid        = SchoolConstant::DEFAULT_SCHOOL;
         $school->year_founded = new UTCDateTime(Carbon::now()->toDateTime());
         $school->save();
 
         $school               = new SchoolNoSQL();
         $school->name         = SchoolConstant::IGS;
-        $school->sc_id        = SchoolConstant::IGS;
+        $school->uuid        = SchoolConstant::IGS;
         $school->year_founded = new UTCDateTime(Carbon::now()->toDateTime());
         $school->save();
 

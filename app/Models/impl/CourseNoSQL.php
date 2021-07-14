@@ -40,8 +40,6 @@ use YaangVu\SisModel\App\Models\Program;
  * @mixin Eloquent
  * @property string|null $external_id
  * @method static Builder|CourseNoSQL whereExternalId($value)
- * @property string|null $sc_id
- * @method static Builder|Program whereScId($value)
  * @property string|null $weight
  * @method static Builder|Program whereWeight($value)
  */
@@ -53,7 +51,7 @@ class CourseNoSQL extends Model implements Course
 
     protected $table = self::table;
 
-    public string $code = CodeConstant::CO_ID;
+    public string $code = CodeConstant::UUID;
 
     protected $fillable = ['*'];
 

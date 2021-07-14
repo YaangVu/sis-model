@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use YaangVu\Constant\CodeConstant;
 use YaangVu\SisModel\App\Constants\CalendarRepeatTypeConstant;
 use YaangVu\SisModel\App\Constants\CalendarTypeConstant;
 
@@ -17,11 +18,13 @@ class CreateCalendarsTable extends Migration
     {
         Schema::create('calendars', function (Blueprint $table) {
             $table->id();
+            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::EX_ID)->nullable();
             $table->enum('type', [
                 CalendarTypeConstant::EVENT,
                 CalendarTypeConstant::ACTIVITY,
                 CalendarTypeConstant::SCHEDULE,
-                CalendarTypeConstant::HOLIDAY,
+                CalendarTypeConstant::HOUUIDAY,
             ])->nullable()->comment('Type of calendar: event, holiday, class schedule, activity');
             $table->string('name')->nullable()->comment('event name');
             $table->text('description')->nullable();

@@ -19,7 +19,6 @@ use YaangVu\SisModel\App\Models\School;
  * @property int         $id
  * @property string      $name
  * @property string|null $year_founded Năm thành lập
- * @property string|null $sc_id
  * @property string|null $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -55,9 +54,9 @@ class SchoolNoSQL extends Model implements School
     /**
      * The attributes excluded from the model's JSON form.
      *
-     * @var array
+     * @var string
      */
-    public string|array $code = CodeConstant::SC_ID;
+    public string $code = CodeConstant::UUID;
 
     protected $connection = DbConnectionConstant::NOSQL;
 }

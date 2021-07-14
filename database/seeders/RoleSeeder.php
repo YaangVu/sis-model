@@ -33,7 +33,7 @@ class RoleSeeder extends Seeder
         foreach ($schools as $school) {
             foreach ($roles as $role) {
                 $data[] = [
-                    'name'       => $school->sc_id . ':' . $role['name'],
+                    'name'       => $school->uuid . ':' . $role['name'],
                     'group'      => $role['group'],
                     'guard_name' => 'api'
                 ];

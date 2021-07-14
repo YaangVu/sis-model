@@ -35,7 +35,7 @@ class PermissionSeeder extends Seeder
                 if ($ticks) {
                     foreach ($ticks as $tick) {
                         foreach ($schools as $school)
-                            $permission->assignRole($school->sc_id . ':' . trim($arrRole[$tick]));
+                            $permission->assignRole($school->uuid . ':' . trim($arrRole[$tick]));
                     }
                 }
             }
