@@ -28,6 +28,7 @@ class CreateClassAssignmentsTable extends Migration
                 ClassAssignmentConstant::SECONDARY_TEACHER,
             ]);
             $table->unsignedBigInteger('created_by')->nullable();
+            $table->integer('position')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

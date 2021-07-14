@@ -37,12 +37,14 @@ use YaangVu\SisModel\App\Models\impl\ClassSQL;
  * @method static Builder|ClassSQL whereExternalId($value)
  * @property string|null $uuid
  * @method static Builder|ClassAssignment whereUuid($value)
+ * @property integer|null $position
+ * @method static Builder|ClassSQL wherePosition($value)
  */
 class ClassAssignment extends Model
 {
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['user_id', 'assignment', 'class_id', CodeConstant::EX_ID];
+    protected $fillable = ['user_id', 'assignment', 'class_id', CodeConstant::EX_ID, 'position', 'uuid'];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 }
