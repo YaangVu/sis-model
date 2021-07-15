@@ -20,14 +20,14 @@ class SchoolMiddleware
      */
     public function handle(Request $request, Closure $next): mixed
     {
-        $scId = $request->header('X-sc-id') ?? null;
-        if (!$scId)
-            throw new BadRequestException(['message' => __("validation.required", ['attribute' => "X-sc-id"])],
+        $uuid = $request->header('X-school-uuid') ?? null;
+        if (!$uuid)
+            throw new BadRequestException(['message' => __("validation.required", ['attribute' => "X-school-uuid"])],
                                           new Exception);
 
-        $school = SchoolSQL::whereScId($scId)->first();
+        $school = SchoolSQL::whereUuid($uuid)->first();
         if (!$school)
-            throw new BadRequestException(['message' => __("validation.exists", ['attribute' => "X-sc-id"])],
+            throw new BadRequestException(['message' => __("validation.exists", ['attribute' => "X-school-uuid"])],
                                           new Exception);
 
         return $next($request);

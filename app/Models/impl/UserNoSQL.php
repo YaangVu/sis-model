@@ -33,7 +33,6 @@ use YaangVu\SisModel\App\Models\User;
  * @method static Builder|UserNoSQL whereCreatedAt($value)
  * @method static Builder|UserNoSQL whereDeletedAt($value)
  * @method static Builder|UserNoSQL whereId($value)
- * @method static Builder|UserNoSQL whereUid($value)
  * @method static Builder|UserNoSQL whereUpdatedAt($value)
  * @method static Builder|UserNoSQL whereUsername($value)
  * @method static Builder|UserNoSQL whereEmail($value)

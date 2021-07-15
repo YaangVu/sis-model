@@ -47,7 +47,6 @@ use YaangVu\SisModel\App\Models\User;
  * @method static Builder|UserSQL whereDivisionId($value)
  * @method static Builder|UserSQL whereGradeId($value)
  * @method static Builder|UserSQL whereId($value)
- * @method static Builder|UserSQL whereUid($value)
  * @method static Builder|UserSQL whereUpdatedAt($value)
  * @method static Builder|UserSQL whereUsername($value)
  * @method static Builder|UserSQL withTrashed()

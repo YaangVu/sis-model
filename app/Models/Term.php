@@ -49,12 +49,10 @@ use YaangVu\Constant\DbConnectionConstant;
  * @method static Builder|Term withTrashed()
  * @method static Builder|Term withoutTrashed()
  * @mixin Eloquent
- * @property string|null             $tid term id
- * @method static \Illuminate\Database\Eloquent\Builder|Term whereTid($value)
  * @property int|null                $lms_id
- * @method static \Illuminate\Database\Eloquent\Builder|Program whereLmsId($value)
+ * @method static Builder|Program whereLmsId($value)
  * @property string|null             $uuid
- * @method static \Illuminate\Database\Eloquent\Builder|Term whereUuid($value)
+ * @method static Builder|Term whereUuid($value)
  */
 class Term extends Model
 {

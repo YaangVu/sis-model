@@ -32,7 +32,6 @@ use YaangVu\SisModel\App\Models\School;
  * @method static Builder|SchoolSQL whereDeletedAt($value)
  * @method static Builder|SchoolSQL whereId($value)
  * @method static Builder|SchoolSQL whereName($value)
- * @method static Builder|SchoolSQL whereScId($value)
  * @method static Builder|SchoolSQL whereUpdatedAt($value)
  * @method static Builder|SchoolSQL whereYearFounded($value)
  * @method static Builder|SchoolSQL withTrashed()

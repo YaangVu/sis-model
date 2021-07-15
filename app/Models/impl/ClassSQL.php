@@ -57,8 +57,6 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @method static Builder|ClassNoSQL whereCourseId($value)
  * @method static Builder|ClassNoSQL whereDescription($value)
  * @mixin Eloquent
- * @property string|null $cid  class id
- * @method static Builder|ClassSQL whereCid($value)
  * @property string|null $zone
  * @method static Builder|ClassSQL whereZone($value)
  * @property string|null $uuid class id
