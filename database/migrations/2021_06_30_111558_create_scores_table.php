@@ -16,7 +16,7 @@ class CreateScoresTable extends Migration
     {
         Schema::create('scores', function (Blueprint $table) {
             $table->id();
-            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::UUID)->unique()->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->unsignedDecimal('score');
             $table->unsignedBigInteger('class_id')->nullable();

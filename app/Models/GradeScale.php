@@ -3,7 +3,6 @@
 namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
-use Database\Factories\GradeScaleFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\SisModel\Database\Factories\GradeScaleFactory;
 
 /**
  * YaangVu\SisModel\App\Models\GradeScale

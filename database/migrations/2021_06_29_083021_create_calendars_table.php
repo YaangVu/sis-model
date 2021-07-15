@@ -18,7 +18,7 @@ class CreateCalendarsTable extends Migration
     {
         Schema::create('calendars', function (Blueprint $table) {
             $table->id();
-            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::UUID)->unique()->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->enum('type', [
                 CalendarTypeConstant::EVENT,

@@ -4,9 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use YaangVu\Constant\CodeConstant;
-use YaangVu\Constant\StatusConstant;
 
-class CreateGraduationCategoriesTable extends Migration
+class CreateGraduationCategorySubjectTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,17 +14,19 @@ class CreateGraduationCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('graduation_categories', function (Blueprint $table) {
+        Schema::create('graduation_category_subject', function (Blueprint $table) {
             $table->id();
             $table->string(CodeConstant::UUID)->unique()->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
-            $table->string('name');
-            $table->text('description')->nullable();
-            $table->enum('status', [StatusConstant::ACTIVE, StatusConstant::INACTIVE])->nullable();
+            $table->unsignedBigInteger('graduation_category_id');
+            $table->unsignedBigInteger('subject_id');
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('graduation_category_id')->references('id')->on('graduation_categories')->cascadeOnDelete();
+            $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnDelete();
         });
     }
 
@@ -36,6 +37,6 @@ class CreateGraduationCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('graduation_categories');
+        Schema::dropIfExists('graduation_category_subject');
     }
 }

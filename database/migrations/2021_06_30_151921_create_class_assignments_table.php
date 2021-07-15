@@ -17,7 +17,7 @@ class CreateClassAssignmentsTable extends Migration
     {
         Schema::create('class_assignments', function (Blueprint $table) {
             $table->id();
-            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::UUID)->unique()->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('class_id');
@@ -27,8 +27,9 @@ class CreateClassAssignmentsTable extends Migration
                 ClassAssignmentConstant::PRIMARY_TEACHER,
                 ClassAssignmentConstant::SECONDARY_TEACHER,
             ]);
-            $table->unsignedBigInteger('created_by')->nullable();
             $table->integer('position')->nullable();
+
+            $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

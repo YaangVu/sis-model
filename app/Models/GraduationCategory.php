@@ -3,13 +3,13 @@
 namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
-use Database\Factories\GraduationCategoryFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\SisModel\Database\Factories\GraduationCategoryFactory;
 
 /**
  * YaangVu\SisModel\App\Models\GraduationCategory

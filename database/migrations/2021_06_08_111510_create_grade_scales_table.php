@@ -16,13 +16,13 @@ class CreateGradeScalesTable extends Migration
     {
         Schema::create('grade_scales', function (Blueprint $table) {
             $table->id();
-            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::UUID)->unique()->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->string('name');
             $table->text('description')->nullable();
             $table->unsignedDouble('score_to_pass', 3)->nullable()->default(0);
             $table->boolean('is_calculate_gpa')->default(false);
-            $table->unsignedBigInteger('lms_id')->nullable();
+            // $table->unsignedBigInteger('lms_id')->nullable();
             $table->unsignedBigInteger('school_id')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
@@ -30,7 +30,7 @@ class CreateGradeScalesTable extends Migration
             $table->softDeletes();
 
             $table->foreign('school_id')->references('id')->on('schools')->cascadeOnDelete();
-            $table->foreign('lms_id')->references('id')->on('lms')->cascadeOnDelete();
+            // $table->foreign('lms_id')->references('id')->on('lms')->cascadeOnDelete();
         });
     }
 

@@ -14,10 +14,10 @@ class CreateSchoolsTable extends Migration
      */
     public function up()
     {
-        Schema::connection('mongodb')->dropIfExists('schools');
+        // Schema::connection('mongodb')->dropIfExists('schools');
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
-            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::UUID)->unique()->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->string('name');
             $table->dateTimeTz('year_founded')->nullable()->comment('Năm thành lập');
@@ -36,7 +36,7 @@ class CreateSchoolsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mongodb')->dropIfExists('schools');
+        // Schema::connection('mongodb')->dropIfExists('schools');
         Schema::dropIfExists('schools');
     }
 }

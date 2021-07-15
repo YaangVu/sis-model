@@ -16,7 +16,7 @@ class CreateLmsTable extends Migration
     {
         Schema::create('lms', function (Blueprint $table) {
             $table->id();
-            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::UUID)->unique()->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->string('name');
             $table->text('description')->nullable();

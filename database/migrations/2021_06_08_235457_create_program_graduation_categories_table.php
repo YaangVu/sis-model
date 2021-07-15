@@ -16,7 +16,7 @@ class CreateProgramGraduationCategoriesTable extends Migration
     {
         Schema::create('program_graduation_category', function (Blueprint $table) {
             $table->id();
-            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::UUID)->unique()->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->unsignedBigInteger('program_id')->nullable();
             $table->unsignedBigInteger('graduation_category_id')->nullable();

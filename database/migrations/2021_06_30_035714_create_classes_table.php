@@ -31,7 +31,7 @@ class CreateClassesTable extends Migration
             $table->text('description')->nullable();
             $table->string('zone')->nullable();
             $table->unsignedBigInteger('grade_scale_id')->nullable();
-            $table->unsignedBigInteger('graduation_category_id')->nullable();
+            $table->unsignedBigInteger('subject_id')->nullable();
             $table->unsignedBigInteger('term_id')->nullable();
             $table->unsignedBigInteger('course_id')->nullable();
             $table->unsignedBigInteger('school_id')->nullable();
@@ -42,7 +42,7 @@ class CreateClassesTable extends Migration
             $table->softDeletes();
 
             $table->foreign('grade_scale_id')->references('id')->on('grade_scales')->cascadeOnDelete();
-            $table->foreign('graduation_category_id')->references('id')->on('graduation_categories')->cascadeOnDelete();
+            $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnDelete();
             $table->foreign('term_id')->references('id')->on('terms')->cascadeOnDelete();
             $table->foreign('course_id')->references('id')->on('courses')->cascadeOnDelete();
             $table->foreign('lms_id')->references('id')->on('lms')->cascadeOnDelete();

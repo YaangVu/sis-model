@@ -13,14 +13,14 @@ use YaangVu\SisModel\App\Models\impl\ClassSQL;
 /**
  * YaangVu\SisModel\App\Models\ClassAssignment
  *
- * @property int         $id
- * @property int         $user_id
- * @property int         $class_id
- * @property string      $assignment
- * @property int|null    $created_by
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $deleted_at
+ * @property int          $id
+ * @property int          $user_id
+ * @property int          $class_id
+ * @property string       $assignment
+ * @property int|null     $created_by
+ * @property Carbon|null  $created_at
+ * @property Carbon|null  $updated_at
+ * @property string|null  $deleted_at
  * @method static Builder|ClassAssignment newModelQuery()
  * @method static Builder|ClassAssignment newQuery()
  * @method static Builder|ClassAssignment query()
@@ -33,9 +33,9 @@ use YaangVu\SisModel\App\Models\impl\ClassSQL;
  * @method static Builder|ClassAssignment whereUpdatedAt($value)
  * @method static Builder|ClassAssignment whereUserId($value)
  * @mixin Eloquent
- * @property string|null $external_id
+ * @property string|null  $external_id
  * @method static Builder|ClassSQL whereExternalId($value)
- * @property string|null $uuid
+ * @property string|null  $uuid
  * @method static Builder|ClassAssignment whereUuid($value)
  * @property integer|null $position
  * @method static Builder|ClassSQL wherePosition($value)

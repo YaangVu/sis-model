@@ -3,12 +3,12 @@
 namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
-use Database\Factories\ProgramGraduationCategoryFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\SisModel\Database\Factories\ProgramGraduationCategoryFactory;
 
 /**
  * YaangVu\SisModel\App\Models\ProgramGraduationCategory

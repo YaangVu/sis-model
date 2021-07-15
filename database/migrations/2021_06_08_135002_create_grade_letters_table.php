@@ -16,7 +16,7 @@ class CreateGradeLettersTable extends Migration
     {
         Schema::create('grade_letters', function (Blueprint $table) {
             $table->id();
-            $table->string(CodeConstant::UUID)->nullable();
+            $table->string(CodeConstant::UUID)->unique()->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->string('letter', 2);
             $table->unsignedDouble('score', 3)->nullable()->default(0);
