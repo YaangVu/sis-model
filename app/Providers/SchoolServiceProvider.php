@@ -4,7 +4,6 @@ namespace YaangVu\SisModel\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use YaangVu\SisModel\App\Models\impl\SchoolSQL;
-use YaangVu\SisModel\App\Models\School;
 
 class SchoolServiceProvider extends ServiceProvider
 {
@@ -17,10 +16,12 @@ class SchoolServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $scId = request()->header('X-sc-id');
-        if ($scId) {
-            $school = SchoolSQL::whereScId($scId)->first();
+        $uuid = request()->header('X-school-uuid');
+        if ($uuid) {
+            $school = SchoolSQL::whereUuid($uuid)->first();
             $this->setCurrentSchool($school);
+        } else {
+            $this->setCurrentSchool(null);
         }
     }
 
@@ -35,11 +36,11 @@ class SchoolServiceProvider extends ServiceProvider
     }
 
     /**
-     * @param School $school
+     * @param SchoolSQL|null $school
      *
      * @return $this
      */
-    public function setCurrentSchool(SchoolSQL $school): static
+    public function setCurrentSchool(SchoolSQL $school = null): static
     {
         self::$currentSchool = $school;
 
