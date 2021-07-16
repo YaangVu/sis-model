@@ -59,6 +59,12 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @mixin Eloquent
  * @property string|null $zone
  * @method static Builder|ClassSQL whereZone($value)
+ * @property string|null $uuid class id
+ * @property int|null    $school_id
+ * @method static Builder|ClassSQL whereSchoolId($value)
+ * @method static Builder|ClassSQL whereUuid($value)
+ * @property int|null    $subject_id
+ * @method static Builder|ClassSQL whereSubjectId($value)
  */
 class ClassNoSQL extends Model implements Clazz
 {

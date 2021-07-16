@@ -25,23 +25,28 @@ use YaangVu\SisModel\App\Models\Program;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @method static Builder|CourseNoSQL newModelQuery()
- * @method static Builder|CourseNoSQL newQuery()
- * @method static Builder|CourseNoSQL query()
- * @method static Builder|CourseNoSQL whereCreatedAt($value)
- * @method static Builder|CourseNoSQL whereCreatedBy($value)
- * @method static Builder|CourseNoSQL whereDeletedAt($value)
- * @method static Builder|CourseNoSQL whereDescription($value)
- * @method static Builder|CourseNoSQL whereId($value)
- * @method static Builder|CourseNoSQL whereLmsId($value)
- * @method static Builder|CourseNoSQL whereName($value)
- * @method static Builder|CourseNoSQL whereSchoolId($value)
- * @method static Builder|CourseNoSQL whereUpdatedAt($value)
+ * @method static Builder|CourseSQL newModelQuery()
+ * @method static Builder|CourseSQL newQuery()
+ * @method static Builder|CourseSQL query()
+ * @method static Builder|CourseSQL whereCreatedAt($value)
+ * @method static Builder|CourseSQL whereCreatedBy($value)
+ * @method static Builder|CourseSQL whereDeletedAt($value)
+ * @method static Builder|CourseSQL whereDescription($value)
+ * @method static Builder|CourseSQL whereId($value)
+ * @method static Builder|CourseSQL whereLmsId($value)
+ * @method static Builder|CourseSQL whereName($value)
+ * @method static Builder|CourseSQL whereSchoolId($value)
+ * @method static Builder|CourseSQL whereUpdatedAt($value)
  * @mixin Eloquent
  * @property string|null $external_id
- * @method static Builder|CourseNoSQL whereExternalId($value)
+ * @method static Builder|CourseSQL whereExternalId($value)
  * @property string|null $weight
  * @method static Builder|Program whereWeight($value)
+ * @method static \Illuminate\Database\Query\Builder|CourseSQL onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|CourseSQL withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|CourseSQL withoutTrashed()
+ * @property string|null $uuid course id
+ * @method static Builder|CourseSQL whereUuid($value)
  */
 class CourseNoSQL extends Model implements Course
 {

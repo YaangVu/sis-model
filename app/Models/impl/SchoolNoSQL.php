@@ -39,6 +39,10 @@ use YaangVu\SisModel\App\Models\School;
  * @mixin Eloquent
  * @property string|null $description
  * @method static Builder|SchoolSQL whereDescription($value)
+ * @property string|null $uuid
+ * @property string|null $external_id
+ * @method static Builder|SchoolSQL whereExternalId($value)
+ * @method static Builder|SchoolSQL whereUuid($value)
  */
 class SchoolNoSQL extends Model implements School
 {
