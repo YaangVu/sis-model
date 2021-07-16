@@ -24,7 +24,7 @@ class CreateCalendarsTable extends Migration
                 CalendarTypeConstant::EVENT,
                 CalendarTypeConstant::ACTIVITY,
                 CalendarTypeConstant::SCHEDULE,
-                CalendarTypeConstant::HOUUIDAY,
+                CalendarTypeConstant::HOLIDAY,
             ])->nullable()->comment('Type of calendar: event, holiday, class schedule, activity');
             $table->string('name')->nullable()->comment('event name');
             $table->text('description')->nullable();
