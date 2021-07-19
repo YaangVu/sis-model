@@ -11,7 +11,7 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\impl\ClassSQL;
 
 /**
- * YaangVu\SisModel\App\Models\ClassAssignmentSQL
+ * YaangVu\SisModel\App\Models\ClassAssignment
  *
  * @property int          $id
  * @property int          $user_id
