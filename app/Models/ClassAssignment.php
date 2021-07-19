@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\impl\ClassAssignmentSQL;
 use YaangVu\SisModel\App\Models\impl\ClassSQL;
 
 /**
@@ -22,22 +21,22 @@ use YaangVu\SisModel\App\Models\impl\ClassSQL;
  * @property Carbon|null  $created_at
  * @property Carbon|null  $updated_at
  * @property string|null  $deleted_at
- * @method static Builder|ClassAssignmentSQL newModelQuery()
- * @method static Builder|ClassAssignmentSQL newQuery()
- * @method static Builder|ClassAssignmentSQL query()
- * @method static Builder|ClassAssignmentSQL whereAssignment($value)
- * @method static Builder|ClassAssignmentSQL whereClassId($value)
- * @method static Builder|ClassAssignmentSQL whereCreatedAt($value)
- * @method static Builder|ClassAssignmentSQL whereCreatedBy($value)
- * @method static Builder|ClassAssignmentSQL whereDeletedAt($value)
- * @method static Builder|ClassAssignmentSQL whereId($value)
- * @method static Builder|ClassAssignmentSQL whereUpdatedAt($value)
- * @method static Builder|ClassAssignmentSQL whereUserId($value)
+ * @method static Builder|ClassAssignment newModelQuery()
+ * @method static Builder|ClassAssignment newQuery()
+ * @method static Builder|ClassAssignment query()
+ * @method static Builder|ClassAssignment whereAssignment($value)
+ * @method static Builder|ClassAssignment whereClassId($value)
+ * @method static Builder|ClassAssignment whereCreatedAt($value)
+ * @method static Builder|ClassAssignment whereCreatedBy($value)
+ * @method static Builder|ClassAssignment whereDeletedAt($value)
+ * @method static Builder|ClassAssignment whereId($value)
+ * @method static Builder|ClassAssignment whereUpdatedAt($value)
+ * @method static Builder|ClassAssignment whereUserId($value)
  * @mixin Eloquent
  * @property string|null  $external_id
  * @method static Builder|ClassSQL whereExternalId($value)
  * @property string|null  $uuid
- * @method static Builder|ClassAssignmentSQL whereUuid($value)
+ * @method static Builder|ClassAssignment whereUuid($value)
  * @property integer|null $position
  * @method static Builder|ClassSQL wherePosition($value)
  */
