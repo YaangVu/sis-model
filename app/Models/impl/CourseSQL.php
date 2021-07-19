@@ -6,12 +6,14 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Course;
 use YaangVu\SisModel\App\Models\Program;
+use YaangVu\SisModel\App\Models\Lms;
 
 /**
  * YaangVu\SisModel\App\Models\CourseSQL
@@ -50,13 +52,9 @@ use YaangVu\SisModel\App\Models\Program;
  */
 class CourseSQL extends Model implements Course
 {
-    use HasFactory, SoftDeletes;
+    public function lms(): BelongsTo
+    {
+        return $this->belongsTo(Lms::class);
+    }
 
-    protected $connection = DbConnectionConstant::SQL;
-
-    protected $table = self::table;
-
-    protected $fillable = ['lms_id', 'school_id', 'description', 'name', CodeConstant::EX_ID, CodeConstant::UUID, CodeConstant::UUID, 'weight'];
-
-    public string $code = CodeConstant::UUID;
 }

@@ -4,13 +4,17 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
-use YaangVu\Constant\CodeConstant;
-use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\SisModel\App\Models\ClassAssignment;
 use YaangVu\SisModel\App\Models\Clazz;
+use YaangVu\SisModel\App\Models\Course;
+use YaangVu\SisModel\App\Models\GraduationCategory;
+use YaangVu\SisModel\App\Models\Term;
+use YaangVu\Constant\ClassAssignmentConstant;
+
 
 /**
  * YaangVu\SisModel\App\Models\ClassSQL
@@ -68,19 +72,37 @@ use YaangVu\SisModel\App\Models\Clazz;
  */
 class ClassSQL extends Model implements Clazz
 {
-    use HasFactory, SoftDeletes;
+    public function terms(): BelongsTo
+    {
+        return $this->belongsTo(Term::class, 'term_id')
+                    ->whereNull('deleted_at');
+    }
 
-    protected $table = self::table;
+    public function graduationCategories(): BelongsTo
+    {
+        return $this->belongsTo(GraduationCategory::class, 'graduation_category_id')
+                    ->whereNull('graduation_categories.deleted_at');
+    }
 
-    protected $fillable
-        = ['name', 'start_date', 'end_date', 'status',
-           CodeConstant::EX_ID, 'lms_id', 'credit',
-           'grade_scale_id', 'graduation_category_id', 'term_id',
-           'course_id', 'description', CodeConstant::UUID, 'zone', 'lms_id', 'school_id'];
+    public function course(): BelongsTo
+    {
+        return $this->belongsTo(Course::class);
+    }
 
-    protected $guarded = ['id', 'created_at', 'updated_at'];
+    public function students(): HasMany
+    {
+        return $this->hasMany(ClassAssignment::class, 'class_id')
+                    ->select('id', 'user_id', 'assignment', 'class_id', 'created_by')
+                    ->where('assignment', '=', ClassAssignmentConstant::STUDENT)
+                    ->whereNull('deleted_at');
+    }
 
-    protected $connection = DbConnectionConstant::SQL;
-
-    protected string $code = CodeConstant::UUID;
+    public function teachers(): HasMany
+    {
+        return $this->hasMany(ClassAssignment::class, 'class_id')
+                    ->select('id', 'user_id', 'assignment', 'class_id', 'created_by')
+                    ->whereIn('assignment',
+                              [ClassAssignmentConstant::PRIMARY_TEACHER, ClassAssignmentConstant::SECONDARY_TEACHER])
+                    ->whereNull('deleted_at');
+    }
 }

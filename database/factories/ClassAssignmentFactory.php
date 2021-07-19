@@ -3,11 +3,11 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use YaangVu\SisModel\App\Models\ClassAssignment;
+use YaangVu\SisModel\App\Models\ClassAssignmentSQL;
 
 class ClassAssignmentFactory extends Factory
 {
-    protected $model = ClassAssignment::class;
+    protected $model = ClassAssignmentSQL::class;
 
     public function definition(): array
     {
