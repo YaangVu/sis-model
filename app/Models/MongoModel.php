@@ -1,6 +1,6 @@
 <?php
 
-namespace YaangVu\SisModel\App\Models\impl;
+namespace YaangVu\SisModel\App\Models;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
@@ -10,14 +10,14 @@ use YaangVu\Constant\DbConnectionConstant;
 
 
 /**
- * YaangVu\SisModel\App\Models\MongoModelNoSQL
+ * YaangVu\SisModel\App\Models\MongoModel
  *
- * @method static Builder|MongoModelNoSQL newModelQuery()
- * @method static Builder|MongoModelNoSQL newQuery()
- * @method static Builder|MongoModelNoSQL query()
+ * @method static Builder|MongoModel newModelQuery()
+ * @method static Builder|MongoModel newQuery()
+ * @method static Builder|MongoModel query()
  * @mixin Eloquent
  */
-class MongoModelNoSQL extends Model
+class MongoModel extends Model
 {
     use SoftDeletes;
 

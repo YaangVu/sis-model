@@ -6,5 +6,5 @@ namespace YaangVu\SisModel\App\Models;
 
 interface ClassAssignment
 {
-    public const table = 'classes_assignments';
+    public const table = 'class_assignments';
 }
