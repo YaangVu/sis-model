@@ -12,10 +12,9 @@ use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\GraduationCategory;
 use YaangVu\SisModel\App\Models\Program;
-use YaangVu\SisModel\App\Models\ProgramGraduationCategory;
 
 /**
- * YaangVu\SisModel\App\Models\GraduationCategory
+ * YaangVu\SisModel\App\Models\GraduationCategorySQL
  *
  * @property int         $id
  * @property string      $name
@@ -26,31 +25,39 @@ use YaangVu\SisModel\App\Models\ProgramGraduationCategory;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @method static Builder|GraduationCategory newModelQuery()
- * @method static Builder|GraduationCategory newQuery()
- * @method static Builder|GraduationCategory query()
- * @method static Builder|GraduationCategory whereCreatedAt($value)
- * @method static Builder|GraduationCategory whereCreatedBy($value)
- * @method static Builder|GraduationCategory whereCredit($value)
- * @method static Builder|GraduationCategory whereDeletedAt($value)
- * @method static Builder|GraduationCategory whereDescription($value)
- * @method static Builder|GraduationCategory whereId($value)
- * @method static Builder|GraduationCategory whereName($value)
- * @method static Builder|GraduationCategory whereStatus($value)
- * @method static Builder|GraduationCategory whereUpdatedAt($value)
+ * @method static Builder|GraduationCategorySQL newModelQuery()
+ * @method static Builder|GraduationCategorySQL newQuery()
+ * @method static Builder|GraduationCategorySQL query()
+ * @method static Builder|GraduationCategorySQL whereCreatedAt($value)
+ * @method static Builder|GraduationCategorySQL whereCreatedBy($value)
+ * @method static Builder|GraduationCategorySQL whereCredit($value)
+ * @method static Builder|GraduationCategorySQL whereDeletedAt($value)
+ * @method static Builder|GraduationCategorySQL whereDescription($value)
+ * @method static Builder|GraduationCategorySQL whereId($value)
+ * @method static Builder|GraduationCategorySQL whereName($value)
+ * @method static Builder|GraduationCategorySQL whereStatus($value)
+ * @method static Builder|GraduationCategorySQL whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static Builder|GraduationCategory onlyTrashed()
- * @method static Builder|GraduationCategory withTrashed()
- * @method static Builder|GraduationCategory withoutTrashed()
+ * @method static Builder|GraduationCategorySQL onlyTrashed()
+ * @method static Builder|GraduationCategorySQL withTrashed()
+ * @method static Builder|GraduationCategorySQL withoutTrashed()
  * @property string|null $uuid
  * @property string|null $external_id
- * @method static Builder|GraduationCategory whereExternalId($value)
- * @method static Builder|GraduationCategory whereUuid($value)
+ * @method static Builder|GraduationCategorySQL whereExternalId($value)
+ * @method static Builder|GraduationCategorySQL whereUuid($value)
  */
-class GraduationCategorySQL extends GraduationCategory
+class GraduationCategorySQL extends Model implements GraduationCategory
 {
+    use SoftDeletes, HasFactory;
+
+    protected $table = self::table;
+
+    protected $fillable = ['name', 'description', 'credit', 'status'];
+
+    protected $connection = DbConnectionConstant::SQL;
+
     public function programs(): BelongsToMany
     {
-        return $this->belongsToMany(Program::class, (new ProgramGraduationCategory())->getTable());
+        return $this->belongsToMany(Program::class, (new ProgramGraduationCategorySQL())->getTable());
     }
 }

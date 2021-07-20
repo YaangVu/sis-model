@@ -4,8 +4,11 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\CodeConstant;
+use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\ClassAssignment;
 
 /**
@@ -38,8 +41,16 @@ use YaangVu\SisModel\App\Models\ClassAssignment;
  * @property integer|null $position
  * @method static Builder|ClassSQL wherePosition($value)
  */
-class ClassAssignmentSQL extends ClassAssignment
+class ClassAssignmentSQL extends Model implements ClassAssignment
 {
+    protected $table = self::table;
+
+    protected $connection = DbConnectionConstant::SQL;
+
+    protected $fillable = ['user_id', 'assignment', 'class_id', CodeConstant::EX_ID, 'position', 'uuid'];
+
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
     public function users(): BelongsTo
     {
         return $this->belongsTo(UserSQL::class, 'user_id', 'id');

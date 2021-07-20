@@ -4,11 +4,15 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\CodeConstant;
+use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\GraduationCategory;
 use YaangVu\SisModel\App\Models\Program;
-use YaangVu\SisModel\App\Models\ProgramGraduationCategory;
 
 /**
  * YaangVu\SisModel\App\Models\ProgramSQL
@@ -21,35 +25,43 @@ use YaangVu\SisModel\App\Models\ProgramGraduationCategory;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @method static Builder|Program newModelQuery()
- * @method static Builder|Program newQuery()
- * @method static Builder|Program query()
- * @method static Builder|Program whereCreatedAt($value)
- * @method static Builder|Program whereCreatedBy($value)
- * @method static Builder|Program whereDeletedAt($value)
- * @method static Builder|Program whereDescription($value)
- * @method static Builder|Program whereId($value)
- * @method static Builder|Program whereName($value)
- * @method static Builder|Program whereSchoolId($value)
- * @method static Builder|Program whereUpdatedAt($value)
+ * @method static Builder|ProgramSQL newModelQuery()
+ * @method static Builder|ProgramSQL newQuery()
+ * @method static Builder|ProgramSQL query()
+ * @method static Builder|ProgramSQL whereCreatedAt($value)
+ * @method static Builder|ProgramSQL whereCreatedBy($value)
+ * @method static Builder|ProgramSQL whereDeletedAt($value)
+ * @method static Builder|ProgramSQL whereDescription($value)
+ * @method static Builder|ProgramSQL whereId($value)
+ * @method static Builder|ProgramSQL whereName($value)
+ * @method static Builder|ProgramSQL whereSchoolId($value)
+ * @method static Builder|ProgramSQL whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static Builder|Program onlyTrashed()
- * @method static Builder|Program withTrashed()
- * @method static Builder|Program withoutTrashed()
+ * @method static Builder|ProgramSQL onlyTrashed()
+ * @method static Builder|ProgramSQL withTrashed()
+ * @method static Builder|ProgramSQL withoutTrashed()
  * @property string|null $external_id
- * @method static Builder|Program whereExternalId($value)
+ * @method static Builder|ProgramSQL whereExternalId($value)
  * @property string|null $status
- * @method static Builder|Program whereStatus($value)
+ * @method static Builder|ProgramSQL whereStatus($value)
  * @property int|null    $lms_id
- * @method static Builder|Program whereLmsId($value)
+ * @method static Builder|ProgramSQL whereLmsId($value)
  * @property string|null $uuid
- * @method static Builder|Program whereUuid($value)
+ * @method static Builder|ProgramSQL whereUuid($value)
  */
-class ProgramSQL extends Program
+class ProgramSQL extends Model implements Program
 {
+    use SoftDeletes, HasFactory;
+
+    protected $table = self::table;
+
+    protected $fillable = ['name', 'description', 'school_id', 'status', 'lms_id', CodeConstant::UUID];
+
+    protected $connection = DbConnectionConstant::SQL;
+
     public function graduationCategories(): BelongsToMany
     {
-        return $this->belongsToMany(GraduationCategory::class, (new ProgramGraduationCategory())->getTable())
+        return $this->belongsToMany(GraduationCategory::class, (new ProgramGraduationCategorySQL())->getTable())
                     ->addSelect('graduation_categories.*', 'program_graduation_category.credit');
     }
 }
