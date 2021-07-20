@@ -24,7 +24,6 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @property string|null $lms_id
  * @property float|null  $credit
  * @property int|null    $grade_scale_id
- * @property int|null    $graduation_category_id
  * @property int|null    $term_id
  * @property int|null    $created_by
  * @property Carbon|null $created_at
@@ -43,7 +42,6 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @method static Builder|ClassNoSQL whereExternalId($value)
  * @method static Builder|ClassNoSQL whereLmsId($value)
  * @method static Builder|ClassNoSQL whereGradeScaleId($value)
- * @method static Builder|ClassNoSQL whereGraduationCategoryId($value)
  * @method static Builder|ClassNoSQL whereId($value)
  * @method static Builder|ClassNoSQL whereLmsSystem($value)
  * @method static Builder|ClassNoSQL whereName($value)
@@ -75,7 +73,7 @@ class ClassSQL extends Model implements Clazz
     protected $fillable
         = ['name', 'start_date', 'end_date', 'status',
            CodeConstant::EX_ID, 'lms_id', 'credit',
-           'grade_scale_id', 'graduation_category_id', 'term_id',
+           'grade_scale_id', 'term_id',
            'course_id', 'description', CodeConstant::UUID, 'zone', 'lms_id', 'school_id'];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
