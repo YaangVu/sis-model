@@ -24,7 +24,6 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @property string|null $lms_id
  * @property float|null  $credit
  * @property int|null    $grade_scale_id
- * @property int|null    $graduation_category_id
  * @property int|null    $term_id
  * @property int|null    $created_by
  * @property Carbon|null $created_at
@@ -43,7 +42,6 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @method static Builder|ClassNoSQL whereExternalId($value)
  * @method static Builder|ClassNoSQL whereLmsId($value)
  * @method static Builder|ClassNoSQL whereGradeScaleId($value)
- * @method static Builder|ClassNoSQL whereGraduationCategoryId($value)
  * @method static Builder|ClassNoSQL whereId($value)
  * @method static Builder|ClassNoSQL whereLmsSystem($value)
  * @method static Builder|ClassNoSQL whereName($value)
