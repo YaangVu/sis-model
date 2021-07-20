@@ -6,11 +6,19 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\SisModel\App\Models\ClassAssignment;
 use YaangVu\SisModel\App\Models\Clazz;
+use YaangVu\SisModel\App\Models\Course;
+use YaangVu\SisModel\App\Models\GraduationCategory;
+use YaangVu\SisModel\App\Models\Term;
+use YaangVu\Constant\ClassAssignmentConstant;
+
 
 /**
  * YaangVu\SisModel\App\Models\ClassSQL
@@ -81,4 +89,38 @@ class ClassSQL extends Model implements Clazz
     protected $connection = DbConnectionConstant::SQL;
 
     protected string $code = CodeConstant::UUID;
+
+    public function terms(): BelongsTo
+    {
+        return $this->belongsTo(Term::class, 'term_id')
+                    ->whereNull('deleted_at');
+    }
+
+    public function graduationCategories(): BelongsTo
+    {
+        return $this->belongsTo(GraduationCategory::class, 'graduation_category_id')
+                    ->whereNull('graduation_categories.deleted_at');
+    }
+
+    public function course(): BelongsTo
+    {
+        return $this->belongsTo(Course::class);
+    }
+
+    public function students(): HasMany
+    {
+        return $this->hasMany(ClassAssignment::class, 'class_id')
+                    ->select('id', 'user_id', 'assignment', 'class_id', 'created_by')
+                    ->where('assignment', '=', ClassAssignmentConstant::STUDENT)
+                    ->whereNull('deleted_at');
+    }
+
+    public function teachers(): HasMany
+    {
+        return $this->hasMany(ClassAssignment::class, 'class_id')
+                    ->select('id', 'user_id', 'assignment', 'class_id', 'created_by')
+                    ->whereIn('assignment',
+                              [ClassAssignmentConstant::PRIMARY_TEACHER, ClassAssignmentConstant::SECONDARY_TEACHER])
+                    ->whereNull('deleted_at');
+    }
 }

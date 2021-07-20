@@ -17,6 +17,7 @@ use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\LaravelAws\S3Service;
 use YaangVu\SisModel\App\Models\User;
+use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
 
 
 /**
@@ -92,6 +93,52 @@ class UserNoSQL extends Model implements User
             $this->S3Service = new S3Service();
 
             return $this->S3Service->createPresigned($value);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * AWS Pre Signed a Financial Assistance Programs file
+     *
+     * @param array|null $value
+     *
+     * @return array|null
+     */
+    public function getFinancialAssistanceProgramsAttribute(?array $value): ?array
+    {
+        if (isset($value) && $value) {
+            return $this->_signValueInArray($value, 'src');
+        } else {
+            return null;
+        }
+    }
+
+    private function _signValueInArray(array $array, string $value): array
+    {
+        $this->S3Service = new S3Service();
+        foreach ($array as $k => $v) {
+            if (isset($v[$value]) && $v[$value]) {
+                $array[$k][$value] = $this->S3Service->createPresigned($v[$value]);
+            }
+        }
+
+        return $array;
+    }
+
+    public function getRoleNamesAttribute(?array $roleNames): array|null
+    {
+        if (is_array($roleNames)) {
+            foreach ($roleNames as $roleName) {
+                if (!str_contains($roleName, ':'))
+                    continue;
+
+                [$scID, $decorRoleName] = explode(':', $roleName);
+                if ($scID == SchoolServiceProvider::$currentSchool->uuid)
+                    $response[] = $decorRoleName;
+            }
+
+            return $response ?? $roleNames;
         } else {
             return null;
         }

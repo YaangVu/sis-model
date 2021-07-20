@@ -9,6 +9,7 @@ use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Calendar;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * YaangVu\SisModel\App\Models\CalendarNoSQL
@@ -65,4 +66,30 @@ class CalendarNoSQL extends Model implements Calendar
     protected $guarded = [];
 
     protected $connection = DbConnectionConstant::NOSQL;
+
+    public function user(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return $this->belongsTo(UserSQL::class, 'created_by', 'id');
+    }
+
+    public function class(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return $this->belongsTo(ClassSql::class, 'class_id', 'id');
+    }
+
+    public function getStartAttribute($value): Carbon|string|null
+    {
+        if (gettype($value) !== 'string')
+            return Carbon::createFromTimestampMsUTC($value);
+
+        return $value;
+    }
+
+    public function getEndAttribute($value): Carbon|string|null
+    {
+        if (gettype($value) !== 'string')
+            return Carbon::createFromTimestampMsUTC($value);
+
+        return $value;
+    }
 }
