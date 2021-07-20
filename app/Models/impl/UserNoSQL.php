@@ -74,7 +74,7 @@ class UserNoSQL extends Model implements User
      *
      * @var array
      */
-    protected $hidden = ['password', 'uuid'];
+    protected $hidden = ['password'];
 
     protected $guarded = [];
 
