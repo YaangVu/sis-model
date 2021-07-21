@@ -61,7 +61,7 @@ class ProgramSQL extends Model implements Program
 
     public function graduationCategories(): BelongsToMany
     {
-        return $this->belongsToMany(GraduationCategory::class, (new ProgramGraduationCategorySQL())->getTable())
+        return $this->belongsToMany(GraduationCategorySQL::class, (new ProgramGraduationCategorySQL())->getTable())
                     ->addSelect('graduation_categories.*', 'program_graduation_category.credit');
     }
 }

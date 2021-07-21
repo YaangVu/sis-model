@@ -64,7 +64,7 @@ class CourseSQL extends Model implements Course
 
     public function lms(): BelongsTo
     {
-        return $this->belongsTo(Lms::class);
+        return $this->belongsTo(LmsSQL::class);
     }
 
 }

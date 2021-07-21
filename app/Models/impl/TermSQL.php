@@ -82,6 +82,6 @@ class TermSQL extends Model implements Term
 
     public function courses(): HasMany
     {
-        return $this->hasMany(Course::class);
+        return $this->hasMany(CourseSQL::class);
     }
 }

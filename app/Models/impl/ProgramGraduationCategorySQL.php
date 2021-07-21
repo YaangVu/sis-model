@@ -59,13 +59,13 @@ class ProgramGraduationCategorySQL extends Model implements ProgramGraduationCat
 
     public function graduationCategories(): BelongsToMany
     {
-        return $this->belongsToMany(GraduationCategory::class, 'graduation_category_id')
+        return $this->belongsToMany(GraduationCategorySQL::class, 'graduation_category_id')
                     ->whereNull('deleted_at');
     }
 
     public function programs(): HasMany
     {
-        return $this->hasMany(Program::class, 'id', 'program_id')
+        return $this->hasMany(ProgramSQL::class, 'id', 'program_id')
                     ->select('id', 'name', 'description', 'school_id')
                     ->whereNull('deleted_at');
     }

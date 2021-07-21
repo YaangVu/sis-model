@@ -92,24 +92,24 @@ class ClassSQL extends Model implements Clazz
 
     public function terms(): BelongsTo
     {
-        return $this->belongsTo(Term::class, 'term_id')
+        return $this->belongsTo(TermSQL::class, 'term_id')
                     ->whereNull('deleted_at');
     }
 
     public function graduationCategories(): BelongsTo
     {
-        return $this->belongsTo(GraduationCategory::class, 'graduation_category_id')
+        return $this->belongsTo(GraduationCategorySQL::class, 'graduation_category_id')
                     ->whereNull('graduation_categories.deleted_at');
     }
 
     public function course(): BelongsTo
     {
-        return $this->belongsTo(Course::class);
+        return $this->belongsTo(CourseSQL::class);
     }
 
     public function students(): HasMany
     {
-        return $this->hasMany(ClassAssignment::class, 'class_id')
+        return $this->hasMany(ClassAssignmentSQL::class, 'class_id')
                     ->select('id', 'user_id', 'assignment', 'class_id', 'created_by')
                     ->where('assignment', '=', ClassAssignmentConstant::STUDENT)
                     ->whereNull('deleted_at');
@@ -117,7 +117,7 @@ class ClassSQL extends Model implements Clazz
 
     public function teachers(): HasMany
     {
-        return $this->hasMany(ClassAssignment::class, 'class_id')
+        return $this->hasMany(ClassAssignmentSQL::class, 'class_id')
                     ->select('id', 'user_id', 'assignment', 'class_id', 'created_by')
                     ->whereIn('assignment',
                               [ClassAssignmentConstant::PRIMARY_TEACHER, ClassAssignmentConstant::SECONDARY_TEACHER])
