@@ -143,4 +143,14 @@ class UserNoSQL extends Model implements User
             return null;
         }
     }
+
+    public function getCertificatesAttribute(?array $array): array
+    {
+        $this->S3Service = new S3Service();
+        foreach ($array as $key => $value) {
+            $array[$key]['src'] = $this->S3Service->createPresigned($value['src']);
+        }
+
+        return $array;
+    }
 }
