@@ -12,11 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\ClassAssignment;
 use YaangVu\SisModel\App\Models\Clazz;
-use YaangVu\SisModel\App\Models\Course;
-use YaangVu\SisModel\App\Models\GraduationCategory;
-use YaangVu\SisModel\App\Models\Term;
 use YaangVu\Constant\ClassAssignmentConstant;
 
 

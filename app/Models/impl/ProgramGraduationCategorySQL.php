@@ -11,8 +11,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\GraduationCategory;
-use YaangVu\SisModel\App\Models\Program;
 use YaangVu\SisModel\App\Models\ProgramGraduationCategory;
 
 /**

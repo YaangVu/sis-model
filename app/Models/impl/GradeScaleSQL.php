@@ -11,9 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\GradeLetter;
 use YaangVu\SisModel\App\Models\GradeScale;
-use YaangVu\SisModel\App\Models\GradeScale1;
 
 /**
  * YaangVu\SisModel\App\Models\GradeScaleSQL
@@ -25,32 +23,32 @@ use YaangVu\SisModel\App\Models\GradeScale1;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @method static Builder|GradeScale1 newModelQuery()
- * @method static Builder|GradeScale1 newQuery()
- * @method static Builder|GradeScale1 query()
- * @method static Builder|GradeScale1 whereCreatedAt($value)
- * @method static Builder|GradeScale1 whereCreatedBy($value)
- * @method static Builder|GradeScale1 whereDeletedAt($value)
- * @method static Builder|GradeScale1 whereDescription($value)
- * @method static Builder|GradeScale1 whereId($value)
- * @method static Builder|GradeScale1 whereName($value)
- * @method static Builder|GradeScale1 whereUpdatedAt($value)
+ * @method static Builder|GradeScaleSQL newModelQuery()
+ * @method static Builder|GradeScaleSQL newQuery()
+ * @method static Builder|GradeScaleSQL query()
+ * @method static Builder|GradeScaleSQL whereCreatedAt($value)
+ * @method static Builder|GradeScaleSQL whereCreatedBy($value)
+ * @method static Builder|GradeScaleSQL whereDeletedAt($value)
+ * @method static Builder|GradeScaleSQL whereDescription($value)
+ * @method static Builder|GradeScaleSQL whereId($value)
+ * @method static Builder|GradeScaleSQL whereName($value)
+ * @method static Builder|GradeScaleSQL whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static Builder|GradeScale1 onlyTrashed()
- * @method static Builder|GradeScale1 withTrashed()
- * @method static Builder|GradeScale1 withoutTrashed()
+ * @method static Builder|GradeScaleSQL onlyTrashed()
+ * @method static Builder|GradeScaleSQL withTrashed()
+ * @method static Builder|GradeScaleSQL withoutTrashed()
  * @property boolean     $is_calculate_gpa
- * @method static Builder|Program whereIsCalculateGpa($value)
+ * @method static Builder|ProgramSQL whereIsCalculateGpa($value)
  * @property float       $score_to_pass
- * @method static Builder|Program whereScoreToPass($value)
+ * @method static Builder|ProgramSQL whereScoreToPass($value)
  * @property int|null    $lms_id
- * @method static Builder|Program whereLmsId($value)
+ * @method static Builder|ProgramSQL whereLmsId($value)
  * @property string|null $uuid
  * @property string|null $external_id
  * @property int|null    $school_id
- * @method static Builder|GradeScale1 whereExternalId($value)
- * @method static Builder|GradeScale1 whereSchoolId($value)
- * @method static Builder|GradeScale1 whereUuid($value)
+ * @method static Builder|GradeScaleSQL whereExternalId($value)
+ * @method static Builder|GradeScaleSQL whereSchoolId($value)
+ * @method static Builder|GradeScaleSQL whereUuid($value)
  */
 class GradeScaleSQL extends Model implements GradeScale
 {
@@ -62,7 +60,7 @@ class GradeScaleSQL extends Model implements GradeScale
 
     protected $fillable = ['name', 'description', 'is_calculate_gpa', 'score_to_pass', 'lms_id', CodeConstant::UUID];
 
-    public function grade_letters(): HasMany
+    public function gradeLetters(): HasMany
     {
         return $this->hasMany(GradeLetterSQL::class);
     }

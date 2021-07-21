@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\GraduationCategory;
 use YaangVu\SisModel\App\Models\Program;
 
 /**
