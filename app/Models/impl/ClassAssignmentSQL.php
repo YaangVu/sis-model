@@ -58,6 +58,6 @@ class ClassAssignmentSQL extends Model implements ClassAssignment
 
     public function classes(): BelongsTo
     {
-        return $this->belongsTo(ClassSql::class, 'class_id', 'id');
+        return $this->belongsTo(ClassSQL::class, 'class_id', 'id');
     }
 }

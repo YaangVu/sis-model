@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\GraduationCategory;
 use YaangVu\SisModel\App\Models\Program;
 
 /**
@@ -61,7 +60,7 @@ class ProgramSQL extends Model implements Program
 
     public function graduationCategories(): BelongsToMany
     {
-        return $this->belongsToMany(GraduationCategory::class, (new ProgramGraduationCategorySQL())->getTable())
+        return $this->belongsToMany(GraduationCategorySQL::class, (new ProgramGraduationCategorySQL())->getTable())
                     ->addSelect('graduation_categories.*', 'program_graduation_category.credit');
     }
 }
