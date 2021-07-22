@@ -10,10 +10,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\ClassAssignmentConstant;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Clazz;
-use YaangVu\Constant\ClassAssignmentConstant;
 
 
 /**
@@ -78,7 +78,8 @@ class ClassSQL extends Model implements Clazz
         = ['name', 'start_date', 'end_date', 'status',
            CodeConstant::EX_ID, 'lms_id', 'credit',
            'grade_scale_id', 'term_id',
-           'course_id', 'description', CodeConstant::UUID, 'zone', 'lms_id', 'school_id'];
+           'course_id', 'description', CodeConstant::UUID,
+           'zone', 'lms_id', 'school_id', 'subject_id'];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
@@ -106,7 +107,7 @@ class ClassSQL extends Model implements Clazz
     public function students(): HasMany
     {
         return $this->hasMany(ClassAssignmentSQL::class, 'class_id')
-                    ->select('id', 'user_id', 'assignment', 'class_id', 'created_by')
+                    ->select('id', 'user_id', 'assignment', 'class_id', 'position', 'created_by')
                     ->where('assignment', '=', ClassAssignmentConstant::STUDENT)
                     ->whereNull('deleted_at');
     }
@@ -114,7 +115,7 @@ class ClassSQL extends Model implements Clazz
     public function teachers(): HasMany
     {
         return $this->hasMany(ClassAssignmentSQL::class, 'class_id')
-                    ->select('id', 'user_id', 'assignment', 'class_id', 'created_by')
+                    ->select('id', 'user_id', 'assignment', 'class_id', 'position', 'created_by')
                     ->whereIn('assignment',
                               [ClassAssignmentConstant::PRIMARY_TEACHER, ClassAssignmentConstant::SECONDARY_TEACHER])
                     ->whereNull('deleted_at');
