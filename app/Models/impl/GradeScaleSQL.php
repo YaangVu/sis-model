@@ -62,11 +62,11 @@ class GradeScaleSQL extends Model implements GradeScale
 
     public function gradeLetters(): HasMany
     {
-        return $this->hasMany(GradeLetterSQL::class);
+        return $this->hasMany(GradeLetterSQL::class,'grade_scale_id');
     }
 
     public function classes(): HasMany
     {
-        return $this->hasMany(ClassSQL::class);
+        return $this->hasMany(ClassSQL::class,'id');
     }
 }
