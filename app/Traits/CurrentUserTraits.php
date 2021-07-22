@@ -5,11 +5,7 @@ namespace YaangVu\SisModel\App\Traits;
 
 
 use Exception;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use YaangVu\Exceptions\SystemException;
 use YaangVu\LaravelBase\Services\impl\BaseService;
-use YaangVu\SisModel\App\Models\impl\UserSQL;
 
 trait CurrentUserTraits
 {
@@ -22,7 +18,7 @@ trait CurrentUserTraits
      */
     public function hasAnyRoles(...$roles): bool
     {
-        return $this->currentUserSql()->hasAnyRole($roles);
+        return BaseService::currentUser()->hasAnyRole($roles);
     }
 
     /**
@@ -34,7 +30,7 @@ trait CurrentUserTraits
      */
     public function hasAllRole(...$roles): bool
     {
-        return $this->currentUserSql()->hasAllRoles($roles);
+        return BaseService::currentUser()->hasAllRoles($roles);
     }
 
     /**
@@ -47,7 +43,7 @@ trait CurrentUserTraits
      */
     public function hasAnyPermissions(...$permissions): bool
     {
-        return $this->currentUserSql()->hasAnyPermission($permissions);
+        return BaseService::currentUser()->hasAnyPermission($permissions);
     }
 
     /**
@@ -60,21 +56,6 @@ trait CurrentUserTraits
      */
     public function hasAllPermissions(...$permissions): bool
     {
-        return $this->currentUserSql()->hasAllPermissions($permissions);
-    }
-
-    /**
-     * get current user sql
-     * @return Model|Builder|UserSQL
-     */
-    public function currentUserSql(): Model|Builder|UserSQL
-    {
-        try {
-            $username = BaseService::currentUser()?->username;
-
-            return UserSQL::whereUsername($username)->firstOrFail();
-        } catch (Exception $e) {
-            throw new SystemException($e->getMessage() ?? __('system-500'), $e);
-        }
+        return BaseService::currentUser()->hasAllPermissions($permissions);
     }
 }

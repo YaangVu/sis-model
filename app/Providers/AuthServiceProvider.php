@@ -3,7 +3,7 @@
 namespace YaangVu\SisModel\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use YaangVu\SisModel\App\Models\impl\UserNoSQL;
+use YaangVu\SisModel\App\Models\impl\UserSQL;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -32,9 +32,9 @@ class AuthServiceProvider extends ServiceProvider
         $this->app['auth']->viaRequest('api', function ($request) {
             $uuid = $request->header('X-user-uuid');
             if ($uuid)
-                return (new UserNoSQL())->where('uuid', $uuid)->first();
+                return UserSQL::whereUuid($uuid)->first();
             else
-                return new UserNoSQL();
+                return new UserSQL();
         });
     }
 }
