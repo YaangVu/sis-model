@@ -119,4 +119,19 @@ class ClassSQL extends Model implements Clazz
                               [ClassAssignmentConstant::PRIMARY_TEACHER, ClassAssignmentConstant::SECONDARY_TEACHER])
                     ->whereNull('deleted_at');
     }
+
+    public function teacherOfClassAssignment(): HasMany
+    {
+        return $this->hasMany(ClassAssignmentSQL::class, 'class_id')
+                    ->join(UserSQL::table,'users.id','=','class_assignments.user_id')
+                    ->whereIn('assignment',
+                              [ClassAssignmentConstant::PRIMARY_TEACHER, ClassAssignmentConstant::SECONDARY_TEACHER])
+                    ->whereNull('class_assignments.deleted_at');
+    }
+
+
+    public function subject(): BelongsTo
+    {
+        return $this->belongsTo(SubjectSQL::class, 'subject_id');
+    }
 }
