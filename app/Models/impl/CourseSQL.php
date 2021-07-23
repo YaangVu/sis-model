@@ -13,20 +13,19 @@ use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Course;
 use YaangVu\SisModel\App\Models\Program;
-use YaangVu\SisModel\App\Models\Lms;
 
 /**
  * YaangVu\SisModel\App\Models\CourseSQL
  *
- * @property int         $id
- * @property string      $name
- * @property int|null    $lms_id
- * @property int|null    $school_id
- * @property string|null $description
- * @property int|null    $created_by
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $deleted_at
+ * @property int                                                $id
+ * @property string                                             $name
+ * @property int|null                                           $lms_id
+ * @property int|null                                           $school_id
+ * @property string|null                                        $description
+ * @property int|null                                           $created_by
+ * @property Carbon|null                                        $created_at
+ * @property Carbon|null                                        $updated_at
+ * @property string|null                                        $deleted_at
  * @method static Builder|CourseSQL newModelQuery()
  * @method static Builder|CourseSQL newQuery()
  * @method static Builder|CourseSQL query()
@@ -40,15 +39,16 @@ use YaangVu\SisModel\App\Models\Lms;
  * @method static Builder|CourseSQL whereSchoolId($value)
  * @method static Builder|CourseSQL whereUpdatedAt($value)
  * @mixin Eloquent
- * @property string|null $external_id
+ * @property string|null      $external_id
  * @method static Builder|CourseSQL whereExternalId($value)
- * @property string|null $weight
+ * @property string|null      $weight
  * @method static Builder|Program whereWeight($value)
  * @method static \Illuminate\Database\Query\Builder|CourseSQL onlyTrashed()
  * @method static \Illuminate\Database\Query\Builder|CourseSQL withTrashed()
  * @method static \Illuminate\Database\Query\Builder|CourseSQL withoutTrashed()
- * @property string|null $uuid course id
+ * @property string|null      $uuid course id
  * @method static Builder|CourseSQL whereUuid($value)
+ * @property-read LmsSQL|null $lms
  */
 class CourseSQL extends Model implements Course
 {

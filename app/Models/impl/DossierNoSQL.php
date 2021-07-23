@@ -40,7 +40,6 @@ use YaangVu\SisModel\App\Models\Dossier;
  * @method static Builder|DossierNoSQL query()
  * @mixin Eloquent
  */
-
 class DossierNoSQL extends Model implements Dossier
 {
     use SoftDeletes, HasFactory;

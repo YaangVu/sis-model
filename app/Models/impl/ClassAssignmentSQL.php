@@ -14,14 +14,14 @@ use YaangVu\SisModel\App\Models\ClassAssignment;
 /**
  * YaangVu\SisModel\App\Models\ClassAssignmentSQL
  *
- * @property int          $id
- * @property int          $user_id
- * @property int          $class_id
- * @property string       $assignment
- * @property int|null     $created_by
- * @property Carbon|null  $created_at
- * @property Carbon|null  $updated_at
- * @property string|null  $deleted_at
+ * @property int                                             $id
+ * @property int                                             $user_id
+ * @property int                                             $class_id
+ * @property string                                          $assignment
+ * @property int|null                                        $created_by
+ * @property Carbon|null                                     $created_at
+ * @property Carbon|null                                     $updated_at
+ * @property string|null                                     $deleted_at
  * @method static Builder|ClassAssignmentSQL newModelQuery()
  * @method static Builder|ClassAssignmentSQL newQuery()
  * @method static Builder|ClassAssignmentSQL query()
@@ -34,12 +34,14 @@ use YaangVu\SisModel\App\Models\ClassAssignment;
  * @method static Builder|ClassAssignmentSQL whereUpdatedAt($value)
  * @method static Builder|ClassAssignmentSQL whereUserId($value)
  * @mixin Eloquent
- * @property string|null  $external_id
+ * @property string|null   $external_id
  * @method static Builder|ClassSQL whereExternalId($value)
- * @property string|null  $uuid
+ * @property string|null   $uuid
  * @method static Builder|ClassAssignmentSQL whereUuid($value)
- * @property integer|null $position
+ * @property integer|null  $position
  * @method static Builder|ClassSQL wherePosition($value)
+ * @property-read ClassSQL $classes
+ * @property-read UserSQL  $users
  */
 class ClassAssignmentSQL extends Model implements ClassAssignment
 {

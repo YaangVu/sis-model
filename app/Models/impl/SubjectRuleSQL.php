@@ -19,7 +19,7 @@ use YaangVu\SisModel\App\Models\SubjectRule;
  * @property string|null $type
  * @property int         $subject_id
  * @property int|null    $relevance_subject_id
- * @property int         $group group of rules
+ * @property string      $group group of rules
  * @property int|null    $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at

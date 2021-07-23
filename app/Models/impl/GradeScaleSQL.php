@@ -4,6 +4,7 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -16,13 +17,18 @@ use YaangVu\SisModel\App\Models\GradeScale;
 /**
  * YaangVu\SisModel\App\Models\GradeScaleSQL
  *
- * @property int         $id
- * @property string      $name
- * @property string|null $description
- * @property int|null    $created_by
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $deleted_at
+ * @property int                                                                                              $id
+ * @property string                                                                                           $name
+ * @property string|null
+ *           $description
+ * @property int|null
+ *           $created_by
+ * @property Carbon|null
+ *           $created_at
+ * @property Carbon|null
+ *           $updated_at
+ * @property string|null
+ *           $deleted_at
  * @method static Builder|GradeScaleSQL newModelQuery()
  * @method static Builder|GradeScaleSQL newQuery()
  * @method static Builder|GradeScaleSQL query()
@@ -37,18 +43,29 @@ use YaangVu\SisModel\App\Models\GradeScale;
  * @method static Builder|GradeScaleSQL onlyTrashed()
  * @method static Builder|GradeScaleSQL withTrashed()
  * @method static Builder|GradeScaleSQL withoutTrashed()
- * @property boolean     $is_calculate_gpa
+ * @property boolean
+ *           $is_calculate_gpa
  * @method static Builder|ProgramSQL whereIsCalculateGpa($value)
- * @property float       $score_to_pass
+ * @property float
+ *           $score_to_pass
  * @method static Builder|ProgramSQL whereScoreToPass($value)
- * @property int|null    $lms_id
+ * @property int|null                   $lms_id
  * @method static Builder|ProgramSQL whereLmsId($value)
- * @property string|null $uuid
- * @property string|null $external_id
- * @property int|null    $school_id
+ * @property string|null                $uuid
+ * @property string|null
+ *           $external_id
+ * @property int|null
+ *           $school_id
  * @method static Builder|GradeScaleSQL whereExternalId($value)
  * @method static Builder|GradeScaleSQL whereSchoolId($value)
  * @method static Builder|GradeScaleSQL whereUuid($value)
+ * @property-read Collection|ClassSQL[] $classes
+ * @property-read int|null
+ *                $classes_count
+ * @property-read Collection|GradeLetterSQL[]
+ *                $gradeLetters
+ * @property-read int|null
+ *                $grade_letters_count
  */
 class GradeScaleSQL extends Model implements GradeScale
 {
@@ -62,11 +79,11 @@ class GradeScaleSQL extends Model implements GradeScale
 
     public function gradeLetters(): HasMany
     {
-        return $this->hasMany(GradeLetterSQL::class,'grade_scale_id');
+        return $this->hasMany(GradeLetterSQL::class, 'grade_scale_id');
     }
 
     public function classes(): HasMany
     {
-        return $this->hasMany(ClassSQL::class,'id');
+        return $this->hasMany(ClassSQL::class, 'id');
     }
 }

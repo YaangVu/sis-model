@@ -4,6 +4,7 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -11,20 +12,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\GraduationCategory;
-use YaangVu\SisModel\App\Models\Program;
 
 /**
  * YaangVu\SisModel\App\Models\GraduationCategorySQL
  *
- * @property int         $id
- * @property string      $name
- * @property string|null $description
- * @property float|null  $credit
- * @property string|null $status
- * @property int|null    $created_by
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $deleted_at
+ * @property int                                                                                          $id
+ * @property string                                                                                       $name
+ * @property string|null                                                                                  $description
+ * @property float|null                                                                                   $credit
+ * @property string|null                                                                                  $status
+ * @property int|null                                                                                     $created_by
+ * @property Carbon|null                                                                                  $created_at
+ * @property Carbon|null                                                                                  $updated_at
+ * @property string|null                                                                                  $deleted_at
  * @method static Builder|GraduationCategorySQL newModelQuery()
  * @method static Builder|GraduationCategorySQL newQuery()
  * @method static Builder|GraduationCategorySQL query()
@@ -41,10 +41,13 @@ use YaangVu\SisModel\App\Models\Program;
  * @method static Builder|GraduationCategorySQL onlyTrashed()
  * @method static Builder|GraduationCategorySQL withTrashed()
  * @method static Builder|GraduationCategorySQL withoutTrashed()
- * @property string|null $uuid
- * @property string|null $external_id
+ * @property string|null                                                $uuid
+ * @property string|null                                                $external_id
  * @method static Builder|GraduationCategorySQL whereExternalId($value)
  * @method static Builder|GraduationCategorySQL whereUuid($value)
+ * @property-read Collection|ProgramSQL[] $programs
+ * @property-read int|null
+ *                $programs_count
  */
 class GraduationCategorySQL extends Model implements GraduationCategory
 {
@@ -59,6 +62,6 @@ class GraduationCategorySQL extends Model implements GraduationCategory
     public function programs(): BelongsToMany
     {
         return $this->belongsToMany(ProgramSQL::class, (new ProgramGraduationCategorySQL())->getTable(),
-                                    'graduation_category_id','program_id');
+                                    'graduation_category_id', 'program_id');
     }
 }

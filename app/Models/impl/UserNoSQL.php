@@ -93,7 +93,8 @@ class UserNoSQL extends Model implements User
             $this->S3Service = new S3Service();
 
             return $this->S3Service->createPresigned($value);
-        } else {
+        }
+        else {
             return null;
         }
     }
@@ -109,7 +110,8 @@ class UserNoSQL extends Model implements User
     {
         if (isset($value) && $value) {
             return $this->_signValueInArray($value, 'src');
-        } else {
+        }
+        else {
             return null;
         }
     }
@@ -139,7 +141,8 @@ class UserNoSQL extends Model implements User
             }
 
             return $response ?? $roleNames;
-        } else {
+        }
+        else {
             return null;
         }
     }

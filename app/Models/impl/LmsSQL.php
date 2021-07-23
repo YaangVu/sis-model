@@ -48,7 +48,7 @@ use YaangVu\SisModel\App\Models\Lms;
 class LmsSQL extends Model implements Lms
 {
     use SoftDeletes, HasFactory;
-    
+
     protected $table = self::table;
 
     protected $connection = DbConnectionConstant::SQL;

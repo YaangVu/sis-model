@@ -43,6 +43,8 @@ use YaangVu\SisModel\App\Models\Subject;
  * @method static Builder|SubjectSQL whereUpdatedAt($value)
  * @method static Builder|SubjectSQL whereUuid($value)
  * @mixin Eloquent
+ * @property int|null    $code
+ * @method static Builder|SubjectSQL whereCode($value)
  */
 class SubjectSQL extends Model implements Subject
 {
@@ -58,6 +60,7 @@ class SubjectSQL extends Model implements Subject
             'credit',
             'description',
             'status',
+            'code',
             'grade_id',
             'school_id'
         ];
