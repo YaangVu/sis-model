@@ -5,11 +5,11 @@ namespace YaangVu\SisModel\App\Models\impl;
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Calendar;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * YaangVu\SisModel\App\Models\CalendarNoSQL

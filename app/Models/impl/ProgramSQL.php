@@ -4,6 +4,7 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -16,14 +17,22 @@ use YaangVu\SisModel\App\Models\Program;
 /**
  * YaangVu\SisModel\App\Models\ProgramSQL
  *
- * @property int         $id
- * @property string      $name
- * @property string|null $description
- * @property int|null    $school_id
- * @property int|null    $created_by
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $deleted_at
+ * @property int
+ *           $id
+ * @property string
+ *           $name
+ * @property string|null
+ *           $description
+ * @property int|null
+ *           $school_id
+ * @property int|null
+ *           $created_by
+ * @property Carbon|null
+ *           $created_at
+ * @property Carbon|null
+ *           $updated_at
+ * @property string|null
+ *           $deleted_at
  * @method static Builder|ProgramSQL newModelQuery()
  * @method static Builder|ProgramSQL newQuery()
  * @method static Builder|ProgramSQL query()
@@ -39,14 +48,22 @@ use YaangVu\SisModel\App\Models\Program;
  * @method static Builder|ProgramSQL onlyTrashed()
  * @method static Builder|ProgramSQL withTrashed()
  * @method static Builder|ProgramSQL withoutTrashed()
- * @property string|null $external_id
+ * @property string|null
+ *           $external_id
  * @method static Builder|ProgramSQL whereExternalId($value)
- * @property string|null $status
+ * @property string|null
+ *           $status
  * @method static Builder|ProgramSQL whereStatus($value)
- * @property int|null    $lms_id
+ * @property int|null
+ *           $lms_id
  * @method static Builder|ProgramSQL whereLmsId($value)
- * @property string|null $uuid
+ * @property string|null
+ *           $uuid
  * @method static Builder|ProgramSQL whereUuid($value)
+ * @property-read Collection|GraduationCategorySQL[]
+ *                $graduationCategories
+ * @property-read int|null
+ *                $graduation_categories_count
  */
 class ProgramSQL extends Model implements Program
 {
@@ -61,7 +78,7 @@ class ProgramSQL extends Model implements Program
     public function graduationCategories(): BelongsToMany
     {
         return $this->belongsToMany(GraduationCategorySQL::class, (new ProgramGraduationCategorySQL())->getTable(),
-                                    'program_id','graduation_category_id')
+                                    'program_id', 'graduation_category_id')
                     ->addSelect('graduation_categories.*', 'program_graduation_category.credit');
     }
 }

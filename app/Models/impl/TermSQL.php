@@ -16,24 +16,23 @@ use YaangVu\SisModel\App\Models\Clazz;
 use YaangVu\SisModel\App\Models\Term;
 
 
-
 /**
  * YaangVu\SisModel\App\Models\TermSQL
  *
- * @property int                     $id
- * @property string                  $name
- * @property string|null             $start_date
- * @property string|null             $end_date
- * @property string|null             $status
- * @property int|null                $school_id
- * @property string|null             $external_id
- * @property string|null             $description
- * @property int|null                $created_by
- * @property Carbon|null             $created_at
- * @property Carbon|null             $updated_at
- * @property Carbon|null             $deleted_at
- * @property-read Collection|Clazz[] $classes
- * @property-read int|null           $classes_count
+ * @property int                                                           $id
+ * @property string                                                        $name
+ * @property string|null                                                   $start_date
+ * @property string|null                                                   $end_date
+ * @property string|null                                                   $status
+ * @property int|null                                                      $school_id
+ * @property string|null                                                   $external_id
+ * @property string|null                                                   $description
+ * @property int|null                                                      $created_by
+ * @property Carbon|null                                                   $created_at
+ * @property Carbon|null                                                   $updated_at
+ * @property Carbon|null                                                   $deleted_at
+ * @property-read Collection|Clazz[]                                       $classes
+ * @property-read int|null                                                 $classes_count
  * @method static Builder|TermSQL newModelQuery()
  * @method static Builder|TermSQL newQuery()
  * @method static Builder|TermSQL onlyTrashed()
@@ -53,10 +52,12 @@ use YaangVu\SisModel\App\Models\Term;
  * @method static Builder|TermSQL withTrashed()
  * @method static Builder|TermSQL withoutTrashed()
  * @mixin Eloquent
- * @property int|null                $lms_id
+ * @property int|null                    $lms_id
  * @method static Builder|ProgramSQL whereLmsId($value)
- * @property string|null             $uuid
+ * @property string|null                 $uuid
  * @method static Builder|TermSQL whereUuid($value)
+ * @property-read Collection|CourseSQL[] $courses
+ * @property-read int|null               $courses_count
  */
 class TermSQL extends Model implements Term
 {
