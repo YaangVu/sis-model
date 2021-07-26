@@ -93,8 +93,7 @@ class UserNoSQL extends Model implements User
             $this->S3Service = new S3Service();
 
             return $this->S3Service->createPresigned($value);
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -110,8 +109,7 @@ class UserNoSQL extends Model implements User
     {
         if (isset($value) && $value) {
             return $this->_signValueInArray($value, 'src');
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -141,19 +139,36 @@ class UserNoSQL extends Model implements User
             }
 
             return $response ?? $roleNames;
-        }
-        else {
+        } else {
             return null;
         }
     }
 
-    public function getCertificatesAttribute(?array $array): array
+    /**
+     * @param array|null $value
+     *
+     * @return array|null
+     */
+    public function getCertificatesAttribute(?array $value): ?array
     {
-        $this->S3Service = new S3Service();
-        foreach ($array as $key => $value) {
-            $array[$key]['src'] = $this->S3Service->createPresigned($value['src']);
+        if (isset($value) && $value) {
+            return $this->_signValueInArray($value, 'src');
+        } else {
+            return null;
         }
+    }
 
-        return $array;
+    /**
+     * @param array|null $value
+     *
+     * @return array|null
+     */
+    public function getMedicalAttribute(?array $value): ?array
+    {
+        if (isset($value) && $value) {
+            return $this->_signValueInArray($value, 'src');
+        } else {
+            return null;
+        }
     }
 }
