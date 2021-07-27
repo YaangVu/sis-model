@@ -5,13 +5,19 @@ namespace YaangVu\SisModel\App\Traits;
 
 
 use Exception;
+use Illuminate\Database\Eloquent\Model as SqlModel;
+use Illuminate\Support\Facades\Schema;
+use Jenssegers\Mongodb\Eloquent\Model as MongoModel;
 use Spatie\Permission\Models\Role;
 use YaangVu\Constant\RoleConstant;
 use YaangVu\LaravelBase\Services\impl\BaseService;
+use YaangVu\SisModel\App\Models\impl\UserNoSQL;
+use YaangVu\SisModel\App\Models\impl\UserSQL;
 use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
 
-trait CurrentUserTraits
+trait RoleAndPermissionTrait
 {
+
     /**
      * check any role with user sql
      *
@@ -19,10 +25,10 @@ trait CurrentUserTraits
      *
      * @return bool|null
      */
-    public function hasAnyRoles(...$roles): ?bool
+    public function hasAnyRole(...$roles): ?bool
     {
         foreach ($roles as $role)
-            $decorRole[] = $this->_decorateWithSchoolUuid($role);
+            $decorRole[] = $this->decorateWithSchoolUuid($role);
 
         return BaseService::currentUser()?->hasAnyRole($decorRole ?? []);
     }
@@ -34,10 +40,10 @@ trait CurrentUserTraits
      *
      * @return bool|null
      */
-    public function hasAllRole(...$roles): ?bool
+    public function hasAllRoles(...$roles): ?bool
     {
         foreach ($roles as $role)
-            $decorRole[] = $this->_decorateWithSchoolUuid($role);
+            $decorRole[] = $this->decorateWithSchoolUuid($role);
 
         return BaseService::currentUser()?->hasAllRoles($decorRole ?? []);
     }
@@ -50,10 +56,10 @@ trait CurrentUserTraits
      * @return bool|null
      * @throws Exception
      */
-    public function hasAnyPermissions(...$permissions): ?bool
+    public function hasAnyPermission(...$permissions): ?bool
     {
         foreach ($permissions as $permission)
-            $decorPermissions[] = $this->_decorateWithSchoolUuid($permission);
+            $decorPermissions[] = $this->decorateWithSchoolUuid($permission);
 
         return BaseService::currentUser()?->hasAnyPermission($decorPermissions ?? []);
     }
@@ -69,7 +75,7 @@ trait CurrentUserTraits
     public function hasAllPermissions(...$permissions): ?bool
     {
         foreach ($permissions as $permission)
-            $decorPermissions[] = $this->_decorateWithSchoolUuid($permission);
+            $decorPermissions[] = $this->decorateWithSchoolUuid($permission);
 
         return BaseService::currentUser()?->hasAllPermissions($decorPermissions ?? []);
     }
@@ -80,7 +86,7 @@ trait CurrentUserTraits
      */
     public function isStudent(): ?bool
     {
-        return $this->hasAnyRoles(RoleConstant::STUDENT);
+        return $this->hasAnyRole(RoleConstant::STUDENT);
     }
 
     /**
@@ -93,10 +99,35 @@ trait CurrentUserTraits
                     ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
                     ->join('users', 'users.id', '=', 'model_has_roles.model_id')
                     ->where('roles.group', RoleConstant::STAFF)
-                    ->where('model_has_roles.model_id', BaseService::currentUser()->id)
+                    ->where('model_has_roles.model_id', BaseService::currentUser()?->id)
                     ->first();
 
         return $role !== null;
+    }
+
+    /**
+     * is this me?
+     *
+     * @param UserSQL|UserNoSQL $user
+     *
+     * @return bool
+     */
+    public function isMe(UserSQL|UserNoSQL $user): bool
+    {
+        return $user->uuid == BaseService::currentUser()?->uuid;
+    }
+
+    /**
+     * is this mine?
+     *
+     * @param MongoModel|SqlModel $model
+     *
+     * @return bool
+     */
+    public function isMine(MongoModel|SqlModel $model): bool
+    {
+        return Schema::hasColumn($model->getTable(), 'created_by')
+            && ($model->{'created_by'} ?? null) == BaseService::currentUser()?->id;
     }
 
     /**
@@ -106,7 +137,7 @@ trait CurrentUserTraits
      *
      * @return string
      */
-    private function _decorateWithSchoolUuid($value): string
+    public function decorateWithSchoolUuid($value): string
     {
         return SchoolServiceProvider::$currentSchool->uuid . ':' . $value;
     }
