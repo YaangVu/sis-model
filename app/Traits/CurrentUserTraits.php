@@ -5,7 +5,10 @@ namespace YaangVu\SisModel\App\Traits;
 
 
 use Exception;
+use Spatie\Permission\Models\Role;
+use YaangVu\Constant\RoleConstant;
 use YaangVu\LaravelBase\Services\impl\BaseService;
+use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
 
 trait CurrentUserTraits
 {
@@ -14,11 +17,14 @@ trait CurrentUserTraits
      *
      * @param ...$roles
      *
-     * @return bool
+     * @return bool|null
      */
-    public function hasAnyRoles(...$roles): bool
+    public function hasAnyRoles(...$roles): ?bool
     {
-        return BaseService::currentUser()->hasAnyRole($roles);
+        foreach ($roles as $role)
+            $decorRole[] = $this->_decorateWithSchoolUuid($role);
+
+        return BaseService::currentUser()?->hasAnyRole($decorRole ?? []);
     }
 
     /**
@@ -26,24 +32,30 @@ trait CurrentUserTraits
      *
      * @param ...$roles
      *
-     * @return bool
+     * @return bool|null
      */
-    public function hasAllRole(...$roles): bool
+    public function hasAllRole(...$roles): ?bool
     {
-        return BaseService::currentUser()->hasAllRoles($roles);
+        foreach ($roles as $role)
+            $decorRole[] = $this->_decorateWithSchoolUuid($role);
+
+        return BaseService::currentUser()?->hasAllRoles($decorRole ?? []);
     }
 
     /**
-     * check any permission with user sql
+     * check current user has any permissions ?
      *
-     * @param ...$roles
+     * @param mixed ...$permissions
      *
-     * @return bool
+     * @return bool|null
      * @throws Exception
      */
-    public function hasAnyPermissions(...$permissions): bool
+    public function hasAnyPermissions(...$permissions): ?bool
     {
-        return BaseService::currentUser()->hasAnyPermission($permissions);
+        foreach ($permissions as $permission)
+            $decorPermissions[] = $this->_decorateWithSchoolUuid($permission);
+
+        return BaseService::currentUser()?->hasAnyPermission($decorPermissions ?? []);
     }
 
     /**
@@ -51,11 +63,51 @@ trait CurrentUserTraits
      *
      * @param ...$permissions
      *
-     * @return bool
+     * @return bool|null
      * @throws Exception
      */
-    public function hasAllPermissions(...$permissions): bool
+    public function hasAllPermissions(...$permissions): ?bool
     {
-        return BaseService::currentUser()->hasAllPermissions($permissions);
+        foreach ($permissions as $permission)
+            $decorPermissions[] = $this->_decorateWithSchoolUuid($permission);
+
+        return BaseService::currentUser()?->hasAllPermissions($decorPermissions ?? []);
+    }
+
+    /**
+     * check current user is student ?
+     * @return bool|null
+     */
+    public function isStudent(): ?bool
+    {
+        return $this->hasAnyRoles(RoleConstant::STUDENT);
+    }
+
+    /**
+     * check current user is staff
+     * @return bool
+     */
+    public function isStaff(): bool
+    {
+        $role = Role::select('roles.*')
+                    ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
+                    ->join('users', 'users.id', '=', 'model_has_roles.model_id')
+                    ->where('role.group', RoleConstant::STAFF)
+                    ->where('model_has_roles.model_id', BaseService::currentUser()->id)
+                    ->first();
+
+        return $role !== null;
+    }
+
+    /**
+     * decorate value with school uuid
+     *
+     * @param $value
+     *
+     * @return string
+     */
+    private function _decorateWithSchoolUuid($value): string
+    {
+        return SchoolServiceProvider::$currentSchool->uuid . ':' . $value;
     }
 }
