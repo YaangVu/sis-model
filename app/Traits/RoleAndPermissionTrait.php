@@ -17,6 +17,7 @@ use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
 
 trait RoleAndPermissionTrait
 {
+
     /**
      * check any role with user sql
      *
