@@ -17,7 +17,6 @@ use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
 
 trait RoleAndPermissionTrait
 {
-
     /**
      * check any role with user sql
      *
@@ -27,6 +26,9 @@ trait RoleAndPermissionTrait
      */
     public function hasAnyRole(...$roles): ?bool
     {
+        if ($this->isGod())
+            return true;
+
         foreach ($roles as $role)
             $decorRole[] = $this->decorateWithSchoolUuid($role);
 
@@ -42,6 +44,9 @@ trait RoleAndPermissionTrait
      */
     public function hasAllRoles(...$roles): ?bool
     {
+        if ($this->isGod())
+            return true;
+
         foreach ($roles as $role)
             $decorRole[] = $this->decorateWithSchoolUuid($role);
 
@@ -58,6 +63,9 @@ trait RoleAndPermissionTrait
      */
     public function hasAnyPermission(...$permissions): ?bool
     {
+        if ($this->isGod())
+            return true;
+
         foreach ($permissions as $permission)
             $decorPermissions[] = $this->decorateWithSchoolUuid($permission);
 
@@ -74,6 +82,9 @@ trait RoleAndPermissionTrait
      */
     public function hasAllPermissions(...$permissions): ?bool
     {
+        if ($this->isGod())
+            return true;
+
         foreach ($permissions as $permission)
             $decorPermissions[] = $this->decorateWithSchoolUuid($permission);
 
@@ -86,6 +97,9 @@ trait RoleAndPermissionTrait
      */
     public function isStudent(): ?bool
     {
+        if ($this->isGod())
+            return true;
+
         return $this->hasAnyRole(RoleConstant::STUDENT);
     }
 
@@ -95,6 +109,9 @@ trait RoleAndPermissionTrait
      */
     public function isStaff(): bool
     {
+        if ($this->isGod())
+            return true;
+
         $role = Role::select('roles.*')
                     ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
                     ->join('users', 'users.id', '=', 'model_has_roles.model_id')
@@ -103,6 +120,11 @@ trait RoleAndPermissionTrait
                     ->first();
 
         return $role !== null;
+    }
+
+    public function isGod(): ?bool
+    {
+        return BaseService::currentUser()?->hasRole(RoleConstant::GOD);
     }
 
     /**
@@ -114,6 +136,9 @@ trait RoleAndPermissionTrait
      */
     public function isMe(UserSQL|UserNoSQL $user): bool
     {
+        if ($this->isGod())
+            return true;
+
         return $user->uuid == BaseService::currentUser()?->uuid;
     }
 
@@ -126,6 +151,9 @@ trait RoleAndPermissionTrait
      */
     public function isMine(MongoModel|SqlModel $model): bool
     {
+        if ($this->isGod())
+            return true;
+
         return Schema::hasColumn($model->getTable(), 'created_by')
             && ($model->{'created_by'} ?? null) == BaseService::currentUser()?->id;
     }
