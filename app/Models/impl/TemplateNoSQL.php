@@ -11,6 +11,7 @@ use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\LaravelAws\S3Service;
 use YaangVu\SisModel\App\Models\Template;
 
 /**
@@ -59,4 +60,35 @@ class TemplateNoSQL extends Model implements Template
     public string $code = CodeConstant::UUID;
 
     protected $connection = DbConnectionConstant::NOSQL;
+
+    /**
+     * @var mixed|S3Service
+     */
+    private mixed $S3Service;
+
+    /**
+     * @param array|null $value
+     *
+     * @return array|null
+     */
+    public function getAttachmentsAttribute(?array $value): ?array
+    {
+        if (isset($value) && $value) {
+            return $this->_signValueInArray($value, 'src');
+        } else {
+            return null;
+        }
+    }
+
+    private function _signValueInArray(array $array, string $value): array
+    {
+        $this->S3Service = new S3Service();
+        foreach ($array as $k => $v) {
+            if (isset($v[$value]) && $v[$value]) {
+                $array[$k][$value] = $this->S3Service->createPresigned($v[$value]);
+            }
+        }
+
+        return $array;
+    }
 }
