@@ -159,6 +159,7 @@ trait RoleAndPermissionTrait
         $role = Role::select('roles.*')
                     ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
                     ->join('users', 'users.id', '=', 'model_has_roles.model_id')
+                    ->where('name','LIKE','%'.SchoolServiceProvider::$currentSchool->uuid . ':%')
                     ->where('roles.group', RoleConstant::STAFF)
                     ->where('model_has_roles.model_id', BaseService::currentUser()?->id)
                     ->first();
