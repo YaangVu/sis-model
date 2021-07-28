@@ -26,13 +26,25 @@ trait RoleAndPermissionTrait
      */
     public function hasAnyRole(...$roles): ?bool
     {
-        if ($this->isGod())
-            return true;
-
         foreach ($roles as $role)
             $decorRole[] = $this->decorateWithSchoolUuid($role);
 
         return BaseService::currentUser()?->hasAnyRole($decorRole ?? []);
+    }
+
+    /**
+     * check has any role and god
+     *
+     * @param ...$roles
+     *
+     * @return bool|null
+     */
+    public function hasAnyRoleWithGod(...$roles): ?bool
+    {
+        if ($this->isGod())
+            return true;
+
+        return $this->hasAnyRole($roles);
     }
 
     /**
@@ -44,13 +56,25 @@ trait RoleAndPermissionTrait
      */
     public function hasAllRoles(...$roles): ?bool
     {
-        if ($this->isGod())
-            return true;
-
         foreach ($roles as $role)
             $decorRole[] = $this->decorateWithSchoolUuid($role);
 
         return BaseService::currentUser()?->hasAllRoles($decorRole ?? []);
+    }
+
+    /**
+     * check user sql has all roles and god ?
+     *
+     * @param ...$roles
+     *
+     * @return bool|null
+     */
+    public function hasAllRolesWithGod(...$roles): ?bool
+    {
+        if ($this->isGod())
+            return true;
+
+        return $this->hasAllRoles($roles);
     }
 
     /**
@@ -63,13 +87,26 @@ trait RoleAndPermissionTrait
      */
     public function hasAnyPermission(...$permissions): ?bool
     {
-        if ($this->isGod())
-            return true;
-
         foreach ($permissions as $permission)
             $decorPermissions[] = $this->decorateWithSchoolUuid($permission);
 
         return BaseService::currentUser()?->hasAnyPermission($decorPermissions ?? []);
+    }
+
+    /**
+     * check current user has any permissions and god ?
+     *
+     * @param mixed ...$permissions
+     *
+     * @return bool|null
+     * @throws Exception
+     */
+    public function hasAnyPermissionWithGod(...$permissions): ?bool
+    {
+        if ($this->isGod())
+            return true;
+
+        return $this->hasAnyPermission($permissions);
     }
 
     /**
@@ -82,13 +119,26 @@ trait RoleAndPermissionTrait
      */
     public function hasAllPermissions(...$permissions): ?bool
     {
-        if ($this->isGod())
-            return true;
-
         foreach ($permissions as $permission)
             $decorPermissions[] = $this->decorateWithSchoolUuid($permission);
 
         return BaseService::currentUser()?->hasAllPermissions($decorPermissions ?? []);
+    }
+
+    /**
+     * check user sql has all permissions and God ?
+     *
+     * @param ...$permissions
+     *
+     * @return bool|null
+     * @throws Exception
+     */
+    public function hasAllPermissionsWithGod(...$permissions): ?bool
+    {
+        if ($this->isGod())
+            return true;
+
+        return $this->hasAllPermissions($permissions);
     }
 
     /**
@@ -97,9 +147,6 @@ trait RoleAndPermissionTrait
      */
     public function isStudent(): ?bool
     {
-        if ($this->isGod())
-            return true;
-
         return $this->hasAnyRole(RoleConstant::STUDENT);
     }
 
@@ -109,9 +156,6 @@ trait RoleAndPermissionTrait
      */
     public function isStaff(): bool
     {
-        if ($this->isGod())
-            return true;
-
         $role = Role::select('roles.*')
                     ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
                     ->join('users', 'users.id', '=', 'model_has_roles.model_id')
@@ -122,6 +166,10 @@ trait RoleAndPermissionTrait
         return $role !== null;
     }
 
+    /**
+     * is God role ?
+     * @return bool|null
+     */
     public function isGod(): ?bool
     {
         return BaseService::currentUser()?->hasRole(RoleConstant::GOD);
@@ -136,9 +184,6 @@ trait RoleAndPermissionTrait
      */
     public function isMe(UserSQL|UserNoSQL $user): bool
     {
-        if ($this->isGod())
-            return true;
-
         return $user->uuid == BaseService::currentUser()?->uuid;
     }
 
@@ -151,9 +196,6 @@ trait RoleAndPermissionTrait
      */
     public function isMine(MongoModel|SqlModel $model): bool
     {
-        if ($this->isGod())
-            return true;
-
         return Schema::hasColumn($model->getTable(), 'created_by')
             && ($model->{'created_by'} ?? null) == BaseService::currentUser()?->id;
     }
