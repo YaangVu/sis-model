@@ -5,6 +5,7 @@ namespace YaangVu\SisModel\App\Models\impl;
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
@@ -67,4 +68,9 @@ class SubjectSQL extends Model implements Subject
             'school_id',
             'weight',
         ];
+
+    public function grades(): BelongsTo
+    {
+        return $this->BelongsTo(GradeSQL::class, 'grade_id');
+    }
 }
