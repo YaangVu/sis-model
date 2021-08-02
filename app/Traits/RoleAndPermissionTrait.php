@@ -183,7 +183,7 @@ trait RoleAndPermissionTrait
      *
      * @return bool
      */
-    public function isMe(UserSQL|UserNoSQL $user): bool
+    public function isMe(UserSQL|UserNoSQL|MongoModel|SqlModel $user): bool
     {
         return $user->uuid == BaseService::currentUser()?->uuid;
     }

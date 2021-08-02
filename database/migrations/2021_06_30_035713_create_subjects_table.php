@@ -30,6 +30,7 @@ class CreateSubjectsTable extends Migration
             ])->default(StatusConstant::ACTIVE)->nullable();
             $table->unsignedBigInteger('grade_id')->nullable();
             $table->unsignedBigInteger('school_id')->nullable();
+            $table->unsignedBigInteger('weight')->default(1)->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();

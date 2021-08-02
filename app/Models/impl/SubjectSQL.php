@@ -45,6 +45,8 @@ use YaangVu\SisModel\App\Models\Subject;
  * @mixin Eloquent
  * @property int|null    $code
  * @method static Builder|SubjectSQL whereCode($value)
+ * @property string|null $weight
+ * @method static Builder|SubjectSQL whereWeight($value)
  */
 class SubjectSQL extends Model implements Subject
 {
@@ -62,6 +64,7 @@ class SubjectSQL extends Model implements Subject
             'status',
             'code',
             'grade_id',
-            'school_id'
+            'school_id',
+            'weight',
         ];
 }
