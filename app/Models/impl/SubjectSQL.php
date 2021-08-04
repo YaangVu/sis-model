@@ -48,6 +48,7 @@ use YaangVu\SisModel\App\Models\Subject;
  * @method static Builder|SubjectSQL whereCode($value)
  * @property string|null $weight
  * @method static Builder|SubjectSQL whereWeight($value)
+ * @property-read \YaangVu\SisModel\App\Models\impl\GradeSQL|null $grades
  */
 class SubjectSQL extends Model implements Subject
 {

@@ -47,6 +47,8 @@ use YaangVu\SisModel\App\Models\Program;
  * @method static \Illuminate\Database\Query\Builder|CourseSQL withoutTrashed()
  * @property string|null $uuid course id
  * @method static Builder|CourseSQL whereUuid($value)
+ * @property int|null $index
+ * @method static Builder|GradeSQL whereIndex($value)
  */
 class GradeSQL extends Model implements Grade
 {
