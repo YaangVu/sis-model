@@ -13,6 +13,8 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\ActivityCategory;
 
 /**
+ * YaangVu\SisModel\App\Models\impl\ActivityCategorySQL
+ *
  * @property int         $id
  * @property string|null $name
  * @property string|null $description
@@ -38,6 +40,9 @@ use YaangVu\SisModel\App\Models\ActivityCategory;
  * @property string|null $external_id
  * @method static Builder|CalendarSQL whereExternalId($value)
  * @method static Builder|CalendarSQL whereUuid($value)
+ * @method static \Illuminate\Database\Query\Builder|ActivityCategorySQL onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|ActivityCategorySQL withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|ActivityCategorySQL withoutTrashed()
  */
 class ActivityCategorySQL extends Model implements ActivityCategory
 {
