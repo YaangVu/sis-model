@@ -46,15 +46,14 @@ use YaangVu\SisModel\App\Models\Subject;
  * @mixin Eloquent
  * @property int|null    $code
  * @method static Builder|SubjectSQL whereCode($value)
- * @property string|null $weight
- * @method static Builder|SubjectSQL whereWeight($value)
- * @property-read \YaangVu\SisModel\App\Models\impl\GradeSQL|null $grades
  */
 class SubjectSQL extends Model implements Subject
 {
     protected $table = self::table;
 
     protected $connection = DbConnectionConstant::SQL;
+
+    protected $appends = array('rules');
 
     protected $fillable
         = [
@@ -73,5 +72,9 @@ class SubjectSQL extends Model implements Subject
     public function grades(): BelongsTo
     {
         return $this->BelongsTo(GradeSQL::class, 'grade_id');
+    }
+
+    public function getRulesAttribute($value) {
+        return SubjectRuleSQL::where('subject_id', $this->id)->get();
     }
 }
