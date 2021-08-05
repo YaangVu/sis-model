@@ -14,7 +14,7 @@ class UpdateUserProgramTable extends Migration
     public function up()
     {
         Schema::table('user_program', function (Blueprint $table) {
-            $table->unsignedBigInteger('program_id')->change();
+            $table->unsignedBigInteger('program_id');
 
             $table->foreign('program_id')->references('id')->on('programs')->cascadeOnDelete();
         });
