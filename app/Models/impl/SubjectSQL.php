@@ -52,6 +52,8 @@ class SubjectSQL extends Model implements Subject
 
     protected $connection = DbConnectionConstant::SQL;
 
+    protected $appends = array('rules');
+
     protected $fillable
         = [
             CodeConstant::UUID,
@@ -64,4 +66,8 @@ class SubjectSQL extends Model implements Subject
             'grade_id',
             'school_id'
         ];
+
+    public function getRulesAttribute($value) {
+        return SubjectRuleSQL::where('subject_id', $this->id)->get();
+    }
 }
