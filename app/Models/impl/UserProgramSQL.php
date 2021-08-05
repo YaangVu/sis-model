@@ -35,6 +35,8 @@ use YaangVu\SisModel\App\Models\UserProgram;
  * @method static Builder|UserProgramSQL whereUpdatedAt($value)
  * @method static Builder|UserProgramSQL whereUserId($value)
  * @method static Builder|UserProgramSQL whereUuid($value)
+ * @property int $program_id
+ * @method static Builder|UserProgramSQL whereProgramId($value)
  */
 class UserProgramSQL extends Model implements UserProgram
 {

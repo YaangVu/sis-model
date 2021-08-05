@@ -46,6 +46,10 @@ use YaangVu\SisModel\App\Models\Subject;
  * @mixin Eloquent
  * @property int|null    $code
  * @method static Builder|SubjectSQL whereCode($value)
+ * @property string|null $weight
+ * @property-read mixed $rules
+ * @property-read \YaangVu\SisModel\App\Models\impl\GradeSQL|null $grades
+ * @method static Builder|SubjectSQL whereWeight($value)
  */
 class SubjectSQL extends Model implements Subject
 {

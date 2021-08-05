@@ -20,36 +20,22 @@ use YaangVu\SisModel\App\Models\Clazz;
 /**
  * YaangVu\SisModel\App\Models\ClassSQL
  *
- * @property int                                                                                                  $id
- * @property string                                                                                               $name
- * @property string|null
- *           $start_date
- * @property string|null
- *           $end_date
- * @property string|null
- *           $status
- * @property string|null
- *           $external_id
- * @property string|null
- *           $lms_id
- * @property float|null
- *           $credit
- * @property int|null
- *           $grade_scale_id
- * @property int|null
- *           $term_id
- * @property int|null
- *           $created_by
- * @property Carbon|null
- *           $created_at
- * @property Carbon|null
- *           $updated_at
- * @property string|null
- *           $deleted_at
- * @property string|null
- *           $description
- * @property int|null
- *           $course_id
+ * @property int         $id
+ * @property string      $name
+ * @property string|null $start_date
+ * @property string|null $end_date
+ * @property string|null $status
+ * @property string|null $external_id
+ * @property string|null $lms_id
+ * @property float|null  $credit
+ * @property int|null    $grade_scale_id
+ * @property int|null    $term_id
+ * @property int|null    $created_by
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @property string|null $description
+ * @property int|null    $course_id
  * @method static Builder|ClassNoSQL newModelQuery()
  * @method static Builder|ClassNoSQL newQuery()
  * @method static Builder|ClassNoSQL query()
@@ -74,9 +60,9 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @method static Builder|ClassNoSQL whereCourseId($value)
  * @method static Builder|ClassNoSQL whereDescription($value)
  * @mixin Eloquent
- * @property string|null                                                                                          $zone
+ * @property string|null $zone
  * @method static Builder|ClassSQL whereZone($value)
- * @property string|null                                                                                          $uuid
+ * @property string|null $uuid
  *           class id
  * @property int|null
  *           $school_id
