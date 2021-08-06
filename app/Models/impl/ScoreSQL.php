@@ -48,6 +48,8 @@ use YaangVu\SisModel\App\Models\Score;
  * @method static Builder|ScoreSQL whereExternalId($value)
  * @method static Builder|ScoreSQL whereSchoolId($value)
  * @method static Builder|ScoreSQL whereUuid($value)
+ * @property string|null  $grade_letter
+ * @method static Builder|ScoreSQL whereGradeLetter($value)
  */
 class ScoreSQL extends Model implements Score
 {
@@ -55,7 +57,7 @@ class ScoreSQL extends Model implements Score
 
     protected $table = self::table;
 
-    protected $fillable = ['score', 'class_id', 'user_id', 'grade_letter_id', 'lms_id', CodeConstant::UUID, 'is_pass'];
+    protected $fillable = ['score', 'class_id', 'user_id', 'grade_letter_id', 'grade_letter', 'lms_id', 'school_id', CodeConstant::UUID, 'is_pass'];
 
     protected $connection = DbConnectionConstant::SQL;
 }

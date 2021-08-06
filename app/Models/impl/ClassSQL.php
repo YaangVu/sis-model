@@ -28,7 +28,6 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @property string|null $external_id
  * @property string|null $lms_id
  * @property float|null  $credit
- * @property int|null    $grade_scale_id
  * @property int|null    $term_id
  * @property int|null    $created_by
  * @property Carbon|null $created_at
@@ -101,7 +100,7 @@ class ClassSQL extends Model implements Clazz
     protected $fillable
         = ['name', 'start_date', 'end_date', 'status',
            CodeConstant::EX_ID, 'lms_id', 'credit',
-           'grade_scale_id', 'term_id',
+           'term_id',
            'course_id', 'description', CodeConstant::UUID,
            'zone', 'lms_id', 'school_id', 'subject_id'];
 
