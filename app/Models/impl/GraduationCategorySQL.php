@@ -16,15 +16,15 @@ use YaangVu\SisModel\App\Models\GraduationCategory;
 /**
  * YaangVu\SisModel\App\Models\GraduationCategorySQL
  *
- * @property int                                                                                          $id
- * @property string                                                                                       $name
- * @property string|null                                                                                  $description
- * @property float|null                                                                                   $credit
- * @property string|null                                                                                  $status
- * @property int|null                                                                                     $created_by
- * @property Carbon|null                                                                                  $created_at
- * @property Carbon|null                                                                                  $updated_at
- * @property string|null                                                                                  $deleted_at
+ * @property int                          $id
+ * @property string                       $name
+ * @property string|null                  $description
+ * @property float|null                   $credit
+ * @property string|null                  $status
+ * @property int|null                     $created_by
+ * @property Carbon|null                  $created_at
+ * @property Carbon|null                  $updated_at
+ * @property string|null                  $deleted_at
  * @method static Builder|GraduationCategorySQL newModelQuery()
  * @method static Builder|GraduationCategorySQL newQuery()
  * @method static Builder|GraduationCategorySQL query()
@@ -41,13 +41,12 @@ use YaangVu\SisModel\App\Models\GraduationCategory;
  * @method static Builder|GraduationCategorySQL onlyTrashed()
  * @method static Builder|GraduationCategorySQL withTrashed()
  * @method static Builder|GraduationCategorySQL withoutTrashed()
- * @property string|null                                                $uuid
- * @property string|null                                                $external_id
+ * @property string|null                  $uuid
+ * @property string|null                  $external_id
  * @method static Builder|GraduationCategorySQL whereExternalId($value)
  * @method static Builder|GraduationCategorySQL whereUuid($value)
  * @property-read Collection|ProgramSQL[] $programs
- * @property-read int|null
- *                $programs_count
+ * @property-read int|null                $programs_count
  */
 class GraduationCategorySQL extends Model implements GraduationCategory
 {

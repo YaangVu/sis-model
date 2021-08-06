@@ -42,12 +42,12 @@ use YaangVu\SisModel\App\Models\Program;
  * @method static Builder|CourseSQL whereExternalId($value)
  * @property string|null $weight
  * @method static Builder|Program whereWeight($value)
- * @method static \Illuminate\Database\Query\Builder|CourseSQL onlyTrashed()
- * @method static \Illuminate\Database\Query\Builder|CourseSQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|CourseSQL withoutTrashed()
+ * @method static Builder|CourseSQL onlyTrashed()
+ * @method static Builder|CourseSQL withTrashed()
+ * @method static Builder|CourseSQL withoutTrashed()
  * @property string|null $uuid course id
  * @method static Builder|CourseSQL whereUuid($value)
- * @property int|null $index
+ * @property int|null    $index
  * @method static Builder|GradeSQL whereIndex($value)
  */
 class GradeSQL extends Model implements Grade

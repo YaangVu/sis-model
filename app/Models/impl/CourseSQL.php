@@ -17,15 +17,15 @@ use YaangVu\SisModel\App\Models\Program;
 /**
  * YaangVu\SisModel\App\Models\CourseSQL
  *
- * @property int                                                $id
- * @property string                                             $name
- * @property int|null                                           $lms_id
- * @property int|null                                           $school_id
- * @property string|null                                        $description
- * @property int|null                                           $created_by
- * @property Carbon|null                                        $created_at
- * @property Carbon|null                                        $updated_at
- * @property string|null                                        $deleted_at
+ * @property int              $id
+ * @property string           $name
+ * @property int|null         $lms_id
+ * @property int|null         $school_id
+ * @property string|null      $description
+ * @property int|null         $created_by
+ * @property Carbon|null      $created_at
+ * @property Carbon|null      $updated_at
+ * @property string|null      $deleted_at
  * @method static Builder|CourseSQL newModelQuery()
  * @method static Builder|CourseSQL newQuery()
  * @method static Builder|CourseSQL query()

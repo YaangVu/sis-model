@@ -40,9 +40,9 @@ use YaangVu\SisModel\App\Models\ActivityCategory;
  * @property string|null $external_id
  * @method static Builder|CalendarSQL whereExternalId($value)
  * @method static Builder|CalendarSQL whereUuid($value)
- * @method static \Illuminate\Database\Query\Builder|ActivityCategorySQL onlyTrashed()
- * @method static \Illuminate\Database\Query\Builder|ActivityCategorySQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|ActivityCategorySQL withoutTrashed()
+ * @method static Builder|ActivityCategorySQL onlyTrashed()
+ * @method static Builder|ActivityCategorySQL withTrashed()
+ * @method static Builder|ActivityCategorySQL withoutTrashed()
  */
 class ActivityCategorySQL extends Model implements ActivityCategory
 {

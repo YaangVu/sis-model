@@ -14,14 +14,14 @@ use YaangVu\SisModel\App\Models\ClassAssignment;
 /**
  * YaangVu\SisModel\App\Models\ClassAssignmentSQL
  *
- * @property int                                             $id
- * @property int                                             $user_id
- * @property int                                             $class_id
- * @property string                                          $assignment
- * @property int|null                                        $created_by
- * @property Carbon|null                                     $created_at
- * @property Carbon|null                                     $updated_at
- * @property string|null                                     $deleted_at
+ * @property int           $id
+ * @property int           $user_id
+ * @property int           $class_id
+ * @property string        $assignment
+ * @property int|null      $created_by
+ * @property Carbon|null   $created_at
+ * @property Carbon|null   $updated_at
+ * @property string|null   $deleted_at
  * @method static Builder|ClassAssignmentSQL newModelQuery()
  * @method static Builder|ClassAssignmentSQL newQuery()
  * @method static Builder|ClassAssignmentSQL query()

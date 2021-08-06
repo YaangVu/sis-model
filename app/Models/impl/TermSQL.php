@@ -19,20 +19,20 @@ use YaangVu\SisModel\App\Models\Term;
 /**
  * YaangVu\SisModel\App\Models\TermSQL
  *
- * @property int                                                           $id
- * @property string                                                        $name
- * @property string|null                                                   $start_date
- * @property string|null                                                   $end_date
- * @property string|null                                                   $status
- * @property int|null                                                      $school_id
- * @property string|null                                                   $external_id
- * @property string|null                                                   $description
- * @property int|null                                                      $created_by
- * @property Carbon|null                                                   $created_at
- * @property Carbon|null                                                   $updated_at
- * @property Carbon|null                                                   $deleted_at
- * @property-read Collection|Clazz[]                                       $classes
- * @property-read int|null                                                 $classes_count
+ * @property int                         $id
+ * @property string                      $name
+ * @property string|null                 $start_date
+ * @property string|null                 $end_date
+ * @property string|null                 $status
+ * @property int|null                    $school_id
+ * @property string|null                 $external_id
+ * @property string|null                 $description
+ * @property int|null                    $created_by
+ * @property Carbon|null                 $created_at
+ * @property Carbon|null                 $updated_at
+ * @property Carbon|null                 $deleted_at
+ * @property-read Collection|Clazz[]     $classes
+ * @property-read int|null               $classes_count
  * @method static Builder|TermSQL newModelQuery()
  * @method static Builder|TermSQL newQuery()
  * @method static Builder|TermSQL onlyTrashed()

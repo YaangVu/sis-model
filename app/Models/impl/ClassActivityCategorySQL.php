@@ -44,17 +44,18 @@ use YaangVu\SisModel\App\Models\ClassActivityCategory;
  * @property string|null $external_id
  * @method static Builder|CalendarSQL whereExternalId($value)
  * @method static Builder|CalendarSQL whereUuid($value)
- * @method static \Illuminate\Database\Query\Builder|ClassActivityCategorySQL onlyTrashed()
- * @method static \Illuminate\Database\Query\Builder|ClassActivityCategorySQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|ClassActivityCategorySQL withoutTrashed()
+ * @method static Builder|ClassActivityCategorySQL onlyTrashed()
+ * @method static Builder|ClassActivityCategorySQL withTrashed()
+ * @method static Builder|ClassActivityCategorySQL withoutTrashed()
  */
 class ClassActivityCategorySQL extends Model implements ClassActivityCategory
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = [
-        'name', 'weight', 'description', 'school_id', 'activity_category_id', 'class_id',CodeConstant::UUID,CodeConstant::EX_ID
-    ];
+    protected $fillable
+        = [
+            'name', 'weight', 'description', 'school_id', 'activity_category_id', 'class_id', CodeConstant::UUID, CodeConstant::EX_ID
+        ];
 
     protected $table = self::table;
 

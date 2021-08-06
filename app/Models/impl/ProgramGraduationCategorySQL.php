@@ -17,20 +17,13 @@ use YaangVu\SisModel\App\Models\ProgramGraduationCategory;
 /**
  * YaangVu\SisModel\App\Models\ProgramGraduationCategorySQL
  *
- * @property int
- *           $id
- * @property int|null
- *           $program_id
- * @property int|null
- *           $graduation_category_id
- * @property int|null
- *           $created_by
- * @property Carbon|null
- *           $created_at
- * @property Carbon|null
- *           $updated_at
- * @property string|null
- *           $deleted_at
+ * @property int                                     $id
+ * @property int|null                                $program_id
+ * @property int|null                                $graduation_category_id
+ * @property int|null                                $created_by
+ * @property Carbon|null                             $created_at
+ * @property Carbon|null                             $updated_at
+ * @property string|null                             $deleted_at
  * @method static Builder|ProgramGraduationCategorySQL newModelQuery()
  * @method static Builder|ProgramGraduationCategorySQL newQuery()
  * @method static Builder|ProgramGraduationCategorySQL query()
@@ -46,23 +39,16 @@ use YaangVu\SisModel\App\Models\ProgramGraduationCategory;
  * @method static Builder|ProgramGraduationCategorySQL onlyTrashed()
  * @method static Builder|ProgramGraduationCategorySQL withTrashed()
  * @method static Builder|ProgramGraduationCategorySQL withoutTrashed()
- * @property float|null
- *           $credit
+ * @property float|null                              $credit
  * @method static Builder|ProgramGraduationCategorySQL whereCredit($value)
- * @property string|null
- *           $uuid
- * @property string|null
- *           $external_id
+ * @property string|null                             $uuid
+ * @property string|null                             $external_id
  * @method static Builder|ProgramGraduationCategorySQL whereExternalId($value)
  * @method static Builder|ProgramGraduationCategorySQL whereUuid($value)
- * @property-read Collection|GraduationCategorySQL[]
- *                $graduationCategories
- * @property-read int|null
- *                $graduation_categories_count
- * @property-read Collection|ProgramSQL[]
- *                $programs
- * @property-read int|null
- *                $programs_count
+ * @property-read Collection|GraduationCategorySQL[] $graduationCategories
+ * @property-read int|null                           $graduation_categories_count
+ * @property-read Collection|ProgramSQL[]            $programs
+ * @property-read int|null                           $programs_count
  */
 class ProgramGraduationCategorySQL extends Model implements ProgramGraduationCategory
 {
