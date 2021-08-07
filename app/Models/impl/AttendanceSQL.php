@@ -6,9 +6,8 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
-use Jenssegers\Mongodb\Eloquent\Model;
-use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Attendance;
+use YaangVu\SisModel\App\Models\SQLModel;
 
 /**
  * YaangVu\SisModel\App\Models\impl\AttendanceSQL
@@ -21,28 +20,27 @@ use YaangVu\SisModel\App\Models\Attendance;
  * @property string|null $status
  * @property string|null $description
  * @property Carbon|null $created_at
+ * @property int|null    $created_by
  * @property Carbon|null $updated_at
- * @method static Builder|CalendarSQL newModelQuery()
- * @method static Builder|CalendarSQL newQuery()
- * @method static Builder|CalendarSQL query()
- * @method static Builder|CalendarSQL whereCreatedAt($value)
- * @method static Builder|CalendarSQL whereCreatedBy($value)
- * @method static Builder|CalendarSQL whereStatus($value)
- * @method static Builder|CalendarSQL whereDescription($value)
- * @method static Builder|CalendarSQL whereId($value)
- * @method static Builder|CalendarSQL whereClassId($value)
- * @method static Builder|CalendarSQL whereCalendarId($value)
- * @method static Builder|CalendarSQL whereUserUuid($value)
- * @method static Builder|CalendarSQL whereUpdatedAt($value)
+ * @method static Builder|AttendanceSQL newModelQuery()
+ * @method static Builder|AttendanceSQL newQuery()
+ * @method static Builder|AttendanceSQL query()
+ * @method static Builder|AttendanceSQL whereCreatedAt($value)
+ * @method static Builder|AttendanceSQL whereCreatedBy($value)
+ * @method static Builder|AttendanceSQL whereStatus($value)
+ * @method static Builder|AttendanceSQL whereDescription($value)
+ * @method static Builder|AttendanceSQL whereId($value)
+ * @method static Builder|AttendanceSQL whereClassId($value)
+ * @method static Builder|AttendanceSQL whereCalendarId($value)
+ * @method static Builder|AttendanceSQL whereUserUuid($value)
+ * @method static Builder|AttendanceSQL whereUpdatedAt($value)
  * @mixin Eloquent
  */
-class AttendanceSQL extends Model implements Attendance
+class AttendanceSQL extends SQLModel implements Attendance
 {
     use HasFactory;
 
     protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description'];
 
     protected $table = self::table;
-
-    protected $connection = DbConnectionConstant::SQL;
 }

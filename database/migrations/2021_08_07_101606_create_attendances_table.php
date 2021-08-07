@@ -22,6 +22,7 @@ class CreateAttendancesTable extends Migration
             $table->string('user_id')->nullable();
             $table->string('status')->default(AttendanceConstant::PRESENT);
             $table->text('description')->nullable();
+            $table->unsignedInteger('created_by')->nullable();
             $table->timestamps();
         });
     }
