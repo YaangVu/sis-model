@@ -14,19 +14,19 @@ use YaangVu\SisModel\App\Models\Subject;
 /**
  * YaangVu\SisModel\App\Models\SubjectSQL
  *
- * @property int                $id
- * @property string|null        $uuid SubjectSQL id
- * @property string|null        $external_id
- * @property string             $name
- * @property string             $credit
- * @property string|null        $description
- * @property string|null        $status
- * @property int|null           $grade_id
- * @property int|null           $school_id
- * @property int|null           $created_by
- * @property Carbon|null        $created_at
- * @property Carbon|null        $updated_at
- * @property string|null        $deleted_at
+ * @property int                     $id
+ * @property string|null             $uuid SubjectSQL id
+ * @property string|null             $external_id
+ * @property string                  $name
+ * @property string                  $credit
+ * @property string|null             $description
+ * @property string|null             $status
+ * @property int|null                $grade_id
+ * @property int|null                $school_id
+ * @property int|null                $created_by
+ * @property Carbon|null             $created_at
+ * @property Carbon|null             $updated_at
+ * @property string|null             $deleted_at
  * @method static Builder|SubjectSQL newModelQuery()
  * @method static Builder|SubjectSQL newQuery()
  * @method static Builder|SubjectSQL query()
@@ -44,14 +44,15 @@ use YaangVu\SisModel\App\Models\Subject;
  * @method static Builder|SubjectSQL whereUpdatedAt($value)
  * @method static Builder|SubjectSQL whereUuid($value)
  * @mixin Eloquent
- * @property int|null           $code
+ * @property int|null                $code
  * @method static Builder|SubjectSQL whereCode($value)
- * @property string|null        $weight
- * @property-read mixed         $rules
- * @property-read GradeSQL|null $grades
+ * @property string|null             $weight
+ * @property-read mixed              $rules
+ * @property-read GradeSQL|null      $grades
  * @method static Builder|SubjectSQL whereWeight($value)
- * @property int|null           $grade_scale_id
+ * @property int|null                $grade_scale_id
  * @method static Builder|SubjectSQL whereGradeScaleId($value)
+ * @property-read GradeScaleSQL|null $gradeScale
  */
 class SubjectSQL extends Model implements Subject
 {
@@ -79,6 +80,11 @@ class SubjectSQL extends Model implements Subject
     public function grades(): BelongsTo
     {
         return $this->BelongsTo(GradeSQL::class, 'grade_id');
+    }
+
+    public function gradeScale(): BelongsTo
+    {
+        return $this->belongsTo(GradeScaleSQL::class);
     }
 
     public function getRulesAttribute($value)

@@ -50,6 +50,8 @@ use YaangVu\SisModel\App\Models\Score;
  * @method static Builder|ScoreSQL whereUuid($value)
  * @property string|null  $grade_letter
  * @method static Builder|ScoreSQL whereGradeLetter($value)
+ * @property float|null   $current_score
+ * @method static Builder|ScoreSQL whereCurrentScore($value)
  */
 class ScoreSQL extends Model implements Score
 {
