@@ -4,11 +4,11 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
+use Jenssegers\Mongodb\Eloquent\Builder;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 use Laravel\Lumen\Auth\Authorizable;
@@ -38,26 +38,26 @@ use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
  * @property-read int|null                $permissions_count
  * @property-read Collection|Role[]       $roles
  * @property-read int|null                $roles_count
- * @method static Builder|UserSQL newModelQuery()
- * @method static Builder|UserSQL newQuery()
- * @method static Builder|UserSQL onlyTrashed()
- * @method static Builder|UserSQL permission($permissions)
- * @method static Builder|UserSQL query()
- * @method static Builder|UserSQL role($roles, $guard = null)
- * @method static Builder|UserSQL whereCreatedAt($value)
- * @method static Builder|UserSQL whereCreatedBy($value)
- * @method static Builder|UserSQL whereDeletedAt($value)
- * @method static Builder|UserSQL whereDivisionId($value)
- * @method static Builder|UserSQL whereGradeId($value)
- * @method static Builder|UserSQL whereId($value)
- * @method static Builder|UserSQL whereUpdatedAt($value)
- * @method static Builder|UserSQL whereUsername($value)
- * @method static Builder|UserSQL withTrashed()
- * @method static Builder|UserSQL withoutTrashed()
+ * @method static Builder|UserNoSQL newModelQuery()
+ * @method static Builder|UserNoSQL newQuery()
+ * @method static Builder|UserNoSQL onlyTrashed()
+ * @method static Builder|UserNoSQL permission($permissions)
+ * @method static Builder|UserNoSQL query()
+ * @method static Builder|UserNoSQL role($roles, $guard = null)
+ * @method static Builder|UserNoSQL whereCreatedAt($value)
+ * @method static Builder|UserNoSQL whereCreatedBy($value)
+ * @method static Builder|UserNoSQL whereDeletedAt($value)
+ * @method static Builder|UserNoSQL whereDivisionId($value)
+ * @method static Builder|UserNoSQL whereGradeId($value)
+ * @method static Builder|UserNoSQL whereId($value)
+ * @method static Builder|UserNoSQL whereUpdatedAt($value)
+ * @method static Builder|UserNoSQL whereUsername($value)
+ * @method static Builder|UserNoSQL withTrashed()
+ * @method static Builder|UserNoSQL withoutTrashed()
  * @mixin Eloquent
  * @property string|null                  $external_id
- * @method static Builder|UserSQL whereExternalId($value)
- * @method static Builder|UserSQL whereUuid($value)
+ * @method static Builder|UserNoSQL whereExternalId($value)
+ * @method static Builder|UserNoSQL whereUuid($value)
  */
 class UserNoSQL extends Model implements User
 {

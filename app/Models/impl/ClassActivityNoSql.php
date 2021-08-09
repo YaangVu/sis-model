@@ -3,8 +3,8 @@
 namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Jenssegers\Mongodb\Eloquent\Builder;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\ClassActivity;
@@ -18,23 +18,23 @@ use YaangVu\SisModel\App\Models\ClassActivity;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @method static Builder|CalendarSQL newModelQuery()
- * @method static Builder|CalendarSQL newQuery()
- * @method static Builder|CalendarSQL query()
- * @method static Builder|CalendarSQL whereCreatedAt($value)
- * @method static Builder|CalendarSQL whereCreatedBy($value)
- * @method static Builder|CalendarSQL whereDeletedAt($value)
- * @method static Builder|CalendarSQL whereDescription($value)
- * @method static Builder|CalendarSQL whereId($value)
- * @method static Builder|CalendarSQL whereClassId($value)
- * @method static Builder|CalendarSQL whereClassActivityCategoryId($value)
- * @method static Builder|CalendarSQL whereUserId($value)
- * @method static Builder|CalendarSQL whereUpdatedAt($value)
+ * @method static Builder|ClassActivityNoSql newModelQuery()
+ * @method static Builder|ClassActivityNoSql newQuery()
+ * @method static Builder|ClassActivityNoSql query()
+ * @method static Builder|ClassActivityNoSql whereCreatedAt($value)
+ * @method static Builder|ClassActivityNoSql whereCreatedBy($value)
+ * @method static Builder|ClassActivityNoSql whereDeletedAt($value)
+ * @method static Builder|ClassActivityNoSql whereDescription($value)
+ * @method static Builder|ClassActivityNoSql whereId($value)
+ * @method static Builder|ClassActivityNoSql whereClassId($value)
+ * @method static Builder|ClassActivityNoSql whereClassActivityCategoryId($value)
+ * @method static Builder|ClassActivityNoSql whereUserId($value)
+ * @method static Builder|ClassActivityNoSql whereUpdatedAt($value)
  * @mixin Eloquent
  * @property string|null $uuid
  * @property string|null $external_id
- * @method static Builder|CalendarSQL whereExternalId($value)
- * @method static Builder|CalendarSQL whereUuid($value)
+ * @method static Builder|ClassActivityNoSql whereExternalId($value)
+ * @method static Builder|ClassActivityNoSql whereUuid($value)
  */
 class ClassActivityNoSql extends Model implements ClassActivity
 {

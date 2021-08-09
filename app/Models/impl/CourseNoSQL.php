@@ -3,10 +3,10 @@
 namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use Jenssegers\Mongodb\Eloquent\Builder;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
@@ -25,28 +25,28 @@ use YaangVu\SisModel\App\Models\Program;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @method static Builder|CourseSQL newModelQuery()
- * @method static Builder|CourseSQL newQuery()
- * @method static Builder|CourseSQL query()
- * @method static Builder|CourseSQL whereCreatedAt($value)
- * @method static Builder|CourseSQL whereCreatedBy($value)
- * @method static Builder|CourseSQL whereDeletedAt($value)
- * @method static Builder|CourseSQL whereDescription($value)
- * @method static Builder|CourseSQL whereId($value)
- * @method static Builder|CourseSQL whereLmsId($value)
- * @method static Builder|CourseSQL whereName($value)
- * @method static Builder|CourseSQL whereSchoolId($value)
- * @method static Builder|CourseSQL whereUpdatedAt($value)
+ * @method static Builder|CourseNoSQL newModelQuery()
+ * @method static Builder|CourseNoSQL newQuery()
+ * @method static Builder|CourseNoSQL query()
+ * @method static Builder|CourseNoSQL whereCreatedAt($value)
+ * @method static Builder|CourseNoSQL whereCreatedBy($value)
+ * @method static Builder|CourseNoSQL whereDeletedAt($value)
+ * @method static Builder|CourseNoSQL whereDescription($value)
+ * @method static Builder|CourseNoSQL whereId($value)
+ * @method static Builder|CourseNoSQL whereLmsId($value)
+ * @method static Builder|CourseNoSQL whereName($value)
+ * @method static Builder|CourseNoSQL whereSchoolId($value)
+ * @method static Builder|CourseNoSQL whereUpdatedAt($value)
  * @mixin Eloquent
  * @property string|null $external_id
- * @method static Builder|CourseSQL whereExternalId($value)
+ * @method static Builder|CourseNoSQL whereExternalId($value)
  * @property string|null $weight
  * @method static Builder|Program whereWeight($value)
- * @method static Builder|CourseSQL onlyTrashed()
- * @method static Builder|CourseSQL withTrashed()
- * @method static Builder|CourseSQL withoutTrashed()
+ * @method static Builder|CourseNoSQL onlyTrashed()
+ * @method static Builder|CourseNoSQL withTrashed()
+ * @method static Builder|CourseNoSQL withoutTrashed()
  * @property string|null $uuid course id
- * @method static Builder|CourseSQL whereUuid($value)
+ * @method static Builder|CourseNoSQL whereUuid($value)
  */
 class CourseNoSQL extends Model implements Course
 {

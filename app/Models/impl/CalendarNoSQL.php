@@ -30,30 +30,30 @@ use YaangVu\SisModel\App\Models\Calendar;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @method static Builder|CalendarSQL newModelQuery()
- * @method static Builder|CalendarSQL newQuery()
- * @method static Builder|CalendarSQL query()
- * @method static Builder|CalendarSQL whereClassId($value)
- * @method static Builder|CalendarSQL whereCreatedAt($value)
- * @method static Builder|CalendarSQL whereCreatedBy($value)
- * @method static Builder|CalendarSQL whereDeletedAt($value)
- * @method static Builder|CalendarSQL whereDescription($value)
- * @method static Builder|CalendarSQL whereEnd($value)
- * @method static Builder|CalendarSQL whereGroup($value)
- * @method static Builder|CalendarSQL whereId($value)
- * @method static Builder|CalendarSQL whereIsAllDay($value)
- * @method static Builder|CalendarSQL whereName($value)
- * @method static Builder|CalendarSQL whereRepeat($value)
- * @method static Builder|CalendarSQL whereSchoolId($value)
- * @method static Builder|CalendarSQL whereStart($value)
- * @method static Builder|CalendarSQL whereTimezone($value)
- * @method static Builder|CalendarSQL whereType($value)
- * @method static Builder|CalendarSQL whereUpdatedAt($value)
+ * @method static Builder|CalendarNoSQL newModelQuery()
+ * @method static Builder|CalendarNoSQL newQuery()
+ * @method static Builder|CalendarNoSQL query()
+ * @method static Builder|CalendarNoSQL whereClassId($value)
+ * @method static Builder|CalendarNoSQL whereCreatedAt($value)
+ * @method static Builder|CalendarNoSQL whereCreatedBy($value)
+ * @method static Builder|CalendarNoSQL whereDeletedAt($value)
+ * @method static Builder|CalendarNoSQL whereDescription($value)
+ * @method static Builder|CalendarNoSQL whereEnd($value)
+ * @method static Builder|CalendarNoSQL whereGroup($value)
+ * @method static Builder|CalendarNoSQL whereId($value)
+ * @method static Builder|CalendarNoSQL whereIsAllDay($value)
+ * @method static Builder|CalendarNoSQL whereName($value)
+ * @method static Builder|CalendarNoSQL whereRepeat($value)
+ * @method static Builder|CalendarNoSQL whereSchoolId($value)
+ * @method static Builder|CalendarNoSQL whereStart($value)
+ * @method static Builder|CalendarNoSQL whereTimezone($value)
+ * @method static Builder|CalendarNoSQL whereType($value)
+ * @method static Builder|CalendarNoSQL whereUpdatedAt($value)
  * @mixin Eloquent
  * @property string|null $uuid
  * @property string|null $external_id
- * @method static Builder|CalendarSQL whereExternalId($value)
- * @method static Builder|CalendarSQL whereUuid($value)
+ * @method static Builder|CalendarNoSQL whereExternalId($value)
+ * @method static Builder|CalendarNoSQL whereUuid($value)
  */
 class CalendarNoSQL extends Model implements Calendar
 {

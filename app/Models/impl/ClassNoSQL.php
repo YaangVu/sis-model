@@ -3,17 +3,17 @@
 namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use Jenssegers\Mongodb\Eloquent\Builder;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Clazz;
 
 /**
- * YaangVu\SisModel\App\Models\ClassSQL
+ * YaangVu\SisModel\App\Models\ClassNoSQL
  *
  * @property int         $id
  * @property string      $name
@@ -56,13 +56,13 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @method static Builder|ClassNoSQL whereDescription($value)
  * @mixin Eloquent
  * @property string|null $zone
- * @method static Builder|ClassSQL whereZone($value)
+ * @method static Builder|ClassNoSQL whereZone($value)
  * @property string|null $uuid class id
  * @property int|null    $school_id
- * @method static Builder|ClassSQL whereSchoolId($value)
- * @method static Builder|ClassSQL whereUuid($value)
+ * @method static Builder|ClassNoSQL whereSchoolId($value)
+ * @method static Builder|ClassNoSQL whereUuid($value)
  * @property int|null    $subject_id
- * @method static Builder|ClassSQL whereSubjectId($value)
+ * @method static Builder|ClassNoSQL whereSubjectId($value)
  */
 class ClassNoSQL extends Model implements Clazz
 {

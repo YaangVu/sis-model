@@ -5,9 +5,9 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
+use Jenssegers\Mongodb\Eloquent\Builder;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
@@ -27,19 +27,19 @@ use YaangVu\SisModel\App\Models\Template;
  * @property Carbon|null $created_at
  * @property Carbon|null $created_by
  * @property Carbon|null $updated_at
- * @method static Builder|SubjectSQL newModelQuery()
- * @method static Builder|SubjectSQL newQuery()
- * @method static Builder|SubjectSQL query()
- * @method static Builder|SubjectSQL whereCreatedAt($value)
- * @method static Builder|SubjectSQL whereCreatedBy($value)
- * @method static Builder|SubjectSQL whereType($value)
- * @method static Builder|SubjectSQL whereUuid($value)
- * @method static Builder|SubjectSQL whereTitle($value)
- * @method static Builder|SubjectSQL whereExternalId($value)
- * @method static Builder|SubjectSQL whereId($value)
- * @method static Builder|SubjectSQL whereName($value)
- * @method static Builder|SubjectSQL whereSchoolId($value)
- * @method static Builder|SubjectSQL whereUpdatedAt($value)
+ * @method static Builder|TemplateNoSQL newModelQuery()
+ * @method static Builder|TemplateNoSQL newQuery()
+ * @method static Builder|TemplateNoSQL query()
+ * @method static Builder|TemplateNoSQL whereCreatedAt($value)
+ * @method static Builder|TemplateNoSQL whereCreatedBy($value)
+ * @method static Builder|TemplateNoSQL whereType($value)
+ * @method static Builder|TemplateNoSQL whereUuid($value)
+ * @method static Builder|TemplateNoSQL whereTitle($value)
+ * @method static Builder|TemplateNoSQL whereExternalId($value)
+ * @method static Builder|TemplateNoSQL whereId($value)
+ * @method static Builder|TemplateNoSQL whereName($value)
+ * @method static Builder|TemplateNoSQL whereSchoolId($value)
+ * @method static Builder|TemplateNoSQL whereUpdatedAt($value)
  * @mixin Eloquent
  */
 class TemplateNoSQL extends Model implements Template
