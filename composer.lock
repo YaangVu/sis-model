@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.188.0",
+            "version": "3.188.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "613cea76913b632d75ed2f6ed5afb11c53762a6e"
+                "reference": "7c84f39290067c6e86b3bc4518f211be0f499dc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/613cea76913b632d75ed2f6ed5afb11c53762a6e",
-                "reference": "613cea76913b632d75ed2f6ed5afb11c53762a6e",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7c84f39290067c6e86b3bc4518f211be0f499dc8",
+                "reference": "7c84f39290067c6e86b3bc4518f211be0f499dc8",
                 "shasum": ""
             },
             "require": {
@@ -92,9 +92,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.188.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.188.1"
             },
-            "time": "2021-08-06T18:17:12+00:00"
+            "time": "2021-08-09T18:29:02+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -8451,16 +8451,16 @@
         },
         {
             "name": "yaangvu/sis-constant",
-            "version": "v1.0.38",
+            "version": "v1.0.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/YaangVu/sis-constant.git",
-                "reference": "b75ca64067952d8591e74f30ebc52633f3f6e54c"
+                "reference": "ec1fff1d14697d2572a92bf995fbf5d5063ba015"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YaangVu/sis-constant/zipball/b75ca64067952d8591e74f30ebc52633f3f6e54c",
-                "reference": "b75ca64067952d8591e74f30ebc52633f3f6e54c",
+                "url": "https://api.github.com/repos/YaangVu/sis-constant/zipball/ec1fff1d14697d2572a92bf995fbf5d5063ba015",
+                "reference": "ec1fff1d14697d2572a92bf995fbf5d5063ba015",
                 "shasum": ""
             },
             "require": {
@@ -8490,9 +8490,9 @@
             ],
             "support": {
                 "issues": "https://github.com/YaangVu/sis-constant/issues",
-                "source": "https://github.com/YaangVu/sis-constant/tree/v1.0.38"
+                "source": "https://github.com/YaangVu/sis-constant/tree/v1.0.39"
             },
-            "time": "2021-08-07T11:05:08+00:00"
+            "time": "2021-08-07T18:16:54+00:00"
         }
     ],
     "packages-dev": [
