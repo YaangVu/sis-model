@@ -44,7 +44,7 @@ trait RoleAndPermissionTrait
         if ($this->isGod())
             return true;
 
-        return $this->hasAnyRole($roles);
+        return $this->hasAnyRole(implode(',', $roles));
     }
 
     /**
@@ -74,7 +74,7 @@ trait RoleAndPermissionTrait
         if ($this->isGod())
             return true;
 
-        return $this->hasAllRoles($roles);
+        return $this->hasAllRoles(implode(',', $roles));
     }
 
     /**
@@ -106,7 +106,7 @@ trait RoleAndPermissionTrait
         if ($this->isGod())
             return true;
 
-        return $this->hasAnyPermission($permissions);
+        return $this->hasAnyPermission(implode(',', $permissions));
     }
 
     /**
@@ -138,7 +138,7 @@ trait RoleAndPermissionTrait
         if ($this->isGod())
             return true;
 
-        return $this->hasAllPermissions($permissions);
+        return $this->hasAllPermissions(implode(',', $permissions));
     }
 
     /**
