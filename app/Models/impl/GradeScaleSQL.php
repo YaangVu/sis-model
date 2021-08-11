@@ -54,6 +54,10 @@ use YaangVu\SisModel\App\Models\GradeScale;
  * @property-read int|null                    $classes_count
  * @property-read Collection|GradeLetterSQL[] $gradeLetters
  * @property-read int|null                    $grade_letters_count
+ * @property float                            $extra_point_honor
+ * @method static Builder|ProgramSQL whereExtraPointHonor($value)
+ * @property float                            $extra_point_advanced
+ * @method static Builder|ProgramSQL whereExtraPointAdvanced($value)
  */
 class GradeScaleSQL extends Model implements GradeScale
 {
@@ -63,7 +67,10 @@ class GradeScaleSQL extends Model implements GradeScale
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['name', 'description', 'is_calculate_gpa', 'score_to_pass', 'lms_id', CodeConstant::UUID];
+    protected $fillable
+        = ['name', 'description', 'is_calculate_gpa',
+           'score_to_pass', 'lms_id', CodeConstant::UUID,
+           'extra_point_honor', 'extra_point_advanced'];
 
     public function gradeLetters(): HasMany
     {
