@@ -47,6 +47,8 @@ use YaangVu\SisModel\App\Models\GraduationCategory;
  * @method static Builder|GraduationCategorySQL whereUuid($value)
  * @property-read Collection|ProgramSQL[] $programs
  * @property-read int|null                $programs_count
+ * @property-read Collection|\YaangVu\SisModel\App\Models\impl\SubjectSQL[] $subjects
+ * @property-read int|null $subjects_count
  */
 class GraduationCategorySQL extends Model implements GraduationCategory
 {

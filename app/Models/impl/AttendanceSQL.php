@@ -35,12 +35,15 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @method static Builder|AttendanceSQL whereUserUuid($value)
  * @method static Builder|AttendanceSQL whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property string|null $group
+ * @method static Builder|AttendanceSQL whereGroup($value)
+ * @method static Builder|AttendanceSQL whereUserId($value)
  */
 class AttendanceSQL extends SQLModel implements Attendance
 {
     use HasFactory;
 
-    protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description'];
+    protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description', 'group'];
 
     protected $table = self::table;
 }
