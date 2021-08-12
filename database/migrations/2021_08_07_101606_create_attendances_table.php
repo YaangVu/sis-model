@@ -19,7 +19,7 @@ class CreateAttendancesTable extends Migration
             $table->unsignedInteger('class_id');
             $table->string('calendar_id');
             $table->string('user_uuid')->nullable();
-            $table->string('user_id')->nullable();
+            $table->unsignedInteger('user_id')->nullable();
             $table->string('status')->default(AttendanceConstant::PRESENT);
             $table->text('description')->nullable();
             $table->unsignedInteger('created_by')->nullable();

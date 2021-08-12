@@ -14,7 +14,7 @@ use YaangVu\SisModel\App\Models\SQLModel;
  *
  * @property int         $id
  * @property int         $class_id
- * @property string      calendar_id
+ * @property string      $calendar_id
  * @property string|null $user_uuid
  * @property int|null    $user_id
  * @property string|null $status
