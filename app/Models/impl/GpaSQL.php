@@ -43,6 +43,8 @@ use YaangVu\SisModel\App\Models\Gpa;
  * @method static Builder|GpaSQL whereUserId($value)
  * @method static Builder|GpaSQL whereUuid($value)
  * @mixin Eloquent
+ * @property int|null    $rank
+ * @method static Builder|GpaSQL whereRank($value)
  */
 class GpaSQL extends Model implements Gpa
 {

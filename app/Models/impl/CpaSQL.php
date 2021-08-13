@@ -41,6 +41,8 @@ use YaangVu\SisModel\App\Models\Cpa;
  * @method static Builder|CpaSQL whereUserId($value)
  * @method static Builder|CpaSQL whereUuid($value)
  * @mixin Eloquent
+ * @property int|null    $rank
+ * @method static Builder|CpaSQL whereRank($value)
  */
 class CpaSQL extends Model implements Cpa
 {
