@@ -29,7 +29,7 @@ class RoleSeeder extends Seeder
             ['name' => RoleConstant::ACADEMIC_COORDINATOR, 'group' => RoleConstant::STAFF],
             ['name' => RoleConstant::STUDENT, 'group' => RoleConstant::STUDENT_AND_FAMILY],
             ['name' => RoleConstant::FAMILY, 'group' => RoleConstant::STUDENT_AND_FAMILY],
-            ['name' => RoleConstant::COACH, 'group' => RoleConstant::STAFF],
+            ['name' => RoleConstant::COUNSELOR, 'group' => RoleConstant::STAFF],
             ['name' => RoleConstant::GOD, 'group' => null],
         ];
         foreach ($schools as $school) {
