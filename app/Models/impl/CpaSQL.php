@@ -4,11 +4,13 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Cpa;
+use YaangVu\SisModel\Database\Factories\CpaFactory;
 
 /**
  * YaangVu\SisModel\App\Models\impl\CpaSQL
@@ -46,6 +48,8 @@ use YaangVu\SisModel\App\Models\Cpa;
  */
 class CpaSQL extends Model implements Cpa
 {
+    use HasFactory;
+
     protected $table = self::table;
 
     protected $fillable
@@ -59,4 +63,9 @@ class CpaSQL extends Model implements Cpa
     protected $connection = DbConnectionConstant::SQL;
 
     protected string $code = CodeConstant::UUID;
+
+    protected static function newFactory(): CpaFactory
+    {
+        return new CpaFactory();
+    }
 }

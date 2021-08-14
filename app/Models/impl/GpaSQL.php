@@ -4,11 +4,13 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Gpa;
+use YaangVu\SisModel\Database\Factories\GpaFactory;
 
 /**
  * YaangVu\SisModel\App\Models\impl\GpaSQL
@@ -48,6 +50,8 @@ use YaangVu\SisModel\App\Models\Gpa;
  */
 class GpaSQL extends Model implements Gpa
 {
+    use HasFactory;
+
     protected $table = self::table;
 
     protected $fillable
@@ -62,4 +66,9 @@ class GpaSQL extends Model implements Gpa
     protected $connection = DbConnectionConstant::SQL;
 
     protected string $code = CodeConstant::UUID;
+
+    protected static function newFactory(): GpaFactory
+    {
+        return new GpaFactory();
+    }
 }

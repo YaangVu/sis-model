@@ -1,8 +1,9 @@
 <?php
 
-namespace Database\Seeders;
+namespace YaangVu\SisModel\Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use YaangVu\SisModel\App\Models\impl\GpaSQL;
 
 class GpaSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class GpaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        GpaSQL::factory()->count(500)->create();
     }
 }

@@ -1,8 +1,9 @@
 <?php
 
-namespace Database\Seeders;
+namespace YaangVu\SisModel\Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use YaangVu\SisModel\App\Models\impl\CpaSQL;
 
 class CpaSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class CpaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        CpaSQL::factory()->count(100)->create();
     }
 }
