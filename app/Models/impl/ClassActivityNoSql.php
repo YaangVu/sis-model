@@ -45,4 +45,9 @@ class ClassActivityNoSql extends Model implements ClassActivity
     protected $guarded = [];
 
     protected $connection = DbConnectionConstant::NOSQL;
+
+    function student(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return $this->belongsTo(UserNoSQL::class, 'student_code', 'student_code');
+    }
 }
