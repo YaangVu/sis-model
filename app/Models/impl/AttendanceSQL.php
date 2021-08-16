@@ -5,6 +5,7 @@ namespace YaangVu\SisModel\App\Models\impl;
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use YaangVu\SisModel\App\Models\Attendance;
 use YaangVu\SisModel\App\Models\MongoModel;
@@ -48,8 +49,13 @@ class AttendanceSQL extends SQLModel implements Attendance
 
     protected $table = self::table;
 
-    public function calendar(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function calendar(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
     {
-        return (new MongoModel())->belongsTo(CalendarNoSQL::class,'calendar_id','_id');
+        return (new MongoModel())->belongsTo(CalendarNoSQL::class, 'calendar_id', '_id');
+    }
+
+    function user(): BelongsTo
+    {
+        return $this->belongsTo(UserSQL::class, 'user_id', 'id');
     }
 }
