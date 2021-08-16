@@ -140,9 +140,13 @@ class ClassSQL extends Model implements Clazz
                     ->whereNull('class_assignments.deleted_at');
     }
 
-
     public function subject(): BelongsTo
     {
         return $this->belongsTo(SubjectSQL::class, 'subject_id');
+    }
+
+    function attendances(): HasMany
+    {
+        return $this->hasMany(AttendanceSQL::class,'class_id');
     }
 }

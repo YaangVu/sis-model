@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use YaangVu\SisModel\App\Models\Attendance;
+use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\SQLModel;
 
 /**
@@ -46,4 +47,9 @@ class AttendanceSQL extends SQLModel implements Attendance
     protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description', 'group'];
 
     protected $table = self::table;
+
+    public function calendar(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return (new MongoModel())->belongsTo(CalendarNoSQL::class,'calendar_id','_id');
+    }
 }
