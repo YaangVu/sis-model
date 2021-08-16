@@ -45,6 +45,11 @@ use YaangVu\SisModel\Database\Factories\CpaFactory;
  * @mixin Eloquent
  * @property int|null    $rank
  * @method static Builder|CpaSQL whereRank($value)
+ * @property int|null    $grade_id grade of student, such as: K-12
+ * @property int         $term_id
+ * @method static CpaFactory factory(...$parameters)
+ * @method static Builder|CpaSQL whereGradeId($value)
+ * @method static Builder|CpaSQL whereTermId($value)
  */
 class CpaSQL extends Model implements Cpa
 {
@@ -55,7 +60,7 @@ class CpaSQL extends Model implements Cpa
     protected $fillable
         = [CodeConstant::EX_ID, CodeConstant::UUID,
            'user_id', 'school_id', 'learned_credit', 'earned_credit',
-           'cpa', 'bonus_cpa'
+           'cpa', 'bonus_cpa', 'grade_id', 'term_id'
         ];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];

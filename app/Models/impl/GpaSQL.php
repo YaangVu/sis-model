@@ -47,6 +47,9 @@ use YaangVu\SisModel\Database\Factories\GpaFactory;
  * @mixin Eloquent
  * @property int|null    $rank
  * @method static Builder|GpaSQL whereRank($value)
+ * @property int|null    $grade_id grade of student, such as: K-12
+ * @method static GpaFactory factory(...$parameters)
+ * @method static Builder|GpaSQL whereGradeId($value)
  */
 class GpaSQL extends Model implements Gpa
 {
@@ -58,7 +61,7 @@ class GpaSQL extends Model implements Gpa
         = [
             CodeConstant::EX_ID, CodeConstant::UUID,
             'user_id', 'term_id', 'school_id', 'learned_credit', 'earned_credit',
-            'cpa', 'bonus_cpa'
+            'gpa', 'bonus_gpa', 'grade_id', 'rank'
         ];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];

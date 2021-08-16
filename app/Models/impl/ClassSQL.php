@@ -77,6 +77,8 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @property-read Collection|ClassAssignmentSQL[] $teachers
  * @property-read int|null                        $teachers_count
  * @property-read TermSQL|null                    $terms
+ * @property-read Collection|AttendanceSQL[]      $attendances
+ * @property-read int|null                        $attendances_count
  */
 class ClassSQL extends Model implements Clazz
 {
@@ -147,6 +149,6 @@ class ClassSQL extends Model implements Clazz
 
     function attendances(): HasMany
     {
-        return $this->hasMany(AttendanceSQL::class,'class_id');
+        return $this->hasMany(AttendanceSQL::class, 'class_id');
     }
 }

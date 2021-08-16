@@ -59,6 +59,8 @@ use YaangVu\SisModel\App\Models\User;
  * @property string|null                  $external_id
  * @method static Builder|UserSQL whereExternalId($value)
  * @method static Builder|UserSQL whereUuid($value)
+ * @property-read Collection|ClassSQL[]   $classes
+ * @property-read int|null                $classes_count
  */
 class UserSQL extends Model implements User
 {
@@ -82,6 +84,6 @@ class UserSQL extends Model implements User
 
     public function classes(): BelongsToMany
     {
-        return $this->belongsToMany(ClassSQL::class,ClassAssignment::table,'user_id','class_id');
+        return $this->belongsToMany(ClassSQL::class, ClassAssignment::table, 'user_id', 'class_id');
     }
 }

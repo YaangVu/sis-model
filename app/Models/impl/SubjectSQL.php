@@ -53,7 +53,9 @@ use YaangVu\SisModel\App\Models\Subject;
  * @property int|null                $grade_scale_id
  * @method static Builder|SubjectSQL whereGradeScaleId($value)
  * @property-read GradeScaleSQL|null $gradeScale
- * @property-read mixed $grade_scales
+ * @property-read mixed              $grade_scales
+ * @property string                  $type
+ * @method static Builder|SubjectSQL whereType($value)
  */
 class SubjectSQL extends Model implements Subject
 {
@@ -75,7 +77,8 @@ class SubjectSQL extends Model implements Subject
             'grade_id',
             'school_id',
             'weight',
-            'grade_scale_id'
+            'grade_scale_id',
+            'type',
         ];
 
     public function grades(): BelongsTo
