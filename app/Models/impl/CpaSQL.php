@@ -6,6 +6,7 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
@@ -15,18 +16,18 @@ use YaangVu\SisModel\Database\Factories\CpaFactory;
 /**
  * YaangVu\SisModel\App\Models\impl\CpaSQL
  *
- * @property int         $id
- * @property int|null    $created_by
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $uuid
- * @property string|null $external_id
- * @property int         $user_id
- * @property int         $school_id
- * @property float       $learned_credit
- * @property float       $earned_credit
- * @property float       $cpa
- * @property float       $bonus_cpa
+ * @property int          $id
+ * @property int|null     $created_by
+ * @property Carbon|null  $created_at
+ * @property Carbon|null  $updated_at
+ * @property string|null  $uuid
+ * @property string|null  $external_id
+ * @property int          $user_id
+ * @property int          $school_id
+ * @property float        $learned_credit
+ * @property float        $earned_credit
+ * @property float        $cpa
+ * @property float        $bonus_cpa
  * @method static Builder|CpaSQL newModelQuery()
  * @method static Builder|CpaSQL newQuery()
  * @method static Builder|CpaSQL query()
@@ -43,13 +44,14 @@ use YaangVu\SisModel\Database\Factories\CpaFactory;
  * @method static Builder|CpaSQL whereUserId($value)
  * @method static Builder|CpaSQL whereUuid($value)
  * @mixin Eloquent
- * @property int|null    $rank
+ * @property int|null     $rank
  * @method static Builder|CpaSQL whereRank($value)
- * @property int|null    $grade_id grade of student, such as: K-12
- * @property int         $term_id
+ * @property int|null     $grade_id grade of student, such as: K-12
+ * @property int          $term_id
  * @method static CpaFactory factory(...$parameters)
  * @method static Builder|CpaSQL whereGradeId($value)
  * @method static Builder|CpaSQL whereTermId($value)
+ * @property-read UserSQL $user
  */
 class CpaSQL extends Model implements Cpa
 {
@@ -72,5 +74,10 @@ class CpaSQL extends Model implements Cpa
     protected static function newFactory(): CpaFactory
     {
         return new CpaFactory();
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(UserSQL::class);
     }
 }
