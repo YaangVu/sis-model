@@ -18,7 +18,7 @@ use YaangVu\SisModel\App\Models\Clazz;
 
 
 /**
- * YaangVu\SisModel\App\Models\ClassSQL
+ * YaangVu\SisModel\App\Models\impl\ClassSQL
  *
  * @property int                                  $id
  * @property string                               $name

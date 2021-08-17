@@ -68,12 +68,12 @@ class CalendarNoSQL extends Model implements Calendar
 
     protected $connection = DbConnectionConstant::NOSQL;
 
-    public function user(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(UserSQL::class, 'created_by', 'id');
+        return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }
 
-    public function class(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function class(): BelongsTo
     {
         return (new SQLModel())->belongsTo(ClassSql::class, 'class_id', 'id');
     }
