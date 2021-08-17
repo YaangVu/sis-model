@@ -4,13 +4,13 @@
 namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
-use Database\Factories\GradeLetterFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\GradeLetter;
+use YaangVu\SisModel\Database\Factories\GradeLetterFactory;
 
 /**
  * YaangVu\SisModel\App\Models\GradeLetterSQL
@@ -18,7 +18,7 @@ use YaangVu\SisModel\App\Models\GradeLetter;
  * @property int         $id
  * @property string      $letter
  * @property float|null  $score
- * @property float|null  $gpa
+ * @property float|null  $gpaSQL
  * @property int|null    $grade_scale_id
  * @property int|null    $created_by
  * @property Carbon|null $created_at
@@ -47,6 +47,7 @@ use YaangVu\SisModel\App\Models\GradeLetter;
  * @property string|null $external_id
  * @method static Builder|GradeLetterSQL whereExternalId($value)
  * @method static Builder|GradeLetterSQL whereUuid($value)
+ * @property float|null  $gpa
  */
 class GradeLetterSQL extends Model implements GradeLetter
 {
@@ -56,5 +57,5 @@ class GradeLetterSQL extends Model implements GradeLetter
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['letter', 'score', 'gpa', 'grade_scale_id'];
+    protected $fillable = ['letter', 'score', 'gpaSQL', 'grade_scale_id'];
 }

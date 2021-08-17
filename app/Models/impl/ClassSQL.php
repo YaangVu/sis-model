@@ -77,6 +77,8 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @property-read Collection|ClassAssignmentSQL[] $teachers
  * @property-read int|null                        $teachers_count
  * @property-read TermSQL|null                    $terms
+ * @property-read Collection|AttendanceSQL[]      $attendances
+ * @property-read int|null                        $attendances_count
  */
 class ClassSQL extends Model implements Clazz
 {
@@ -140,9 +142,13 @@ class ClassSQL extends Model implements Clazz
                     ->whereNull('class_assignments.deleted_at');
     }
 
-
     public function subject(): BelongsTo
     {
         return $this->belongsTo(SubjectSQL::class, 'subject_id');
+    }
+
+    function attendances(): HasMany
+    {
+        return $this->hasMany(AttendanceSQL::class, 'class_id');
     }
 }

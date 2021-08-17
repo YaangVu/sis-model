@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Laravel\Lumen\Auth\Authorizable;
@@ -17,6 +18,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\SisModel\App\Models\ClassAssignment;
 use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\User;
 
@@ -57,6 +59,8 @@ use YaangVu\SisModel\App\Models\User;
  * @property string|null                  $external_id
  * @method static Builder|UserSQL whereExternalId($value)
  * @method static Builder|UserSQL whereUuid($value)
+ * @property-read Collection|ClassSQL[]   $classes
+ * @property-read int|null                $classes_count
  */
 class UserSQL extends Model implements User
 {
@@ -76,5 +80,10 @@ class UserSQL extends Model implements User
     {
         return (new MongoModel())->belongsTo(UserNoSQL::class, 'username', 'username')
                                  ->whereNull('deleted_at');
+    }
+
+    public function classes(): BelongsToMany
+    {
+        return $this->belongsToMany(ClassSQL::class, ClassAssignment::table, 'user_id', 'class_id');
     }
 }

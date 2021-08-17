@@ -5,8 +5,10 @@ namespace YaangVu\SisModel\App\Models\impl;
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use YaangVu\SisModel\App\Models\Attendance;
+use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\SQLModel;
 
 /**
@@ -38,6 +40,7 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @property string|null $group
  * @method static Builder|AttendanceSQL whereGroup($value)
  * @method static Builder|AttendanceSQL whereUserId($value)
+ * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL|null $user
  */
 class AttendanceSQL extends SQLModel implements Attendance
 {
@@ -46,4 +49,14 @@ class AttendanceSQL extends SQLModel implements Attendance
     protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description', 'group'];
 
     protected $table = self::table;
+
+    public function calendar(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return (new MongoModel())->belongsTo(CalendarNoSQL::class, 'calendar_id', '_id');
+    }
+
+    function user(): BelongsTo
+    {
+        return $this->belongsTo(UserSQL::class, 'user_id', 'id');
+    }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace YaangVu\SisModel\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use YaangVu\SisModel\App\Models\CalendarSQL;
+use YaangVu\SisModel\App\Models\impl\CalendarSQL;
 
 class CalendarFactory extends Factory
 {
