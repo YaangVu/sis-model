@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use Jenssegers\Mongodb\Relations\BelongsTo as MBelongTo;
 use Laravel\Lumen\Auth\Authorizable;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -61,6 +61,7 @@ use YaangVu\SisModel\App\Models\User;
  * @method static Builder|UserSQL whereUuid($value)
  * @property-read Collection|ClassSQL[]   $classes
  * @property-read int|null                $classes_count
+ * @property-read UserNoSQL|null          $userNoSql
  */
 class UserSQL extends Model implements User
 {
@@ -76,7 +77,7 @@ class UserSQL extends Model implements User
 
     public string $code = CodeConstant::UUID;
 
-    public function userNoSql(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function userNoSql(): MBelongTo
     {
         return (new MongoModel())->belongsTo(UserNoSQL::class, 'username', 'username')
                                  ->whereNull('deleted_at');
