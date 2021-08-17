@@ -52,6 +52,8 @@ use YaangVu\SisModel\Database\Factories\CpaFactory;
  * @method static Builder|CpaSQL whereGradeId($value)
  * @method static Builder|CpaSQL whereTermId($value)
  * @property-read UserSQL $user
+ * @property int|null $program_id
+ * @method static Builder|CpaSQL whereProgramId($value)
  */
 class CpaSQL extends Model implements Cpa
 {

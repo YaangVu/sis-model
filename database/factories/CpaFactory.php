@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use JetBrains\PhpStorm\ArrayShape;
 use YaangVu\SisModel\App\Models\impl\CpaSQL;
 use YaangVu\SisModel\App\Models\impl\GradeSQL;
+use YaangVu\SisModel\App\Models\impl\ProgramSQL;
 use YaangVu\SisModel\App\Models\impl\TermSQL;
 use YaangVu\SisModel\App\Models\impl\UserSQL;
 
@@ -15,18 +16,20 @@ class CpaFactory extends Factory
 
     #[ArrayShape(['uuid'           => "string", 'user_id' => "int", 'term_id' => "int", 'school_id' => "int",
                   'learned_credit' => "int", 'earned_credit' => "int", 'cpa' => "float",
-                  'bonus_cpa'      => "float", 'rank' => "int", 'grade_id' => "int"])]
+                  'bonus_cpa'      => "float", 'rank' => "int", 'grade_id' => "int", 'program_id' => "int"])]
     public function definition(): array
     {
-        $users  = UserSQL::all('id')->pluck('id')->toArray();
-        $terms  = TermSQL::all()->pluck('id')->toArray();
-        $grades = GradeSQL::all()->pluck('id')->toArray();
+        $users    = UserSQL::all('id')->pluck('id')->toArray();
+        $terms    = TermSQL::all()->pluck('id')->toArray();
+        $grades   = GradeSQL::all()->pluck('id')->toArray();
+        $programs = ProgramSQL::all()->pluck('id')->toArray();
 
         return [
             'uuid'           => $this->faker->uuid,
             'user_id'        => $this->faker->randomElement($users),
             'term_id'        => $this->faker->randomElement($terms),
             'grade_id'       => $this->faker->randomElement($grades),
+            'program_id'     => $this->faker->randomElement($programs),
             'school_id'      => 2,
             'learned_credit' => $this->faker->numberBetween(150, 200),
             'earned_credit'  => $this->faker->numberBetween(50, 200),
