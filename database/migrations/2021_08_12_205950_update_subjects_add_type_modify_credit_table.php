@@ -15,7 +15,6 @@ class UpdateSubjectsAddTypeModifyCreditTable extends Migration
     {
         Schema::table('subjects', function (Blueprint $table) {
             $table->unsignedDecimal('credit')->default('0')->change();
-            $table->string('type')->nullable();
         });
     }
 
@@ -28,7 +27,6 @@ class UpdateSubjectsAddTypeModifyCreditTable extends Migration
     {
         Schema::table('subjects', function (Blueprint $table) {
             $table->dropColumn('credit');
-            $table->dropColumn('type');
         });
 
         Schema::table('subjects', function (Blueprint $table) {
