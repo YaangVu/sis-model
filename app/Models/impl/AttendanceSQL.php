@@ -41,12 +41,16 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @method static Builder|AttendanceSQL whereGroup($value)
  * @method static Builder|AttendanceSQL whereUserId($value)
  * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL|null $user
+ * @property string|null $start
+ * @method static Builder|AttendanceSQL whereStart($value)
+ * @property string|null $end
+ * @method static Builder|AttendanceSQL whereEnd($value)
  */
 class AttendanceSQL extends SQLModel implements Attendance
 {
     use HasFactory;
 
-    protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description', 'group'];
+    protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description', 'group','start','end'];
 
     protected $table = self::table;
 
