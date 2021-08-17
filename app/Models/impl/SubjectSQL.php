@@ -75,7 +75,8 @@ class SubjectSQL extends Model implements Subject
             'grade_id',
             'school_id',
             'weight',
-            'grade_scale_id'
+            'grade_scale_id',
+            'type',
         ];
 
     public function grades(): BelongsTo
