@@ -58,6 +58,7 @@ use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
  * @property string|null                  $external_id
  * @method static Builder|UserNoSQL whereExternalId($value)
  * @method static Builder|UserNoSQL whereUuid($value)
+ * @property-read UserSQL|null            $userSql
  */
 class UserNoSQL extends Model implements User
 {
@@ -174,7 +175,7 @@ class UserNoSQL extends Model implements User
         }
     }
 
-    public function userSql(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function userSql(): BelongsTo
     {
         return (new SQLModel())->belongsTo(UserSQL::class, 'username', 'username')
                                ->whereNull('deleted_at');
