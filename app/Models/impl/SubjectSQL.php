@@ -63,7 +63,7 @@ class SubjectSQL extends Model implements Subject
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $appends = ['rules', 'grade_scales'];
+    protected $appends = ['rules', 'grade_scales', 'graduation_category'];
 
     protected $fillable
         = [
@@ -99,5 +99,19 @@ class SubjectSQL extends Model implements Subject
     public function getGradeScalesAttribute($value)
     {
         return GradeScaleSQL::where('id', $this->grade_scale_id)->get();
+    }
+
+    public function getGraduationCategoryAttribute($value)
+    {
+        $graduationIds = [];
+        $graduationSubjects = GraduationCategorySubjectSQL::where('subject_id', $this->id)->get();
+        foreach ($graduationSubjects as $graduationSubject) {
+            $graduationIds[] = $graduationSubject->graduation_category_id;
+        }
+
+        if($graduationIds)
+            return GraduationCategorySQL::whereIn('id', $graduationIds)->get();
+
+        return [];
     }
 }
