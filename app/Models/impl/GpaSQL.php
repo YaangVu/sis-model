@@ -52,6 +52,8 @@ use YaangVu\SisModel\Database\Factories\GpaFactory;
  * @method static GpaFactory factory(...$parameters)
  * @method static Builder|GpaSQL whereGradeId($value)
  * @property-read UserSQL $user
+ * @property int|null $program_id
+ * @method static Builder|GpaSQL whereProgramId($value)
  */
 class GpaSQL extends Model implements Gpa
 {
