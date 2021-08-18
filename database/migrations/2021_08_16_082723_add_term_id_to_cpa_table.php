@@ -30,7 +30,7 @@ class AddTermIdToCpaTable extends Migration
     public function down()
     {
         Schema::table('cpa', function (Blueprint $table) {
-            $table->dropColumn(['grade', 'term_id']);
+            $table->dropColumn(['grade_id', 'term_id']);
         });
     }
 }
