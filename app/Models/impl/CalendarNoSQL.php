@@ -75,7 +75,7 @@ class CalendarNoSQL extends Model implements Calendar
 
     public function class(): BelongsTo
     {
-        return (new SQLModel())->belongsTo(ClassSql::class, 'class_id', 'id');
+        return (new SQLModel())->belongsTo(ClassSQL::class, 'class_id', 'id');
     }
 
     public function getStartAttribute($value): Carbon|string|null
