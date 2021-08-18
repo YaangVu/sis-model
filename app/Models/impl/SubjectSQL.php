@@ -56,6 +56,7 @@ use YaangVu\SisModel\App\Models\Subject;
  * @property-read mixed              $grade_scales
  * @property string                  $type
  * @method static Builder|SubjectSQL whereType($value)
+ * @property-read mixed $graduation_category
  */
 class SubjectSQL extends Model implements Subject
 {

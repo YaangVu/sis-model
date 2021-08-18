@@ -54,6 +54,10 @@ use YaangVu\SisModel\Database\Factories\GpaFactory;
  * @property-read UserSQL $user
  * @property int|null $program_id
  * @method static Builder|GpaSQL whereProgramId($value)
+ * @property float|null $cpa
+ * @property float|null $bonus_cpa
+ * @method static Builder|GpaSQL whereBonusCpa($value)
+ * @method static Builder|GpaSQL whereCpa($value)
  */
 class GpaSQL extends Model implements Gpa
 {
