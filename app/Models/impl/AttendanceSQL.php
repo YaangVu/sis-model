@@ -41,6 +41,10 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @method static Builder|AttendanceSQL whereGroup($value)
  * @method static Builder|AttendanceSQL whereUserId($value)
  * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL|null $user
+ * @property string|null $start
+ * @property string|null $end
+ * @method static Builder|AttendanceSQL whereEnd($value)
+ * @method static Builder|AttendanceSQL whereStart($value)
  */
 class AttendanceSQL extends SQLModel implements Attendance
 {
