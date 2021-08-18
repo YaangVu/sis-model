@@ -65,7 +65,7 @@ class GpaSQL extends Model implements Gpa
         = [
             CodeConstant::EX_ID, CodeConstant::UUID,
             'user_id', 'term_id', 'school_id', 'learned_credit', 'earned_credit',
-            'gpa', 'bonus_gpa', 'grade_id', 'rank'
+            'gpa', 'bonus_gpa','cpa', 'bonus_cpa', 'grade_id', 'rank'
         ];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
