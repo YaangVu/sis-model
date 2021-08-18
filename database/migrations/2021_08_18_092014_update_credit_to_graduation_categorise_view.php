@@ -2,10 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGraduationCategoriesView extends Migration
+class UpdateCreditToGraduationCategoriseView extends Migration
 {
     /**
      * Run the migrations.
@@ -22,7 +21,8 @@ class CreateGraduationCategoriesView extends Migration
                gc.id AS graduation_category_id ,
                gc.name AS graduation_category_name ,            
                pgc.credit AS graduation_category_credit ,
-               c.credit AS class_credit ,
+               s.credit AS credit ,
+               s.id AS subject_id ,
                pgc.program_id,
                p.school_id ,
                sc.user_id ,
