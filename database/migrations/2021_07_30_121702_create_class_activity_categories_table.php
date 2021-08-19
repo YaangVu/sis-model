@@ -22,7 +22,7 @@ class CreateClassActivityCategoriesTable extends Migration
             $table->string(CodeConstant::UUID)->unique()->nullable();
             $table->string(CodeConstant::EX_ID)->nullable();
 
-            $table->unsignedBigInteger('activity_category_id');
+            $table->unsignedBigInteger('activity_category_id')->nullable();
             $table->unsignedBigInteger('class_id');
             $table->timestamps();
             $table->softDeletes();
