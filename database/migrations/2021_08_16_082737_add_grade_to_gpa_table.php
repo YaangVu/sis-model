@@ -28,7 +28,7 @@ class AddGradeToGpaTable extends Migration
     public function down()
     {
         Schema::table('gpa', function (Blueprint $table) {
-            $table->dropColumn('grade');
+            $table->dropColumn('grade_id');
         });
     }
 }
