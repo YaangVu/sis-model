@@ -57,5 +57,5 @@ class GradeLetterSQL extends Model implements GradeLetter
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['letter', 'score', 'gpaSQL', 'grade_scale_id'];
+    protected $fillable = ['letter', 'score', 'gpa', 'grade_scale_id'];
 }
