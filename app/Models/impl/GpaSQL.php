@@ -58,6 +58,10 @@ use YaangVu\SisModel\Database\Factories\GpaFactory;
  * @property float|null $bonus_cpa
  * @method static Builder|GpaSQL whereBonusCpa($value)
  * @method static Builder|GpaSQL whereCpa($value)
+ * @property float|null $total_learned_credit
+ * @property float|null $total_earned_credit
+ * @method static Builder|GpaSQL whereTotalEarnedCredit($value)
+ * @method static Builder|GpaSQL whereTotalLearnedCredit($value)
  */
 class GpaSQL extends Model implements Gpa
 {
