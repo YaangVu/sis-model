@@ -32,7 +32,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->app['auth']->viaRequest('api', function ($request) {
             $uuid = $request->header('X-user-uuid');
             if ($uuid)
-                return UserSQL::whereUuid($uuid)->first();
+                return UserSQL::with('userNoSql')->whereUuid($uuid)->first();
             else
                 return new UserSQL();
         });
