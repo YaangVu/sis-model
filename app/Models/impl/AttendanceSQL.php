@@ -46,6 +46,7 @@ use YaangVu\SisModel\Database\Factories\AttendanceFactory;
  * @method static Builder|AttendanceSQL whereStart($value)
  * @property string|null       $end
  * @method static Builder|AttendanceSQL whereEnd($value)
+ * @method static \YaangVu\SisModel\Database\Factories\AttendanceFactory factory(...$parameters)
  */
 class AttendanceSQL extends SQLModel implements Attendance
 {
