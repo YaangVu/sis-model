@@ -57,6 +57,10 @@ use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
  * @mixin Eloquent
  * @property string|null                  $external_id
  * @method static Builder|UserNoSQL whereExternalId($value)
+ * @property string|null                  $student_code
+ * @method static Builder|UserNoSQL whereStudentCode($value)
+ * @property string|null                  $staff_code
+ * @method static Builder|UserNoSQL whereStaffCode($value)
  * @method static Builder|UserNoSQL whereUuid($value)
  * @property-read UserSQL|null            $userSql
  */
