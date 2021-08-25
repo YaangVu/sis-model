@@ -47,6 +47,10 @@ use YaangVu\SisModel\App\Models\ClassActivity;
  * @method static Builder|ClassActivityNoSql whereEdmentumId($value)
  * @property string|null $agilix_id
  * @method static Builder|ClassActivityNoSql whereAgilixId($value)
+ * @property string|null $lms_id
+ * @method static Builder|ClassActivityNoSql whereLmsId($value)
+ * @property string|null $lms_name
+ * @method static Builder|ClassActivityNoSql whereLmsName($value)
  */
 class ClassActivityNoSql extends Model implements ClassActivity
 {
