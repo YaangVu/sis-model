@@ -13,6 +13,10 @@ use YaangVu\SisModel\App\Models\ClassActivity;
 /**
  * @property int         $id
  * @property string|null $final_score
+ * @property string|null $current_score
+ * @property string|null $grade_letter
+ * @property string|null $is_pass
+ * @property string|null $user_nosql_id
  * @property string|null $uuid
  * @property string|null $class_activity_category_id
  * @property int|null    $user_id
