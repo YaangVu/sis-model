@@ -16,6 +16,7 @@ class AddColumnStatusToRolesTable extends Migration
     {
         Schema::table('roles', function (Blueprint $table) {
             $table->enum('status', [StatusConstant::ACTIVE, StatusConstant::INACTIVE])->default(StatusConstant::ACTIVE);
+            $table->text('description')->nullable();
         });
     }
 
@@ -28,6 +29,7 @@ class AddColumnStatusToRolesTable extends Migration
     {
         Schema::table('roles', function (Blueprint $table) {
             $table->dropColumn('status');
+            $table->dropColumn('description');
         });
     }
 }

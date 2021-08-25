@@ -22,6 +22,7 @@ use YaangVu\SisModel\App\Models\Role;
  * @property Carbon|null $updated_at
  * @property string|null $group
  * @property string|null $status
+ * @property string|null $description
  * @method static Builder|RoleSQL newModelQuery()
  * @method static Builder|RoleSQL newQuery()
  * @method static Builder|RoleSQL onlyTrashed()
@@ -33,6 +34,7 @@ use YaangVu\SisModel\App\Models\Role;
  * @method static Builder|RoleSQL whereName($value)
  * @method static Builder|RoleSQL whereUpdatedAt($value)
  * @method static Builder|RoleSQL whereGroup($value)
+ * @method static Builder|RoleSQL whereDescription($value)
  * @method static Builder|RoleSQL withTrashed()
  * @method static Builder|RoleSQL withoutTrashed()
  * @mixin Eloquent
