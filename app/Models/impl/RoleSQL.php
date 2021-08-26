@@ -7,22 +7,24 @@
 namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Builder;
+use Spatie\Permission\Models\Permission;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Role;
 
 /**
  * YaangVu\SisModel\App\Models\RoleSQL
  *
- * @property int         $id
- * @property string      $name
- * @property string|null $guard_name
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $group
- * @property string|null $status
- * @property string|null $description
+ * @property int                          $id
+ * @property string                       $name
+ * @property string|null                  $guard_name
+ * @property Carbon|null                  $created_at
+ * @property Carbon|null                  $updated_at
+ * @property string|null                  $group
+ * @property string|null                  $status
+ * @property string|null                  $description
  * @method static Builder|RoleSQL newModelQuery()
  * @method static Builder|RoleSQL newQuery()
  * @method static Builder|RoleSQL onlyTrashed()
@@ -38,6 +40,9 @@ use YaangVu\SisModel\App\Models\Role;
  * @method static Builder|RoleSQL withTrashed()
  * @method static Builder|RoleSQL withoutTrashed()
  * @mixin Eloquent
+ * @property-read Collection|Permission[] $permissions
+ * @property-read int|null                $permissions_count
+ * @method static Builder|Role permission($permissions)
  */
 class RoleSQL extends \Spatie\Permission\Models\Role implements Role
 {
