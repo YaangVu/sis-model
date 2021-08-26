@@ -54,12 +54,12 @@ use YaangVu\SisModel\Database\Factories\GpaFactory;
  * @property-read UserSQL $user
  * @property int|null     $program_id
  * @method static Builder|GpaSQL whereProgramId($value)
- * @property float|null $cpa
- * @property float|null $bonus_cpa
+ * @property float|null   $cpa
+ * @property float|null   $bonus_cpa
  * @method static Builder|GpaSQL whereBonusCpa($value)
  * @method static Builder|GpaSQL whereCpa($value)
- * @property float|null $total_learned_credit
- * @property float|null $total_earned_credit
+ * @property float|null   $total_learned_credit
+ * @property float|null   $total_earned_credit
  * @method static Builder|GpaSQL whereTotalEarnedCredit($value)
  * @method static Builder|GpaSQL whereTotalLearnedCredit($value)
  */
@@ -73,7 +73,8 @@ class GpaSQL extends Model implements Gpa
         = [
             CodeConstant::EX_ID, CodeConstant::UUID,
             'user_id', 'term_id', 'school_id', 'learned_credit', 'earned_credit',
-            'gpa', 'bonus_gpa', 'cpa', 'bonus_cpa', 'grade_id', 'rank'
+            'gpa', 'bonus_gpa', 'cpa', 'bonus_cpa', 'grade_id', 'rank', 'program_id',
+            'total_learned_credit', 'total_earned_credit'
         ];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
