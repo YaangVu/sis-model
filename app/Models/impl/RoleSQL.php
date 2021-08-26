@@ -45,7 +45,7 @@ class RoleSQL extends \Spatie\Permission\Models\Role implements Role
 
     protected $guarded = [];
 
-    protected $fillable = ['name', 'guard_name', 'group', 'status'];
+    protected $fillable = ['name', 'guard_name', 'group', 'status', 'description'];
 
     protected $connection = DbConnectionConstant::SQL;
 }
