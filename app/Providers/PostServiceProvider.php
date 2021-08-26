@@ -6,6 +6,8 @@ use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Flipbox\LumenGenerator\LumenGeneratorServiceProvider;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Support\ServiceProvider;
+use Maatwebsite\Excel\ExcelServiceProvider;
+use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\PermissionServiceProvider;
 
 class PostServiceProvider extends ServiceProvider
@@ -32,5 +34,7 @@ class PostServiceProvider extends ServiceProvider
         $this->app->configure('permission');
         $this->app->alias('cache', CacheManager::class);
         $this->app->register(PermissionServiceProvider::class);
+        $this->app->register(ExcelServiceProvider::class);
+        $this->app->alias('Excels', Excel::class);
     }
 }

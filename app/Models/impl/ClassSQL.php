@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use Jenssegers\Mongodb\Relations\BelongsTo as MBelongsTo;
 use YaangVu\Constant\ClassAssignmentConstant;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
@@ -79,6 +80,7 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @property-read TermSQL|null                    $terms
  * @property-read Collection|AttendanceSQL[]      $attendances
  * @property-read int|null                        $attendances_count
+ * @property-read ClassNoSQL|null                 $classNoSql
  */
 class ClassSQL extends Model implements Clazz
 {
@@ -150,5 +152,10 @@ class ClassSQL extends Model implements Clazz
     function attendances(): HasMany
     {
         return $this->hasMany(AttendanceSQL::class, 'class_id');
+    }
+
+    public function classNoSql(): BelongsTo|MBelongsTo
+    {
+        return $this->belongsTo(ClassNoSQL::class, CodeConstant::UUID, CodeConstant::UUID);
     }
 }

@@ -5,9 +5,9 @@ namespace YaangVu\SisModel\Database\Seeders;
 
 
 use Illuminate\Database\Seeder;
-use PhpOffice\PhpSpreadsheet\IOFactory;
-use Spatie\Permission\Models\Permission;
-use YaangVu\SisModel\App\Models\impl\SchoolSQL;
+use Illuminate\Support\Facades\File;
+use Maatwebsite\Excel\Facades\Excel;
+use YaangVu\SisModel\App\Imports\PermissionImport;
 
 class PermissionSeeder extends Seeder
 {
@@ -18,27 +18,11 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        $file = resource_path('Permissions.csv');
+        $path = resource_path('Permission.xlsx');
+
+        $file = File::get($path);
         if (isset($file)) {
-            $spreadsheet = IOFactory::load($file);
-            $sheet       = $spreadsheet->getActiveSheet();
-
-            // Store data from the activeSheet to the variable in the form of Array
-            $sheetToArray = [1, $sheet->toArray(null, true, true, false)];
-            $arrRole      = $sheetToArray[1][0];
-            $schools      = SchoolSQL::all();
-
-            foreach ($sheetToArray[1] as $k => $v) {
-                if ($k < 1) continue;
-                $permission = Permission::create(['name' => $v[0], 'guard_name' => 'api']);
-                $ticks      = array_keys($v, "1");
-                if ($ticks) {
-                    foreach ($ticks as $tick) {
-                        foreach ($schools as $school)
-                            $permission->assignRole($school->uuid . ':' . trim($arrRole[$tick]));
-                    }
-                }
-            }
+            Excel::import(new PermissionImport(), $path);
         }
     }
 }

@@ -3,7 +3,7 @@
 namespace YaangVu\SisModel\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use YaangVu\SisModel\App\Models\Grade;
+use YaangVu\SisModel\App\Models\impl\GradeSQL;
 
 class GradeSeeder extends Seeder
 {
@@ -16,7 +16,7 @@ class GradeSeeder extends Seeder
     {
         $value = ['PK', 'PS', 'K', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
         foreach ($value as $v) {
-            $division            = new Grade();
+            $division            = new GradeSQL();
             $division->name      = $v;
             $division->school_id = 1;
             $division->save();
