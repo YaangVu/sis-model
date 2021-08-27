@@ -40,6 +40,8 @@ use YaangVu\SisModel\App\Models\ScholasticAssessment;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @property-read  Smi[] $smi
+ * @property-read  Sri[] $sri
  * @method static Builder|ScholasticAssessmentNoSQL newModelQuery()
  * @method static Builder|ScholasticAssessmentNoSQL newQuery()
  * @method static Builder|ScholasticAssessmentNoSQL query()
