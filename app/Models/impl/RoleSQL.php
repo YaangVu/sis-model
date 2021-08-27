@@ -8,6 +8,7 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Builder;
 use Spatie\Permission\Models\Permission;
@@ -53,4 +54,19 @@ class RoleSQL extends \Spatie\Permission\Models\Role implements Role
     protected $fillable = ['name', 'guard_name', 'group', 'status', 'description'];
 
     protected $connection = DbConnectionConstant::SQL;
+
+    public function getNameAttribute(string $name): string
+    {
+        if (!str_contains($name, ':'))
+            return $name;
+
+        [$scID, $decorName] = explode(':', $name);
+
+        return $decorName;
+    }
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(UserSQL::class, 'model_has_roles', 'model_id', 'role_id');
+    }
 }
