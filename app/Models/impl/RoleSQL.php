@@ -67,6 +67,6 @@ class RoleSQL extends \Spatie\Permission\Models\Role implements Role
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(UserSQL::class, 'model_has_roles', 'model_id', 'role_id');
+        return $this->belongsToMany(UserSQL::class, 'model_has_roles', 'role_id', 'model_id');
     }
 }
