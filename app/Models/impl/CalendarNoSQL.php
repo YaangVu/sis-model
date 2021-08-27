@@ -10,6 +10,7 @@ use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Calendar;
+use YaangVu\SisModel\App\Models\SQLModel;
 
 /**
  * YaangVu\SisModel\App\Models\CalendarNoSQL
@@ -67,14 +68,14 @@ class CalendarNoSQL extends Model implements Calendar
 
     protected $connection = DbConnectionConstant::NOSQL;
 
-    public function user(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(UserSQL::class, 'created_by', 'id');
+        return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }
 
-    public function class(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function class(): BelongsTo
     {
-        return $this->belongsTo(ClassSql::class, 'class_id', 'id');
+        return (new SQLModel())->belongsTo(ClassSQL::class, 'class_id', 'id');
     }
 
     public function getStartAttribute($value): Carbon|string|null

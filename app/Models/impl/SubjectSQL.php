@@ -56,6 +56,7 @@ use YaangVu\SisModel\App\Models\Subject;
  * @property-read mixed              $grade_scales
  * @property string                  $type
  * @method static Builder|SubjectSQL whereType($value)
+ * @property-read mixed              $graduation_category
  */
 class SubjectSQL extends Model implements Subject
 {
@@ -103,13 +104,13 @@ class SubjectSQL extends Model implements Subject
 
     public function getGraduationCategoryAttribute($value)
     {
-        $graduationIds = [];
+        $graduationIds      = [];
         $graduationSubjects = GraduationCategorySubjectSQL::where('subject_id', $this->id)->get();
         foreach ($graduationSubjects as $graduationSubject) {
             $graduationIds[] = $graduationSubject->graduation_category_id;
         }
 
-        if($graduationIds)
+        if ($graduationIds)
             return GraduationCategorySQL::whereIn('id', $graduationIds)->get();
 
         return [];

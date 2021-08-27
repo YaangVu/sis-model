@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddGradeToGpaTable extends Migration
+class AddTotalLearnedCreditTotalEarnedCreditToGpaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,8 @@ class AddGradeToGpaTable extends Migration
     public function up()
     {
         Schema::table('gpa', function (Blueprint $table) {
-            $table->unsignedBigInteger('grade_id')->nullable()->comment('grade of student, such as: K-12');
-
-            $table->foreign('grade_id')->references('id')->on('grades')->cascadeOnDelete();
+            $table->unsignedFloat('total_learned_credit')->nullable()->after('earned_credit');
+            $table->unsignedFloat('total_earned_credit')->nullable()->after('total_learned_credit');
         });
     }
 
@@ -28,7 +27,7 @@ class AddGradeToGpaTable extends Migration
     public function down()
     {
         Schema::table('gpa', function (Blueprint $table) {
-            $table->dropColumn('grade_id');
+            $table->dropColumn(['total_learned_credit', 'total_earned_credit']);
         });
     }
 }

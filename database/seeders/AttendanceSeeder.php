@@ -3,9 +3,9 @@
 namespace YaangVu\SisModel\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use YaangVu\SisModel\App\Models\impl\CpaSQL;
+use YaangVu\SisModel\App\Models\impl\AttendanceSQL;
 
-class CpaSeeder extends Seeder
+class AttendanceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class CpaSeeder extends Seeder
      */
     public function run()
     {
-        CpaSQL::factory()->count(100)->create();
+        AttendanceSQL::factory()->count(2000)->create();
     }
 }

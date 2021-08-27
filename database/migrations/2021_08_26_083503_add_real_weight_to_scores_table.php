@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateSubjectsAddTypeModifyCreditTable extends Migration
+class AddRealWeightToScoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdateSubjectsAddTypeModifyCreditTable extends Migration
      */
     public function up()
     {
-        Schema::table('subjects', function (Blueprint $table) {
-            $table->unsignedDecimal('credit')->default('0');
+        Schema::table('scores', function (Blueprint $table) {
+            $table->unsignedDecimal('real_weight')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class UpdateSubjectsAddTypeModifyCreditTable extends Migration
      */
     public function down()
     {
-        Schema::table('subjects', function (Blueprint $table) {
-            $table->dropColumn('credit');
+        Schema::table('scores', function (Blueprint $table) {
+            $table->dropColumn('real_weight');
         });
     }
 }

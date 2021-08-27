@@ -10,20 +10,21 @@ use Illuminate\Support\Carbon;
 use YaangVu\SisModel\App\Models\Attendance;
 use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\SQLModel;
+use YaangVu\SisModel\Database\Factories\AttendanceFactory;
 
 /**
  * YaangVu\SisModel\App\Models\impl\AttendanceSQL
  *
- * @property int         $id
- * @property int         $class_id
- * @property string      $calendar_id
- * @property string|null $user_uuid
- * @property int|null    $user_id
- * @property string|null $status
- * @property string|null $description
- * @property Carbon|null $created_at
- * @property int|null    $created_by
- * @property Carbon|null $updated_at
+ * @property int               $id
+ * @property int               $class_id
+ * @property string            $calendar_id
+ * @property string|null       $user_uuid
+ * @property int|null          $user_id
+ * @property string|null       $status
+ * @property string|null       $description
+ * @property Carbon|null       $created_at
+ * @property int|null          $created_by
+ * @property Carbon|null       $updated_at
  * @method static Builder|AttendanceSQL newModelQuery()
  * @method static Builder|AttendanceSQL newQuery()
  * @method static Builder|AttendanceSQL query()
@@ -37,20 +38,21 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @method static Builder|AttendanceSQL whereUserUuid($value)
  * @method static Builder|AttendanceSQL whereUpdatedAt($value)
  * @mixin Eloquent
- * @property string|null $group
+ * @property string|null       $group
  * @method static Builder|AttendanceSQL whereGroup($value)
  * @method static Builder|AttendanceSQL whereUserId($value)
- * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL|null $user
- * @property string|null $start
+ * @property-read UserSQL|null $user
+ * @property string|null       $start
  * @method static Builder|AttendanceSQL whereStart($value)
- * @property string|null $end
+ * @property string|null       $end
  * @method static Builder|AttendanceSQL whereEnd($value)
+ * @method static \YaangVu\SisModel\Database\Factories\AttendanceFactory factory(...$parameters)
  */
 class AttendanceSQL extends SQLModel implements Attendance
 {
     use HasFactory;
 
-    protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description', 'group','start','end'];
+    protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description', 'group', 'start', 'end'];
 
     protected $table = self::table;
 
@@ -62,5 +64,10 @@ class AttendanceSQL extends SQLModel implements Attendance
     function user(): BelongsTo
     {
         return $this->belongsTo(UserSQL::class, 'user_id', 'id');
+    }
+
+    public static function newFactory(): AttendanceFactory
+    {
+        return new AttendanceFactory();
     }
 }

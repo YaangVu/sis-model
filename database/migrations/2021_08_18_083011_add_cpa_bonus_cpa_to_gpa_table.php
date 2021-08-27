@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateSubjectsAddTypeModifyCreditTable extends Migration
+class AddCpaBonusCpaToGpaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class UpdateSubjectsAddTypeModifyCreditTable extends Migration
      */
     public function up()
     {
-        Schema::table('subjects', function (Blueprint $table) {
-            $table->unsignedDecimal('credit')->default('0');
+        Schema::table('gpa', function (Blueprint $table) {
+            $table->unsignedFloat('cpa')->nullable();
+            $table->unsignedFloat('bonus_cpa')->nullable();
         });
     }
 
@@ -25,8 +26,8 @@ class UpdateSubjectsAddTypeModifyCreditTable extends Migration
      */
     public function down()
     {
-        Schema::table('subjects', function (Blueprint $table) {
-            $table->dropColumn('credit');
+        Schema::table('gpa', function (Blueprint $table) {
+            $table->dropColumn(['cpa', 'bonus_cpa']);
         });
     }
 }
