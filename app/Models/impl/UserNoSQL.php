@@ -181,7 +181,7 @@ class UserNoSQL extends Model implements User
 
     public function userSql(): BelongsTo
     {
-        return (new SQLModel())->belongsTo(UserSQL::class, 'username', 'username')
+        return (new SQLModel())->belongsTo(UserSQL::class, CodeConstant::UUID, CodeConstant::UUID)
                                ->whereNull('deleted_at');
     }
 }
