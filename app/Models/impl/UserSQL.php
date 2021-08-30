@@ -79,7 +79,7 @@ class UserSQL extends Model implements User
 
     public function userNoSql(): MBelongTo
     {
-        return (new MongoModel())->belongsTo(UserNoSQL::class, 'username', 'username')
+        return (new MongoModel())->belongsTo(UserNoSQL::class, CodeConstant::UUID, CodeConstant::UUID)
                                  ->whereNull('deleted_at');
     }
 
