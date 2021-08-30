@@ -55,6 +55,8 @@ use YaangVu\SisModel\App\Models\ClassActivity;
  * @method static Builder|ClassActivityNoSql whereLmsId($value)
  * @property string|null $lms_name
  * @method static Builder|ClassActivityNoSql whereLmsName($value)
+ * @property string|null $student_uuid
+ * @method static Builder|ClassActivityNoSql whereStudentUuid($value)
  */
 class ClassActivityNoSql extends Model implements ClassActivity
 {
@@ -69,6 +71,11 @@ class ClassActivityNoSql extends Model implements ClassActivity
     function student(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
     {
         return $this->belongsTo(UserNoSQL::class, 'student_code', 'student_code');
+    }
+
+    function studentViaUuid(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return $this->belongsTo(UserNoSQL::class, 'student_uuid', 'uuid');
     }
 
     public function getActivitiesAttribute($value)

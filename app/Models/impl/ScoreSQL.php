@@ -52,6 +52,8 @@ use YaangVu\SisModel\Database\Factories\ScoreFactory;
  * @method static Builder|ScoreSQL whereGradeLetter($value)
  * @property float|null   $current_score
  * @method static Builder|ScoreSQL whereCurrentScore($value)
+ * @property string|null  $real_weight
+ * @method static Builder|ScoreSQL whereRealWeight($value)
  */
 class ScoreSQL extends Model implements Score
 {
@@ -59,7 +61,7 @@ class ScoreSQL extends Model implements Score
 
     protected $table = self::table;
 
-    protected $fillable = ['score', 'class_id', 'user_id', 'grade_letter_id', 'grade_letter', 'lms_id', 'school_id', CodeConstant::UUID, 'is_pass'];
+    protected $fillable = ['score', 'class_id', 'user_id', 'grade_letter_id', 'grade_letter', 'lms_id', 'school_id', CodeConstant::UUID, 'is_pass', 'real_weight'];
 
     protected $connection = DbConnectionConstant::SQL;
 }
