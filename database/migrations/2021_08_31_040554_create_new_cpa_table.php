@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use YaangVu\Constant\CodeConstant;
 
-class CreateCpaAddRankTable extends Migration
+class CreateNewCpaTable extends Migration
 {
     /**
      * Run the migrations.
