@@ -8,6 +8,7 @@ use YaangVu\SisModel\App\Models\impl\CpaSQL;
 use YaangVu\SisModel\App\Models\impl\ProgramSQL;
 use YaangVu\SisModel\App\Models\impl\UserSQL;
 
+
 class CpaFactory extends Factory
 {
     protected $model = CpaSQL::class;

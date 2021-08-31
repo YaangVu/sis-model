@@ -9,7 +9,8 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-
+use Barryvdh\LaravelIdeHelper\Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -21,12 +22,12 @@ use YaangVu\SisModel\Database\Factories\CpaFactory;
 /**
  * YaangVu\SisModel\App\Models\impl\CpaSQL
  *
- * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL $user
- * @method static \YaangVu\SisModel\Database\Factories\CpaFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|CpaSQL newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|CpaSQL newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|CpaSQL query()
- * @mixin \Eloquent
+ * @property-read UserSQL $user
+ * @method static CpaFactory factory(...$parameters)
+ * @method static Builder|CpaSQL newModelQuery()
+ * @method static Builder|CpaSQL newQuery()
+ * @method static Builder|CpaSQL query()
+ * @mixin Eloquent
  */
 class CpaSQL extends Model implements Cpa
 {
