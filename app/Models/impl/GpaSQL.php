@@ -11,7 +11,7 @@ use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Gpa;
-use YaangVu\SisModel\Database\Factories\CpaFactory;
+use YaangVu\SisModel\Database\Factories\GpaFactory;
 
 /**
  * YaangVu\SisModel\App\Models\impl\GpaSQL
@@ -83,9 +83,9 @@ class GpaSQL extends Model implements Gpa
 
     protected string $code = CodeConstant::UUID;
 
-    protected static function newFactory(): CpaFactory
+    protected static function newFactory(): GpaFactory
     {
-        return new CpaFactory();
+        return new GpaFactory();
     }
 
     public function user(): BelongsTo
