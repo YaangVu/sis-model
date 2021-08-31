@@ -24,6 +24,7 @@ use YaangVu\SisModel\App\Models\Role;
  * @property Carbon|null                  $created_at
  * @property Carbon|null                  $updated_at
  * @property string|null                  $group
+ * @property bolean                       $is_mutable
  * @property string|null                  $status
  * @property string|null                  $description
  * @method static Builder|RoleSQL newModelQuery()
@@ -34,6 +35,7 @@ use YaangVu\SisModel\App\Models\Role;
  * @method static Builder|RoleSQL whereGuardName($value)
  * @method static Builder|RoleSQL whereStatus($value)
  * @method static Builder|RoleSQL whereId($value)
+ * @method static Builder|RoleSQL whereIsMutable($value)
  * @method static Builder|RoleSQL whereName($value)
  * @method static Builder|RoleSQL whereUpdatedAt($value)
  * @method static Builder|RoleSQL whereGroup($value)
@@ -55,7 +57,7 @@ class RoleSQL extends \Spatie\Permission\Models\Role implements Role
 
     protected $guarded = [];
 
-    protected $fillable = ['name', 'guard_name', 'group', 'status', 'description'];
+    protected $fillable = ['name', 'guard_name', 'group', 'status', 'description','is_mutable'];
 
     protected $connection = DbConnectionConstant::SQL;
 
