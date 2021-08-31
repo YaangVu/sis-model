@@ -21,6 +21,34 @@ use YaangVu\SisModel\Database\Factories\CpaFactory;
  * @method static Builder|CpaSQL newQuery()
  * @method static Builder|CpaSQL query()
  * @mixin Eloquent
+ * @property int $id
+ * @property int|null $created_by
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $uuid
+ * @property string|null $external_id
+ * @property int $user_id
+ * @property int $school_id
+ * @property float $learned_credit
+ * @property float $earned_credit
+ * @property float $cpa
+ * @property float $bonus_cpa
+ * @property int|null $rank
+ * @property int|null $program_id
+ * @method static Builder|CpaSQL whereBonusCpa($value)
+ * @method static Builder|CpaSQL whereCpa($value)
+ * @method static Builder|CpaSQL whereCreatedAt($value)
+ * @method static Builder|CpaSQL whereCreatedBy($value)
+ * @method static Builder|CpaSQL whereEarnedCredit($value)
+ * @method static Builder|CpaSQL whereExternalId($value)
+ * @method static Builder|CpaSQL whereId($value)
+ * @method static Builder|CpaSQL whereLearnedCredit($value)
+ * @method static Builder|CpaSQL whereProgramId($value)
+ * @method static Builder|CpaSQL whereRank($value)
+ * @method static Builder|CpaSQL whereSchoolId($value)
+ * @method static Builder|CpaSQL whereUpdatedAt($value)
+ * @method static Builder|CpaSQL whereUserId($value)
+ * @method static Builder|CpaSQL whereUuid($value)
  */
 class CpaSQL extends Model implements Cpa
 {
