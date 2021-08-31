@@ -11,7 +11,7 @@ use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Gpa;
-use YaangVu\SisModel\Database\Factories\GpaFactory;
+use YaangVu\SisModel\Database\Factories\CpaFactory;
 
 /**
  * YaangVu\SisModel\App\Models\impl\GpaSQL
@@ -49,7 +49,7 @@ use YaangVu\SisModel\Database\Factories\GpaFactory;
  * @property int|null     $rank
  * @method static Builder|GpaSQL whereRank($value)
  * @property int|null     $grade_id grade of student, such as: K-12
- * @method static GpaFactory factory(...$parameters)
+ * @method static CpaFactory factory(...$parameters)
  * @method static Builder|GpaSQL whereGradeId($value)
  * @property-read UserSQL $user
  * @property int|null     $program_id
@@ -83,9 +83,9 @@ class GpaSQL extends Model implements Gpa
 
     protected string $code = CodeConstant::UUID;
 
-    protected static function newFactory(): GpaFactory
+    protected static function newFactory(): CpaFactory
     {
-        return new GpaFactory();
+        return new CpaFactory();
     }
 
     public function user(): BelongsTo

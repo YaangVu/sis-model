@@ -44,6 +44,10 @@ use YaangVu\SisModel\App\Models\Role;
  * @property-read Collection|Permission[] $permissions
  * @property-read int|null                $permissions_count
  * @method static Builder|Role permission($permissions)
+ * @property int|null $created_by
+ * @property-read Collection|\YaangVu\SisModel\App\Models\impl\UserSQL[] $users
+ * @property-read int|null $users_count
+ * @method static \Illuminate\Database\Eloquent\Builder|RoleSQL whereCreatedBy($value)
  */
 class RoleSQL extends \Spatie\Permission\Models\Role implements Role
 {
