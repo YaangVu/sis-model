@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm
- * User: tungnd
- * Date: 8/30/21
- * Time: 17:16
- */
-
 
 namespace YaangVu\SisModel\App\Models\impl;
 
