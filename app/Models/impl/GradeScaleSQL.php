@@ -50,8 +50,8 @@ use YaangVu\SisModel\App\Models\GradeScale;
  * @method static Builder|GradeScaleSQL whereExternalId($value)
  * @method static Builder|GradeScaleSQL whereSchoolId($value)
  * @method static Builder|GradeScaleSQL whereUuid($value)
- * @property-read Collection|ClassSQL[]       $classes
- * @property-read int|null                    $classes_count
+ * @property-read Collection|ClassSQL[]       $subjects
+ * @property-read int|null                    $subjects_count
  * @property-read Collection|GradeLetterSQL[] $gradeLetters
  * @property-read int|null                    $grade_letters_count
  * @property float                            $extra_point_honor
@@ -77,8 +77,8 @@ class GradeScaleSQL extends Model implements GradeScale
         return $this->hasMany(GradeLetterSQL::class, 'grade_scale_id');
     }
 
-    public function classes(): HasMany
+    public function subjects(): HasMany
     {
-        return $this->hasMany(ClassSQL::class, 'id');
+        return $this->hasMany(SubjectSQL::class, 'grade_scale_id');
     }
 }
