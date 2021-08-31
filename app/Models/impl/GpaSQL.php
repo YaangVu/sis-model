@@ -49,7 +49,7 @@ use YaangVu\SisModel\Database\Factories\GpaFactory;
  * @property int|null     $rank
  * @method static Builder|GpaSQL whereRank($value)
  * @property int|null     $grade_id grade of student, such as: K-12
- * @method static CpaFactory factory(...$parameters)
+ * @method static GpaFactory factory(...$parameters)
  * @method static Builder|GpaSQL whereGradeId($value)
  * @property-read UserSQL $user
  * @property int|null     $program_id
