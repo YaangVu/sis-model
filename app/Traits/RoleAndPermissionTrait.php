@@ -101,6 +101,9 @@ trait RoleAndPermissionTrait
      */
     public function hasPermission($permissionName): bool
     {
+        if ($this->isGod())
+            return true;
+
         $permission = Permission::join('role_has_permissions', 'role_has_permissions.permission_id', '=',
                                        'permissions.id')
                                 ->join('roles', 'role_has_permissions.role_id', '=', 'roles.id')
