@@ -4,13 +4,15 @@
 namespace YaangVu\SisModel\App\Traits;
 
 
-use Exception;
 use Illuminate\Database\Eloquent\Model as SqlModel;
 use Illuminate\Support\Facades\Schema;
 use Jenssegers\Mongodb\Eloquent\Model as MongoModel;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use YaangVu\Constant\RoleConstant;
+use YaangVu\Constant\StatusConstant;
 use YaangVu\LaravelBase\Services\impl\BaseService;
+use YaangVu\SisModel\App\Models\impl\RoleSQL;
 use YaangVu\SisModel\App\Models\impl\UserNoSQL;
 use YaangVu\SisModel\App\Models\impl\UserSQL;
 use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
@@ -22,14 +24,16 @@ trait RoleAndPermissionTrait
      *
      * @param ...$roles
      *
-     * @return bool|null
+     * @return bool
      */
-    public function hasAnyRole(...$roles): ?bool
+    public function hasAnyRole(...$roles): bool
     {
         foreach ($roles as $role)
             $decorRole[] = $this->decorateWithSchoolUuid($role);
 
-        return BaseService::currentUser()?->hasAnyRole($decorRole ?? []);
+        $roleCount = $this->countCurrentRoleViaName($decorRole ?? []);
+
+        return $roleCount > 0;
     }
 
     /**
@@ -59,7 +63,9 @@ trait RoleAndPermissionTrait
         foreach ($roles as $role)
             $decorRole[] = $this->decorateWithSchoolUuid($role);
 
-        return BaseService::currentUser()?->hasAllRoles($decorRole ?? []);
+        $roleCount = $this->countCurrentRoleViaName($decorRole ?? []);
+
+        return $roleCount === count($decorRole ?? []);
     }
 
     /**
@@ -77,68 +83,34 @@ trait RoleAndPermissionTrait
         return $this->hasAllRoles(implode(',', $roles));
     }
 
+    private function countCurrentRoleViaName(array $roleName): int
+    {
+        return RoleSQL::whereStatus(StatusConstant::ACTIVE)
+                      ->join('model_has_roles', 'model_has_roles.role_id', '=', 'roles.id')
+                      ->where('model_has_roles.model_id', BaseService::currentUser()?->id)
+                      ->whereIn('roles.name', $roleName)
+                      ->count();
+    }
+
     /**
      * check current user has any permissions ?
      *
-     * @param mixed ...$permissions
+     * @param $permissionName
      *
-     * @return bool|null
-     * @throws Exception
+     * @return bool
      */
-    public function hasAnyPermission(...$permissions): ?bool
+    public function hasPermission($permissionName): bool
     {
-        foreach ($permissions as $permission)
-            $decorPermissions[] = $this->decorateWithSchoolUuid($permission);
+        $permission = Permission::join('role_has_permissions', 'role_has_permissions.permission_id', '=',
+                                       'permissions.id')
+                                ->join('roles', 'role_has_permissions.role_id', '=', 'roles.id')
+                                ->join('model_has_roles', 'model_has_roles.role_id', '=', 'roles.id')
+                                ->where('roles.status', StatusConstant::ACTIVE)
+                                ->where('model_has_roles.model_id', BaseService::currentUser()?->id)
+                                ->where('permissions.name', $permissionName)
+                                ->first();
 
-        return BaseService::currentUser()?->hasAnyPermission($decorPermissions ?? []);
-    }
-
-    /**
-     * check current user has any permissions and god ?
-     *
-     * @param mixed ...$permissions
-     *
-     * @return bool|null
-     * @throws Exception
-     */
-    public function hasAnyPermissionWithGod(...$permissions): ?bool
-    {
-        if ($this->isGod())
-            return true;
-
-        return $this->hasAnyPermission(implode(',', $permissions));
-    }
-
-    /**
-     * check user sql has all permissions ?
-     *
-     * @param ...$permissions
-     *
-     * @return bool|null
-     * @throws Exception
-     */
-    public function hasAllPermissions(...$permissions): ?bool
-    {
-        foreach ($permissions as $permission)
-            $decorPermissions[] = $this->decorateWithSchoolUuid($permission);
-
-        return BaseService::currentUser()?->hasAllPermissions($decorPermissions ?? []);
-    }
-
-    /**
-     * check user sql has all permissions and God ?
-     *
-     * @param ...$permissions
-     *
-     * @return bool|null
-     * @throws Exception
-     */
-    public function hasAllPermissionsWithGod(...$permissions): ?bool
-    {
-        if ($this->isGod())
-            return true;
-
-        return $this->hasAllPermissions(implode(',', $permissions));
+        return isset($permission);
     }
 
     /**
@@ -179,7 +151,7 @@ trait RoleAndPermissionTrait
     /**
      * is this me?
      *
-     * @param UserSQL|UserNoSQL $user
+     * @param UserSQL|UserNoSQL|MongoModel|SqlModel $user
      *
      * @return bool
      */
