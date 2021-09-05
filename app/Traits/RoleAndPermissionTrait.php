@@ -145,7 +145,7 @@ trait RoleAndPermissionTrait
      */
     public function isGod(): ?bool
     {
-        return BaseService::currentUser()?->hasRole(RoleConstant::GOD) || $this->hasAnyRole(RoleConstant::ADMIN);
+        return BaseService::currentUser()?->hasAnyRole(RoleConstant::GOD, RoleConstant::ADMIN);
     }
 
     /**
