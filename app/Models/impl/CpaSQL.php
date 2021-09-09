@@ -15,26 +15,26 @@ use YaangVu\SisModel\Database\Factories\CpaFactory;
 /**
  * YaangVu\SisModel\App\Models\impl\CpaSQL
  *
- * @property-read UserSQL $user
+ * @property-read UserSQL                    $user
  * @method static CpaFactory factory(...$parameters)
  * @method static Builder|CpaSQL newModelQuery()
  * @method static Builder|CpaSQL newQuery()
  * @method static Builder|CpaSQL query()
  * @mixin Eloquent
- * @property int $id
- * @property int|null $created_by
+ * @property int                             $id
+ * @property int|null                        $created_by
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $uuid
- * @property string|null $external_id
- * @property int $user_id
- * @property int $school_id
- * @property float $learned_credit
- * @property float $earned_credit
- * @property float $cpa
- * @property float $bonus_cpa
- * @property int|null $rank
- * @property int|null $program_id
+ * @property string|null                     $uuid
+ * @property string|null                     $external_id
+ * @property int                             $user_id
+ * @property int                             $school_id
+ * @property float                           $learned_credit
+ * @property float                           $earned_credit
+ * @property float                           $cpa
+ * @property float                           $bonus_cpa
+ * @property int|null                        $rank
+ * @property int|null                        $program_id
  * @method static Builder|CpaSQL whereBonusCpa($value)
  * @method static Builder|CpaSQL whereCpa($value)
  * @method static Builder|CpaSQL whereCreatedAt($value)
@@ -49,6 +49,8 @@ use YaangVu\SisModel\Database\Factories\CpaFactory;
  * @method static Builder|CpaSQL whereUpdatedAt($value)
  * @method static Builder|CpaSQL whereUserId($value)
  * @method static Builder|CpaSQL whereUuid($value)
+ * @property int|null $grade_id
+ * @method static Builder|CpaSQL whereGradeId($value)
  */
 class CpaSQL extends Model implements Cpa
 {
@@ -60,7 +62,7 @@ class CpaSQL extends Model implements Cpa
         = [
             CodeConstant::EX_ID, CodeConstant::UUID,
             'user_id', 'school_id', 'learned_credit', 'earned_credit',
-            'cpa', 'bonus_cpa', 'rank', 'program_id'
+            'cpa', 'bonus_cpa', 'rank', 'program_id', 'grade_id'
         ];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
