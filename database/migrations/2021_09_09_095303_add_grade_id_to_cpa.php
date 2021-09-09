@@ -15,6 +15,8 @@ class AddGradeIdToCpa extends Migration
     {
         Schema::table('cpa', function (Blueprint $table) {
             $table->unsignedBigInteger('grade_id')->nullable();
+
+            $table->foreign('grade_id')->references('id')->on('grades')->cascadeOnDelete();
         });
     }
 
