@@ -18,6 +18,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\Constant\StatusConstant;
 use YaangVu\SisModel\App\Models\ClassAssignment;
 use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\User;
@@ -86,5 +87,12 @@ class UserSQL extends Model implements User
     public function classes(): BelongsToMany
     {
         return $this->belongsToMany(ClassSQL::class, ClassAssignment::table, 'user_id', 'class_id');
+    }
+
+    public function studentsNoSql(): MBelongTo
+    {
+        return (new MongoModel())->belongsTo(UserNoSQL::class, CodeConstant::UUID, CodeConstant::UUID)
+                                 ->where('study_status', StatusConstant::STUDYING)
+                                 ->whereNull('deleted_at');
     }
 }
