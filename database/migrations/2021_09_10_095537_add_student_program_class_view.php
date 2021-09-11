@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class AddUserProgramClassView extends Migration
+class AddStudentProgramClassView extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class AddUserProgramClassView extends Migration
      */
     public function up()
     {
-        DB::statement('DROP VIEW IF EXISTS user_program_class_view;');
+        DB::statement('DROP VIEW IF EXISTS student_program_class_view;');
 
         DB::statement('
-            CREATE VIEW user_program_class_view 
-            AS SELECT 
+            CREATE VIEW student_program_class_view 
+            AS SELECT DISTINCT
                 c.id,
                 c.uuid,
                 c.external_id,
@@ -40,9 +40,9 @@ class AddUserProgramClassView extends Migration
                 gc."name" AS graduation_category_name,
                 p."id" AS program_id,
                 p."name" AS program_name,
-                u."id" AS user_id,
-                u.username AS user_username,
-                u.uuid AS user_uuid
+                u."id" AS student_id,
+                u.username AS student_username,
+                u.uuid AS student_uuid
             FROM
                 classes AS c
                 JOIN terms AS t ON t."id" = c.term_id
@@ -75,6 +75,6 @@ class AddUserProgramClassView extends Migration
      */
     public function down()
     {
-        DB::statement('DROP VIEW IF EXISTS user_program_class_view;');
+        DB::statement('DROP VIEW IF EXISTS student_program_class_view;');
     }
 }
