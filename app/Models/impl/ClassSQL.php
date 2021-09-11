@@ -82,6 +82,7 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @property-read Collection|AttendanceSQL[]      $attendances
  * @property-read int|null                        $attendances_count
  * @property-read ClassNoSQL|null                 $classNoSql
+ * @property-read LmsSQL|null                     $lms
  */
 class ClassSQL extends Model implements Clazz
 {

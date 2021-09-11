@@ -17,7 +17,7 @@ class UpdateWeightSubjectTable extends Migration
         DB::statement('DROP VIEW IF EXISTS score_view;');
 
         Schema::table('subjects', function (Blueprint $table) {
-            $table->unsignedDecimal('weight')->nullable()->change();
+            $table->unsignedDecimal('weight')->nullable();
         });
 
         DB::statement('
