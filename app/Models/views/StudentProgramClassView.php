@@ -12,32 +12,32 @@ use YaangVu\SisModel\App\Models\impl\SubjectSQL;
 /**
  * YaangVu\SisModel\App\Models\views\StudentProgramClassView
  *
- * @property int|null    $id
- * @property string|null $uuid
- * @property string|null $external_id
- * @property string|null $name
- * @property string|null $start_date
- * @property string|null $end_date
- * @property string|null $status
- * @property float|null  $credit
- * @property string|null $description
- * @property string|null $zone
- * @property int|null    $subject_id
- * @property int|null    $term_id
- * @property int|null    $course_id
- * @property int|null    $school_id
- * @property int|null    $lms_id
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $course_name
- * @property string|null $subject_name
- * @property int|null    $graduation_category_id
- * @property string|null $graduation_category_name
- * @property int|null    $program_id
- * @property string|null $program_name
- * @property int|null    $student_id
- * @property string|null $student_username
- * @property string|null $student_uuid
+ * @property int|null             $id
+ * @property string|null          $uuid
+ * @property string|null          $external_id
+ * @property string|null          $name
+ * @property string|null          $start_date
+ * @property string|null          $end_date
+ * @property string|null          $status
+ * @property float|null           $credit
+ * @property string|null          $description
+ * @property string|null          $zone
+ * @property int|null             $subject_id
+ * @property int|null             $term_id
+ * @property int|null             $course_id
+ * @property int|null             $school_id
+ * @property int|null             $lms_id
+ * @property Carbon|null          $created_at
+ * @property Carbon|null          $updated_at
+ * @property string|null          $course_name
+ * @property string|null          $subject_name
+ * @property int|null             $graduation_category_id
+ * @property string|null          $graduation_category_name
+ * @property int|null             $program_id
+ * @property string|null          $program_name
+ * @property int|null             $student_id
+ * @property string|null          $student_username
+ * @property string|null          $student_uuid
  * @method static Builder|StudentProgramClassView newModelQuery()
  * @method static Builder|StudentProgramClassView newQuery()
  * @method static Builder|StudentProgramClassView query()
@@ -68,6 +68,9 @@ use YaangVu\SisModel\App\Models\impl\SubjectSQL;
  * @method static Builder|StudentProgramClassView whereUuid($value)
  * @method static Builder|StudentProgramClassView whereZone($value)
  * @mixin Eloquent
+ * @property int|null             $class_id
+ * @property-read SubjectSQL|null $subject
+ * @method static Builder|StudentProgramClassView whereClassId($value)
  */
 class StudentProgramClassView extends Model
 {

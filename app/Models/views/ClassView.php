@@ -12,27 +12,27 @@ use YaangVu\SisModel\App\Models\impl\SubjectSQL;
 /**
  * YaangVu\SisModel\App\Models\views\ClassView
  *
- * @property int|null    $id
- * @property string|null $uuid
- * @property string|null $external_id
- * @property string|null $name
- * @property string|null $start_date
- * @property string|null $end_date
- * @property string|null $status
- * @property float|null  $credit
- * @property string|null $description
- * @property string|null $zone
- * @property int|null    $subject_id
- * @property int|null    $term_id
- * @property int|null    $course_id
- * @property int|null    $school_id
- * @property int|null    $lms_id
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $course_name
- * @property string|null $subject_name
- * @property int|null    $graduation_category_id
- * @property string|null $graduation_category_name
+ * @property int|null             $id
+ * @property string|null          $uuid
+ * @property string|null          $external_id
+ * @property string|null          $name
+ * @property string|null          $start_date
+ * @property string|null          $end_date
+ * @property string|null          $status
+ * @property float|null           $credit
+ * @property string|null          $description
+ * @property string|null          $zone
+ * @property int|null             $subject_id
+ * @property int|null             $term_id
+ * @property int|null             $course_id
+ * @property int|null             $school_id
+ * @property int|null             $lms_id
+ * @property Carbon|null          $created_at
+ * @property Carbon|null          $updated_at
+ * @property string|null          $course_name
+ * @property string|null          $subject_name
+ * @property int|null             $graduation_category_id
+ * @property string|null          $graduation_category_name
  * @method static Builder|ClassView newModelQuery()
  * @method static Builder|ClassView newQuery()
  * @method static Builder|ClassView query()
@@ -58,6 +58,9 @@ use YaangVu\SisModel\App\Models\impl\SubjectSQL;
  * @method static Builder|ClassView whereUuid($value)
  * @method static Builder|ClassView whereZone($value)
  * @mixin Eloquent
+ * @property int|null             $class_id
+ * @property-read SubjectSQL|null $subject
+ * @method static Builder|ClassView whereClassId($value)
  */
 class ClassView extends Model
 {

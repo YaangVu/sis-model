@@ -17,7 +17,7 @@ class AddStudentProgramClassView extends Migration
         DB::statement('
             CREATE VIEW student_program_class_view 
             AS SELECT DISTINCT
-                c.id,
+                c.id as class_id,
                 c.uuid,
                 c.external_id,
                 c.name,
