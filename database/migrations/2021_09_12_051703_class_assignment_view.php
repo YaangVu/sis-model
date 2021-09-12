@@ -14,10 +14,10 @@ class ClassAssignmentView extends Migration
      */
     public function up()
     {
-        DB::statement('DROP VIEW IF EXISTS class_assignments_view;');
+        DB::statement('DROP VIEW IF EXISTS class_assignment_view;');
 
         DB::statement('
-            CREATE VIEW class_assignments_view 
+            CREATE VIEW class_assignment_view 
                 AS SELECT DISTINCT
                     c.id as class_id,
                     c.uuid,
@@ -62,6 +62,6 @@ class ClassAssignmentView extends Migration
      */
     public function down()
     {
-        DB::statement('DROP VIEW IF EXISTS class_assignments_view;');
+        DB::statement('DROP VIEW IF EXISTS class_assignment_view;');
     }
 }
