@@ -62,7 +62,7 @@ use YaangVu\SisModel\App\Models\impl\SubjectSQL;
  */
 class ClassAssignmentView extends Model
 {
-    protected $table = 'class_assignments_view';
+    protected $table = 'class_assignment_view';
 
     public function subject(): BelongsTo
     {
