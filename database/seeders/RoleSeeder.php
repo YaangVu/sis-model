@@ -30,7 +30,6 @@ class RoleSeeder extends Seeder
             ['name' => RoleConstant::STUDENT, 'group' => RoleConstant::STUDENT_AND_FAMILY],
             ['name' => RoleConstant::FAMILY, 'group' => RoleConstant::STUDENT_AND_FAMILY],
             ['name' => RoleConstant::COUNSELOR, 'group' => RoleConstant::STAFF],
-            ['name' => RoleConstant::GOD, 'group' => null],
         ];
         foreach ($schools as $school) {
             foreach ($roles as $role) {
@@ -44,5 +43,10 @@ class RoleSeeder extends Seeder
 
         if ($data)
             Role::insert($data);
+
+        $god             = new Role();
+        $god->name       = RoleConstant::GOD;
+        $god->guard_name = 'api';
+        $god->save();
     }
 }

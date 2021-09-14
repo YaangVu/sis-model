@@ -28,7 +28,8 @@ class AddProgramIdToCpaTable extends Migration
     public function down()
     {
         Schema::table('cpa', function (Blueprint $table) {
-            $table->dropColumn('program_id');
+            if (Schema::hasColumn('cpa', 'program_id'))
+                $table->dropColumn('program_id');
         });
     }
 }

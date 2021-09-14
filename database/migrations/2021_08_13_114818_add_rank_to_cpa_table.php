@@ -26,7 +26,8 @@ class AddRankToCpaTable extends Migration
     public function down()
     {
         Schema::table('cpa', function (Blueprint $table) {
-            $table->dropColumn(['rank']);
+            if (Schema::hasColumn('cpa', 'rank'))
+                $table->dropColumn(['rank']);
         });
     }
 }
