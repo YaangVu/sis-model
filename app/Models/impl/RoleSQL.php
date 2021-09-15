@@ -27,6 +27,7 @@ use YaangVu\SisModel\App\Models\Role;
  * @property bolean                       $is_mutable
  * @property string|null                  $status
  * @property string|null                  $description
+ * @property int|null                     $priority
  * @method static Builder|RoleSQL newModelQuery()
  * @method static Builder|RoleSQL newQuery()
  * @method static Builder|RoleSQL onlyTrashed()
@@ -40,6 +41,7 @@ use YaangVu\SisModel\App\Models\Role;
  * @method static Builder|RoleSQL whereUpdatedAt($value)
  * @method static Builder|RoleSQL whereGroup($value)
  * @method static Builder|RoleSQL whereDescription($value)
+ * @method static Builder|RoleSQL wherePriority($value)
  * @method static Builder|RoleSQL withTrashed()
  * @method static Builder|RoleSQL withoutTrashed()
  * @mixin Eloquent
@@ -59,7 +61,7 @@ class RoleSQL extends \Spatie\Permission\Models\Role implements Role
 
     protected $guarded = [];
 
-    protected $fillable = ['name', 'guard_name', 'group', 'status', 'description','is_mutable'];
+    protected $fillable = ['name', 'guard_name', 'group', 'status', 'description','is_mutable','priority'];
 
     protected $connection = DbConnectionConstant::SQL;
 

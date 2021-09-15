@@ -21,15 +21,17 @@ class RoleSeeder extends Seeder
         $data    = [];
         $schools = SchoolSQL::all();
         $roles   = [
-            ['name' => RoleConstant::ADMIN, 'group' => RoleConstant::STAFF],
-            ['name' => RoleConstant::TEACHING_ASSISTANT, 'group' => RoleConstant::STAFF],
-            ['name' => RoleConstant::TEACHER, 'group' => RoleConstant::STAFF],
+            ['name' => RoleConstant::ADMIN, 'group' => RoleConstant::STAFF,'priority' => 2],
+            ['name' => RoleConstant::TEACHING_ASSISTANT, 'group' => RoleConstant::STAFF,],
+            ['name' => RoleConstant::TEACHER, 'group' => RoleConstant::STAFF,'priority' => 5],
             ['name' => RoleConstant::HEADTEACHER, 'group' => RoleConstant::STAFF],
             ['name' => RoleConstant::PRINCIPAL, 'group' => RoleConstant::STAFF],
             ['name' => RoleConstant::ACADEMIC_COORDINATOR, 'group' => RoleConstant::STAFF],
-            ['name' => RoleConstant::STUDENT, 'group' => RoleConstant::STUDENT_AND_FAMILY],
-            ['name' => RoleConstant::FAMILY, 'group' => RoleConstant::STUDENT_AND_FAMILY],
-            ['name' => RoleConstant::COUNSELOR, 'group' => RoleConstant::STAFF],
+
+            ['name' => RoleConstant::STUDENT, 'group' => RoleConstant::STUDENT_AND_FAMILY,'priority' => 13],
+            ['name' => RoleConstant::FAMILY, 'group' => RoleConstant::STUDENT_AND_FAMILY, 'priority' => 13],
+            ['name' => RoleConstant::COUNSELOR, 'group' => RoleConstant::STAFF,'priority' => 8],
+ 
         ];
         foreach ($schools as $school) {
             foreach ($roles as $role) {
@@ -47,6 +49,7 @@ class RoleSeeder extends Seeder
         $god             = new Role();
         $god->name       = RoleConstant::GOD;
         $god->guard_name = 'api';
+        $god->priority = 1 ;
         $god->save();
     }
 }
