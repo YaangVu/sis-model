@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnStartDateToScoreView extends Migration
+class AddColumnTermStartEndDateToScoreView extends Migration
 {
     /**
      * Run the migrations.
@@ -31,7 +31,7 @@ class AddColumnStartDateToScoreView extends Migration
                 sc.grade_letter,
                 sc.current_score, 
                 sc.real_weight, 
-                t.id AS term_id, t.name AS term_name,t.start_date,
+                t.id AS term_id, t.name AS term_name, t.start_date AS term_start_date, t.end_date AS term_end_date,
                 c.name AS class_name, c.status,
                 s.name AS subject_name, s.id AS subject_id, s.weight, s.credit, s.type AS subject_type,s.grade_id,
                 p.name AS program_name, p.id as program_id,
