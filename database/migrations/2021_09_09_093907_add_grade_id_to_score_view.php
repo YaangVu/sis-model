@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class AddSubjectIdToScoreView extends Migration
+class AddGradeIdToScoreView extends Migration
 {
     /**
      * Run the migrations.
@@ -30,9 +30,10 @@ class AddSubjectIdToScoreView extends Migration
                 sc.is_pass,
                 sc.grade_letter,
                 sc.current_score, 
+                sc.real_weight, 
                 t.id AS term_id, t.name AS term_name,
-                c.name AS class_name, 
-                s.name AS subject_name, s.id AS subject_id, s.weight, s.credit,
+                c.name AS class_name, c.status,
+                s.name AS subject_name, s.id AS subject_id, s.weight, s.credit, s.type AS subject_type,s.grade_id,
                 p.name AS program_name, p.id as program_id,
                 gs.is_calculate_gpa, gs.extra_point_honor, gs.extra_point_advanced, gs.id as grade_scale_id,
                 gl.gpa 

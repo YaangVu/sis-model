@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScoreView extends Migration
+class AddColumnTermStartEndDateToScoreView extends Migration
 {
     /**
      * Run the migrations.
@@ -30,12 +30,13 @@ class CreateScoreView extends Migration
                 sc.is_pass,
                 sc.grade_letter,
                 sc.current_score, 
-                t.id AS term_id, t.name AS term_name,
-                c.name AS class_name, 
-                s.name AS subject_name, s.weight,
-                p.name AS program_name,
-                gs.is_calculate_gpa, gs.extra_point_honor, gs.extra_point_advanced,
-                gl.gpa
+                sc.real_weight, 
+                t.id AS term_id, t.name AS term_name, t.start_date AS term_start_date, t.end_date AS term_end_date,
+                c.name AS class_name, c.status,
+                s.name AS subject_name, s.id AS subject_id, s.weight, s.credit, s.type AS subject_type,s.grade_id,
+                p.name AS program_name, p.id as program_id,
+                gs.is_calculate_gpa, gs.extra_point_honor, gs.extra_point_advanced, gs.id as grade_scale_id,
+                gl.gpa 
             FROM scores AS sc
                 LEFT JOIN classes AS c ON c.id = sc.class_id
                 LEFT JOIN users AS u ON u.id = sc.user_id

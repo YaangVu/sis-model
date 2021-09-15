@@ -20,7 +20,7 @@ class CreateGradeLettersTable extends Migration
             $table->string(CodeConstant::EX_ID)->nullable();
             $table->string('letter', 2);
             $table->unsignedDouble('score', 3)->nullable()->default(0);
-            $table->unsignedDouble('gpaSQL', 3)->nullable()->default(0);
+            $table->unsignedDouble('gpa', 3)->nullable()->default(0);
             $table->unsignedBigInteger('grade_scale_id')->nullable();
             $table->text('description')->nullable();
 

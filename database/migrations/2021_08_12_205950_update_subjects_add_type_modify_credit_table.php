@@ -14,7 +14,7 @@ class UpdateSubjectsAddTypeModifyCreditTable extends Migration
     public function up()
     {
         Schema::table('subjects', function (Blueprint $table) {
-            $table->unsignedDecimal('credit')->default('0');
+            $table->unsignedDecimal('credit')->default('0')->change();
         });
     }
 

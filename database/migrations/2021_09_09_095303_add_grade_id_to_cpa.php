@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddProgramIdToCpaTable extends Migration
+class AddGradeIdToCpa extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class AddProgramIdToCpaTable extends Migration
     public function up()
     {
         Schema::table('cpa', function (Blueprint $table) {
-            $table->unsignedBigInteger('program_id')->nullable();
+            $table->unsignedBigInteger('grade_id')->nullable();
 
-            $table->foreign('program_id')->references('id')->on('programs')->cascadeOnDelete();
+            $table->foreign('grade_id')->references('id')->on('grades')->cascadeOnDelete();
         });
     }
 
@@ -28,8 +28,7 @@ class AddProgramIdToCpaTable extends Migration
     public function down()
     {
         Schema::table('cpa', function (Blueprint $table) {
-            if (Schema::hasColumn('cpa', 'program_id'))
-                $table->dropColumn('program_id');
+            $table->dropColumn(['grade_id']);
         });
     }
 }

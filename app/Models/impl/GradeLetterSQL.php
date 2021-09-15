@@ -18,7 +18,6 @@ use YaangVu\SisModel\Database\Factories\GradeLetterFactory;
  * @property int         $id
  * @property string      $letter
  * @property float|null  $score
- * @property float|null  $gpaSQL
  * @property int|null    $grade_scale_id
  * @property int|null    $created_by
  * @property Carbon|null $created_at

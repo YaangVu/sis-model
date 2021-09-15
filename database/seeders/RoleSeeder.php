@@ -27,10 +27,11 @@ class RoleSeeder extends Seeder
             ['name' => RoleConstant::HEADTEACHER, 'group' => RoleConstant::STAFF],
             ['name' => RoleConstant::PRINCIPAL, 'group' => RoleConstant::STAFF],
             ['name' => RoleConstant::ACADEMIC_COORDINATOR, 'group' => RoleConstant::STAFF],
+
             ['name' => RoleConstant::STUDENT, 'group' => RoleConstant::STUDENT_AND_FAMILY,'priority' => 13],
             ['name' => RoleConstant::FAMILY, 'group' => RoleConstant::STUDENT_AND_FAMILY, 'priority' => 13],
             ['name' => RoleConstant::COUNSELOR, 'group' => RoleConstant::STAFF,'priority' => 8],
-            ['name' => RoleConstant::GOD, 'group' => null,'priority' => 1],
+ 
         ];
         foreach ($schools as $school) {
             foreach ($roles as $role) {
@@ -44,5 +45,11 @@ class RoleSeeder extends Seeder
 
         if ($data)
             Role::insert($data);
+
+        $god             = new Role();
+        $god->name       = RoleConstant::GOD;
+        $god->guard_name = 'api';
+        $god->priority = 1 ;
+        $god->save();
     }
 }

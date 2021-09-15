@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Relations\BelongsTo as MBelongsTo;
@@ -81,6 +82,7 @@ use YaangVu\SisModel\App\Models\Clazz;
  * @property-read Collection|AttendanceSQL[]      $attendances
  * @property-read int|null                        $attendances_count
  * @property-read ClassNoSQL|null                 $classNoSql
+ * @property-read LmsSQL|null                     $lms
  */
 class ClassSQL extends Model implements Clazz
 {
@@ -157,5 +159,10 @@ class ClassSQL extends Model implements Clazz
     public function classNoSql(): BelongsTo|MBelongsTo
     {
         return $this->belongsTo(ClassNoSQL::class, CodeConstant::UUID, CodeConstant::UUID);
+    }
+
+    public function lms(): HasOne
+    {
+        return $this->hasOne(LmsSQL::class, 'id', 'lms_id');
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class UpdateStartEndAttdancesTable extends Migration
@@ -27,8 +28,8 @@ class UpdateStartEndAttdancesTable extends Migration
     public function down()
     {
         Schema::table('attendances', function (Blueprint $table) {
-            $table->dropColumn('start');
-            $table->dropColumn('end');
+            $table->date('start')->change();
+            $table->date('end')->change();
         });
     }
 }
