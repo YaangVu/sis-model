@@ -73,6 +73,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|ScoreView whereUsername($value)
  * @method static Builder|ScoreView whereWeight($value)
  * @mixin Eloquent
+ * @property string|null $start_date
+ * @method static Builder|ScoreView whereStartDate($value)
  */
 class ScoreView extends Model
 {
