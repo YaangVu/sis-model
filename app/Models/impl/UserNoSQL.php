@@ -184,4 +184,44 @@ class UserNoSQL extends Model implements User
         return (new SQLModel())->belongsTo(UserSQL::class, CodeConstant::UUID, CodeConstant::UUID)
                                ->whereNull('deleted_at');
     }
+
+    public function getBirthdayAttribute(?string $value): ?string
+    {
+        if ($value)
+            return Carbon::parse($value)->toDateString();
+
+        return null;
+    }
+
+    public function getHireDateAttribute(?string $value): ?string
+    {
+        if ($value)
+            return Carbon::parse($value)->toDateString();
+
+        return null;
+    }
+
+    public function getReleaseDateAttribute(?string $value): ?string
+    {
+        if ($value)
+            return Carbon::parse($value)->toDateString();
+
+        return null;
+    }
+
+    public function getGraduationAttribute(?string $value): ?string
+    {
+        if ($value)
+            return Carbon::parse($value)->toDateString();
+
+        return null;
+    }
+
+    public function getEnteredAttribute(?string $value): ?string
+    {
+        if ($value)
+            return Carbon::parse($value)->toDateString();
+
+        return null;
+    }
 }
