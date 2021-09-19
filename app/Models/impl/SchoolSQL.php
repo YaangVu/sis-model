@@ -9,9 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use Jenssegers\Mongodb\Relations\BelongsTo as MBelongTo;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\School;
+use YaangVu\SisModel\App\Models\MongoModel;
 
 /**
  * YaangVu\SisModel\App\Models\SchoolSQL
@@ -60,4 +62,10 @@ class SchoolSQL extends Model implements School
     public $code = CodeConstant::UUID;
 
     protected $connection = DbConnectionConstant::SQL;
+
+    public function schoolNoSql(): MBelongTo
+    {
+        return (new MongoModel())->belongsTo(SchoolNoSQL::class, CodeConstant::UUID, CodeConstant::UUID)
+                                 ->whereNull('deleted_at');
+    }
 }

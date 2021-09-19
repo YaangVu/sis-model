@@ -18,7 +18,7 @@ class SchoolServiceProvider extends ServiceProvider
     {
         $uuid = request()->header('X-school-uuid');
         if ($uuid) {
-            $school = SchoolSQL::whereUuid($uuid)->first();
+            $school = SchoolSQL::with('schoolNoSql')->whereUuid($uuid)->first();
             $this->setCurrentSchool($school);
         } else {
             $this->setCurrentSchool(null);
