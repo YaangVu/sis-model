@@ -70,11 +70,6 @@ class ClassActivityNoSql extends Model implements ClassActivity
 
     function student(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
     {
-        return $this->belongsTo(UserNoSQL::class, 'student_code', 'student_code');
-    }
-
-    function studentViaUuid(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
-    {
         return $this->belongsTo(UserNoSQL::class, 'student_uuid', 'uuid');
     }
 
