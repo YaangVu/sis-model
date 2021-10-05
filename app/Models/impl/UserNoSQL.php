@@ -7,6 +7,7 @@ use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Builder;
 use Jenssegers\Mongodb\Eloquent\Model;
@@ -223,5 +224,10 @@ class UserNoSQL extends Model implements User
             return Carbon::parse($value)->toDateString();
 
         return null;
+    }
+
+    public function graduatedStudents(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
+    {
+        return $this->hasMany(GraduatedStudentSQL::class, 'user_uuid','uuid');
     }
 }
