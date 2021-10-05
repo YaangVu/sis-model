@@ -21,7 +21,6 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @property string|null          $user_uuid
  * @property int|null             $program_id
  * @property string|null          $graduated_at
- * @property boolean              $is_graduated
  * @property Carbon|null          $created_at
  * @property Carbon|null          $updated_at
  * @method static Builder|GraduatedStudentSQL newModelQuery()
@@ -32,7 +31,6 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @method static Builder|GraduatedStudentSQL whereProgramId($value)
  * @method static Builder|GraduatedStudentSQL whereId($value)
  * @method static Builder|GraduatedStudentSQL whereGraduatedAt($value)
- * @method static Builder|GraduatedStudentSQL whereIsGraduated($value)
  * @method static Builder|GraduatedStudentSQL whereUpdatedAt($value)
  * @mixin Eloquent
  * @property-read UserSQL|null    $user
@@ -48,7 +46,6 @@ class GraduatedStudentSQL extends SQLModel implements GraduatedStudent
             'user_uuid',
             'program_id',
             'graduated_at',
-            'is_graduated',
         ];
 
     public function user(): BelongsTo

@@ -19,7 +19,6 @@ class CreateTableGraduateStudents extends Migration
             $table->string('user_uuid')->nullable();
             $table->unsignedBigInteger('program_id');
             $table->string('graduated_at')->nullable();
-            $table->boolean('is_graduated')->default(false);
             $table->timestamps();
         });
     }
