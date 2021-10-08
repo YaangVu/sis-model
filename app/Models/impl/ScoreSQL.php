@@ -61,7 +61,20 @@ class ScoreSQL extends Model implements Score
 
     protected $table = self::table;
 
-    protected $fillable = ['score', 'class_id', 'user_id', 'grade_letter_id', 'grade_letter', 'lms_id', 'school_id', CodeConstant::UUID, 'is_pass', 'real_weight'];
+    protected $fillable
+        = [
+            'score',
+            'current_score',
+            'class_id',
+            'user_id',
+            'grade_letter_id',
+            'grade_letter',
+            'lms_id',
+            'school_id',
+            CodeConstant::UUID,
+            'is_pass',
+            'real_weight'
+        ];
 
     protected $connection = DbConnectionConstant::SQL;
 }

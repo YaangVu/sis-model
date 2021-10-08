@@ -51,6 +51,10 @@ use YaangVu\SisModel\App\Models\ClassActivity;
  * @method static Builder|ClassActivityNoSql whereEdmentumId($value)
  * @property string|null $agilix_id
  * @method static Builder|ClassActivityNoSql whereAgilixId($value)
+ * @property string|null $edmentum_external_id
+ * @method static Builder|ClassActivityNoSql whereEdmentumExternalId($value)
+ * @property string|null $agilix_external_id
+ * @method static Builder|ClassActivityNoSql whereAgilixExternalId($value)
  * @property string|null $lms_id
  * @method static Builder|ClassActivityNoSql whereLmsId($value)
  * @property string|null $lms_name
