@@ -38,7 +38,8 @@ class RoleSeeder extends Seeder
                 $data[] = [
                     'name'       => $school->uuid . ':' . $role['name'],
                     'group'      => $role['group'],
-                    'guard_name' => 'api'
+                    'guard_name' => 'api',
+                    'priority' => $role['priority'] ?? null
                 ];
             }
         }

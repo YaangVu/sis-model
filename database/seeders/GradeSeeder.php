@@ -3,7 +3,9 @@
 namespace YaangVu\SisModel\Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use YaangVu\Constant\SchoolConstant;
 use YaangVu\SisModel\App\Models\impl\GradeSQL;
+use YaangVu\SisModel\App\Models\impl\SchoolSQL;
 
 class GradeSeeder extends Seeder
 {
@@ -19,7 +21,7 @@ class GradeSeeder extends Seeder
             $division            = new GradeSQL();
             $division->name      = $v;
             $division->index     = $k + 1;
-            $division->school_id = 2;
+            $division->school_id = SchoolSQL::whereName(SchoolConstant::IGS)->first()->id;
             $division->save();
         }
     }
