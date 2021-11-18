@@ -86,7 +86,7 @@ class TermSQL extends Model implements Term
         return $this->hasMany(CourseSQL::class);
     }
 
-    public function user(): BelongsTo
+    public function user()
     {
         return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }

@@ -117,7 +117,7 @@ class SubjectSQL extends Model implements Subject
         return [];
     }
 
-    public function user(): BelongsTo
+    public function user()
     {
         return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }

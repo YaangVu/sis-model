@@ -97,7 +97,7 @@ class UserSQL extends Model implements User
                                  ->whereNull('deleted_at');
     }
 
-    public function user(): BelongsTo
+    public function user()
     {
         return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }

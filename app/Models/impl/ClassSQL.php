@@ -167,7 +167,7 @@ class ClassSQL extends Model implements Clazz
         return $this->hasOne(LmsSQL::class, 'id', 'lms_id');
     }
 
-    public function user(): BelongsTo
+    public function user()
     {
         return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }
