@@ -230,4 +230,9 @@ class UserNoSQL extends Model implements User
     {
         return $this->hasMany(GraduatedStudentSQL::class, 'user_uuid','uuid');
     }
+
+    public function userCreate()
+    {
+        return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
+    }
 }
