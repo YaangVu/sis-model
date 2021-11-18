@@ -21,6 +21,7 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\Constant\StatusConstant;
 use YaangVu\SisModel\App\Models\ClassAssignment;
 use YaangVu\SisModel\App\Models\MongoModel;
+use YaangVu\SisModel\App\Models\SQLModel;
 use YaangVu\SisModel\App\Models\User;
 
 
@@ -94,5 +95,10 @@ class UserSQL extends Model implements User
         return (new MongoModel())->belongsTo(UserNoSQL::class, CodeConstant::UUID, CodeConstant::UUID)
                                  ->where('study_status', StatusConstant::STUDYING)
                                  ->whereNull('deleted_at');
+    }
+
+    public function user(): BelongsTo
+    {
+        return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }
 }

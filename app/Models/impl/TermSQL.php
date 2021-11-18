@@ -13,6 +13,7 @@ use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Clazz;
+use YaangVu\SisModel\App\Models\SQLModel;
 use YaangVu\SisModel\App\Models\Term;
 
 
@@ -83,5 +84,10 @@ class TermSQL extends Model implements Term
     public function courses(): HasMany
     {
         return $this->hasMany(CourseSQL::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }
 }

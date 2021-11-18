@@ -17,6 +17,7 @@ use YaangVu\Constant\ClassAssignmentConstant;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Clazz;
+use YaangVu\SisModel\App\Models\SQLModel;
 
 
 /**
@@ -164,5 +165,10 @@ class ClassSQL extends Model implements Clazz
     public function lms(): HasOne
     {
         return $this->hasOne(LmsSQL::class, 'id', 'lms_id');
+    }
+
+    public function user(): BelongsTo
+    {
+        return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }
 }
