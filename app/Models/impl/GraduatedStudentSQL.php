@@ -35,6 +35,7 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @mixin Eloquent
  * @property-read UserSQL|null    $user
  * @property-read ProgramSQL|null $program
+ * @method static Builder|GraduatedStudentSQL whereCreatedAt($value)
  */
 class GraduatedStudentSQL extends SQLModel implements GraduatedStudent
 {

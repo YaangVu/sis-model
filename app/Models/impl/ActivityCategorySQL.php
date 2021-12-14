@@ -43,6 +43,7 @@ use YaangVu\SisModel\App\Models\ActivityCategory;
  * @method static Builder|ActivityCategorySQL onlyTrashed()
  * @method static Builder|ActivityCategorySQL withTrashed()
  * @method static Builder|ActivityCategorySQL withoutTrashed()
+ * @property int|null $created_by
  */
 class ActivityCategorySQL extends Model implements ActivityCategory
 {
