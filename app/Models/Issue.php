@@ -16,6 +16,6 @@ class Issue extends Model
     }
 
     public function comments(){
-        return $this->belongsTo('App\Models\CommentModel','issue_id','id');
+        return $this->hasMany('App\Models\Comment','issue_id','id');
     }
 }

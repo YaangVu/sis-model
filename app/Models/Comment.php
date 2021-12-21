@@ -11,7 +11,7 @@ class Comment extends Model
     protected $table = 'comments';
 
     public function comments(){
-        return $this->belongsTo('App\Models\IssueModel','issue_id','id');
+        return $this->belongsTo('App\Models\Issue','issue_id','id');
     }
 
     public function users(){
