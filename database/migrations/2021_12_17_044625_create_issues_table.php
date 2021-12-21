@@ -20,7 +20,7 @@ class CreateIssuesTable extends Migration
             $table->string('tag')->nullable();
             $table->string('description')->nullable();
             $table->dateTime('due_date')->nullable();
-            $table->timestamp('created_at')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
             $table->string('created_by')->nullable();
 
         });

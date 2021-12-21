@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->integer('user_uuid');
             $table->integer('issue_id');
             $table->string('content')->nullable();
-            $table->timestamp('created_at')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
         });
     }
 
