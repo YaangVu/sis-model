@@ -14,7 +14,7 @@ class PhysicalPerformanceMeasuresSQL extends Model implements PhysicalPerformanc
 
     protected $connection = DbConnectionConstant::SQL;
 
-    public function User(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->BelongsTo(UserSQL::class, 'student_code');
     }
