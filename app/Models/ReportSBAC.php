@@ -8,6 +8,6 @@ namespace YaangVu\SisModel\App\Models;
 
 interface ReportSBAC
 {
-    public const table = "report_sbac";
+    public const table = "sbac_score_student";
 
 }

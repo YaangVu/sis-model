@@ -8,5 +8,5 @@ namespace YaangVu\SisModel\App\Models;
 
 interface ReportACT
 {
-    const table = 'report_act';
+    const table = 'act_score_student';
 }

@@ -1,13 +1,16 @@
 <?php
+/**
+ * @Author Dung
+ * @Date   Mar 04, 2022
+ */
 
 namespace YaangVu\SisModel\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use YaangVu\SisModel\App\Models\impl\ReportACTNoSQL;
+use YaangVu\SisModel\App\Models\impl\SBACReportNoSQL;
 
-class AddReportACT extends Seeder
+class SBACReportSeed extends Seeder
 {
-
     /**
      * Run the database seeds.
      *
@@ -15,7 +18,7 @@ class AddReportACT extends Seeder
      */
     public function run()
     {
-        ReportACTNoSQL::factory()->count(1)->create();
+        SBACReportNoSQL::factory()->count(1)->create();
 
     }
 }

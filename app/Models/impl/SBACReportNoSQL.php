@@ -8,12 +8,18 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Jenssegers\Mongodb\Eloquent\Model;
+
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\ReportSBAC;
+use YaangVu\SisModel\Database\Factories\SBACFactory;
 
-class SBACReportNoSQL extends Model implements ReportSBAC
+
+/**
+ * @method static \YaangVu\SisModel\Database\Factories\ACTFactory factory(...$parameters)
+ */
+class SBACReportNoSQL extends MongoModel implements ReportSBAC
 {
     use HasFactory, SoftDeletes;
 
@@ -23,4 +29,9 @@ class SBACReportNoSQL extends Model implements ReportSBAC
     protected     $fillable   = ['*'];
 
     protected $guarded = [];
+
+    public static function newFactory(): SBACFactory
+    {
+        return new SBACFactory();
+    }
 }
