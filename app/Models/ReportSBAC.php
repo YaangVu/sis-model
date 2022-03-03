@@ -6,7 +6,8 @@
 
 namespace YaangVu\SisModel\App\Models;
 
-interface ReportACT
+interface ReportSBAC
 {
-    const table = 'report_act';
+    public const table = "report_sbac";
+
 }
