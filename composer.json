@@ -35,10 +35,9 @@
     }
   },
   "autoload-dev": {
-  },
-  "config": {
-    "allow-plugins": {
-      "composer/package-versions-deprecated": true
-    }
+    "classmap": [
+      "tests/"
+    ]
   }
+
 }
