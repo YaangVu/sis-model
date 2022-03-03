@@ -63,6 +63,7 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @method static Builder|ClassNoSQL whereDescription($value)
  * @mixin Eloquent
  * @property string|null                          $zone
+ * @property string|null                          $abc
  * @method static Builder|ClassSQL whereZone($value)
  * @property string|null                          $uuid            class id
  * @property int|null                             $school_id
