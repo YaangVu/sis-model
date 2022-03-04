@@ -3,7 +3,7 @@
 namespace YaangVu\SisModel\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use YaangVu\SisModel\App\Models\impl\ReportACTNoSQL;
+use YaangVu\SisModel\App\Models\impl\ActNoSQL;
 
 class AddReportACT extends Seeder
 {
@@ -15,7 +15,7 @@ class AddReportACT extends Seeder
      */
     public function run()
     {
-        ReportACTNoSQL::factory()->count(1)->create();
+        ActNoSQL::factory()->count(1)->create();
 
     }
 }

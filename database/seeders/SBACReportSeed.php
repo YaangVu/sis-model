@@ -7,7 +7,7 @@
 namespace YaangVu\SisModel\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use YaangVu\SisModel\App\Models\impl\SBACReportNoSQL;
+use YaangVu\SisModel\App\Models\impl\SbacNoSQL;
 
 class SBACReportSeed extends Seeder
 {
@@ -18,7 +18,7 @@ class SBACReportSeed extends Seeder
      */
     public function run()
     {
-        SBACReportNoSQL::factory()->count(1)->create();
+        SbacNoSQL::factory()->count(1)->create();
 
     }
 }

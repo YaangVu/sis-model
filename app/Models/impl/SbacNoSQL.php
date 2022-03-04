@@ -12,14 +12,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\MongoModel;
-use YaangVu\SisModel\App\Models\ReportSBAC;
-use YaangVu\SisModel\Database\Factories\SBACFactory;
+use YaangVu\SisModel\App\Models\Sbac;
 
 
-/**
- * @method static \YaangVu\SisModel\Database\Factories\ACTFactory factory(...$parameters)
- */
-class SBACReportNoSQL extends MongoModel implements ReportSBAC
+
+
+class SbacNoSQL extends MongoModel implements Sbac
 {
     use HasFactory, SoftDeletes;
 
@@ -30,8 +28,5 @@ class SBACReportNoSQL extends MongoModel implements ReportSBAC
 
     protected $guarded = [];
 
-    public static function newFactory(): SBACFactory
-    {
-        return new SBACFactory();
-    }
+
 }

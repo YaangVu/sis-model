@@ -6,7 +6,7 @@
 
 namespace YaangVu\SisModel\App\Models;
 
-interface ReportACT
+interface Act
 {
-    const table = 'act_score_student';
+    const table = 'act';
 }

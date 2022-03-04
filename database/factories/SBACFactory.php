@@ -7,11 +7,11 @@
 namespace YaangVu\SisModel\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use YaangVu\SisModel\App\Models\impl\SBACReportNoSQL;
+use YaangVu\SisModel\App\Models\impl\SbacNoSQL;
 
 class SBACFactory extends Factory
 {
-    protected $model = SBACReportNoSQL::class;
+    protected $model = SbacNoSQL::class;
 
     public function definition()
     {

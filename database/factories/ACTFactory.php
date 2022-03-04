@@ -3,13 +3,13 @@
 namespace YaangVu\SisModel\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use YaangVu\SisModel\App\Models\impl\ReportACTNoSQL;
+use YaangVu\SisModel\App\Models\impl\ActNoSQL;
 
 
 class ACTFactory extends Factory
 
 {
-    protected $model = ReportACTNoSQL::class;
+    protected $model = ActNoSQL::class;
 
     public function definition(): array
     {
