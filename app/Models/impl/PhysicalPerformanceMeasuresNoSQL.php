@@ -8,14 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\PhysicalPerformanceMeasures;
 
-class PhysicalPerformanceMeasuresSQL extends Model implements PhysicalPerformanceMeasures
+class PhysicalPerformanceMeasuresNoSQL extends Model implements PhysicalPerformanceMeasures
 {
     protected $table = self::table;
 
-    protected $connection = DbConnectionConstant::SQL;
+    protected $connection = DbConnectionConstant::NOSQL;
 
-    public function user(): BelongsTo
-    {
-        return $this->BelongsTo(UserSQL::class, 'student_code');
-    }
+    protected $fillable = ['*'];
 }
