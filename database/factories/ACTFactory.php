@@ -23,7 +23,7 @@ class ACTFactory extends Factory
             'act_science_score'   => $this->faker->randomNumber(1, 9),
             'act_english_score'   => $this->faker->randomNumber(1, 9),
             'act_reading_score'   => $this->faker->randomNumber(1, 9),
-''
+
 
         ];
     }
