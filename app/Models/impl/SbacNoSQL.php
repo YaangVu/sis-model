@@ -14,7 +14,7 @@ use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\Sbac;
-use YaangVu\SisModel\App\Models\SQLModel;
+use \YaangVu\SisModel\App\Models\impl\UserNoSQL;
 
 
 class SbacNoSQL extends MongoModel implements Sbac
@@ -30,7 +30,7 @@ class SbacNoSQL extends MongoModel implements Sbac
 
     public function user(): BelongsTo
     {
-        return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
+        return $this->belongsTo(UserNoSQL::class, 'student_code', 'student_code');
     }
 
 }
