@@ -8,5 +8,5 @@ namespace YaangVu\SisModel\App\Models;
 
 interface Ielts
 {
-    public const table = 'Ielts';
+    public const table = 'ielts';
 }
