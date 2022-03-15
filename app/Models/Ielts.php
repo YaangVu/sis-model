@@ -6,7 +6,7 @@
 
 namespace YaangVu\SisModel\App\Models;
 
-interface Ielt
+interface Ielts
 {
-    public const table = 'Ielt';
+    public const table = 'Ielts';
 }
