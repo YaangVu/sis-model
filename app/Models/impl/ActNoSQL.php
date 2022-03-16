@@ -7,15 +7,11 @@
 namespace YaangVu\SisModel\App\Models\impl;
 
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\Act;
-use YaangVu\SisModel\App\Models\impl\UserNoSQL;
+use YaangVu\SisModel\App\Models\MongoModel;
 
 
 class ActNoSQL extends MongoModel implements Act
