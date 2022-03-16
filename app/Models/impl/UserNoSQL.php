@@ -245,4 +245,10 @@ class UserNoSQL extends Model implements User
     {
         return $this->hasMany(SbacNoSQL::class, 'student_code','student_code');
     }
+
+    public function physicalPerformance(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
+    {
+        return $this->hasMany(PhysicalPerformanceMeasuresNoSQL::class, 'student_code','student_code');
+    }
+
 }
