@@ -236,12 +236,12 @@ class UserNoSQL extends Model implements User
         return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }
 
-    public function act(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
+    public function acts(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
         return $this->hasMany(ActNoSQL::class, 'student_code','student_code');
     }
 
-    public function sbac(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
+    public function sbacs(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
         return $this->hasMany(SbacNoSQL::class, 'student_code','student_code');
     }
