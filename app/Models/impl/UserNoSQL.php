@@ -18,7 +18,6 @@ use Spatie\Permission\Models\Role;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\LaravelAws\S3Service;
-use YaangVu\SisModel\App\Models\CommunicationLog;
 use YaangVu\SisModel\App\Models\SQLModel;
 use YaangVu\SisModel\App\Models\User;
 use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
@@ -250,6 +249,11 @@ class UserNoSQL extends Model implements User
     public function physicalPerformance(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
         return $this->hasMany(PhysicalPerformanceMeasuresNoSQL::class, 'student_code','student_code');
+    }
+
+    public function sats(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
+    {
+        return $this->hasMany(SatNoSql::class, 'student_code','student_code');
     }
 
     public function communicationLogs(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
