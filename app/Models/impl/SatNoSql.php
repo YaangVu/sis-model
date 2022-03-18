@@ -2,14 +2,12 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\PhysicalPerformanceMeasures;
 use Jenssegers\Mongodb\Eloquent\Model;
-use YaangVu\SisModel\App\Models\SQLModel;
+use YaangVu\SisModel\App\Models\Sat;
+use YaangVu\Constant\DbConnectionConstant;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class PhysicalPerformanceMeasuresNoSQL extends Model implements PhysicalPerformanceMeasures
+class SatNoSql extends Model implements Sat
 {
     protected $table = self::table;
 

@@ -251,4 +251,9 @@ class UserNoSQL extends Model implements User
         return $this->hasMany(PhysicalPerformanceMeasuresNoSQL::class, 'student_code','student_code');
     }
 
+    public function sats(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
+    {
+        return $this->hasMany(SatNoSql::class, 'student_code','student_code');
+    }
+
 }
