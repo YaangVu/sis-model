@@ -15,11 +15,7 @@ class PhysicalPerformanceMeasuresNoSQL extends Model implements PhysicalPerforma
 
     protected $connection = DbConnectionConstant::NOSQL;
 
-    protected $fillable
-    = [
-        'student_code', 'test_date', 'created_at', 'updated_at', '40_yard_dash_in_seconds', 'body_mass_index_in_percentage',
-        'weight_in_pounds', 'squat_in_pounds', 'height_in_inches', 'benchpress_in_pounds', 'vertical_jump_in_inches'
-    ];
+    protected $fillable = ['*'];
 
     protected $guarded = [];
 

@@ -5,5 +5,5 @@ namespace YaangVu\SisModel\App\Models;
 
 interface Sat
 {
-    public const table = 'sat';
+    public const table = 'sats';
 }
