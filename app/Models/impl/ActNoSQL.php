@@ -13,7 +13,13 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Act;
 use YaangVu\SisModel\App\Models\MongoModel;
 
-
+/**
+ * Class ActNoSQL
+ *
+ * @author  hoangky <hoangky@toprate.io>
+ * @package YaangVu\SisModel\App\Models\impl
+ * @category
+ */
 class ActNoSQL extends MongoModel implements Act
 {
     use HasFactory;

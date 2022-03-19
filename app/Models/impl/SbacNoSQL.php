@@ -14,7 +14,13 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\Sbac;
 
-
+/**
+ * Class SbacNoSQL
+ *
+ * @author  hoangky <hoangky@toprate.io>
+ * @package YaangVu\SisModel\App\Models\impl
+ * @category
+ */
 class SbacNoSQL extends MongoModel implements Sbac
 {
     use HasFactory, SoftDeletes;

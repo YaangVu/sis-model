@@ -258,7 +258,7 @@ class UserNoSQL extends Model implements User
 
     public function communicationLogs(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
-        return $this->hasMany(CommunicationLog::class, 'staff_code','staff_code');
+        return $this->hasMany(CommunicationLog::class, 'uuid','uuid');
     }
 
 }

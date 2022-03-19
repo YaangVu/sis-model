@@ -8,5 +8,5 @@ namespace YaangVu\SisModel\App\Models;
 
 interface CommunicationLog
 {
-    const table = 'communicationL_logs';
+    const table = 'communication_logs';
 }
