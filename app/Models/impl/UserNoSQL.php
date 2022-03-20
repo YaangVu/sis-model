@@ -256,4 +256,9 @@ class UserNoSQL extends Model implements User
         return $this->hasMany(SatNoSql::class, 'student_code','student_code');
     }
 
+    public function communicationLogs(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
+    {
+        return $this->hasMany(CommunicationLog::class, 'uuid','uuid');
+    }
+
 }
