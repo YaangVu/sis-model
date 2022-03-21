@@ -56,11 +56,6 @@ class AttendanceSQL extends SQLModel implements Attendance
 
     protected $table = self::table;
 
-    protected $casts = [
-        'end'  => 'datetime:d/m/Y',
-        'start'=> 'datetime:d/m/Y'
-    ];
-
     public function calendar(): BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
     {
         return (new MongoModel())->belongsTo(CalendarNoSQL::class, 'calendar_id', '_id');
