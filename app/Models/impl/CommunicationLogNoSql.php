@@ -58,7 +58,7 @@ class CommunicationLogNoSql extends MongoModel implements CommunicationLog
     protected $connection = DbConnectionConstant::NOSQL;
 
 
-    public function user(): BelongsTo
+    public function createdBy(): BelongsTo
     {
         return $this->belongsTo(UserSQL::class, 'created_by', 'id');
     }
