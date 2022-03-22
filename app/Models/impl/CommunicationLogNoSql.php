@@ -8,13 +8,14 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Builder;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\CommunicationLog;
 use YaangVu\SisModel\App\Models\MongoModel;
-
+use YaangVu\SisModel\App\Models\impl\UserSQL;
 /**
  * Class CommunicationLogNoSql
  *
@@ -56,5 +57,10 @@ class CommunicationLogNoSql extends MongoModel implements CommunicationLog
 
     protected $connection = DbConnectionConstant::NOSQL;
 
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(UserSQL::class, 'created_by', 'id');
+    }
 
 }
