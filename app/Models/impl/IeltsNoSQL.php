@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Ielts;
 use YaangVu\SisModel\App\Models\MongoModel;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 
 
@@ -19,4 +20,9 @@ class IeltsNoSQL extends MongoModel implements Ielts
     protected $fillable = ['*'];
 
     protected $guarded = [];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(UserNoSQL::class, 'student_code', 'student_code');
+    }
 }

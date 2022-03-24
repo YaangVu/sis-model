@@ -21,6 +21,7 @@ use YaangVu\LaravelAws\S3Service;
 use YaangVu\SisModel\App\Models\SQLModel;
 use YaangVu\SisModel\App\Models\User;
 use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
+use YaangVu\SisModel\App\Models\impl\IeltsNoSQL;
 
 
 /**
@@ -256,6 +257,10 @@ class UserNoSQL extends Model implements User
         return $this->hasMany(SatNoSql::class, 'student_code','student_code');
     }
 
+    public function ielts(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
+    {
+        return $this->hasMany(IeltsNoSQL::class, 'student_code','student_code');
+    }
     public function communicationLogs(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
         return $this->hasMany(CommunicationLog::class, 'uuid','uuid');
