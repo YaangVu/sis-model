@@ -7,6 +7,7 @@
 namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Builder;
 use YaangVu\Constant\DbConnectionConstant;
@@ -53,4 +54,9 @@ class ToeflNoSQL extends MongoModel implements Toefl
     protected $fillable = ['*'];
 
     protected $guarded = [];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(UserNoSQL::class, 'student_code', 'student_code');
+    }
 }
