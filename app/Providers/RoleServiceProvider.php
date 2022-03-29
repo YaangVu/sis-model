@@ -18,7 +18,7 @@ class RoleServiceProvider extends ServiceProvider
     {
         $roleId = request()->header('X-role-id');
         if ($roleId) {
-            $role = RoleSQL::with('permissions')->where('id', $roleId)->first();
+            $role = RoleSQL::with('permissions')->where('id', (int)$roleId)->first();
             $this->setCurrentRole($role);
         } else {
             $this->setCurrentRole(null);
