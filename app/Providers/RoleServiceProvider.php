@@ -7,7 +7,7 @@ use YaangVu\SisModel\App\Models\impl\RoleSQL;
 
 class RoleServiceProvider extends ServiceProvider
 {
-    public static RoleSQL $currentRole;
+    public static ?RoleSQL $currentRole;
 
     /**
      * Bootstrap the application services.
@@ -40,7 +40,7 @@ class RoleServiceProvider extends ServiceProvider
      *
      * @return $this
      */
-    public function setCurrentRole(RoleSQL $roleSQL = null): static
+    public function setCurrentRole(?RoleSQL $roleSQL = null): static
     {
         self::$currentRole = $roleSQL;
 
