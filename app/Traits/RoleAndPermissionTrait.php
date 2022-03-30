@@ -5,6 +5,7 @@ namespace YaangVu\SisModel\App\Traits;
 
 
 use Illuminate\Database\Eloquent\Model as SqlModel;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Jenssegers\Mongodb\Eloquent\Model as MongoModel;
 use Spatie\Permission\Models\Permission;
@@ -19,6 +20,7 @@ use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
 
 trait RoleAndPermissionTrait
 {
+    private static bool $cacheGod = false;
     /**
      * check any role with user sql
      *
@@ -34,6 +36,27 @@ trait RoleAndPermissionTrait
         $roleCount = $this->countCurrentRoleViaName($decorRole ?? []);
 
         return $roleCount > 0;
+    }
+
+    /**
+     * check has any role with user
+     *
+     * @param ...$roles_id
+     *
+     * @return bool|null
+     */
+    public function hasAnyRoleWithUser(int $roleId): ?bool
+    {
+        $roleIdsCount = DB::table('model_has_roles')
+                          ->where(function ($q) use ($roleId) {
+                              $q->where('model_id', BaseService::currentUser()->id)
+                                ->where('role_id', $roleId);
+                          })
+                          ->first();
+        if (!$roleIdsCount)
+            return false;
+
+        return true;
     }
 
     /**
@@ -134,7 +157,7 @@ trait RoleAndPermissionTrait
         $role = Role::select('roles.*')
                     ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
                     ->join('users', 'users.id', '=', 'model_has_roles.model_id')
-                    ->where('name','LIKE','%'.SchoolServiceProvider::$currentSchool->uuid . ':%')
+                    ->where('name', 'LIKE', '%' . SchoolServiceProvider::$currentSchool->uuid . ':%')
                     ->where('roles.group', RoleConstant::STAFF)
                     ->where('model_has_roles.model_id', BaseService::currentUser()?->id)
                     ->first();
@@ -148,8 +171,13 @@ trait RoleAndPermissionTrait
      */
     public function isGod(): ?bool
     {
-        return $this->hasAnyRole(RoleConstant::ADMIN, RoleConstant::PRINCIPAL)
+        if (self::$cacheGod)
+            return true;
+
+        self::$cacheGod = $isGod = $this->hasAnyRole(RoleConstant::ADMIN, RoleConstant::PRINCIPAL)
             || BaseService::currentUser()->hasRole(RoleConstant::GOD);
+
+        return self::$cacheGod;
     }
 
     /**
