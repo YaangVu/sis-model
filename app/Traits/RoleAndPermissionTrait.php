@@ -41,22 +41,20 @@ trait RoleAndPermissionTrait
     /**
      * check has any role with user
      *
-     * @param ...$roles_id
+     * @param int $roleId
      *
      * @return bool|null
      */
     public function hasAnyRoleWithUser(int $roleId): ?bool
     {
-        $roleIdsCount = DB::table('model_has_roles')
+        $role = DB::table('model_has_roles')
                           ->where(function ($q) use ($roleId) {
                               $q->where('model_id', BaseService::currentUser()->id)
                                 ->where('role_id', $roleId);
                           })
                           ->first();
-        if (!$roleIdsCount)
-            return false;
 
-        return true;
+        return isset($role);
     }
 
     /**
