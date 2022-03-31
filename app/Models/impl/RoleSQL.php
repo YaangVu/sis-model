@@ -18,16 +18,16 @@ use YaangVu\SisModel\App\Models\Role;
 /**
  * YaangVu\SisModel\App\Models\RoleSQL
  *
- * @property int                          $id
- * @property string                       $name
- * @property string|null                  $guard_name
- * @property Carbon|null                  $created_at
- * @property Carbon|null                  $updated_at
- * @property string|null                  $group
- * @property bolean                       $is_mutable
- * @property string|null                  $status
- * @property string|null                  $description
- * @property int|null                     $priority
+ * @property int         $id
+ * @property string      $name
+ * @property string|null $guard_name
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $group
+ * @property boolean     $is_mutable
+ * @property string|null $status
+ * @property string|null $description
+ * @property int|null    $priority
  * @method static Builder|RoleSQL newModelQuery()
  * @method static Builder|RoleSQL newQuery()
  * @method static Builder|RoleSQL onlyTrashed()
@@ -52,8 +52,6 @@ use YaangVu\SisModel\App\Models\Role;
  * @property-read Collection|\YaangVu\SisModel\App\Models\impl\UserSQL[] $users
  * @property-read int|null $users_count
  * @method static \Illuminate\Database\Eloquent\Builder|RoleSQL whereCreatedBy($value)
- * @property int|null $priority
- * @method static \Illuminate\Database\Eloquent\Builder|RoleSQL wherePriority($value)
  */
 class RoleSQL extends \Spatie\Permission\Models\Role implements Role
 {
