@@ -15,7 +15,7 @@ class UpdateStatusClassAssignmentsTable extends Migration
     public function up()
     {
         Schema::table('class_assignments', function (Blueprint $table) {
-            $table->string('stats')->default(StatusConstant::ACTIVE);
+            $table->string('status')->default(StatusConstant::ACTIVE);
         });
     }
 
