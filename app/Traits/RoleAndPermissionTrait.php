@@ -226,7 +226,7 @@ trait RoleAndPermissionTrait
      *
      * @return bool
      */
-    public function hasPermissionWithRoleCurrentUser($permissionName, $roleId = null): bool
+    public function hasPermissionViaRoleId($permissionName, $roleId = null): bool
     {
         $role = Role::join('role_has_permissions', 'role_has_permissions.role_id', '=',
                            'roles.id')
