@@ -69,15 +69,11 @@ class UserSQL extends Model implements User
 {
     use Authenticatable, Authorizable, HasFactory, HasRoles, SoftDeletes;
 
-    protected $connection = DbConnectionConstant::SQL;
-
-    protected $table = self::table;
-
-    protected string $guard_name = 'api';
-
-    protected $fillable = ['username', CodeConstant::UUID];
-
     public string $code = CodeConstant::UUID;
+    protected $connection = DbConnectionConstant::SQL;
+    protected $table = self::table;
+    protected string $guard_name = 'api';
+    protected $fillable = ['username', CodeConstant::UUID];
 
     public function userNoSql(): MBelongTo
     {

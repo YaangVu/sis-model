@@ -271,7 +271,6 @@ class UserNoSQL extends Model implements User
         return $this->hasMany(ToeflNoSQL::class, 'student_code','student_code');
     }
 
-
     public function school(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
         return $this->hasMany(SchoolNoSQL::class, 'uuid','sc_id');
