@@ -22,6 +22,7 @@ use YaangVu\SisModel\App\Models\ClassAssignment;
  * @property Carbon|null   $created_at
  * @property Carbon|null   $updated_at
  * @property string|null   $deleted_at
+ * @property string|null   $status
  * @method static Builder|ClassAssignmentSQL newModelQuery()
  * @method static Builder|ClassAssignmentSQL newQuery()
  * @method static Builder|ClassAssignmentSQL query()
@@ -33,6 +34,7 @@ use YaangVu\SisModel\App\Models\ClassAssignment;
  * @method static Builder|ClassAssignmentSQL whereId($value)
  * @method static Builder|ClassAssignmentSQL whereUpdatedAt($value)
  * @method static Builder|ClassAssignmentSQL whereUserId($value)
+ * @method static Builder|ClassAssignmentSQL whereStatus($value)
  * @mixin Eloquent
  * @property string|null   $external_id
  * @method static Builder|ClassSQL whereExternalId($value)

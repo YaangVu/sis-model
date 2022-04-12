@@ -214,4 +214,31 @@ trait RoleAndPermissionTrait
     {
         return SchoolServiceProvider::$currentSchool->uuid . ':' . $value;
     }
+
+    /**
+     * @Description
+     *
+     * @Author Tien
+     * @Date   Apr 07, 2022
+     *
+     * @param      $permissionName
+     * @param null $roleId
+     *
+     * @return bool
+     */
+    public function hasPermissionViaRoleId($permissionName, $roleId = null): bool
+    {
+        $role = Role::join('role_has_permissions', 'role_has_permissions.role_id', '=',
+                           'roles.id')
+                    ->join('permissions', 'role_has_permissions.permission_id', '=', 'permissions.id')
+                    ->join('model_has_roles', 'model_has_roles.role_id', '=', 'roles.id')
+                    ->where('roles.status', StatusConstant::ACTIVE)
+                    ->where('model_has_roles.model_id', BaseService::currentUser()?->id)
+                    ->where('permissions.name', $permissionName)
+                    ->when($roleId, function ($q) use ($roleId){
+                        $q->where('roles.id',$roleId);
+                    })
+                    ->first();
+        return isset($role);
+    }
 }

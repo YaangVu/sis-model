@@ -18,6 +18,8 @@ use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Clazz;
 use YaangVu\SisModel\App\Models\SQLModel;
+use YaangVu\SisModel\App\Models\MongoModel;
+use YaangVu\SisModel\App\Constants\CalendarRepeatTypeConstant;
 
 
 /**
@@ -171,5 +173,19 @@ class ClassSQL extends Model implements Clazz
     public function user()
     {
         return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
+    }
+
+    public function calendarsRepeatWeeklyAndDaily()
+    {
+        return (new MongoModel())->hasMany(CalendarNoSQL::class, 'class_id', 'id')
+                                 ->where('repeat', CalendarRepeatTypeConstant::DAILY)
+                                 ->orWhere('repeat', CalendarRepeatTypeConstant::WEEKLY);
+    }
+
+    public function calendarsRepeatIrregularly()
+    {
+        return (new MongoModel())->hasMany(CalendarNoSQL::class, 'class_id', 'id')
+                                 ->where('repeat', CalendarRepeatTypeConstant::IRREGULARLY)
+                                 ->orderBy('start', 'ASC');
     }
 }
