@@ -16,10 +16,10 @@ use Jenssegers\Mongodb\Relations\BelongsTo as MBelongsTo;
 use YaangVu\Constant\ClassAssignmentConstant;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\Clazz;
-use YaangVu\SisModel\App\Models\SQLModel;
-use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Constants\CalendarRepeatTypeConstant;
+use YaangVu\SisModel\App\Models\Clazz;
+use YaangVu\SisModel\App\Models\MongoModel;
+use YaangVu\SisModel\App\Models\SQLModel;
 
 
 /**
@@ -127,9 +127,13 @@ class ClassSQL extends Model implements Clazz
     public function students(): HasMany
     {
         return $this->hasMany(ClassAssignmentSQL::class, 'class_id')
-                    ->select('id', 'user_id', 'assignment', 'class_id', 'position', 'created_by')
+                    ->from('class_assignments as class_assignments')
+                    ->select('class_assignments.id', 'user_id', 'assignment', 'class_id', 'position',
+                             'class_assignments.created_by')
+                    ->join('users', 'users.id', '=', 'class_assignments.user_id')
+                    ->whereNull('users.deleted_at')
                     ->where('assignment', '=', ClassAssignmentConstant::STUDENT)
-                    ->whereNull('deleted_at');
+                    ->whereNull('class_assignments.deleted_at');
     }
 
     public function teachers(): HasMany
