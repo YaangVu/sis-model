@@ -93,4 +93,8 @@ class CalendarNoSQL extends Model implements Calendar
 
         return $value;
     }
+
+    public function term(){
+        return (new SQLModel())->belongsTo(TermSQL::class, 'term_id', 'id');
+    }
 }
