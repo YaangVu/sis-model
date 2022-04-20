@@ -97,4 +97,5 @@ class UserSQL extends Model implements User
     {
         return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }
+
 }
