@@ -143,7 +143,7 @@ class UserNoSQL extends Model implements User
                     continue;
 
                 [$scID, $decorRoleName] = explode(':', $roleName);
-                if ($scID == SchoolServiceProvider::$currentSchool->uuid)
+                if ($scID == SchoolServiceProvider::$currentSchool?->uuid)
                     $response[] = $decorRoleName;
             }
 
