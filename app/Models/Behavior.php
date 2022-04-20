@@ -8,5 +8,5 @@ namespace YaangVu\SisModel\App\Models;
 
 interface Behavior
 {
-    public const table = 'behavior';
+    public const table = 'behaviors';
 }
