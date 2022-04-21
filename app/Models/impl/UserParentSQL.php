@@ -65,12 +65,12 @@ class UserParentSQL extends Model implements UserParent
         return $this->belongsToMany(UserSQL::class, UserParent::table, 'parent_id', 'id');
     }
 
-    public function children(): BelongsToMany
+    public function students(): BelongsToMany
     {
         return $this->belongsToMany(UserSQL::class, UserParent::table, 'children_id', 'id');
     }
 
-    public function school(): BelongsToMany
+    public function schools(): BelongsToMany
     {
         return $this->belongsToMany(SchoolSQL::class, UserParent::table, 'school_id', 'id');
     }
