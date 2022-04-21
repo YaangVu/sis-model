@@ -4,11 +4,11 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Behavior;
-use YaangVu\SisModel\App\Models\MongoModel;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 
 
-class BehaviorNoSQL extends MongoModel implements Behavior
+class BehaviorNoSQL extends Model implements Behavior
 {
     protected $table = self::table;
 
