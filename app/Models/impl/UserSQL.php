@@ -109,8 +109,4 @@ class UserSQL extends Model implements User
         return $this->belongsToMany(UserSQL::class, UserParent::table, 'parent_id', 'children_id');
     }
 
-    public function schools(): BelongsToMany
-    {
-        return $this->belongsToMany(SchoolSQL::class, UserParent::table, 'children_id', 'school_id');
-    }
 }
