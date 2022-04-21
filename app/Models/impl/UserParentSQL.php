@@ -12,9 +12,6 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\ClassAssignment;
-use YaangVu\SisModel\App\Models\School;
-use YaangVu\SisModel\App\Models\User;
 use YaangVu\SisModel\App\Models\UserParent;
 
 /**
@@ -59,19 +56,4 @@ class UserParentSQL extends Model implements UserParent
             'school_id',
             'created_by'
         ];
-
-    public function parents(): BelongsToMany
-    {
-        return $this->belongsToMany(UserSQL::class, UserParent::table, 'parent_id', 'id');
-    }
-
-    public function students(): BelongsToMany
-    {
-        return $this->belongsToMany(UserSQL::class, UserParent::table, 'children_id', 'id');
-    }
-
-    public function schools(): BelongsToMany
-    {
-        return $this->belongsToMany(SchoolSQL::class, UserParent::table, 'school_id', 'id');
-    }
 }
