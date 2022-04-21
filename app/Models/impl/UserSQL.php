@@ -23,6 +23,7 @@ use YaangVu\SisModel\App\Models\ClassAssignment;
 use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\SQLModel;
 use YaangVu\SisModel\App\Models\User;
+use YaangVu\SisModel\App\Models\UserParent;
 
 
 /**
@@ -97,4 +98,15 @@ class UserSQL extends Model implements User
     {
         return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }
+
+    public function parents(): BelongsToMany
+    {
+        return $this->belongsToMany(UserSQL::class, UserParent::table, 'children_id', 'parent_id');
+    }
+
+    public function students(): BelongsToMany
+    {
+        return $this->belongsToMany(UserSQL::class, UserParent::table, 'parent_id', 'children_id');
+    }
+
 }
