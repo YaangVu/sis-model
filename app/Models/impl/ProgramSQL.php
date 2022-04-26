@@ -57,7 +57,7 @@ class ProgramSQL extends Model implements Program
 
     protected $table = self::table;
 
-    protected $fillable = ['name', 'description', 'school_id', 'status', 'lms_id', CodeConstant::UUID];
+    protected $fillable = ['name', 'description', 'school_id', 'status', 'lms_id', CodeConstant::UUID, 'is_high_school_program'];
 
     protected $connection = DbConnectionConstant::SQL;
 
