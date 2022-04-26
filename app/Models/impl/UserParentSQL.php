@@ -56,4 +56,15 @@ class UserParentSQL extends Model implements UserParent
             'school_id',
             'created_by'
         ];
+
+
+    public function children(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(UserSQL::class, 'children_id', 'id');
+    }
+
+    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(UserSQL::class, 'parent_id', 'id');
+    }
 }
