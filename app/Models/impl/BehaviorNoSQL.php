@@ -2,10 +2,11 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Behavior;
 use Jenssegers\Mongodb\Eloquent\Model;
-
+use YaangVu\SisModel\App\Models\SQLModel;
 
 
 class BehaviorNoSQL extends Model implements Behavior
@@ -18,4 +19,9 @@ class BehaviorNoSQL extends Model implements Behavior
 
     protected $guarded = [];
 
+    public function term(): BelongsTo
+    {
+        return (new SQLModel())->belongsTo(TermSQL::class, 'term_id', 'id');
+    }
+    
 }
