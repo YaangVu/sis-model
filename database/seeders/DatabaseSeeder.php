@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 //         $this->call([GradeSeeder::class]);
 
         // TODO USERS
-        $this->call([RoleSeeder::class, PermissionSeeder::class]);
-        // $this->call(UserSeeder::class);
+       // $this->call([RoleSeeder::class, PermissionSeeder::class]);
+         $this->call(ProgressBehavior::class);
     }
 }
