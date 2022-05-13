@@ -276,5 +276,8 @@ class UserNoSQL extends Model implements User
         return $this->hasOne(SchoolNoSQL::class, 'uuid','sc_id');
     }
 
-
+    public function progressSettings(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
+    {
+        return $this->hasMany(ProgressSettingNoSql::class, 'staff_id', 'id');
+    }
 }
