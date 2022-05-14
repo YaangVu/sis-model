@@ -7,7 +7,7 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\ProgressSetting;
 
 
-class ProgressSettingNoSql extends Model implements ProgressSetting
+class ProgressSettingNoSQL extends Model implements ProgressSetting
 {
     protected $table = self::table;
 
