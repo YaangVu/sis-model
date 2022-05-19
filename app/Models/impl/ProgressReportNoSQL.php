@@ -16,6 +16,16 @@ class ProgressReportNoSQL extends Model implements ProgressReport
     protected $fillable = ['*'];
 
     protected $guarded = [];
+
+    public function inputter(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return $this->belongsTo(UserNoSQL::class, 'inputter_id', '_id');
+    }
+
+    public function reviewer(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return $this->belongsTo(UserNoSQL::class, 'reviewer_id', '_id');
+    }
     
 }
 
