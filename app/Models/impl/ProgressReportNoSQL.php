@@ -26,7 +26,21 @@ class ProgressReportNoSQL extends Model implements ProgressReport
     {
         return $this->belongsTo(UserNoSQL::class, 'reviewer_id', '_id');
     }
-    
+
+    public function term(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return $this->belongsTo(TermSQL::class, 'term_id', 'id');
+    }
+
+    public function program(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return $this->belongsTo(ProgramSQL::class, 'program_id', 'id');
+    }
+
+    public function student(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return $this->belongsTo(UserNoSQL::class, 'student_id', '_id');
+    }
 }
 
 
