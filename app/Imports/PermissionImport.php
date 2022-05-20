@@ -16,9 +16,7 @@ class PermissionImport implements ToArray, SkipsEmptyRows, WithHeadingRow
     {
         $schoolCode          = 'igs';
         $god                 = RoleSQL::whereName($schoolCode . ':' . RoleConstant::ADMIN)->first();
-        $academicCoordinator = RoleSQL::whereName($schoolCode . ':' . RoleConstant::ACADEMIC_COORDINATOR)->first();
         $teacher             = RoleSQL::whereName($schoolCode . ':' . RoleConstant::TEACHER)->first();
-        $headTeacher         = RoleSQL::whereName($schoolCode . ':' . RoleConstant::HEADTEACHER)->first();
         $principal           = RoleSQL::whereName($schoolCode . ':' . RoleConstant::PRINCIPAL)->first();
         $student             = RoleSQL::whereName($schoolCode . ':' . RoleConstant::STUDENT)->first();
         $family              = RoleSQL::whereName($schoolCode . ':' . RoleConstant::FAMILY)->first();
@@ -45,14 +43,8 @@ class PermissionImport implements ToArray, SkipsEmptyRows, WithHeadingRow
                     case $this->formatSrt(RoleConstant::TEACHER) :
                         $teacher->givePermissionTo($permission);
                         break;
-                    case  $this->formatSrt(RoleConstant::HEADTEACHER) :
-                        $headTeacher->givePermissionTo($permission);
-                        break;
                     case $this->formatSrt(RoleConstant::PRINCIPAL) :
                         $principal->givePermissionTo($permission);
-                        break;
-                    case $this->formatSrt(RoleConstant::ACADEMIC_COORDINATOR):
-                        $academicCoordinator->givePermissionTo($permission);
                         break;
                 }
             }
