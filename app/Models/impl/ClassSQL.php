@@ -174,19 +174,19 @@ class ClassSQL extends Model implements Clazz
         return $this->hasOne(LmsSQL::class, 'id', 'lms_id');
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
         return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
     }
 
-    public function calendarsRepeatWeeklyAndDaily()
+    public function calendarsRepeatWeeklyAndDaily(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
         return (new MongoModel())->hasMany(CalendarNoSQL::class, 'class_id', 'id')
                                  ->where('repeat', CalendarRepeatTypeConstant::DAILY)
                                  ->orWhere('repeat', CalendarRepeatTypeConstant::WEEKLY);
     }
 
-    public function calendarsRepeatIrregularly()
+    public function calendarsRepeatIrregularly(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
         return (new MongoModel())->hasMany(CalendarNoSQL::class, 'class_id', 'id')
                                  ->where('repeat', CalendarRepeatTypeConstant::IRREGULARLY)
