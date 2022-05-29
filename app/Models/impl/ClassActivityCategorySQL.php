@@ -6,6 +6,7 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
@@ -60,4 +61,9 @@ class ClassActivityCategorySQL extends Model implements ClassActivityCategory
     protected $table = self::table;
 
     protected $connection = DbConnectionConstant::SQL;
+
+    public function activityClassLms(): HasMany
+    {
+        return $this->hasMany(ActivityClassLmsSQL::class,'class_activity_category_id');
+    }
 }

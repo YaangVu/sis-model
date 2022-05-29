@@ -4,6 +4,7 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Builder;
 use Jenssegers\Mongodb\Eloquent\Model;
@@ -84,5 +85,10 @@ class ClassActivityNoSql extends Model implements ClassActivity
                 $value[$index] = (object)$activity;
 
         return $value;
+    }
+
+    public function classActivityCategories(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
+    {
+        return $this->hasMany(ClassActivityCategorySQL::class,'class_id','class_id');
     }
 }
