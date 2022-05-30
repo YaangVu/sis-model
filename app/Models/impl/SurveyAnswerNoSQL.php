@@ -42,7 +42,7 @@ class SurveyAnswerNoSQL extends Model implements SurveyAnswer
 
     protected $guarded = [];
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function createdBy(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
     {
         return $this->belongsTo(UserSQL::class, 'created_by', 'id');
     }
