@@ -22,6 +22,7 @@ class CreateActivityClassLmsTable extends Migration
             $table->string('description')->nullable(true);
             $table->unsignedBigInteger('school_id');
             $table->string('uuid')->nullable(true);
+            $table->unsignedBigInteger('created_by')->nullable(true);
 
             $table->foreign('school_id')->references('id')->on('schools')->cascadeOnDelete();
             $table->foreign('class_activity_category_id')->references('id')->on('class_activity_categories')->cascadeOnDelete();
