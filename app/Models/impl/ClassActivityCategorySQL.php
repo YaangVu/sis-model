@@ -23,6 +23,8 @@ use YaangVu\SisModel\App\Models\ClassActivityCategory;
  * @property int|null    $class_id
  * @property int|null    $activity_category_id
  * @property int|null    $weight
+ * @property boolean    $is_default
+ * @property int|null    $max_point
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
@@ -39,6 +41,8 @@ use YaangVu\SisModel\App\Models\ClassActivityCategory;
  * @method static Builder|CalendarSQL whereClassId($value)
  * @method static Builder|CalendarSQL whereActivityCategoryId($value)
  * @method static Builder|CalendarSQL whereWeight($value)
+ * @method static Builder|CalendarSQL whereIsDefault($value)
+ * @method static Builder|CalendarSQL whereMaxPoint($value)
  * @method static Builder|CalendarSQL whereUpdatedAt($value)
  * @mixin Eloquent
  * @property string|null $uuid
@@ -55,7 +59,7 @@ class ClassActivityCategorySQL extends Model implements ClassActivityCategory
 
     protected $fillable
         = [
-            'name', 'weight', 'description', 'school_id', 'activity_category_id', 'class_id', CodeConstant::UUID, CodeConstant::EX_ID
+            'name', 'weight', 'description', 'school_id', 'activity_category_id', 'class_id', CodeConstant::UUID, CodeConstant::EX_ID, 'is_default','max_point'
         ];
 
     protected $table = self::table;
