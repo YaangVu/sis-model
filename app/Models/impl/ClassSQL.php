@@ -192,4 +192,9 @@ class ClassSQL extends Model implements Clazz
                                  ->where('repeat', CalendarRepeatTypeConstant::IRREGULARLY)
                                  ->orderBy('start', 'ASC');
     }
+
+    public function classActivityCategories(): HasMany
+    {
+        return $this->hasMany(ClassActivityCategorySQL::class, 'class_id');
+    }
 }
