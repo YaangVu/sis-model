@@ -29,6 +29,7 @@ class RoomSettingSQL extends Model implements RoomSetting
         = [
             'email',
             'password',
+            'priority',
             'sc_id'
         ];
 
