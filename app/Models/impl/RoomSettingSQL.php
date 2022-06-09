@@ -8,7 +8,7 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Jenssegers\Mongodb\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\RoomSetting;
 
