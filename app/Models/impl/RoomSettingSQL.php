@@ -27,7 +27,7 @@ class RoomSettingSQL extends Model implements RoomSetting
 
     protected $fillable
         = [
-            'email',
+            'account',
             'password',
             'priority',
             'sc_id'
