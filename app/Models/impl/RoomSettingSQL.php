@@ -33,6 +33,11 @@ class RoomSettingSQL extends Model implements RoomSetting
             'sc_id'
         ];
 
+    public $casts
+        = [
+            'password' => 'encrypted',
+        ];
+
     protected $table = self::table;
 
     protected $connection = DbConnectionConstant::SQL;
