@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableRoomSettingsTable extends Migration
+class CreateTableRoomSettings extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,9 @@ class CreateTableRoomSettingsTable extends Migration
     {
         Schema::create('room_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
+            $table->string('account');
             $table->string('password');
+            $table->integer('priority');
             $table->string('sc_id');
             $table->timestamps();
         });
