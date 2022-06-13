@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableRoomSettings extends Migration
+class CreateTableZoomSettings extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableRoomSettings extends Migration
      */
     public function up()
     {
-        Schema::create('room_settings', function (Blueprint $table) {
+        Schema::create('zoom_settings', function (Blueprint $table) {
             $table->id();
             $table->string('account');
             $table->string('password');
@@ -30,6 +30,6 @@ class CreateTableRoomSettings extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('room_settings');
+        Schema::dropIfExists('zoom_settings');
     }
 }
