@@ -4,10 +4,10 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\RoomMeeting;
+use YaangVu\SisModel\App\Models\ZoomParticipant;
 
 
-class RoomMeetingNoSQL extends Model implements RoomMeeting
+class ZoomParticipantNoSQL extends Model implements ZoomParticipant
 {
     protected $table = self::table;
 
