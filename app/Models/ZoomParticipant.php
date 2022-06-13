@@ -6,7 +6,7 @@
 
 namespace YaangVu\SisModel\App\Models;
 
-interface RoomParticipant
+interface ZoomParticipant
 {
     public const table = 'room_participants';
 }

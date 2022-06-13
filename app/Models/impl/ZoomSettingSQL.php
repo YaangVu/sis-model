@@ -10,18 +10,18 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\RoomSetting;
+use YaangVu\SisModel\App\Models\ZoomSetting;
 
 
 /**
- * YaangVu\SisModel\App\Models\RoomSettingSQL
+ * YaangVu\SisModel\App\Models\ZoomSettingSQL
  *
  * @property int         $id
  * @property string|null $email
  * @property string|null $password
- * @method static Builder|RoomSettingSQL whereEmail($value)
+ * @method static Builder|ZoomSettingSQL whereEmail($value)
  */
-class RoomSettingSQL extends Model implements RoomSetting
+class ZoomSettingSQL extends Model implements ZoomSetting
 {
     use HasFactory;
 

@@ -6,7 +6,7 @@
 
 namespace YaangVu\SisModel\App\Models;
 
-interface RoomSetting
+interface ZoomSetting
 {
-    public const table = 'room_settings';
+    public const table = 'zoom_settings';
 }
