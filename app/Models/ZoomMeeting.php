@@ -8,5 +8,5 @@ namespace YaangVu\SisModel\App\Models;
 
 interface ZoomMeeting
 {
-    public const table = 'room_meetings';
+    public const table = 'zoom_meetings';
 }
