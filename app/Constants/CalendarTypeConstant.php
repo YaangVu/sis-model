@@ -10,4 +10,5 @@ class CalendarTypeConstant
     const HOLIDAY  = 'holiday';
     const ACTIVITY = 'activity';
     const SCHEDULE = 'schedule';
+    const VIDEO_CONFERENCE = 'video conference'; 
 }
