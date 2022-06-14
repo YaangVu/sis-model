@@ -18,7 +18,7 @@ use YaangVu\SisModel\App\Models\Job;
  *
  * @property int    $id
  * @property string $send_type
- * @property array  $receiver_ids
+ * @property array  $receiver_uuids
  * @property string $template
  * @property array  $ccs
  * @property array  $bccs
@@ -35,6 +35,7 @@ use YaangVu\SisModel\App\Models\Job;
  * @method static Builder|JobsNoSQL query()
  * @method static Builder|JobsNoSQL whereSendType($value)
  * @method static Builder|JobsNoSQL whereAvailableAt($value)
+ * @method static Builder|JobsNoSQL whereReceiverUuids($value)
  * @method static Builder|JobsNoSQL whereStatus($value)
  * @method static Builder|JobsNoSQL whereId($value)
  * @method static Builder|JobsNoSQL whereRunAt($value)
