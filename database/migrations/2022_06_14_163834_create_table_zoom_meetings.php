@@ -22,11 +22,12 @@ class CreateTableZoomMeetings extends Migration
             $table->string('zoom_meeting_type');
             $table->integer('duration');
             $table->string('timezone')->nullable(true);
-            $table->integer('notification_before');
+            $table->integer('notification_before')->nullable(true);
             $table->boolean('join_before_host');
-            $table->string('participant_join_before_host');
+            $table->string('participant_join_before_host')->nullable(true);
             $table->string('type_guest');
             $table->string('link_zoom')->nullable(true);
+            $table->unsignedBigInteger('created_by')->nullable(false);
 
             $table->timestamps();
         });
