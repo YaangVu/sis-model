@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\Constant\UserJoinZoomMeetingConstant;
+use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\ZoomMeeting;
 
 /**
@@ -64,4 +66,15 @@ class ZoomMeetingSQL extends Model implements ZoomMeeting
         ];
 
     protected $connection = DbConnectionConstant::SQL;
+
+    public function participants(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(ZoomParticipantSQL::class, 'zoom_meeting_id', 'id')
+                    ->where('user_join_meeting', UserJoinZoomMeetingConstant::HOST);
+    }
+
+    public function calendars(): \Illuminate\Database\Eloquent\Relations\HasMany|\Jenssegers\Mongodb\Relations\HasMany
+    {
+        return (new MongoModel())->hasMany(CalendarNoSQL::class, 'zoom_meeting_id', 'id');
+    }
 }

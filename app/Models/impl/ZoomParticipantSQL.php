@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\ZoomParticipant;
 
 /**
@@ -52,4 +53,9 @@ class ZoomParticipantSQL extends Model implements ZoomParticipant
         ];
 
     protected $connection = DbConnectionConstant::SQL;
+
+    public function hostZoomMeeting(): \Illuminate\Database\Eloquent\Relations\HasOne|\Jenssegers\Mongodb\Relations\HasOne
+    {
+        return (new MongoModel())->hasOne(UserNoSQL::class, 'user_uuid', 'users.uuid');
+    }
 }
