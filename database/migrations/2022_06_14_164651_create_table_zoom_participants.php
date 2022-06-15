@@ -16,7 +16,7 @@ class CreateTableZoomParticipants extends Migration
         Schema::create('zoom_participants', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('zoom_meeting_id')->nullable(false);
-            $table->unsignedBigInteger('user_id')->nullable(true);
+            $table->string('user_uuid');
             $table->string('user_join_meeting');
             $table->boolean('student_attendance');
             $table->string('type_guest');
