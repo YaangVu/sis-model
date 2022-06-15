@@ -58,4 +58,9 @@ class ZoomParticipantSQL extends Model implements ZoomParticipant
     {
         return (new MongoModel())->hasOne(UserNoSQL::class, 'user_uuid', 'users.uuid');
     }
+
+    public function classes(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(ClassSQL::class, 'id', 'class_id');
+    }
 }
