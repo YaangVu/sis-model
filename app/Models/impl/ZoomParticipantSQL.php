@@ -54,7 +54,7 @@ class ZoomParticipantSQL extends Model implements ZoomParticipant
 
     protected $connection = DbConnectionConstant::SQL;
 
-    public function hostZoomMeeting(): \Illuminate\Database\Eloquent\Relations\HasOne|\Jenssegers\Mongodb\Relations\HasOne
+    public function user(): \Illuminate\Database\Eloquent\Relations\HasOne|\Jenssegers\Mongodb\Relations\HasOne
     {
         return (new MongoModel())->hasOne(UserNoSQL::class, 'user_uuid', 'users.uuid');
     }
