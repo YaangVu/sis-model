@@ -10,5 +10,7 @@ class CalendarTypeConstant
     const HOLIDAY          = 'holiday';
     const ACTIVITY         = 'activity';
     const SCHEDULE         = 'schedule';
-    const VIDEO_CONFERENCE = 'video conference'; 
+    const VIDEO_CONFERENCE = 'video conference';
+    const PAST             = 'past';
+    const FUTURE           = 'future';
 }
