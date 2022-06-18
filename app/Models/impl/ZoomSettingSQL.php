@@ -28,14 +28,9 @@ class ZoomSettingSQL extends Model implements ZoomSetting
     protected $fillable
         = [
             'account',
-            'password',
+            'token',
             'priority',
             'sc_id'
-        ];
-
-    public $casts
-        = [
-            'password' => 'encrypted',
         ];
 
     protected $table = self::table;
