@@ -62,7 +62,8 @@ class ZoomMeetingSQL extends Model implements ZoomMeeting
             'join_before_host',
             'participant_join_before_host',
             'type_guest',
-            'link_zoom'
+            'link_zoom',
+            'zoom_meeting_ui_id'
         ];
 
     protected $connection = DbConnectionConstant::SQL;
