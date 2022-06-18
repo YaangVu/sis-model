@@ -71,11 +71,17 @@ class ZoomMeetingSQL extends Model implements ZoomMeeting
     public function participants(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(ZoomParticipantSQL::class, 'zoom_meeting_id', 'id')
-                    ->where('user_join_meeting', UserJoinZoomMeetingConstant::HOST);
+                    ->where('user_join_meeting', UserJoinZoomMeetingConstant::STUDENT);
     }
 
     public function calendars(): \Illuminate\Database\Eloquent\Relations\HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
         return (new MongoModel())->hasMany(CalendarNoSQL::class, 'zoom_meeting_id', 'id');
+    }
+
+    public function hostZoomMeeting(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(ZoomParticipantSQL::class, 'zoom_meeting_id', 'id')
+                    ->where('user_join_meeting', UserJoinZoomMeetingConstant::HOST);
     }
 }
