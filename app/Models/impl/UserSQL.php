@@ -24,6 +24,7 @@ use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\SQLModel;
 use YaangVu\SisModel\App\Models\User;
 use YaangVu\SisModel\App\Models\UserParent;
+use YaangVu\SisModel\App\Models\UserProgram;
 
 
 /**
@@ -109,4 +110,8 @@ class UserSQL extends Model implements User
         return $this->belongsToMany(UserSQL::class, UserParent::table, 'parent_id', 'children_id');
     }
 
+    public function programs(): BelongsToMany
+    {
+        return $this->belongsToMany(ProgramSQL::class, UserProgram::table, 'user_id', 'program_id');
+    }
 }
