@@ -16,12 +16,14 @@ class CreateSubTasksTable extends Migration
         Schema::create('sub_tasks', function (Blueprint $table) {
             $table->id();
             $table->string('task_name');
-            $table->string('status');
+            $table->string('type')->nullable();
             $table->dateTime('deadline');
             $table->integer('assignee_id');
             $table->integer('reviewer_id')->nullable();
             $table->integer('created_by')->nullable();
             $table->longText('description')->nullable();
+            $table->integer('owner_id')->nullable();
+            $table->string('owner_id_no_sql')->nullable();
             $table->integer('main_task_id')->unsigned();
             $table->foreign('main_task_id')->references('id')->on('main_tasks')->onDelete('cascade');
             $table->integer('task_status_id')->unsigned();
