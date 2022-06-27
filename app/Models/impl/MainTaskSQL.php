@@ -6,6 +6,7 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\MainTask;
 use YaangVu\SisModel\App\Models\MongoModel;
@@ -34,8 +35,42 @@ class MainTaskSQL extends Model implements MainTask
 
     protected $fillable = ['project_name', 'owner_id', 'short_description', 'created_by', 'owner_id_no_sql', 'type'];
 
+    /**
+     * @Description
+     *
+     * @Author Admin
+     * @Date   Jun 27, 2022
+     *
+     * @return BelongsTo
+     */
     public function ownerMainTasks(): BelongsTo
     {
         return (new MongoModel())->belongsTo(UserNoSQL::class, 'owner_id_no_sql', '_id');
+    }
+
+    /**
+     * @Description
+     *
+     * @Author Admin
+     * @Date   Jun 27, 2022
+     *
+     * @return BelongsTo
+     */
+    public function ownerMainTaskSql(): BelongsTo
+    {
+        return $this->belongsTo(UserSQL::class, 'owner_id', 'id')->with('userNoSql');
+    }
+
+    /**
+     * @Description
+     *
+     * @Author Admin
+     * @Date   Jun 27, 2022
+     *
+     * @return HasMany
+     */
+    public function subtasks(): HasMany
+    {
+        return $this->hasMany(SubTaskSQL::class, 'main_task_id', 'id');
     }
 }

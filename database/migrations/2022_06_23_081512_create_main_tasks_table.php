@@ -16,11 +16,11 @@ class CreateMainTasksTable extends Migration
         Schema::create('main_tasks', function (Blueprint $table) {
             $table->id();
             $table->string('project_name');
-            $table->integer('owner_id');
+            $table->unsignedBigInteger('owner_id');
             $table->string('type')->nullable();
             $table->string('owner_id_no_sql')->nullable();
             $table->longText('short_description')->nullable();
-            $table->integer('created_by')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
         });
     }
