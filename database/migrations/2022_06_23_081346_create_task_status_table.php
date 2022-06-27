@@ -16,6 +16,7 @@ class CreateTaskStatusTable extends Migration
         Schema::create('task_status', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
         });
     }

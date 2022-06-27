@@ -73,4 +73,17 @@ class SubTaskSQL extends Model implements SubTask
     {
         return (new MongoModel())->belongsTo(UserNoSQL::class, 'owner_id_no_sql', '_id');
     }
+
+    /**
+     * @Description
+     *
+     * @Author Admin
+     * @Date   Jun 27, 2022
+     *
+     * @return BelongsTo
+     */
+    public function ownerSubTaskSql(): BelongsTo
+    {
+        return $this->belongsTo(UserSQL::class, 'owner_id', 'id');
+    }
 }

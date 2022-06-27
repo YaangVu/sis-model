@@ -24,5 +24,5 @@ class TaskStatusSQL extends Model implements TaskStatus
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'created_by'];
 }
