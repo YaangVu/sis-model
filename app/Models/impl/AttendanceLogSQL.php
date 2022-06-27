@@ -1,9 +1,4 @@
 <?php
-
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
-use YaangVu\SisModel\App\Models\impl\ZoomHostSQL;
-
 /**
  * @Author im.phien
  * @Date   Jun 27, 2022
@@ -11,6 +6,8 @@ use YaangVu\SisModel\App\Models\impl\ZoomHostSQL;
 
 namespace YaangVu\SisModel\App\Models\impl;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Jenssegers\Mongodb\Eloquent\Model;
@@ -27,6 +24,7 @@ use YaangVu\SisModel\App\Models\AttendanceLog;
  * @property Carbon|null $leave_time
  * @property string|null $status
  * @property int|null    $created_by
+ * @property int|null    $zoom_meeting_id
  * @property int         $user_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -39,6 +37,7 @@ use YaangVu\SisModel\App\Models\AttendanceLog;
  * @method static Builder|AttendanceLogSQL whereLeaveTime($value)
  * @method static Builder|AttendanceLogSQL whereStatus($value)
  * @method static Builder|AttendanceLogSQL whereUserId($value)
+ * @method static Builder|AttendanceLogSQL whereZoomMeetingId($value)
  * @method static Builder|AttendanceLogSQL whereEmail($value)
  * @method static Builder|AttendanceLogSQL whereCreatedBy($value)
  * @method static Builder|AttendanceLogSQL whereDeletedAt($value)
@@ -53,7 +52,7 @@ class AttendanceLogSQL extends Model implements AttendanceLog
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['email', 'participant_display_name', 'join_time', 'leave_time', 'status', 'user_id', 'created_by'];
+    protected $fillable = ['email', 'participant_display_name', 'join_time', 'leave_time', 'status', 'user_id', 'created_by','zoom_meeting_id'];
 
     /**
      * @Description
@@ -66,5 +65,18 @@ class AttendanceLogSQL extends Model implements AttendanceLog
     public function user(): HasOne|\Jenssegers\Mongodb\Relations\HasOne
     {
         return $this->hasOne(UserSQL::class, 'id', 'user_id');
+    }
+
+    /**
+     * @Description
+     *
+     * @Author im.phien
+     * @Date   Jun 27, 2022
+     *
+     * @return HasOne|\Jenssegers\Mongodb\Relations\HasOne
+     */
+    public function zoomMeeting(): HasOne|\Jenssegers\Mongodb\Relations\HasOne
+    {
+        return $this->hasOne(ZoomMeetingSQL::class, 'id', 'zoom_meeting_id');
     }
 }
