@@ -7,13 +7,12 @@
 namespace YaangVu\SisModel\App\Models\impl;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\AttendanceLog;
-
 /**
  * YaangVu\SisModel\App\Models\AttendanceLogSQL
  *
