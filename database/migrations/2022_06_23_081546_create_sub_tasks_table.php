@@ -18,12 +18,15 @@ class CreateSubTasksTable extends Migration
             $table->string('task_name');
             $table->string('type')->nullable();
             $table->dateTime('deadline');
-            $table->unsignedBigInteger('assignee_id');
+            $table->string('file')->nullable();
+            $table->unsignedBigInteger('assignee_id')->nullable();
             $table->unsignedBigInteger('reviewer_id')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->longText('description')->nullable();
             $table->unsignedBigInteger('owner_id')->nullable();
             $table->string('owner_id_no_sql')->nullable();
+            $table->string('assignee_id_no_sql')->nullable();
+            $table->string('reviewer_id_no_sql')->nullable();
             $table->unsignedBigInteger('main_task_id')->unsigned();
             $table->foreign('main_task_id')->references('id')->on('main_tasks')->onDelete('cascade');
             $table->unsignedBigInteger('task_status_id')->unsigned();
