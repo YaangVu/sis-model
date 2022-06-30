@@ -26,6 +26,9 @@ use YaangVu\SisModel\App\Models\SubTask;
  * @property int|null    $created_by
  * @property int|null    $owner_id
  * @property int|null    $owner_id_no_sql
+ * @property int|null    $reviewer_id_no_sql
+ * @property int|null    $assignee_id_no_sql
+ * @property int|null    $file
  * @package YaangVu\SisModel\App\Models\impl
  */
 class SubTaskSQL extends Model implements SubTask
@@ -40,7 +43,7 @@ class SubTaskSQL extends Model implements SubTask
         = [
             'task_name', 'type', 'deadline', 'assignee_id', 'reviewer_id',
             'description', 'main_task_id', 'task_status_id', 'created_by',
-            'owner_id', 'owner_id_no_sql'
+            'owner_id', 'owner_id_no_sql', 'assignee_id_no_sql', 'reviewer_id_no_sql', 'file'
         ];
 
     /**
@@ -60,18 +63,52 @@ class SubTaskSQL extends Model implements SubTask
      * @Description
      *
      * @Author Admin
-     * @Date   Jun 23, 2022
+     * @Date   Jun 30, 2022
      *
      * @return BelongsTo
      */
     public function subTaskStatus(): BelongsTo
     {
-        return $this->belongsTo(TaskStatusSQL::class, 'sub_task_id');
+        return $this->belongsto(TaskStatusSQL::class, 'task_status_id');
     }
 
+    /**
+     * @Description
+     *
+     * @Author Admin
+     * @Date   Jun 30, 2022
+     *
+     * @return BelongsTo
+     */
     public function ownerSubTasks(): BelongsTo
     {
         return (new MongoModel())->belongsTo(UserNoSQL::class, 'owner_id_no_sql', '_id');
+    }
+
+    /**
+     * @Description
+     *
+     * @Author Admin
+     * @Date   Jun 30, 2022
+     *
+     * @return BelongsTo
+     */
+    public function reviewerSubTasks(): BelongsTo
+    {
+        return (new MongoModel())->belongsTo(UserNoSQL::class, 'reviewer_id_no_sql', '_id');
+    }
+
+    /**
+     * @Description
+     *
+     * @Author Admin
+     * @Date   Jun 30, 2022
+     *
+     * @return BelongsTo
+     */
+    public function assigneeSubTasks(): BelongsTo
+    {
+        return (new MongoModel())->belongsTo(UserNoSQL::class, 'assignee_id_no_sql', '_id');
     }
 
     /**
