@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMainTasksTable extends Migration
+class AddUserUuidInAttendanceLogs extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateMainTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('main_tasks', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('attendance_logs', function (Blueprint $table) {
+            $table->string('user_uuid')->nullable();
         });
     }
 
@@ -26,6 +25,8 @@ class CreateMainTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('main_tasks');
+        Schema::table('attendance_logs', function (Blueprint $table) {
+            $table->dropColumn('user_uuid');
+        });
     }
 }
