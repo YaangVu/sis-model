@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\AttendanceLog;
+use YaangVu\SisModel\App\Models\MongoModel;
+
 /**
  * YaangVu\SisModel\App\Models\AttendanceLogSQL
  *
@@ -26,7 +28,7 @@ use YaangVu\SisModel\App\Models\AttendanceLog;
  * @property int|null    $created_by
  * @property int|null    $zoom_meeting_id
  * @property int|null    $duration
- * @property int         $user_id
+ * @property string|null         $user_uuid
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
@@ -38,7 +40,7 @@ use YaangVu\SisModel\App\Models\AttendanceLog;
  * @method static Builder|AttendanceLogSQL whereLeaveTime($value)
  * @method static Builder|AttendanceLogSQL whereStatus($value)
  * @method static Builder|AttendanceLogSQL whereDate($value)
- * @method static Builder|AttendanceLogSQL whereUserId($value)
+ * @method static Builder|AttendanceLogSQL whereUserUuid($value)
  * @method static Builder|AttendanceLogSQL whereZoomMeetingId($value)
  * @method static Builder|AttendanceLogSQL whereEmail($value)
  * @method static Builder|AttendanceLogSQL whereCreatedBy($value)
@@ -55,7 +57,7 @@ class AttendanceLogSQL extends Model implements AttendanceLog
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['email', 'participant_display_name', 'join_time', 'leave_time', 'status', 'user_id', 'created_by','zoom_meeting_id','duration','date'];
+    protected $fillable = ['email', 'participant_display_name', 'join_time', 'leave_time', 'status', 'user_uuid', 'created_by','zoom_meeting_id','duration','date'];
 
     /**
      * @Description
@@ -65,9 +67,9 @@ class AttendanceLogSQL extends Model implements AttendanceLog
      *
      * @return HasOne|\Jenssegers\Mongodb\Relations\HasOne
      */
-    public function user(): HasOne|\Jenssegers\Mongodb\Relations\HasOne
+    public function user(): \Illuminate\Database\Eloquent\Relations\HasOne|\Jenssegers\Mongodb\Relations\HasOne
     {
-        return $this->hasOne(UserSQL::class, 'id', 'user_id');
+        return (new MongoModel())->hasOne(UserNoSQL::class, 'uuid', 'user_uuid');
     }
 
     /**
