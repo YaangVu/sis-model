@@ -21,6 +21,7 @@ use YaangVu\SisModel\App\Models\AttendanceLog;
  * @property string|null $participant_display_name
  * @property Carbon|null $join_time
  * @property Carbon|null $leave_time
+ * @property Carbon|null $date
  * @property string|null $status
  * @property int|null    $created_by
  * @property int|null    $zoom_meeting_id
@@ -36,6 +37,7 @@ use YaangVu\SisModel\App\Models\AttendanceLog;
  * @method static Builder|AttendanceLogSQL whereJoinTime($value)
  * @method static Builder|AttendanceLogSQL whereLeaveTime($value)
  * @method static Builder|AttendanceLogSQL whereStatus($value)
+ * @method static Builder|AttendanceLogSQL whereDate($value)
  * @method static Builder|AttendanceLogSQL whereUserId($value)
  * @method static Builder|AttendanceLogSQL whereZoomMeetingId($value)
  * @method static Builder|AttendanceLogSQL whereEmail($value)
@@ -53,7 +55,7 @@ class AttendanceLogSQL extends Model implements AttendanceLog
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['email', 'participant_display_name', 'join_time', 'leave_time', 'status', 'user_id', 'created_by','zoom_meeting_id','duration'];
+    protected $fillable = ['email', 'participant_display_name', 'join_time', 'leave_time', 'status', 'user_id', 'created_by','zoom_meeting_id','duration','date'];
 
     /**
      * @Description
