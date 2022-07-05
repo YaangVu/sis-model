@@ -29,7 +29,7 @@ class TaskCommentSQl extends Model implements Comment
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['name', 'avatar', 'content', 'sub_task_id', 'created_by'];
+    protected $fillable = ['name', 'avatar', 'content', 'sub_task_id', 'created_by', 'main_task_id'];
 
     /**
      * @Description
