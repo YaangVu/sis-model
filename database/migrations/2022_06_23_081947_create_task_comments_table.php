@@ -19,7 +19,7 @@ class CreateTaskCommentsTable extends Migration
             $table->string('avatar')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->longText('content')->nullable();
-            $table->unsignedBigInteger('sub_task_id')->unsigned();
+            $table->unsignedBigInteger('sub_task_id')->unsigned()->nullable();
             $table->foreign('sub_task_id')->references('id')->on('sub_tasks')->onDelete('cascade');
             $table->timestamps();
         });
