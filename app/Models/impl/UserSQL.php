@@ -19,10 +19,12 @@ use Spatie\Permission\Traits\HasRoles;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\Constant\StatusConstant;
+use YaangVu\SisModel\App\Models\ChatRoom;
 use YaangVu\SisModel\App\Models\ClassAssignment;
 use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\SQLModel;
 use YaangVu\SisModel\App\Models\User;
+use YaangVu\SisModel\App\Models\UserChatRoom;
 use YaangVu\SisModel\App\Models\UserParent;
 use YaangVu\SisModel\App\Models\UserProgram;
 
@@ -34,6 +36,8 @@ use YaangVu\SisModel\App\Models\UserProgram;
  * @property string                       $username
  * @property string|null                  $uuid
  * @property int|null                     $grade_id
+ * @property string|null                  $chat_id
+ * @property string|null                  $chat_token
  * @property int|null                     $division_id
  * @property int|null                     $created_by
  * @property Carbon|null                  $created_at
@@ -54,6 +58,8 @@ use YaangVu\SisModel\App\Models\UserProgram;
  * @method static Builder|UserSQL whereDeletedAt($value)
  * @method static Builder|UserSQL whereDivisionId($value)
  * @method static Builder|UserSQL whereGradeId($value)
+ * @method static Builder|UserSQL whereChatId($value)
+ * @method static Builder|UserSQL whereChatToken($value)
  * @method static Builder|UserSQL whereId($value)
  * @method static Builder|UserSQL whereUpdatedAt($value)
  * @method static Builder|UserSQL whereUsername($value)
@@ -75,7 +81,7 @@ class UserSQL extends Model implements User
     protected $connection = DbConnectionConstant::SQL;
     protected $table = self::table;
     protected string $guard_name = 'api';
-    protected $fillable = ['username', CodeConstant::UUID];
+    protected $fillable = ['username', CodeConstant::UUID,'chat_id','chat_token'];
 
     public function userNoSql(): MBelongTo
     {
@@ -113,5 +119,10 @@ class UserSQL extends Model implements User
     public function programs(): BelongsToMany
     {
         return $this->belongsToMany(ProgramSQL::class, UserProgram::table, 'user_id', 'program_id');
+    }
+
+    public function chatRooms(): BelongsToMany
+    {
+        return $this->belongsToMany(ChatRoom::class, UserChatRoom::table, 'user_id', 'chat_room_id');
     }
 }
