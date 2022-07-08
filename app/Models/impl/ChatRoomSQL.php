@@ -1,0 +1,44 @@
+<?php
+/**
+ * @Author im.phien
+ * @Date   Fir 8, 2022
+ */
+namespace YaangVu\SisModel\App\Models\impl;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Carbon;
+use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\SisModel\App\Models\ChatRoom;
+
+/**
+ * YaangVu\SisModel\App\Models\ChatRoomSQL
+ *
+ * @property int         $id
+ * @property string|null $room_id
+ * @property string|null $type
+ * @property int|null    $created_by
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @method static Builder|ChatRoomSQL newQuery()
+ * @method static Builder|ChatRoomSQL query()
+ * @method static Builder|ChatRoomSQL whereCreatedAt($value)
+ * @method static Builder|ChatRoomSQL whereRoomId($value)
+ * @method static Builder|ChatRoomSQL whereType($value)
+ * @method static Builder|ChatRoomSQL whereCreatedBy($value)
+ * @method static Builder|ChatRoomSQL whereDeletedAt($value)
+ * @method static Builder|ChatRoomSQL whereId($value)
+ * @method static Builder|ChatRoomSQL whereUpdatedAt($value)
+ */
+class ChatRoomSQL extends Model implements ChatRoom
+{
+    use HasFactory;
+
+    protected $table = self::table;
+
+    protected $connection = DbConnectionConstant::SQL;
+
+    protected $fillable = ['room_id', 'created_by', 'type'];
+}
