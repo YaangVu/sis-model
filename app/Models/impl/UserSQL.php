@@ -36,8 +36,6 @@ use YaangVu\SisModel\App\Models\UserProgram;
  * @property string                       $username
  * @property string|null                  $uuid
  * @property int|null                     $grade_id
- * @property string|null                  $chat_id
- * @property string|null                  $chat_token
  * @property int|null                     $division_id
  * @property int|null                     $created_by
  * @property Carbon|null                  $created_at
@@ -58,8 +56,6 @@ use YaangVu\SisModel\App\Models\UserProgram;
  * @method static Builder|UserSQL whereDeletedAt($value)
  * @method static Builder|UserSQL whereDivisionId($value)
  * @method static Builder|UserSQL whereGradeId($value)
- * @method static Builder|UserSQL whereChatId($value)
- * @method static Builder|UserSQL whereChatToken($value)
  * @method static Builder|UserSQL whereId($value)
  * @method static Builder|UserSQL whereUpdatedAt($value)
  * @method static Builder|UserSQL whereUsername($value)
@@ -81,7 +77,7 @@ class UserSQL extends Model implements User
     protected $connection = DbConnectionConstant::SQL;
     protected $table = self::table;
     protected string $guard_name = 'api';
-    protected $fillable = ['username', CodeConstant::UUID,'chat_id','chat_token'];
+    protected $fillable = ['username', CodeConstant::UUID];
 
     public function userNoSql(): MBelongTo
     {
