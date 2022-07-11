@@ -19,6 +19,7 @@ class CreateSmsSettingsTable extends Migration
             $table->string('external_id')->nullable();
             $table->string('token')->nullable();
             $table->string('phone_number')->nullable();
+            $table->string('created_by')->nullable();
             $table->timestamps();
         });
     }

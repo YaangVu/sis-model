@@ -19,10 +19,12 @@ use YaangVu\SisModel\App\Models\SmsParticipant;
  * @author  haidn <haidn@toprate.io>
  * @mixin Eloquent
  * @property int    $template_id
- * @property string $user_id
+ * @property string $user_uuid
  * @property string $status
  * @property string $phone_number
  * @property string $provider_id
+ * @property int    $created_by
+ * @property string $user_id
  * @package YaangVu\SisModel\App\Models\impl
  */
 class SmsParticipantSQL extends Model implements SmsParticipant
@@ -33,7 +35,7 @@ class SmsParticipantSQL extends Model implements SmsParticipant
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['template_id', 'user_id', 'phone_number', 'status', 'external_id', 'provider_id'];
+    protected $fillable = ['template_id', 'user_uuid', 'phone_number', 'status', 'external_id', 'provider_id', 'created_by', 'user_id'];
 
     /**
      * @Description
