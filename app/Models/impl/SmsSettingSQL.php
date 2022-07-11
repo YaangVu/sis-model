@@ -21,6 +21,7 @@ use YaangVu\SisModel\App\Models\SmsSetting;
  * @property string $account_sid
  * @property string $token
  * @property int    $phone_number
+ * @property int    $created_by
  * @package YaangVu\SisModel\App\Models\impl
  */
 class SmsSettingSQL extends Model implements SmsSetting
@@ -31,5 +32,5 @@ class SmsSettingSQL extends Model implements SmsSetting
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['provider', 'external_id', 'token', 'phone_number'];
+    protected $fillable = ['provider', 'external_id', 'token', 'phone_number', 'created_by'];
 }
