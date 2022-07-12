@@ -26,6 +26,8 @@ use YaangVu\SisModel\App\Models\SmsParticipant;
  * @property int    $created_by
  * @property string $user_id
  * @property string $sent_date_time
+ * @property int    $sms_id
+ * @property int    $external_id
  * @package YaangVu\SisModel\App\Models\impl
  */
 class SmsParticipantSQL extends Model implements SmsParticipant
@@ -36,7 +38,9 @@ class SmsParticipantSQL extends Model implements SmsParticipant
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['template_id', 'user_uuid', 'phone_number', 'status', 'external_id', 'provider_id', 'created_by', 'user_id', 'sent_date_time'];
+    protected $fillable
+        = ['template_id', 'user_uuid', 'phone_number', 'status', 'external_id',
+           'provider_id', 'created_by', 'user_id', 'sent_date_time', 'sms_id'];
 
     /**
      * @Description
@@ -49,5 +53,18 @@ class SmsParticipantSQL extends Model implements SmsParticipant
     public function templateSms(): BelongsTo
     {
         return (new MongoModel())->belongsTo(TemplateNoSQL::class, 'template_id', '_id');
+    }
+
+    /**
+     * @Description
+     *
+     * @Author Admin
+     * @Date   Jun 30, 2022
+     *
+     * @return BelongsTo
+     */
+    public function sms(): BelongsTo
+    {
+        return $this->belongsTo(SmsSQL::class, 'sms_id', 'id');
     }
 }
