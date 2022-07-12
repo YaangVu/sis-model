@@ -25,6 +25,7 @@ use YaangVu\SisModel\App\Models\SmsParticipant;
  * @property string $provider_id
  * @property int    $created_by
  * @property string $user_id
+ * @property string $sent_date_time
  * @package YaangVu\SisModel\App\Models\impl
  */
 class SmsParticipantSQL extends Model implements SmsParticipant
@@ -35,7 +36,7 @@ class SmsParticipantSQL extends Model implements SmsParticipant
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['template_id', 'user_uuid', 'phone_number', 'status', 'external_id', 'provider_id', 'created_by', 'user_id'];
+    protected $fillable = ['template_id', 'user_uuid', 'phone_number', 'status', 'external_id', 'provider_id', 'created_by', 'user_id', 'sent_date_time'];
 
     /**
      * @Description
