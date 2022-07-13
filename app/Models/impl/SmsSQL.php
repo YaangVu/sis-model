@@ -9,20 +9,23 @@ namespace YaangVu\SisModel\App\Models\impl;
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\SmsTemplate;
+use YaangVu\SisModel\App\Models\Sms;
 
 /**
- * Class SmsTemplateSQL
+ * Class SmsSQL
  * @author  haidn <haidn@toprate.io>
  * @mixin Eloquent
  * @property int    $id
  * @property string $template_id
  * @property string $count_user
  * @property int    $created_by
+ * @property int    $title
+ * @property int    $content
  * @package YaangVu\SisModel\App\Models\impl
  */
-class SmsTemplateSQL extends Model implements SmsTemplate
+class SmsSQL extends Model implements Sms
 {
     use HasFactory;
 
@@ -30,5 +33,18 @@ class SmsTemplateSQL extends Model implements SmsTemplate
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['template_id', 'count_user', 'created_by'];
+    protected $fillable = ['template_id', 'count_user', 'created_by', 'title', 'content'];
+
+    /**
+     * @Description
+     *
+     * @Author Admin
+     * @Date   Jun 27, 2022
+     *
+     * @return HasMany
+     */
+    public function smsParticipants(): HasMany
+    {
+        return $this->hasMany(SmsParticipantSQL::class, 'sms_id', 'id');
+    }
 }

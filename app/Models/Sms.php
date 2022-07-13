@@ -6,7 +6,7 @@
 
 namespace YaangVu\SisModel\App\Models;
 
-interface SmsTemplate
+interface Sms
 {
-    public const table = 'sms_templates';
+    public const table = 'sms';
 }
