@@ -47,6 +47,6 @@ class ChatRoomSQL extends Model implements ChatRoom
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, UserChatRoom::table, 'chat_room_id','user_id');
+        return $this->belongsToMany(UserSql::class, UserChatRoom::table, 'chat_room_id','user_id');
     }
 }
