@@ -7,10 +7,13 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\ChatRoom;
+use YaangVu\SisModel\App\Models\User;
+use YaangVu\SisModel\App\Models\UserChatRoom;
 
 /**
  * YaangVu\SisModel\App\Models\ChatRoomSQL
@@ -41,4 +44,9 @@ class ChatRoomSQL extends Model implements ChatRoom
     protected $connection = DbConnectionConstant::SQL;
 
     protected $fillable = ['room_id', 'created_by', 'type'];
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, UserChatRoom::table, 'chat_room_id','user_id');
+    }
 }
