@@ -12,7 +12,6 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\ChatRoom;
-use YaangVu\SisModel\App\Models\User;
 use YaangVu\SisModel\App\Models\UserChatRoom;
 
 /**
