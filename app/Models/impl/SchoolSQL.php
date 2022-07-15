@@ -7,13 +7,16 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Relations\BelongsTo as MBelongTo;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\SisModel\App\Models\ClassAssignment;
 use YaangVu\SisModel\App\Models\School;
 use YaangVu\SisModel\App\Models\MongoModel;
+use YaangVu\SisModel\App\Models\UserChatRoom;
 
 /**
  * YaangVu\SisModel\App\Models\SchoolSQL
@@ -68,4 +71,10 @@ class SchoolSQL extends Model implements School
         return (new MongoModel())->belongsTo(SchoolNoSQL::class, CodeConstant::UUID, CodeConstant::UUID)
                                  ->whereNull('deleted_at');
     }
+
+    public function chatRooms(): HasMany
+    {
+        return $this->hasMany(ChatRoomSQL::class,'school_id','id');
+    }
+
 }
