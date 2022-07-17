@@ -3,6 +3,7 @@
  * @Author im.phien
  * @Date   Fir 8, 2022
  */
+
 namespace YaangVu\SisModel\App\Models\impl;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,6 +19,7 @@ use YaangVu\SisModel\App\Models\UserChatRoom;
  * YaangVu\SisModel\App\Models\ChatRoomSQL
  *
  * @property int         $id
+ * @property int|null    $school_id
  * @property string|null $room_id
  * @property string|null $type
  * @property int|null    $created_by
@@ -29,6 +31,7 @@ use YaangVu\SisModel\App\Models\UserChatRoom;
  * @method static Builder|ChatRoomSQL whereCreatedAt($value)
  * @method static Builder|ChatRoomSQL whereRoomId($value)
  * @method static Builder|ChatRoomSQL whereType($value)
+ * @method static Builder|ChatRoomSQL whereSchoolId($value)
  * @method static Builder|ChatRoomSQL whereCreatedBy($value)
  * @method static Builder|ChatRoomSQL whereDeletedAt($value)
  * @method static Builder|ChatRoomSQL whereId($value)
@@ -42,10 +45,10 @@ class ChatRoomSQL extends Model implements ChatRoom
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['room_id', 'created_by', 'type'];
+    protected $fillable = ['room_id', 'created_by', 'type', 'school_id'];
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(UserSql::class, UserChatRoom::table, 'chat_room_id','user_id');
+        return $this->belongsToMany(UserSql::class, UserChatRoom::table, 'chat_room_id', 'user_id');
     }
 }
