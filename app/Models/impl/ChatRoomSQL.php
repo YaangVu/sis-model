@@ -22,6 +22,7 @@ use YaangVu\SisModel\App\Models\UserChatRoom;
  * @property int|null    $school_id
  * @property string|null $room_id
  * @property string|null $type
+ * @property string|null $name
  * @property int|null    $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -31,6 +32,7 @@ use YaangVu\SisModel\App\Models\UserChatRoom;
  * @method static Builder|ChatRoomSQL whereCreatedAt($value)
  * @method static Builder|ChatRoomSQL whereRoomId($value)
  * @method static Builder|ChatRoomSQL whereType($value)
+ * @method static Builder|ChatRoomSQL whereName($value)
  * @method static Builder|ChatRoomSQL whereSchoolId($value)
  * @method static Builder|ChatRoomSQL whereCreatedBy($value)
  * @method static Builder|ChatRoomSQL whereDeletedAt($value)
@@ -45,7 +47,7 @@ class ChatRoomSQL extends Model implements ChatRoom
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['room_id', 'created_by', 'type', 'school_id'];
+    protected $fillable = ['room_id', 'created_by', 'type', 'school_id','name'];
 
     public function users(): BelongsToMany
     {
