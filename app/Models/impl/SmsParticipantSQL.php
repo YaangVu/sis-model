@@ -28,6 +28,7 @@ use YaangVu\SisModel\App\Models\SmsParticipant;
  * @property string $sent_date_time
  * @property int    $sms_id
  * @property int    $external_id
+ * @property string $hash_code
  * @package YaangVu\SisModel\App\Models\impl
  */
 class SmsParticipantSQL extends Model implements SmsParticipant
@@ -40,7 +41,7 @@ class SmsParticipantSQL extends Model implements SmsParticipant
 
     protected $fillable
         = ['template_id', 'user_uuid', 'phone_number', 'status', 'external_id',
-           'provider_id', 'created_by', 'user_id', 'sent_date_time', 'sms_id'];
+           'provider_id', 'created_by', 'user_id', 'sent_date_time', 'sms_id', 'hash_code'];
 
     /**
      * @Description
