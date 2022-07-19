@@ -198,7 +198,7 @@ class UserNoSQL extends Model implements User
     public function getHireDateAttribute(?string $value): ?string
     {
         if ($value)
-            return Carbon::createFromTimestampMs($value)->toDateString();
+            return Carbon::parse($value)->toDateString();
 
         return null;
     }
