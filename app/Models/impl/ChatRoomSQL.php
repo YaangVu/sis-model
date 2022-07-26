@@ -11,8 +11,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Carbon;
+use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\ChatRoom;
+use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\UserChatRoom;
 
 /**
@@ -21,6 +23,7 @@ use YaangVu\SisModel\App\Models\UserChatRoom;
  * @property int         $id
  * @property int|null    $school_id
  * @property string|null $room_id
+ * @property string      $uuid
  * @property string|null $type
  * @property string|null $name
  * @property string|null $image
@@ -35,6 +38,7 @@ use YaangVu\SisModel\App\Models\UserChatRoom;
  * @method static Builder|ChatRoomSQL whereType($value)
  * @method static Builder|ChatRoomSQL whereImage($value)
  * @method static Builder|ChatRoomSQL whereName($value)
+ * @method static Builder|ChatRoomSQL whereUuid($value)
  * @method static Builder|ChatRoomSQL whereSchoolId($value)
  * @method static Builder|ChatRoomSQL whereCreatedBy($value)
  * @method static Builder|ChatRoomSQL whereDeletedAt($value)
@@ -49,10 +53,16 @@ class ChatRoomSQL extends Model implements ChatRoom
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['room_id', 'created_by', 'type', 'school_id','name','image'];
+    protected $fillable = ['room_id', 'created_by', 'type', 'school_id','name','image','uuid'];
 
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(UserSql::class, UserChatRoom::table, 'chat_room_id', 'user_id');
+    }
+
+    public function chatRoomNoSql(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return (new MongoModel())->belongsTo(ChatRoomNoSQL::class, CodeConstant::UUID, CodeConstant::UUID)
+                                 ->whereNull('deleted_at');
     }
 }
