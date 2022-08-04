@@ -24,6 +24,7 @@ use YaangVu\SisModel\Database\Factories\ScoreFactory;
  * @property Carbon|null  $created_at
  * @property Carbon|null  $updated_at
  * @property string|null  $deleted_at
+ * @property string|null  $grade
  * @method static Builder|ScoreSQL newModelQuery()
  * @method static Builder|ScoreSQL newQuery()
  * @method static Builder|ScoreSQL query()
@@ -73,7 +74,8 @@ class ScoreSQL extends Model implements Score
             'school_id',
             CodeConstant::UUID,
             'is_pass',
-            'real_weight'
+            'real_weight',
+            'grade',
         ];
 
     protected $connection = DbConnectionConstant::SQL;
