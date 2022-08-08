@@ -63,4 +63,9 @@ class CommunicationLogNoSql extends MongoModel implements CommunicationLog
         return $this->belongsTo(UserSQL::class, 'created_by', 'id');
     }
 
+    public function student(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    {
+        return $this->belongsTo(UserNoSQL::class, 'student_id', '_id');
+    }
+
 }
