@@ -32,6 +32,12 @@ use YaangVu\SisModel\App\Models\impl\IeltsNoSQL;
  * @property string|null                  $uuid
  * @property int|null                     $grade_id
  * @property int|null                     $division_id
+ * @property string                       $full_name
+ * @property string                       $first_name
+ * @property string                       $email
+ * @property string                       $last_name
+ * @property string                       $middle_name
+ * @property string                       $grade
  * @property int|null                     $created_by
  * @property Carbon|null                  $created_at
  * @property Carbon|null                  $updated_at
@@ -229,7 +235,7 @@ class UserNoSQL extends Model implements User
 
     public function graduatedStudents(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
-        return $this->hasMany(GraduatedStudentSQL::class, 'user_uuid','uuid');
+        return $this->hasMany(GraduatedStudentSQL::class, 'user_uuid', 'uuid');
     }
 
     public function userCreate()
@@ -239,41 +245,42 @@ class UserNoSQL extends Model implements User
 
     public function acts(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
-        return $this->hasMany(ActNoSQL::class, 'student_code','student_code');
+        return $this->hasMany(ActNoSQL::class, 'student_code', 'student_code');
     }
 
     public function sbacs(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
-        return $this->hasMany(SbacNoSQL::class, 'student_code','student_code');
+        return $this->hasMany(SbacNoSQL::class, 'student_code', 'student_code');
     }
 
     public function physicalPerformance(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
-        return $this->hasMany(PhysicalPerformanceMeasuresNoSQL::class, 'student_code','student_code');
+        return $this->hasMany(PhysicalPerformanceMeasuresNoSQL::class, 'student_code', 'student_code');
     }
 
     public function sats(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
-        return $this->hasMany(SatNoSql::class, 'student_code','student_code');
+        return $this->hasMany(SatNoSql::class, 'student_code', 'student_code');
     }
 
     public function ielts(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
-        return $this->hasMany(IeltsNoSQL::class, 'student_code','student_code');
+        return $this->hasMany(IeltsNoSQL::class, 'student_code', 'student_code');
     }
+
     public function communicationLogs(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
-        return $this->hasMany(CommunicationLog::class, 'uuid','uuid');
+        return $this->hasMany(CommunicationLog::class, 'uuid', 'uuid');
     }
 
     public function toefl(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
-        return $this->hasMany(ToeflNoSQL::class, 'student_code','student_code');
+        return $this->hasMany(ToeflNoSQL::class, 'student_code', 'student_code');
     }
 
     public function school(): HasMany|\Jenssegers\Mongodb\Relations\hasOne
     {
-        return $this->hasOne(SchoolNoSQL::class, 'uuid','sc_id');
+        return $this->hasOne(SchoolNoSQL::class, 'uuid', 'sc_id');
     }
 
     public function progressSettings(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
