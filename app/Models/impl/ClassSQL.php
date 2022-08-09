@@ -40,6 +40,8 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @property string|null                          $deleted_at
  * @property string|null                          $description
  * @property int|null                             $course_id
+ * @property bool|null                            $is_transfer_school
+ * @property string|null                          $transfer_school_information
  * @method static Builder|ClassNoSQL newModelQuery()
  * @method static Builder|ClassNoSQL newQuery()
  * @method static Builder|ClassNoSQL query()
@@ -99,7 +101,8 @@ class ClassSQL extends Model implements Clazz
            CodeConstant::EX_ID, 'lms_id', 'credit',
            'term_id',
            'course_id', 'description', CodeConstant::UUID,
-           'zone', 'lms_id', 'school_id', 'subject_id'];
+           'zone', 'lms_id', 'school_id', 'subject_id',
+           'is_transfer_school', 'transfer_school_information'];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
