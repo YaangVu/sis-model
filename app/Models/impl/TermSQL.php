@@ -34,6 +34,7 @@ use YaangVu\SisModel\App\Models\Term;
  * @property Carbon|null                 $deleted_at
  * @property-read Collection|Clazz[]     $classes
  * @property-read int|null               $classes_count
+ * @property string|null                 $term_course_code
  * @method static Builder|TermSQL newModelQuery()
  * @method static Builder|TermSQL newQuery()
  * @method static Builder|TermSQL onlyTrashed()
@@ -64,7 +65,7 @@ class TermSQL extends Model implements Term
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ['name', 'start_date', 'end_date', 'status', 'school_id', CodeConstant::EX_ID, 'description', 'lms_id', CodeConstant::UUID];
+    protected $fillable = ['name', 'start_date', 'end_date', 'status', 'school_id', CodeConstant::EX_ID, 'description', 'lms_id', CodeConstant::UUID, 'term_course_code'];
 
     protected $table = self::table;
     /**
