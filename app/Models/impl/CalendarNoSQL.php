@@ -6,10 +6,12 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Calendar;
+use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\SQLModel;
 
 /**
@@ -102,5 +104,18 @@ class CalendarNoSQL extends Model implements Calendar
     public function zoomMeeting(): BelongsTo
     {
         return (new SQLModel())->belongsTo(ZoomMeetingSQL::class, 'zoom_meeting_id', 'id');
+    }
+
+    /**
+     * @Description
+     *
+     * @Author Admin
+     * @Date   Aug 14, 2022
+     *
+     * @return HasMany|\Jenssegers\Mongodb\Relations\HasMany
+     */
+    public function attendanceLogs(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
+    {
+        return (new MongoModel())->hasMany(AttendanceLogSQL::class, 'zoom_meeting_id', 'zoom_meeting_id');
     }
 }
