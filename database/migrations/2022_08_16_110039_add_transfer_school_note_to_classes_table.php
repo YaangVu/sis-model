@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIsTransferSchoolToClassesTable extends Migration
+class AddTransferSchoolNoteToClassesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddIsTransferSchoolToClassesTable extends Migration
     public function up()
     {
         Schema::table('classes', function (Blueprint $table) {
-            $table->boolean('is_transfer_school')->nullable()->default(false);
-            $table->string('transfer_school_information')->nullable();
+            $table->string('transfer_school_note')->nullable();
         });
     }
 
@@ -27,8 +26,7 @@ class AddIsTransferSchoolToClassesTable extends Migration
     public function down()
     {
         Schema::table('classes', function (Blueprint $table) {
-            $table->dropColumn('is_transfer_school');
-            $table->dropColumn('transfer_school_information');
+            $table->dropColumn('transfer_school_note');
         });
     }
 }
