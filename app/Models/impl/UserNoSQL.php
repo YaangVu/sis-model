@@ -91,7 +91,7 @@ class UserNoSQL extends Model implements User
      *
      * @var array
      */
-    protected $hidden = ['password'];
+    protected $hidden = ['password','sync_rocket_chat_at'];
 
     protected $guarded = [];
 
@@ -288,13 +288,5 @@ class UserNoSQL extends Model implements User
     public function progressSettings(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
         return $this->hasMany(ProgressSettingNoSql::class, 'staff_id', 'id');
-    }
-
-    public function getSyncRocketChatAtAttribute(?string $value): ?string
-    {
-        if ($value)
-            return Carbon::parse($value)->toDateString();
-
-        return null;
     }
 }
