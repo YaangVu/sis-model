@@ -38,6 +38,8 @@ use YaangVu\SisModel\App\Models\impl\IeltsNoSQL;
  * @property string                       $last_name
  * @property string                       $middle_name
  * @property string                       $grade
+ * @property string                       $password
+ * @property string                       $status
  * @property int|null                     $created_by
  * @property Carbon|null                  $created_at
  * @property Carbon|null                  $updated_at
@@ -286,5 +288,13 @@ class UserNoSQL extends Model implements User
     public function progressSettings(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
         return $this->hasMany(ProgressSettingNoSql::class, 'staff_id', 'id');
+    }
+
+    public function getSyncRocketChatAtAttribute(?string $value): ?string
+    {
+        if ($value)
+            return Carbon::parse($value)->toDateString();
+
+        return null;
     }
 }
