@@ -29,6 +29,7 @@ use YaangVu\SisModel\Database\Factories\GpaFactory;
  * @property float        $earned_credit
  * @property float        $gpa
  * @property float        $bonus_gpa
+ * @property float        $gpa_unweighted
  * @method static Builder|GpaSQL newModelQuery()
  * @method static Builder|GpaSQL newQuery()
  * @method static Builder|GpaSQL query()
@@ -74,7 +75,7 @@ class GpaSQL extends Model implements Gpa
             CodeConstant::EX_ID, CodeConstant::UUID,
             'user_id', 'term_id', 'school_id', 'learned_credit', 'earned_credit',
             'gpa', 'bonus_gpa', 'cpa', 'bonus_cpa', 'grade_id', 'rank', 'program_id',
-            'total_learned_credit', 'total_earned_credit'
+            'total_learned_credit', 'total_earned_credit', 'gpa_unweighted'
         ];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
