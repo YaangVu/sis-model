@@ -26,6 +26,7 @@ use YaangVu\SisModel\App\Models\ZoomMeeting;
  * @property int         $duration
  * @property int         $notification_before
  * @property boolean     $join_before_host
+ * @property int         $school_id
  * @property int|null    $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -67,7 +68,8 @@ class ZoomMeetingSQL extends Model implements ZoomMeeting
             'repeat',
             'start',
             'end',
-            'from_time'
+            'from_time',
+            'school_id'
         ];
 
     protected $connection = DbConnectionConstant::SQL;
@@ -87,5 +89,10 @@ class ZoomMeetingSQL extends Model implements ZoomMeeting
     {
         return $this->hasOne(ZoomParticipantSQL::class, 'zoom_meeting_id', 'id')
                     ->where('user_join_meeting', UserJoinZoomMeetingConstant::HOST);
+    }
+
+    public function school(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(SchoolSQL::class,'id','school_id');
     }
 }
