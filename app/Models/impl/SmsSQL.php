@@ -33,7 +33,7 @@ class SmsSQL extends Model implements Sms
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['template_id', 'count_user', 'created_by', 'title', 'content'];
+    protected $fillable = ['template_id', 'count_user', 'created_by', 'title', 'content', 'school_id'];
 
     /**
      * @Description

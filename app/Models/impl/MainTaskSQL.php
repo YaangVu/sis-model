@@ -33,7 +33,7 @@ class MainTaskSQL extends Model implements MainTask
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['project_name', 'owner_id', 'short_description', 'created_by', 'owner_id_no_sql', 'type'];
+    protected $fillable = ['project_name', 'owner_id', 'short_description', 'created_by', 'owner_id_no_sql', 'type', 'school_id'];
 
     /**
      * @Description
