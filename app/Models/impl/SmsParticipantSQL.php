@@ -41,7 +41,7 @@ class SmsParticipantSQL extends Model implements SmsParticipant
 
     protected $fillable
         = ['template_id', 'user_uuid', 'phone_number', 'status', 'external_id',
-           'provider_id', 'created_by', 'user_id', 'sent_date_time', 'sms_id', 'hash_code'];
+           'provider_id', 'created_by', 'user_id', 'sent_date_time', 'sms_id', 'hash_code', 'school_id'];
 
     /**
      * @Description

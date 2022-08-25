@@ -43,7 +43,7 @@ class SubTaskSQL extends Model implements SubTask
         = [
             'task_name', 'type', 'deadline', 'assignee_id', 'reviewer_id',
             'description', 'main_task_id', 'task_status_id', 'created_by',
-            'owner_id', 'owner_id_no_sql', 'assignee_id_no_sql', 'reviewer_id_no_sql', 'file'
+            'owner_id', 'owner_id_no_sql', 'assignee_id_no_sql', 'reviewer_id_no_sql', 'file', 'school_id'
         ];
 
     /**

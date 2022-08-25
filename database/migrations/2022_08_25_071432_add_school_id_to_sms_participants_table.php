@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTransferSchoolNoteToClassesTable extends Migration
+class AddSchoolIdToSmsParticipantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddTransferSchoolNoteToClassesTable extends Migration
      */
     public function up()
     {
-        Schema::table('classes', function (Blueprint $table) {
-            $table->longText('transfer_school_note')->nullable();
+        Schema::table('sms_participants', function (Blueprint $table) {
+            $table->string('school_id')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddTransferSchoolNoteToClassesTable extends Migration
      */
     public function down()
     {
-        Schema::table('classes', function (Blueprint $table) {
-            $table->dropColumn('transfer_school_note');
+        Schema::table('sms_participants', function (Blueprint $table) {
+            $table->dropColumn('school_id');
         });
     }
 }
