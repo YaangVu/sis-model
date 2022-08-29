@@ -57,6 +57,6 @@ class ToeflNoSQL extends MongoModel implements Toefl
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(UserNoSQL::class, 'student_code', 'student_code');
+        return $this->belongsTo(UserNoSQL::class, 'student_uuid', 'uuid');
     }
 }

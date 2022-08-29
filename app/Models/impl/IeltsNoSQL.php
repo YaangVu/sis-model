@@ -23,6 +23,6 @@ class IeltsNoSQL extends MongoModel implements Ielts
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(UserNoSQL::class, 'student_code', 'student_code');
+        return $this->belongsTo(UserNoSQL::class, 'student_uuid', 'uuid');
     }
 }
