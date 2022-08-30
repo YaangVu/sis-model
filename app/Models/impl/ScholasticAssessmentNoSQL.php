@@ -5,6 +5,7 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\CodeConstant;
@@ -88,4 +89,9 @@ class ScholasticAssessmentNoSQL extends Model implements ScholasticAssessment
     public string $code = CodeConstant::UUID;
 
     protected $connection = DbConnectionConstant::NOSQL;
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(UserNoSQL::class, 'student_nosql_id', '_id');
+    }
 }
