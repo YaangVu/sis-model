@@ -25,6 +25,7 @@ use YaangVu\SisModel\App\Models\MongoModel;
  * @property Carbon|null $leave_time
  * @property Carbon|null $date
  * @property string|null $status
+ * @property string|null $comment
  * @property int|null    $created_by
  * @property int|null    $zoom_meeting_id
  * @property int|null    $duration
@@ -46,6 +47,7 @@ use YaangVu\SisModel\App\Models\MongoModel;
  * @method static Builder|AttendanceLogSQL whereCreatedBy($value)
  * @method static Builder|AttendanceLogSQL whereDeletedAt($value)
  * @method static Builder|AttendanceLogSQL whereId($value)
+ * @method static Builder|AttendanceLogSQL whereComment($value)
  * @method static Builder|AttendanceLogSQL whereDuration($value)
  * @method static Builder|AttendanceLogSQL whereUpdatedAt($value)
  */
@@ -57,7 +59,7 @@ class AttendanceLogSQL extends Model implements AttendanceLog
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['email', 'participant_display_name', 'join_time', 'leave_time', 'status', 'user_uuid', 'created_by','zoom_meeting_id','duration','date'];
+    protected $fillable = ['email', 'participant_display_name', 'join_time', 'leave_time', 'status', 'user_uuid', 'created_by','zoom_meeting_id','duration','date','comment'];
 
     /**
      * @Description
