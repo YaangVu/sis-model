@@ -11,6 +11,7 @@ use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\SQLModel;
 use YaangVu\SisModel\App\Models\Subject;
+use YaangVu\SisModel\App\Models\SubjectType;
 
 /**
  * YaangVu\SisModel\App\Models\SubjectSQL
@@ -23,6 +24,7 @@ use YaangVu\SisModel\App\Models\Subject;
  * @property string|null             $description
  * @property string|null             $status
  * @property int|null                $grade_id
+ * @property int|null                $subject_type_id
  * @property int|null                $school_id
  * @property int|null                $created_by
  * @property Carbon|null             $created_at
@@ -40,6 +42,7 @@ use YaangVu\SisModel\App\Models\Subject;
  * @method static Builder|SubjectSQL whereGradeId($value)
  * @method static Builder|SubjectSQL whereId($value)
  * @method static Builder|SubjectSQL whereName($value)
+ * @method static Builder|SubjectSQL whereSubjectTypeId($value)
  * @method static Builder|SubjectSQL whereSchoolId($value)
  * @method static Builder|SubjectSQL whereStatus($value)
  * @method static Builder|SubjectSQL whereUpdatedAt($value)
@@ -81,6 +84,7 @@ class SubjectSQL extends Model implements Subject
             'weight',
             'grade_scale_id',
             'type',
+            'subject_type_id'
         ];
 
     public function grades(): BelongsTo
@@ -120,5 +124,10 @@ class SubjectSQL extends Model implements Subject
     public function user()
     {
         return (new SQLModel())->belongsTo(UserSQL::class, 'created_by', 'id');
+    }
+
+    public function subjectType(): BelongsTo
+    {
+        return $this->BelongsTo(SubjectTypeSQL::class, 'subject_type_id');
     }
 }
