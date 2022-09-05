@@ -23,7 +23,7 @@ use YaangVu\SisModel\App\Models\ZoomMeeting;
  * @property string      $participant_join_before_host
  * @property string      $type_guest
  * @property string      $link_room
- * @property int         $pmi
+ * @property string      $pmi
  * @property int         $duration
  * @property int         $notification_before
  * @property boolean     $join_before_host
@@ -95,6 +95,6 @@ class ZoomMeetingSQL extends Model implements ZoomMeeting
 
     public function school(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        return $this->hasOne(SchoolSQL::class,'id','school_id');
+        return $this->hasOne(SchoolSQL::class, 'id', 'school_id');
     }
 }
