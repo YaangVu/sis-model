@@ -23,6 +23,7 @@ use YaangVu\SisModel\App\Models\ZoomMeeting;
  * @property string      $participant_join_before_host
  * @property string      $type_guest
  * @property string      $link_room
+ * @property int         $pmi
  * @property int         $duration
  * @property int         $notification_before
  * @property boolean     $join_before_host
@@ -69,7 +70,8 @@ class ZoomMeetingSQL extends Model implements ZoomMeeting
             'start',
             'end',
             'from_time',
-            'school_id'
+            'school_id',
+            'pmi'
         ];
 
     protected $connection = DbConnectionConstant::SQL;
