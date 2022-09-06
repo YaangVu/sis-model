@@ -1,18 +1,16 @@
 <?php
-
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
-
 /**
  * @Author im.phien
- * @Date   Sep 05, 2022
+ * @Date   Sep 06, 2022
  */
 
 namespace YaangVu\SisModel\App\Models\impl;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\SubjectType;
 
@@ -21,6 +19,7 @@ use YaangVu\SisModel\App\Models\SubjectType;
  *
  * @property int         $id
  * @property string      $name
+ * @property int         $school_id
  * @property string|null $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -35,17 +34,22 @@ use YaangVu\SisModel\App\Models\SubjectType;
  * @method static Builder|SubjectTypeSQL whereId($value)
  * @method static Builder|SubjectTypeSQL whereName($value)
  * @method static Builder|SubjectTypeSQL whereUpdatedAt($value)
+ * @method static Builder|SubjectTypeSQL whereSchoolId($value)
  * @method static Builder|SubjectTypeSQL withTrashed()
  * @method static Builder|SubjectTypeSQL withoutTrashed()
  */
 class SubjectTypeSQL extends Model implements SubjectType
 {
-    use SoftDeletes,HasFactory;
+    use SoftDeletes, HasFactory;
 
     protected $table = self::table;
 
+    protected $fillable = ['id','name','school_id','created_by'];
+
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['name', 'created_by'];
-
+    public function school(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(SchoolSQL::class,'school_id');
+    }
 }
