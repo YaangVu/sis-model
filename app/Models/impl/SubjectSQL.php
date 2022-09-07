@@ -23,6 +23,7 @@ use YaangVu\SisModel\App\Models\SubjectType;
  * @property string                  $credit
  * @property string|null             $description
  * @property string|null             $status
+ * @property string|null             $subject_display_name
  * @property int|null                $grade_id
  * @property int|null                $subject_type_id
  * @property int|null                $school_id
@@ -42,6 +43,7 @@ use YaangVu\SisModel\App\Models\SubjectType;
  * @method static Builder|SubjectSQL whereGradeId($value)
  * @method static Builder|SubjectSQL whereId($value)
  * @method static Builder|SubjectSQL whereName($value)
+ * @method static Builder|SubjectSQL whereSubjectDisplayName($value)
  * @method static Builder|SubjectSQL whereSubjectTypeId($value)
  * @method static Builder|SubjectSQL whereSchoolId($value)
  * @method static Builder|SubjectSQL whereStatus($value)
@@ -84,7 +86,8 @@ class SubjectSQL extends Model implements Subject
             'weight',
             'grade_scale_id',
             'type',
-            'subject_type_id'
+            'subject_type_id',
+            'subject_display_name'
         ];
 
     public function grades(): BelongsTo
