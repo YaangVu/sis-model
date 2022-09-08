@@ -116,7 +116,7 @@ class CalendarNoSQL extends Model implements Calendar
      */
     public function attendanceLogs(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
-        return (new MongoModel())->hasMany(AttendanceLogSQL::class, 'zoom_meeting_id', 'zoom_meeting_id');
+        return (new MongoModel())->hasMany(AttendanceLogSQL::class, 'calendar_id', '_id');
     }
 
     /**
