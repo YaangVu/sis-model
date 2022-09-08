@@ -6,6 +6,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\State;
@@ -29,4 +30,9 @@ class StateNoSQL extends Model implements State
     protected $fillable = ['*'];
 
     protected $guarded = [];
+
+    public function countries(): BelongsTo
+    {
+        return $this->belongsTo(CountryNoSQL::class, 'country_code', 'two_code');
+    }
 }
