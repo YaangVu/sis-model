@@ -29,6 +29,7 @@ use YaangVu\SisModel\App\Models\MongoModel;
  * @property string|null $calendarId
  * @property int|null    $created_by
  * @property int|null    $zoom_meeting_id
+ * @property int|null    $class_id
  * @property int|null    $duration
  * @property string|null         $user_uuid
  * @property Carbon|null $created_at
@@ -45,6 +46,7 @@ use YaangVu\SisModel\App\Models\MongoModel;
  * @method static Builder|AttendanceLogSQL whereUserUuid($value)
  * @method static Builder|AttendanceLogSQL whereZoomMeetingId($value)
  * @method static Builder|AttendanceLogSQL whereCalendarId($value)
+ * @method static Builder|AttendanceLogSQL whereClassId($value)
  * @method static Builder|AttendanceLogSQL whereEmail($value)
  * @method static Builder|AttendanceLogSQL whereCreatedBy($value)
  * @method static Builder|AttendanceLogSQL whereDeletedAt($value)
@@ -87,5 +89,18 @@ class AttendanceLogSQL extends Model implements AttendanceLog
     public function zoomMeeting(): HasOne|\Jenssegers\Mongodb\Relations\HasOne
     {
         return $this->hasOne(ZoomMeetingSQL::class, 'id', 'zoom_meeting_id');
+    }
+
+    /**
+     * @Description
+     *
+     * @Author im.phien
+     * @Date   Jun 27, 2022
+     *
+     * @return HasOne|\Jenssegers\Mongodb\Relations\HasOne
+     */
+    public function class(): HasOne|\Jenssegers\Mongodb\Relations\HasOne
+    {
+        return $this->hasOne(ClassSQL::class, 'id', 'class_id');
     }
 }
