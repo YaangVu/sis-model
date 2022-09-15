@@ -63,7 +63,7 @@ class AttendanceLogSQL extends Model implements AttendanceLog
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['email', 'participant_display_name', 'join_time', 'leave_time', 'status', 'user_uuid', 'created_by','zoom_meeting_id','duration','date','comment','calendar_id'];
+    protected $fillable = ['email', 'participant_display_name', 'join_time', 'leave_time', 'status', 'user_uuid', 'created_by','zoom_meeting_id','duration','date','comment','calendar_id','class_id'];
 
     /**
      * @Description
