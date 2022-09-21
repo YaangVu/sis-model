@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\LaravelAws\S3Service;
 use YaangVu\SisModel\App\Models\Calendar;
 use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\SQLModel;
@@ -69,6 +70,8 @@ class CalendarNoSQL extends Model implements Calendar
     protected $guarded = [];
 
     protected $connection = DbConnectionConstant::NOSQL;
+
+    protected S3Service $S3Service;
 
     public function user(): BelongsTo
     {
@@ -130,5 +133,23 @@ class CalendarNoSQL extends Model implements Calendar
     public function attendances(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
         return (new MongoModel())->hasMany(AttendanceSQL::class, 'calendar_id', '_id');
+    }
+
+    /**
+     * AWS Pre Signed a url avatar
+     *
+     * @param string|null $value
+     *
+     * @return string|null
+     */
+    public function getRecordUrlAttribute(?string $value): ?string
+    {
+        if (isset($value) && $value) {
+            $this->S3Service = new S3Service();
+
+            return $this->S3Service->createPresigned($value);
+        } else {
+            return null;
+        }
     }
 }
