@@ -6,6 +6,7 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Carbon;
 use YaangVu\SisModel\App\Models\Attendance;
 use YaangVu\SisModel\App\Models\MongoModel;
@@ -35,6 +36,7 @@ use YaangVu\SisModel\Database\Factories\AttendanceFactory;
  * @method static Builder|AttendanceSQL whereId($value)
  * @method static Builder|AttendanceSQL whereClassId($value)
  * @method static Builder|AttendanceSQL whereCalendarId($value)
+ * @method static Builder|AttendanceSQL whereZoomMeetingId($value)
  * @method static Builder|AttendanceSQL whereUserUuid($value)
  * @method static Builder|AttendanceSQL whereUpdatedAt($value)
  * @mixin Eloquent
@@ -52,7 +54,7 @@ class AttendanceSQL extends SQLModel implements Attendance
 {
     use HasFactory;
 
-    protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description', 'group', 'start', 'end'];
+    protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description', 'group', 'start', 'end','zoom_meeting_id'];
 
     protected $table = self::table;
 
@@ -69,5 +71,10 @@ class AttendanceSQL extends SQLModel implements Attendance
     public static function newFactory(): AttendanceFactory
     {
         return new AttendanceFactory();
+    }
+
+    public function zoomMeeting(): HasOne|\Jenssegers\Mongodb\Relations\HasOne
+    {
+        return $this->hasOne(ZoomMeetingSQL::class, 'id', 'zoom_meeting_id');
     }
 }
