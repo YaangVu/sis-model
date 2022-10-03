@@ -25,6 +25,8 @@ use YaangVu\SisModel\App\Models\Program;
  * @property Carbon|null                             $created_at
  * @property Carbon|null                             $updated_at
  * @property string|null                             $deleted_at
+ * @property string|null                             $report_template
+ * @property string|null                             $transcript_template
  * @method static Builder|ProgramSQL newModelQuery()
  * @method static Builder|ProgramSQL newQuery()
  * @method static Builder|ProgramSQL query()
@@ -36,6 +38,8 @@ use YaangVu\SisModel\App\Models\Program;
  * @method static Builder|ProgramSQL whereName($value)
  * @method static Builder|ProgramSQL whereSchoolId($value)
  * @method static Builder|ProgramSQL whereUpdatedAt($value)
+ * @method static Builder|ProgramSQL whereReportTemplate($value)
+ * @method static Builder|ProgramSQL whereTranscriptTemplate($value)
  * @mixin Eloquent
  * @method static Builder|ProgramSQL onlyTrashed()
  * @method static Builder|ProgramSQL withTrashed()
@@ -57,7 +61,7 @@ class ProgramSQL extends Model implements Program
 
     protected $table = self::table;
 
-    protected $fillable = ['name', 'description', 'school_id', 'status', 'lms_id', CodeConstant::UUID, 'status_student_program'];
+    protected $fillable = ['name', 'description', 'school_id', 'status', 'lms_id', CodeConstant::UUID, 'status_student_program', 'report_template', 'transcript_template'];
 
     protected $connection = DbConnectionConstant::SQL;
 
