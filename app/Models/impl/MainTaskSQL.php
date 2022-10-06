@@ -22,6 +22,7 @@ use YaangVu\SisModel\App\Models\MongoModel;
  * @property int|null $created_by
  * @property int|null $owner_id_no_sql
  * @property int|null $type
+ * @property int|null $task_status_id
  * @package YaangVu\SisModel\App\Models\impl
  * @category
  */
@@ -33,7 +34,7 @@ class MainTaskSQL extends Model implements MainTask
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['project_name', 'owner_id', 'short_description', 'created_by', 'owner_id_no_sql', 'type', 'school_id'];
+    protected $fillable = ['project_name', 'owner_id', 'short_description', 'created_by', 'owner_id_no_sql', 'type', 'school_id', 'task_status_id'];
 
     /**
      * @Description
