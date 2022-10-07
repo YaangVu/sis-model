@@ -54,7 +54,8 @@ class AttendanceSQL extends SQLModel implements Attendance
 {
     use HasFactory;
 
-    protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description', 'group', 'start', 'end','zoom_meeting_id'];
+    protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description',
+                           'group', 'start', 'end','zoom_meeting_id', 'join_time', 'leave_time', 'date'];
 
     protected $table = self::table;
 
