@@ -78,4 +78,9 @@ class AttendanceSQL extends SQLModel implements Attendance
     {
         return $this->hasOne(ZoomMeetingSQL::class, 'id', 'zoom_meeting_id');
     }
+
+    public function class(): HasOne|\Jenssegers\Mongodb\Relations\HasOne
+    {
+        return $this->hasOne(ClassSQL::class, 'id', 'class_id');
+    }
 }
