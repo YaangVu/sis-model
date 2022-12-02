@@ -23,6 +23,7 @@ use YaangVu\SisModel\App\Models\ZoomHost;
  * @property string      $full_name
  * @property string      $email
  * @property string      $pmi
+ * @property string      $zoom_setting_id
  * @property int|null    $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -37,6 +38,7 @@ use YaangVu\SisModel\App\Models\ZoomHost;
  * @method static Builder|ZoomHostSQL whereFullName($value)
  * @method static Builder|ZoomHostSQL whereEmail($value)
  * @method static Builder|ZoomHostSQL wherePmi($value)
+ * @method static Builder|ZoomHostSQL whereZoomSettingId($value)
  * @method static Builder|ZoomHostSQL whereCreatedBy($value)
  * @method static Builder|ZoomHostSQL whereDeletedAt($value)
  * @method static Builder|ZoomHostSQL whereId($value)
@@ -48,5 +50,10 @@ class ZoomHostSQL extends Model implements ZoomHost
 
     protected $table = self::table;
 
-    protected $fillable = ['uuid', 'host_id', 'first_name', 'last_name', 'full_name', 'email', 'pmi', 'created_by'];
+    protected $fillable = ['uuid', 'host_id', 'first_name', 'last_name', 'full_name', 'email', 'pmi', 'created_by','zoom_setting_id'];
+
+    public function zoomSetting(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(ZoomSettingSQL::class, 'id', 'zoom_setting_id');
+    }
 }
