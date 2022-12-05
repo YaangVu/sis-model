@@ -83,4 +83,9 @@ class AttendanceSQL extends SQLModel implements Attendance
     {
         return $this->hasOne(ClassSQL::class, 'id', 'class_id');
     }
+
+    public function userNoSql(): \Illuminate\Database\Eloquent\Relations\HasOne|\Jenssegers\Mongodb\Relations\HasOne
+    {
+        return (new MongoModel())->hasOne(UserNoSQL::class, 'uuid', 'user_uuid');
+    }
 }
