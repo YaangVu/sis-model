@@ -13,4 +13,5 @@ class CalendarTypeConstant
     const VIDEO_CONFERENCE = 'video conference';
     const PAST             = 'past';
     const FUTURE           = 'future';
+    const CANCELED         = 'canceled';
 }
