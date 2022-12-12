@@ -61,6 +61,8 @@ use YaangVu\SisModel\App\Models\SQLModel;
  */
 class CalendarNoSQL extends Model implements Calendar
 {
+    private const EXPIRATION = '+180 minutes';
+
     use HasFactory;
 
     protected $fillable = ['*'];
@@ -147,7 +149,7 @@ class CalendarNoSQL extends Model implements Calendar
         if (isset($value) && $value) {
             $this->S3Service = new S3Service();
 
-            return $this->S3Service->createPresigned($value);
+            return $this->S3Service->createPresigned($value, self::EXPIRATION);
         } else {
             return null;
         }
