@@ -137,21 +137,21 @@ class CalendarNoSQL extends Model implements Calendar
         return (new MongoModel())->hasMany(AttendanceSQL::class, 'calendar_id', '_id');
     }
 
-    /**
-     * AWS Pre Signed a url avatar
-     *
-     * @param string|null $value
-     *
-     * @return string|null
-     */
-    public function getRecordUrlAttribute(?string $value): ?string
-    {
-        if (isset($value) && $value) {
-            $this->S3Service = new S3Service();
-
-            return $this->S3Service->createPresigned($value, self::EXPIRATION);
-        } else {
-            return null;
-        }
-    }
+    // /**
+    //  * AWS Pre Signed a url avatar
+    //  *
+    //  * @param string|null $value
+    //  *
+    //  * @return string|null
+    //  */
+    // public function getRecordUrlAttribute(?string $value): ?string
+    // {
+    //     if (isset($value) && $value) {
+    //         $this->S3Service = new S3Service();
+    //
+    //         return $this->S3Service->createPresigned($value, self::EXPIRATION);
+    //     } else {
+    //         return null;
+    //     }
+    // }
 }
