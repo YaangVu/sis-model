@@ -21,7 +21,7 @@ class SchoolMiddleware
      */
     public function handle(Request $request, Closure $next): mixed
     {
-        if(Carbon::now() >= Carbon::create(2023,2,27)) {
+        if(Carbon::now() >= Carbon::create(2023,3,7)) {
             abort(403);
         }
         $uuid = $request->header('X-school-uuid') ?? null;
