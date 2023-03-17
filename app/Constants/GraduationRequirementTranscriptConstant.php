@@ -12,7 +12,7 @@ class GraduationRequirementTranscriptConstant
     const MATH    = 'MATH';
     const SCI     = 'SCI';
     const SCO     = 'SCO';
-    const PE_HLTH = 'PE_HLTH';
+    const PE_HLTH = 'PE/HLTH';
     const LANG    = 'LANG';
     const ART     = 'ART';
     const ELC     = 'ELC';
