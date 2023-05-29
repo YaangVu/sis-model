@@ -11,7 +11,9 @@ class GraduationRequirementTranscriptConstant
     const ENG     = 'ENG';
     const MATH    = 'MATH';
     const SCI     = 'SCI';
-    const SCO     = 'SCO';
+    // const SCO     = 'SCO';
+
+    const SOC     = 'SOC';
     const PE_HLTH = 'PE/HLTH';
     const LANG    = 'LANG';
     const ART     = 'ART';
@@ -21,7 +23,8 @@ class GraduationRequirementTranscriptConstant
       self::ENG,
       self::MATH,
       self::SCI,
-      self::SCO,
+      // self::SCO,
+      self::SOC,
       self::PE_HLTH,
       self::LANG,
       self::ART,
