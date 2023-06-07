@@ -65,12 +65,14 @@ use YaangVu\SisModel\App\Models\Term;
  * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereSchoolYear($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereSemesterNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereTermCourseCode($value)
+ * @property int|null                    $ref_id
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereRefId($value)
  */
 class TermSQL extends Model implements Term
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ['name', 'start_date', 'end_date', 'status', 'school_id', CodeConstant::EX_ID, 'description', 'lms_id', CodeConstant::UUID, 'term_course_code', 'school_year', 'semester_number'];
+    protected $fillable = ['name', 'start_date', 'end_date', 'status', 'school_id', CodeConstant::EX_ID, 'description', 'lms_id', CodeConstant::UUID, 'term_course_code', 'school_year', 'semester_number', 'ref_id'];
 
     protected $table = self::table;
     /**
