@@ -16,7 +16,7 @@ class AddAttributeIntoTermsTable extends Migration
         Schema::table('terms', function (Blueprint $table) {
             $table->string('school_year')->nullable();
             $table->string('semester_number')->nullable();
-            $table->unsignedBigInteger('link')->nullable();
+            $table->unsignedBigInteger('parent_id')->nullable();
         });
     }
 
@@ -30,7 +30,7 @@ class AddAttributeIntoTermsTable extends Migration
         Schema::table('terms', function (Blueprint $table) {
             $table->dropColumn('school_year');
             $table->dropColumn('semester_number');
-            $table->dropColumn('link');
+            $table->dropColumn('parent_id');
         });
     }
 }
