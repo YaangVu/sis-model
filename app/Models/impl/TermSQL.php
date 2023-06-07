@@ -60,12 +60,17 @@ use YaangVu\SisModel\App\Models\Term;
  * @method static Builder|TermSQL whereUuid($value)
  * @property-read Collection|CourseSQL[] $courses
  * @property-read int|null               $courses_count
+ * @property string|null                 $school_year
+ * @property string|null                 $semester_number
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereSchoolYear($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereSemesterNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereTermCourseCode($value)
  */
 class TermSQL extends Model implements Term
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ['name', 'start_date', 'end_date', 'status', 'school_id', CodeConstant::EX_ID, 'description', 'lms_id', CodeConstant::UUID, 'term_course_code'];
+    protected $fillable = ['name', 'start_date', 'end_date', 'status', 'school_id', CodeConstant::EX_ID, 'description', 'lms_id', CodeConstant::UUID, 'term_course_code', 'school_year', 'semester_number'];
 
     protected $table = self::table;
     /**
