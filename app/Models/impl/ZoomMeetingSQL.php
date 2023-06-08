@@ -40,6 +40,40 @@ use YaangVu\SisModel\App\Models\ZoomMeeting;
  * @method static Builder|ZoomMeetingSQL whereDeletedAt($value)
  * @method static Builder|ZoomMeetingSQL whereId($value)
  * @method static Builder|ZoomMeetingSQL whereUpdatedAt($value)
+ * @property string|null $uuid
+ * @property mixed $password
+ * @property string|null $link_zoom
+ * @property int|null $zoom_meeting_ui_id
+ * @property string|null $repeat
+ * @property string|null $start
+ * @property string|null $end
+ * @property string|null $from_time
+ * @property-read \YaangVu\SisModel\App\Models\impl\ZoomParticipantSQL|null $hostZoomMeeting
+ * @property-read \Illuminate\Database\Eloquent\Collection|\YaangVu\SisModel\App\Models\impl\ZoomParticipantSQL[] $participants
+ * @property-read int|null $participants_count
+ * @property-read \YaangVu\SisModel\App\Models\impl\SchoolSQL|null $school
+ * @method static Builder|ZoomMeetingSQL newModelQuery()
+ * @method static Builder|ZoomMeetingSQL whereDescription($value)
+ * @method static Builder|ZoomMeetingSQL whereDuration($value)
+ * @method static Builder|ZoomMeetingSQL whereEnd($value)
+ * @method static Builder|ZoomMeetingSQL whereFromTime($value)
+ * @method static Builder|ZoomMeetingSQL whereJoinBeforeHost($value)
+ * @method static Builder|ZoomMeetingSQL whereLinkZoom($value)
+ * @method static Builder|ZoomMeetingSQL whereNotificationBefore($value)
+ * @method static Builder|ZoomMeetingSQL whereParticipantJoinBeforeHost($value)
+ * @method static Builder|ZoomMeetingSQL wherePassword($value)
+ * @method static Builder|ZoomMeetingSQL wherePmi($value)
+ * @method static Builder|ZoomMeetingSQL whereRepeat($value)
+ * @method static Builder|ZoomMeetingSQL whereSchoolId($value)
+ * @method static Builder|ZoomMeetingSQL whereStart($value)
+ * @method static Builder|ZoomMeetingSQL whereStudentAttendance($value)
+ * @method static Builder|ZoomMeetingSQL whereTimezone($value)
+ * @method static Builder|ZoomMeetingSQL whereTitle($value)
+ * @method static Builder|ZoomMeetingSQL whereTypeGuest($value)
+ * @method static Builder|ZoomMeetingSQL whereUuid($value)
+ * @method static Builder|ZoomMeetingSQL whereZoomMeetingType($value)
+ * @method static Builder|ZoomMeetingSQL whereZoomMeetingUiId($value)
+ * @mixin \Eloquent
  */
 class ZoomMeetingSQL extends Model implements ZoomMeeting
 {

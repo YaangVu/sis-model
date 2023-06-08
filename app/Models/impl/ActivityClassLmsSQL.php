@@ -54,6 +54,10 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @method static Builder|ActivityCategorySQL withTrashed()
  * @method static Builder|ActivityCategorySQL withoutTrashed()
  * @property int|null $created_by
+ * @property-read \YaangVu\SisModel\App\Models\impl\ClassSQL|null $class
+ * @property-read \YaangVu\SisModel\App\Models\impl\ClassActivityCategorySQL $classActivityCategory
+ * @property-read \Illuminate\Database\Eloquent\Collection|\YaangVu\SisModel\App\Models\impl\ScoreActivityLmsSQL[] $scoreActivity
+ * @property-read int|null $score_activity_count
  */
 class ActivityClassLmsSQL extends Model
 {

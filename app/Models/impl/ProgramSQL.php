@@ -54,6 +54,8 @@ use YaangVu\SisModel\App\Models\Program;
  * @method static Builder|ProgramSQL whereUuid($value)
  * @property-read Collection|GraduationCategorySQL[] $graduationCategories
  * @property-read int|null                           $graduation_categories_count
+ * @property string|null $status_student_program
+ * @method static Builder|ProgramSQL whereStatusStudentProgram($value)
  */
 class ProgramSQL extends Model implements Program
 {

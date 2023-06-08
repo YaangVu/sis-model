@@ -55,6 +55,7 @@ use YaangVu\SisModel\Database\Factories\ScoreFactory;
  * @method static Builder|ScoreSQL whereCurrentScore($value)
  * @property string|null  $real_weight
  * @method static Builder|ScoreSQL whereRealWeight($value)
+ * @method static Builder|ScoreSQL whereGrade($value)
  */
 class ScoreSQL extends Model implements Score
 {

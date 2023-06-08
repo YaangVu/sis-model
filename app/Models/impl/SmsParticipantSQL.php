@@ -16,7 +16,8 @@ use YaangVu\SisModel\App\Models\SmsParticipant;
 
 /**
  * Class SmsSettingSQL
- * @author  haidn <haidn@toprate.io>
+ *
+ * @author haidn <haidn@toprate.io>
  * @mixin Eloquent
  * @property int    $template_id
  * @property string $user_uuid
@@ -30,6 +31,30 @@ use YaangVu\SisModel\App\Models\SmsParticipant;
  * @property int    $external_id
  * @property string $hash_code
  * @package YaangVu\SisModel\App\Models\impl
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $school_id
+ * @property-read \YaangVu\SisModel\App\Models\impl\SmsSQL|null $sms
+ * @property-read \YaangVu\SisModel\App\Models\impl\TemplateNoSQL|null $templateSms
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL query()
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereExternalId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereHashCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL wherePhoneNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereProviderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereSchoolId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereSentDateTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereSmsId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereTemplateId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsParticipantSQL whereUserUuid($value)
  */
 class SmsParticipantSQL extends Model implements SmsParticipant
 {

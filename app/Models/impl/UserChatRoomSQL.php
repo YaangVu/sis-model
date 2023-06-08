@@ -29,6 +29,9 @@ use YaangVu\SisModel\App\Models\UserChatRoom;
  * @method static Builder|UserChatRoomSQL whereCreatedBy($value)
  * @method static Builder|UserChatRoomSQL whereDeletedAt($value)
  * @method static Builder|UserChatRoomSQL whereUpdatedAt($value)
+ * @property int $chat_room_id
+ * @method static \Illuminate\Database\Eloquent\Builder|UserChatRoomSQL newModelQuery()
+ * @mixin \Eloquent
  */
 class UserChatRoomSQL extends Model implements UserChatRoom
 {

@@ -35,6 +35,14 @@ use YaangVu\SisModel\App\Models\ZoomParticipant;
  * @method static Builder|ZoomParticipantSQL whereUserId($value)
  * @method static Builder|ZoomParticipantSQL whereStudentAttendance($value)
  * @method static Builder|ZoomParticipantSQL whereUserJoinMeeting($value)
+ * @property string $user_uuid
+ * @property-read \YaangVu\SisModel\App\Models\impl\ClassSQL|null $classes
+ * @property-read \YaangVu\SisModel\App\Models\impl\ZoomHostSQL|null $host
+ * @method static Builder|ZoomParticipantSQL newModelQuery()
+ * @method static Builder|ZoomParticipantSQL whereTypeGuest($value)
+ * @method static Builder|ZoomParticipantSQL whereUserUuid($value)
+ * @method static Builder|ZoomParticipantSQL whereZoomMeetingId($value)
+ * @mixin \Eloquent
  */
 class ZoomParticipantSQL extends Model implements ZoomParticipant
 {

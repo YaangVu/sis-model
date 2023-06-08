@@ -63,6 +63,7 @@ use YaangVu\SisModel\App\Models\SubjectType;
  * @property string                  $type
  * @method static Builder|SubjectSQL whereType($value)
  * @property-read mixed              $graduation_category
+ * @property-read \YaangVu\SisModel\App\Models\impl\SubjectTypeSQL|null $subjectType
  */
 class SubjectSQL extends Model implements Subject
 {

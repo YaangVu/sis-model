@@ -68,6 +68,14 @@ use YaangVu\SisModel\App\Models\UserProgram;
  * @property-read Collection|ClassSQL[]   $classes
  * @property-read int|null                $classes_count
  * @property-read UserNoSQL|null          $userNoSql
+ * @property-read Collection|\YaangVu\SisModel\App\Models\impl\ChatRoomSQL[] $chatRooms
+ * @property-read int|null $chat_rooms_count
+ * @property-read Collection|UserSQL[] $parents
+ * @property-read int|null $parents_count
+ * @property-read Collection|\YaangVu\SisModel\App\Models\impl\ProgramSQL[] $programs
+ * @property-read int|null $programs_count
+ * @property-read Collection|UserSQL[] $students
+ * @property-read int|null $students_count
  */
 class UserSQL extends Model implements User
 {

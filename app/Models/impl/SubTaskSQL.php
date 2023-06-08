@@ -12,7 +12,8 @@ use YaangVu\SisModel\App\Models\SubTask;
 
 /**
  * Class SubTaskSQL
- * @author  haidn <haidn@toprate.io>
+ *
+ * @author haidn <haidn@toprate.io>
  * @mixin Eloquent
  * @property int         $id
  * @property string|null $task_name
@@ -30,6 +31,38 @@ use YaangVu\SisModel\App\Models\SubTask;
  * @property int|null    $assignee_id_no_sql
  * @property int|null    $file
  * @package YaangVu\SisModel\App\Models\impl
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $school_id
+ * @property string|null $download_file
+ * @property-read \YaangVu\SisModel\App\Models\impl\UserNoSQL|null $assigneeSubTasks
+ * @property-read \YaangVu\SisModel\App\Models\impl\MainTaskSQL $mainTasks
+ * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL|null $ownerSubTaskSql
+ * @property-read \YaangVu\SisModel\App\Models\impl\UserNoSQL|null $ownerSubTasks
+ * @property-read \YaangVu\SisModel\App\Models\impl\UserNoSQL|null $reviewerSubTasks
+ * @property-read \YaangVu\SisModel\App\Models\impl\TaskStatusSQL $subTaskStatus
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL query()
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereAssigneeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereAssigneeIdNoSql($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereDeadline($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereDownloadFile($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereFile($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereMainTaskId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereOwnerId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereOwnerIdNoSql($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereReviewerId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereReviewerIdNoSql($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereSchoolId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereTaskName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereTaskStatusId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubTaskSQL whereUpdatedAt($value)
  */
 class SubTaskSQL extends Model implements SubTask
 {

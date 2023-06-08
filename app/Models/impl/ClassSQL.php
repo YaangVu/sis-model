@@ -90,6 +90,12 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @property-read int|null                        $attendances_count
  * @property-read ClassNoSQL|null                 $classNoSql
  * @property-read LmsSQL|null                     $lms
+ * @property-read Collection|\YaangVu\SisModel\App\Models\impl\ClassActivityCategorySQL[] $classActivityCategories
+ * @property-read int|null $class_activity_categories_count
+ * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL|null $user
+ * @method static Builder|ClassSQL whereIsTransferSchool($value)
+ * @method static Builder|ClassSQL whereTransferSchoolInformation($value)
+ * @method static Builder|ClassSQL whereTransferSchoolNote($value)
  */
 class ClassSQL extends Model implements Clazz
 {

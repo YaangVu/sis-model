@@ -49,6 +49,15 @@ use YaangVu\SisModel\Database\Factories\AttendanceFactory;
  * @property string|null       $end
  * @method static Builder|AttendanceSQL whereEnd($value)
  * @method static \YaangVu\SisModel\Database\Factories\AttendanceFactory factory(...$parameters)
+ * @property int|null $zoom_meeting_id
+ * @property string|null $join_time
+ * @property string|null $leave_time
+ * @property string|null $date
+ * @property-read \YaangVu\SisModel\App\Models\impl\ClassSQL|null $class
+ * @property-read \YaangVu\SisModel\App\Models\impl\ZoomMeetingSQL|null $zoomMeeting
+ * @method static Builder|AttendanceSQL whereDate($value)
+ * @method static Builder|AttendanceSQL whereJoinTime($value)
+ * @method static Builder|AttendanceSQL whereLeaveTime($value)
  */
 class AttendanceSQL extends SQLModel implements Attendance
 {

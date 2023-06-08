@@ -14,7 +14,8 @@ use YaangVu\SisModel\App\Models\SmsSetting;
 
 /**
  * Class SmsSettingSQL
- * @author  haidn <haidn@toprate.io>
+ *
+ * @author haidn <haidn@toprate.io>
  * @mixin Eloquent
  * @property int    $id
  * @property string $provider
@@ -23,6 +24,20 @@ use YaangVu\SisModel\App\Models\SmsSetting;
  * @property int    $phone_number
  * @property int    $created_by
  * @package YaangVu\SisModel\App\Models\impl
+ * @property string|null $external_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsSettingSQL newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsSettingSQL newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsSettingSQL query()
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsSettingSQL whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsSettingSQL whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsSettingSQL whereExternalId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsSettingSQL whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsSettingSQL wherePhoneNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsSettingSQL whereProvider($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsSettingSQL whereToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SmsSettingSQL whereUpdatedAt($value)
  */
 class SmsSettingSQL extends Model implements SmsSetting
 {
