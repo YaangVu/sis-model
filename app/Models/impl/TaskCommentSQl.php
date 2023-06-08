@@ -12,7 +12,8 @@ use YaangVu\SisModel\App\Models\Comment;
 
 /**
  * Class TaskCommentSQl
- * @author  haidn <haidn@toprate.io>
+ *
+ * @author haidn <haidn@toprate.io>
  * @mixin Eloquent
  * @property int         $id
  * @property string|null $name
@@ -20,6 +21,23 @@ use YaangVu\SisModel\App\Models\Comment;
  * @property string      $content
  * @property int         $sub_task_id
  * @package YaangVu\SisModel\App\Models\impl
+ * @property int|null $created_by
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null $main_task_id
+ * @property-read \YaangVu\SisModel\App\Models\impl\SubTaskSQL|null $TaskComments
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskCommentSQl newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskCommentSQl newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskCommentSQl query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskCommentSQl whereAvatar($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskCommentSQl whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskCommentSQl whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskCommentSQl whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskCommentSQl whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskCommentSQl whereMainTaskId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskCommentSQl whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskCommentSQl whereSubTaskId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskCommentSQl whereUpdatedAt($value)
  */
 class TaskCommentSQl extends Model implements Comment
 {

@@ -54,6 +54,15 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @method static Builder|ActivityCategorySQL withTrashed()
  * @method static Builder|ActivityCategorySQL withoutTrashed()
  * @property int|null $created_by
+ * @property int|null $activity_class_lms_id
+ * @property-read \YaangVu\SisModel\App\Models\impl\ActivityClassLmsSQL|null $activityClassLms
+ * @property-read \YaangVu\SisModel\App\Models\impl\ClassSQL $class
+ * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL $createdBy
+ * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL $user
+ * @method static Builder|ScoreActivityLmsSQL whereActivityClassLmsId($value)
+ * @method static Builder|ScoreActivityLmsSQL whereScore($value)
+ * @method static Builder|ScoreActivityLmsSQL whereUserId($value)
+ * @method static Builder|ScoreActivityLmsSQL whereUserNosqlId($value)
  */
 class ScoreActivityLmsSQL extends Model
 {

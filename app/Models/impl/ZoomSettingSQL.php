@@ -20,6 +20,23 @@ use YaangVu\SisModel\App\Models\ZoomSetting;
  * @property string|null $email
  * @property string|null $password
  * @method static Builder|ZoomSettingSQL whereEmail($value)
+ * @property string $account
+ * @property int $priority
+ * @property string $sc_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $token
+ * @method static Builder|ZoomSettingSQL newModelQuery()
+ * @method static Builder|ZoomSettingSQL newQuery()
+ * @method static Builder|ZoomSettingSQL query()
+ * @method static Builder|ZoomSettingSQL whereAccount($value)
+ * @method static Builder|ZoomSettingSQL whereCreatedAt($value)
+ * @method static Builder|ZoomSettingSQL whereId($value)
+ * @method static Builder|ZoomSettingSQL wherePriority($value)
+ * @method static Builder|ZoomSettingSQL whereScId($value)
+ * @method static Builder|ZoomSettingSQL whereToken($value)
+ * @method static Builder|ZoomSettingSQL whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class ZoomSettingSQL extends Model implements ZoomSetting
 {

@@ -54,6 +54,11 @@ use YaangVu\SisModel\App\Models\MongoModel;
  * @method static Builder|AttendanceLogSQL whereComment($value)
  * @method static Builder|AttendanceLogSQL whereDuration($value)
  * @method static Builder|AttendanceLogSQL whereUpdatedAt($value)
+ * @property string|null $calendar_id
+ * @property-read \YaangVu\SisModel\App\Models\impl\ClassSQL|null $class
+ * @property-read \YaangVu\SisModel\App\Models\impl\ZoomMeetingSQL|null $zoomMeeting
+ * @method static Builder|AttendanceLogSQL newModelQuery()
+ * @mixin \Eloquent
  */
 class AttendanceLogSQL extends Model implements AttendanceLog
 {
