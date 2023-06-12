@@ -63,7 +63,7 @@ class ChatRoomSQL extends Model implements ChatRoom
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['room_id', 'created_by', 'type', 'school_id', 'name', 'image', 'uuid', 'last_message', 'last_message_at', 'unread'];
+    protected $fillable = ['room_id', 'created_by', 'type', 'school_id', 'name', 'image', 'uuid', 'last_message', 'last_message_at'];
 
     public function users(): BelongsToMany
     {
