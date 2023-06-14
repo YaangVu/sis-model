@@ -48,6 +48,18 @@ use YaangVu\SisModel\App\Models\UserChatRoom;
  * @property string|null $external_id
  * @method static Builder|SchoolSQL whereExternalId($value)
  * @method static Builder|SchoolSQL whereUuid($value)
+ * @property string|null $address
+ * @property string|null $fax
+ * @property string|null $principal
+ * @property string|null $phone
+ * @property string|null $timezone
+ * @property-read \Illuminate\Database\Eloquent\Collection|\YaangVu\SisModel\App\Models\impl\ChatRoomSQL[] $chatRooms
+ * @property-read int|null $chat_rooms_count
+ * @method static Builder|SchoolSQL whereAddress($value)
+ * @method static Builder|SchoolSQL whereFax($value)
+ * @method static Builder|SchoolSQL wherePhone($value)
+ * @method static Builder|SchoolSQL wherePrincipal($value)
+ * @method static Builder|SchoolSQL whereTimezone($value)
  */
 class SchoolSQL extends Model implements School
 {

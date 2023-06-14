@@ -20,16 +20,16 @@ use YaangVu\SisModel\App\Models\UserChatRoom;
 /**
  * YaangVu\SisModel\App\Models\ChatRoomSQL
  *
- * @property int         $id
- * @property int|null    $school_id
+ * @property int $id
+ * @property int|null $school_id
  * @property string|null $room_id
- * @property string      $uuid
+ * @property string $uuid
  * @property string|null $type
  * @property string|null $name
  * @property string|null $image
  * @property string|null $last_message
  * @property Carbon|null $last_message_at
- * @property int|null    $created_by
+ * @property int|null $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
@@ -48,6 +48,12 @@ use YaangVu\SisModel\App\Models\UserChatRoom;
  * @method static Builder|ChatRoomSQL whereDeletedAt($value)
  * @method static Builder|ChatRoomSQL whereId($value)
  * @method static Builder|ChatRoomSQL whereUpdatedAt($value)
+ * @property int|null $unread
+ * @property-read \Illuminate\Database\Eloquent\Collection|\YaangVu\SisModel\App\Models\impl\UserSQL[] $users
+ * @property-read int|null $users_count
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatRoomSQL newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatRoomSQL whereUnread($value)
+ * @mixin \Eloquent
  */
 class ChatRoomSQL extends Model implements ChatRoom
 {
@@ -57,7 +63,7 @@ class ChatRoomSQL extends Model implements ChatRoom
 
     protected $connection = DbConnectionConstant::SQL;
 
-    protected $fillable = ['room_id', 'created_by', 'type', 'school_id','name','image','uuid', 'last_message', 'last_message_at'];
+    protected $fillable = ['room_id', 'created_by', 'type', 'school_id', 'name', 'image', 'uuid', 'last_message', 'last_message_at'];
 
     public function users(): BelongsToMany
     {
@@ -67,6 +73,6 @@ class ChatRoomSQL extends Model implements ChatRoom
     public function chatRoomNoSql(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
     {
         return (new MongoModel())->belongsTo(ChatRoomNoSQL::class, CodeConstant::UUID, CodeConstant::UUID)
-                                 ->whereNull('deleted_at');
+            ->whereNull('deleted_at');
     }
 }

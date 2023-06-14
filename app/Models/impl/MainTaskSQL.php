@@ -13,7 +13,8 @@ use YaangVu\SisModel\App\Models\MongoModel;
 
 /**
  * Class MainTaskSQL
- * @author  haidn <haidn@toprate.io>
+ *
+ * @author haidn <haidn@toprate.io>
  * @mixin Eloquent
  * @property int         $id
  * @property string|null $project_name
@@ -24,7 +25,28 @@ use YaangVu\SisModel\App\Models\MongoModel;
  * @property int|null $type
  * @property int|null $task_status_id
  * @package YaangVu\SisModel\App\Models\impl
- * @category
+ * @category 
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $school_id
+ * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL|null $ownerMainTaskSql
+ * @property-read \YaangVu\SisModel\App\Models\impl\UserNoSQL|null $ownerMainTasks
+ * @property-read \Illuminate\Database\Eloquent\Collection|\YaangVu\SisModel\App\Models\impl\SubTaskSQL[] $subtasks
+ * @property-read int|null $subtasks_count
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL whereOwnerId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL whereOwnerIdNoSql($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL whereProjectName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL whereSchoolId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL whereShortDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL whereTaskStatusId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainTaskSQL whereUpdatedAt($value)
  */
 class MainTaskSQL extends Model implements MainTask
 {

@@ -52,6 +52,8 @@ use YaangVu\SisModel\App\Models\ClassActivityCategory;
  * @method static Builder|ClassActivityCategorySQL onlyTrashed()
  * @method static Builder|ClassActivityCategorySQL withTrashed()
  * @method static Builder|ClassActivityCategorySQL withoutTrashed()
+ * @property-read \Illuminate\Database\Eloquent\Collection|\YaangVu\SisModel\App\Models\impl\ActivityClassLmsSQL[] $activityClassLms
+ * @property-read int|null $activity_class_lms_count
  */
 class ClassActivityCategorySQL extends Model implements ClassActivityCategory
 {

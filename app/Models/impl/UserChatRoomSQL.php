@@ -29,6 +29,11 @@ use YaangVu\SisModel\App\Models\UserChatRoom;
  * @method static Builder|UserChatRoomSQL whereCreatedBy($value)
  * @method static Builder|UserChatRoomSQL whereDeletedAt($value)
  * @method static Builder|UserChatRoomSQL whereUpdatedAt($value)
+ * @property int $chat_room_id
+ * @method static \Illuminate\Database\Eloquent\Builder|UserChatRoomSQL newModelQuery()
+ * @mixin \Eloquent
+ * @property int|null $unread
+ * @method static \Illuminate\Database\Eloquent\Builder|UserChatRoomSQL whereUnread($value)
  */
 class UserChatRoomSQL extends Model implements UserChatRoom
 {
@@ -36,5 +41,5 @@ class UserChatRoomSQL extends Model implements UserChatRoom
 
     protected $table = self::table;
 
-    protected $fillable = ['user_id', 'chat_room_id'];
+    protected $fillable = ['user_id', 'chat_room_id', 'unread'];
 }

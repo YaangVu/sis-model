@@ -37,6 +37,8 @@ use YaangVu\SisModel\App\Models\SubjectType;
  * @method static Builder|SubjectTypeSQL whereSchoolId($value)
  * @method static Builder|SubjectTypeSQL withTrashed()
  * @method static Builder|SubjectTypeSQL withoutTrashed()
+ * @property-read \YaangVu\SisModel\App\Models\impl\SchoolSQL $school
+ * @mixin \Eloquent
  */
 class SubjectTypeSQL extends Model implements SubjectType
 {

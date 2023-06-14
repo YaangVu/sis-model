@@ -43,6 +43,9 @@ use YaangVu\SisModel\App\Models\ZoomHost;
  * @method static Builder|ZoomHostSQL whereDeletedAt($value)
  * @method static Builder|ZoomHostSQL whereId($value)
  * @method static Builder|ZoomHostSQL whereUpdatedAt($value)
+ * @property-read \YaangVu\SisModel\App\Models\impl\ZoomSettingSQL|null $zoomSetting
+ * @method static Builder|ZoomHostSQL newModelQuery()
+ * @mixin \Eloquent
  */
 class ZoomHostSQL extends Model implements ZoomHost
 {

@@ -17,7 +17,7 @@ use YaangVu\SisModel\App\Models\UserParent;
 /**
  * Class UserParentSQL
  *
- * @author  hoangky <hoangky@toprate.io>
+ * @author hoangky <hoangky@toprate.io>
  * @package YaangVu\SisModel\App\Models\impl
  * @property integer      $id
  * @property string       $uuid
@@ -40,7 +40,12 @@ use YaangVu\SisModel\App\Models\UserParent;
  * @method static Builder|UserParentSQL whereSchoolId($value)
  * @method static Builder|UserParentSQL whereParentId($value)
  * @method static Builder|UserParentSQL whereUuid($value)
- *
+ * @property int|null $created_by
+ * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL $children
+ * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL $parent
+ * @method static \Illuminate\Database\Eloquent\Builder|UserParentSQL whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserParentSQL whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class UserParentSQL extends Model implements UserParent
 {
