@@ -55,6 +55,8 @@ use YaangVu\SisModel\Database\Factories\ScoreFactory;
  * @method static Builder|ScoreSQL whereCurrentScore($value)
  * @property string|null  $real_weight
  * @method static Builder|ScoreSQL whereRealWeight($value)
+ * @property string|null $current_grade_letter
+ * @method static Builder|ScoreSQL whereCurrentGradeLetter($value)
  * @method static Builder|ScoreSQL whereGrade($value)
  */
 class ScoreSQL extends Model implements Score
@@ -77,6 +79,7 @@ class ScoreSQL extends Model implements Score
             'is_pass',
             'real_weight',
             'grade',
+            'current_grade_letter'
         ];
 
     protected $connection = DbConnectionConstant::SQL;
