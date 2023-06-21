@@ -14,11 +14,11 @@ class CreateTableGradeBookViewTable extends Migration
      */
     public function up()
     {
-        DB::statement('DROP VIEW IF EXISTS grade_book_view;');
+        DB::statement('DROP VIEW IF EXISTS gradebook_view;');
 
         DB::statement('
-            CREATE VIEW grade_book_view AS
-             SELECT 
+            CREATE VIEW gradebook_view AS
+             SELECT DISTINCT
                 sc.school_id,
                 sc.lms_id,
                 g.name AS grade_name,
@@ -82,6 +82,6 @@ class CreateTableGradeBookViewTable extends Migration
      */
     public function down()
     {
-        DB::statement('DROP VIEW IF EXISTS grade_book_view;');
+        DB::statement('DROP VIEW IF EXISTS gradebook_view;');
     }
 }

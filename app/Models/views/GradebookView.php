@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read string|null $username
  * @property-read string|null $score
  * @property-read int|null    $class_id
- * @property-read int|null    $grade_letter_id
  * @property-read int|null    $lms_id
  * @property-read int|null    $school_id
  * @property-read bool|null   $is_pass
@@ -26,13 +25,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read int|null    $term_id
  * @property-read string|null $term_name
  * @property-read string|null $class_name
- * @property-read string|null $status
+ * @property-read string|null $class_status
  * @property-read string|null $subject_name
  * @property-read int|null    $subject_id
  * @property-read string|null $weight
  * @property-read string|null $credit
  * @property-read string|null $subject_type
- * @property-read int|null    $grade_id
  * @property-read bool|null   $is_calculate_gpa
  * @property-read float|null  $extra_point_honor
  * @property-read float|null  $extra_point_advanced
@@ -48,9 +46,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|ScoreView whereExtraPointAdvanced($value)
  * @method static Builder|ScoreView whereExtraPointHonor($value)
  * @method static Builder|ScoreView whereGpa($value)
- * @method static Builder|ScoreView whereGradeId($value)
  * @method static Builder|ScoreView whereGradeLetter($value)
- * @method static Builder|ScoreView whereGradeLetterId($value)
  * @method static Builder|ScoreView whereGradeScaleId($value)
  * @method static Builder|ScoreView whereIsCalculateGpa($value)
  * @method static Builder|ScoreView whereIsPass($value)
@@ -59,7 +55,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|ScoreView whereSchoolId($value)
  * @method static Builder|ScoreView whereScore($value)
  * @method static Builder|ScoreView whereScoreId($value)
- * @method static Builder|ScoreView whereStatus($value)
+ * @method static Builder|ScoreView whereClassStatus($value)
  * @method static Builder|ScoreView whereSubjectId($value)
  * @method static Builder|ScoreView whereSubjectName($value)
  * @method static Builder|ScoreView whereSubjectType($value)
@@ -77,7 +73,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|ScoreView whereTermEndDate($value)
  * @method static Builder|ScoreView whereTermStartDate($value)
  */
-class GradeBookView extends Model
+class GradebookView extends Model
 {
-    protected $table = 'grade_book_view';
+    protected $table = 'gradebook_view';
 }
