@@ -18,15 +18,15 @@ class CreateTableGradeBookViewTable extends Migration
 
         DB::statement('
             CREATE VIEW grade_book_view AS
-             SELECT sc.id AS score_id,
-                sc.user_id,
+             SELECT 
+                sc.school_id,
+                sc.lms_id,
+                g.name AS grade_name,
+                u.id AS user_id,
                 u.uuid AS user_uuid,
                 u.username,
+                sc.id AS score_id,
                 sc.score,
-                sc.class_id,
-                sc.grade_letter_id,
-                sc.lms_id,
-                sc.school_id,
                 sc.is_pass,
                 sc.grade_letter,
                 sc.current_grade_letter,
@@ -36,27 +36,24 @@ class CreateTableGradeBookViewTable extends Migration
                 t.name AS term_name,
                 t.start_date AS term_start_date,
                 t.end_date AS term_end_date,
-                t.term_course_code,
+                c.id AS class_id,
                 c.name AS class_name,
-                c.status,
+                c.status AS class_status,
                 c.transfer_school_information,
                 c.is_transfer_school,
-                c.start_date AS start_date_class,
-                c.end_date AS end_date_class,
+                c.start_date AS class_start_date,
+                c.end_date AS class_end_date,
                 s.name AS subject_name,
                 s.id AS subject_id,
+                s.type AS subject_type,
+                s.code AS subject_code,
                 s.weight,
                 s.credit,
-                s.type AS subject_type,
-                s.grade_id,
-                s.code AS subject_code,
                 gs.is_calculate_gpa,
                 gs.extra_point_honor,
                 gs.extra_point_advanced,
                 gs.id AS grade_scale_id,
-                gl.gpa,
-                g.id,
-                g.name AS grade_name
+                gl.gpa
                 FROM scores sc
                  LEFT JOIN classes c ON c.id = sc.class_id
                  LEFT JOIN users u ON u.id = sc.user_id
@@ -71,9 +68,10 @@ class CreateTableGradeBookViewTable extends Migration
                 AND u.deleted_at IS NULL 
                 AND t.deleted_at IS NULL 
                 AND s.deleted_at IS NULL 
+                AND gcs.deleted_at IS NULL 
                 AND gl.deleted_at IS NULL 
                 AND gs.deleted_at IS NULL 
-                AND gcs.deleted_at IS NULL 
+                AND g.deleted_at IS NULL 
         ');
     }
 
