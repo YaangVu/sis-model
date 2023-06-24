@@ -6,7 +6,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,58 +17,44 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\SQLModel;
 
 /**
- * YaangVu\SisModel\App\Models\impl\ActivityClassLmsSQL
+ * YaangVu\SisModel\App\Models\impl\ScoreActivityLmsSQL
  *
- * @property int         $id
- * @property string|null $score
- * @property string|null $user_nosql_id
- * @property string|null $user_id
- * @property int|null    $school_id
- * @property int|null    $max_point
- * @property int|null    $class_id
- * @property int|null    $class_activity_category_id
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $deleted_at
- * @method static Builder|CalendarSQL newModelQuery()
- * @method static Builder|CalendarSQL newQuery()
- * @method static Builder|CalendarSQL query()
- * @method static Builder|CalendarSQL whereCreatedAt($value)
- * @method static Builder|CalendarSQL whereCreatedBy($value)
- * @method static Builder|CalendarSQL whereDeletedAt($value)
- * @method static Builder|CalendarSQL whereDescription($value)
- * @method static Builder|CalendarSQL whereId($value)
- * @method static Builder|CalendarSQL whereName($value)
- * @method static Builder|CalendarSQL whereMaxPoint($value)
- * @method static Builder|CalendarSQL whereClassId($value)
- * @method static Builder|CalendarSQL whereClassActivityCategoryId($value)
- * @method static Builder|CalendarSQL whereSchoolId($value)
- * @method static Builder|CalendarSQL whereWeight($value)
- * @method static Builder|CalendarSQL whereUpdatedAt($value)
- * @mixin Eloquent
- * @property string|null $uuid
- * @property string|null $external_id
- * @method static Builder|CalendarSQL whereExternalId($value)
- * @method static Builder|CalendarSQL whereUuid($value)
- * @method static Builder|ActivityCategorySQL onlyTrashed()
- * @method static Builder|ActivityCategorySQL withTrashed()
- * @method static Builder|ActivityCategorySQL withoutTrashed()
- * @property int|null $created_by
- * @property int|null $activity_class_lms_id
- * @property-read \YaangVu\SisModel\App\Models\impl\ActivityClassLmsSQL|null $activityClassLms
- * @property-read \YaangVu\SisModel\App\Models\impl\ClassSQL $class
- * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL $createdBy
- * @property-read \YaangVu\SisModel\App\Models\impl\UserSQL $user
+ * @property int                           $id
+ * @property float|null                    $score
+ * @property string|null                   $user_nosql_id
+ * @property int                           $user_id
+ * @property int                           $class_id
+ * @property int|null                      $activity_class_lms_id
+ * @property int                           $school_id
+ * @property int                           $created_by
+ * @property string|null                   $uuid
+ * @property Carbon|null                   $created_at
+ * @property Carbon|null                   $updated_at
+ * @property-read ActivityClassLmsSQL|null $activityClassLms
+ * @property-read ClassSQL                 $class
+ * @property-read UserSQL                  $createdBy
+ * @property-read UserSQL                  $user
+ * @method static Builder|ScoreActivityLmsSQL newModelQuery()
+ * @method static Builder|ScoreActivityLmsSQL newQuery()
+ * @method static Builder|ScoreActivityLmsSQL query()
  * @method static Builder|ScoreActivityLmsSQL whereActivityClassLmsId($value)
+ * @method static Builder|ScoreActivityLmsSQL whereClassId($value)
+ * @method static Builder|ScoreActivityLmsSQL whereCreatedAt($value)
+ * @method static Builder|ScoreActivityLmsSQL whereCreatedBy($value)
+ * @method static Builder|ScoreActivityLmsSQL whereId($value)
+ * @method static Builder|ScoreActivityLmsSQL whereSchoolId($value)
  * @method static Builder|ScoreActivityLmsSQL whereScore($value)
+ * @method static Builder|ScoreActivityLmsSQL whereUpdatedAt($value)
  * @method static Builder|ScoreActivityLmsSQL whereUserId($value)
  * @method static Builder|ScoreActivityLmsSQL whereUserNosqlId($value)
+ * @method static Builder|ScoreActivityLmsSQL whereUuid($value)
+ * @mixin Eloquent
  */
 class ScoreActivityLmsSQL extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['score', 'user_nosql_id', 'user_id', 'class_id', 'activity_class_lms_id', 'school_id', CodeConstant::UUID,'created_by'];
+    protected $fillable = ['score', 'user_nosql_id', 'user_id', 'class_id', 'activity_class_lms_id', 'school_id', CodeConstant::UUID, 'created_by'];
 
     protected $table = 'score_activity_lms';
 

@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -11,12 +11,8 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\UserProgram;
 
 /**
- * YaangVu\SisModel\App\Models\UserProgramSQL
+ * YaangVu\SisModel\App\Models\impl\UserProgramSQL
  *
- * @method static Builder|UserProgramSQL newModelQuery()
- * @method static Builder|UserProgramSQL newQuery()
- * @method static Builder|UserProgramSQL query()
- * @mixin Eloquent
  * @property int         $id
  * @property string|null $uuid
  * @property string|null $external_id
@@ -26,17 +22,21 @@ use YaangVu\SisModel\App\Models\UserProgram;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @property int         $program_id
+ * @method static Builder|UserProgramSQL newModelQuery()
+ * @method static Builder|UserProgramSQL newQuery()
+ * @method static Builder|UserProgramSQL query()
  * @method static Builder|UserProgramSQL whereCreatedAt($value)
  * @method static Builder|UserProgramSQL whereCreatedBy($value)
  * @method static Builder|UserProgramSQL whereDeletedAt($value)
  * @method static Builder|UserProgramSQL whereExternalId($value)
  * @method static Builder|UserProgramSQL whereId($value)
+ * @method static Builder|UserProgramSQL whereProgramId($value)
  * @method static Builder|UserProgramSQL whereSchoolId($value)
  * @method static Builder|UserProgramSQL whereUpdatedAt($value)
  * @method static Builder|UserProgramSQL whereUserId($value)
  * @method static Builder|UserProgramSQL whereUuid($value)
- * @property int         $program_id
- * @method static Builder|UserProgramSQL whereProgramId($value)
+ * @mixin Eloquent
  */
 class UserProgramSQL extends Model implements UserProgram
 {

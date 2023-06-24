@@ -10,6 +10,7 @@ use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Builder;
 use Jenssegers\Mongodb\Eloquent\Model;
+use Jenssegers\Mongodb\Relations\BelongsTo;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\ChatRoom;
 
@@ -30,7 +31,6 @@ use YaangVu\SisModel\App\Models\ChatRoom;
  * @method static Builder|ChatRoomNoSQL whereId($value)
  * @mixin Eloquent
  */
-
 class ChatRoomNoSQL extends Model implements ChatRoom
 {
     protected $table = self::table;
@@ -41,7 +41,7 @@ class ChatRoomNoSQL extends Model implements ChatRoom
 
     protected $guarded = [];
 
-    public function createdBy(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function createdBy(): \Illuminate\Database\Eloquent\Relations\BelongsTo|BelongsTo
     {
         return $this->belongsTo(UserNoSQL::class, 'create_by', '_id');
     }

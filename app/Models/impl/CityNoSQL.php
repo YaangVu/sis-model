@@ -12,7 +12,7 @@ class CityNoSQL extends Model implements City
 
     protected $connection = DbConnectionConstant::NOSQL;
 
-    protected $fillable = ['name','country_two_code'];
+    protected $fillable = ['name', 'country_two_code'];
 
     protected $guarded = [];
 }

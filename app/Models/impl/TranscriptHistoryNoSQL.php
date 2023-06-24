@@ -2,9 +2,9 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
+use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Relations\BelongsTo as MBelongTo;
 use YaangVu\Constant\DbConnectionConstant;
-use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\LaravelAws\S3Service;
 use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\TranscriptHistory;

@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -11,7 +11,7 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\SubjectRule;
 
 /**
- * YaangVu\SisModel\App\Models\SubjectRuleSQL
+ * YaangVu\SisModel\App\Models\impl\SubjectRuleSQL
  *
  * @property int         $id
  * @property string|null $uuid  subject id
@@ -19,7 +19,7 @@ use YaangVu\SisModel\App\Models\SubjectRule;
  * @property string|null $type
  * @property int         $subject_id
  * @property int|null    $relevance_subject_id
- * @property string      $group group of rules
+ * @property string|null $group group of rules
  * @property int|null    $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at

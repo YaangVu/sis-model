@@ -6,52 +6,49 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
-use Jenssegers\Mongodb\Eloquent\Builder;
 use Spatie\Permission\Models\Permission;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Role;
 
 /**
- * YaangVu\SisModel\App\Models\RoleSQL
+ * YaangVu\SisModel\App\Models\impl\RoleSQL
  *
- * @property int         $id
- * @property string      $name
- * @property string|null $guard_name
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $group
- * @property boolean     $is_mutable
- * @property string|null $status
- * @property string|null $description
- * @property int|null    $priority
+ * @property int                              $id
+ * @property string                           $name
+ * @property string                           $guard_name
+ * @property string|null                      $group
+ * @property Carbon|null                      $created_at
+ * @property Carbon|null                      $updated_at
+ * @property string                           $status
+ * @property string|null                      $description
+ * @property int|null                         $created_by
+ * @property bool                             $is_mutable
+ * @property int|null                         $priority
+ * @property-read Collection<int, Permission> $permissions
+ * @property-read int|null                    $permissions_count
+ * @property-read Collection<int, UserSQL>    $users
+ * @property-read int|null                    $users_count
  * @method static Builder|RoleSQL newModelQuery()
  * @method static Builder|RoleSQL newQuery()
- * @method static Builder|RoleSQL onlyTrashed()
+ * @method static Builder|Role permission($permissions)
  * @method static Builder|RoleSQL query()
  * @method static Builder|RoleSQL whereCreatedAt($value)
+ * @method static Builder|RoleSQL whereCreatedBy($value)
+ * @method static Builder|RoleSQL whereDescription($value)
+ * @method static Builder|RoleSQL whereGroup($value)
  * @method static Builder|RoleSQL whereGuardName($value)
- * @method static Builder|RoleSQL whereStatus($value)
  * @method static Builder|RoleSQL whereId($value)
  * @method static Builder|RoleSQL whereIsMutable($value)
  * @method static Builder|RoleSQL whereName($value)
- * @method static Builder|RoleSQL whereUpdatedAt($value)
- * @method static Builder|RoleSQL whereGroup($value)
- * @method static Builder|RoleSQL whereDescription($value)
  * @method static Builder|RoleSQL wherePriority($value)
- * @method static Builder|RoleSQL withTrashed()
- * @method static Builder|RoleSQL withoutTrashed()
+ * @method static Builder|RoleSQL whereStatus($value)
+ * @method static Builder|RoleSQL whereUpdatedAt($value)
  * @mixin Eloquent
- * @property-read Collection|Permission[] $permissions
- * @property-read int|null                $permissions_count
- * @method static Builder|Role permission($permissions)
- * @property int|null $created_by
- * @property-read Collection|\YaangVu\SisModel\App\Models\impl\UserSQL[] $users
- * @property-read int|null $users_count
- * @method static \Illuminate\Database\Eloquent\Builder|RoleSQL whereCreatedBy($value)
  */
 class RoleSQL extends \Spatie\Permission\Models\Role implements Role
 {
@@ -59,7 +56,7 @@ class RoleSQL extends \Spatie\Permission\Models\Role implements Role
 
     protected $guarded = [];
 
-    protected $fillable = ['name', 'guard_name', 'group', 'status', 'description','is_mutable','priority'];
+    protected $fillable = ['name', 'guard_name', 'group', 'status', 'description', 'is_mutable', 'priority'];
 
     protected $connection = DbConnectionConstant::SQL;
 

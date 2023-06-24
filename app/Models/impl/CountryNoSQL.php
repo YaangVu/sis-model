@@ -2,6 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Jenssegers\Mongodb\Eloquent\Model;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Country;
@@ -16,7 +17,7 @@ class CountryNoSQL extends Model implements Country
 
     protected $guarded = [];
 
-    public function states(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function states(): HasMany
     {
         return $this->hasMany(StateNoSQL::class, 'country_code', 'two_code');
     }

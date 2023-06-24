@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,49 +15,49 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\GradeScale;
 
 /**
- * YaangVu\SisModel\App\Models\GradeScaleSQL
+ * YaangVu\SisModel\App\Models\impl\GradeScaleSQL
  *
- * @property int                              $id
- * @property string                           $name
- * @property string|null                      $description
- * @property int|null                         $created_by
- * @property Carbon|null                      $created_at
- * @property Carbon|null                      $updated_at
- * @property string|null                      $deleted_at
+ * @property int                                  $id
+ * @property string|null                          $uuid
+ * @property string|null                          $external_id
+ * @property string                               $name
+ * @property string|null                          $description
+ * @property float|null                           $score_to_pass
+ * @property bool                                 $is_calculate_gpa
+ * @property int|null                             $school_id
+ * @property int|null                             $created_by
+ * @property Carbon|null                          $created_at
+ * @property Carbon|null                          $updated_at
+ * @property Carbon|null                          $deleted_at
+ * @property float|null                           $extra_point_honor    Extra points
+ *           for honor class
+ * @property float|null                           $extra_point_advanced Extra points
+ *           for advanced class
+ * @property-read Collection<int, GradeLetterSQL> $gradeLetters
+ * @property-read int|null                        $grade_letters_count
+ * @property-read Collection<int, SubjectSQL>     $subjects
+ * @property-read int|null                        $subjects_count
  * @method static Builder|GradeScaleSQL newModelQuery()
  * @method static Builder|GradeScaleSQL newQuery()
+ * @method static Builder|GradeScaleSQL onlyTrashed()
  * @method static Builder|GradeScaleSQL query()
  * @method static Builder|GradeScaleSQL whereCreatedAt($value)
  * @method static Builder|GradeScaleSQL whereCreatedBy($value)
  * @method static Builder|GradeScaleSQL whereDeletedAt($value)
  * @method static Builder|GradeScaleSQL whereDescription($value)
+ * @method static Builder|GradeScaleSQL whereExternalId($value)
+ * @method static Builder|GradeScaleSQL whereExtraPointAdvanced($value)
+ * @method static Builder|GradeScaleSQL whereExtraPointHonor($value)
  * @method static Builder|GradeScaleSQL whereId($value)
+ * @method static Builder|GradeScaleSQL whereIsCalculateGpa($value)
  * @method static Builder|GradeScaleSQL whereName($value)
+ * @method static Builder|GradeScaleSQL whereSchoolId($value)
+ * @method static Builder|GradeScaleSQL whereScoreToPass($value)
  * @method static Builder|GradeScaleSQL whereUpdatedAt($value)
- * @mixin Eloquent
- * @method static Builder|GradeScaleSQL onlyTrashed()
+ * @method static Builder|GradeScaleSQL whereUuid($value)
  * @method static Builder|GradeScaleSQL withTrashed()
  * @method static Builder|GradeScaleSQL withoutTrashed()
- * @property boolean                          $is_calculate_gpa
- * @method static Builder|ProgramSQL whereIsCalculateGpa($value)
- * @property float                            $score_to_pass
- * @method static Builder|ProgramSQL whereScoreToPass($value)
- * @property int|null                         $lms_id
- * @method static Builder|ProgramSQL whereLmsId($value)
- * @property string|null                      $uuid
- * @property string|null                      $external_id
- * @property int|null                         $school_id
- * @method static Builder|GradeScaleSQL whereExternalId($value)
- * @method static Builder|GradeScaleSQL whereSchoolId($value)
- * @method static Builder|GradeScaleSQL whereUuid($value)
- * @property-read Collection|ClassSQL[]       $subjects
- * @property-read int|null                    $subjects_count
- * @property-read Collection|GradeLetterSQL[] $gradeLetters
- * @property-read int|null                    $grade_letters_count
- * @property float                            $extra_point_honor
- * @method static Builder|ProgramSQL whereExtraPointHonor($value)
- * @property float                            $extra_point_advanced
- * @method static Builder|ProgramSQL whereExtraPointAdvanced($value)
+ * @mixin Eloquent
  */
 class GradeScaleSQL extends Model implements GradeScale
 {

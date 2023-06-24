@@ -89,6 +89,6 @@ class ClassActivityNoSql extends Model implements ClassActivity
 
     public function classActivityCategories(): HasMany|\Jenssegers\Mongodb\Relations\HasMany
     {
-        return $this->hasMany(ClassActivityCategorySQL::class,'class_id','class_id');
+        return $this->hasMany(ClassActivityCategorySQL::class, 'class_id', 'class_id');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,43 +12,38 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\ProgramGraduationCategory;
-use YaangVu\SisModel\Database\Factories\ProgramGraduationCategoryFactory;
 
 /**
- * YaangVu\SisModel\App\Models\ProgramGraduationCategorySQL
+ * YaangVu\SisModel\App\Models\impl\ProgramGraduationCategorySQL
  *
- * @property int                                     $id
- * @property int|null                                $program_id
- * @property int|null                                $graduation_category_id
- * @property int|null                                $created_by
- * @property Carbon|null                             $created_at
- * @property Carbon|null                             $updated_at
- * @property string|null                             $deleted_at
+ * @property int                                         $id
+ * @property string|null                                 $uuid
+ * @property string|null                                 $external_id
+ * @property int|null                                    $program_id
+ * @property int|null                                    $graduation_category_id
+ * @property float|null                                  $credit
+ * @property int|null                                    $created_by
+ * @property Carbon|null                                 $created_at
+ * @property Carbon|null                                 $updated_at
+ * @property string|null                                 $deleted_at
+ * @property-read Collection<int, GraduationCategorySQL> $graduationCategories
+ * @property-read int|null                               $graduation_categories_count
+ * @property-read Collection<int, ProgramSQL>            $programs
+ * @property-read int|null                               $programs_count
  * @method static Builder|ProgramGraduationCategorySQL newModelQuery()
  * @method static Builder|ProgramGraduationCategorySQL newQuery()
  * @method static Builder|ProgramGraduationCategorySQL query()
  * @method static Builder|ProgramGraduationCategorySQL whereCreatedAt($value)
  * @method static Builder|ProgramGraduationCategorySQL whereCreatedBy($value)
+ * @method static Builder|ProgramGraduationCategorySQL whereCredit($value)
  * @method static Builder|ProgramGraduationCategorySQL whereDeletedAt($value)
+ * @method static Builder|ProgramGraduationCategorySQL whereExternalId($value)
  * @method static Builder|ProgramGraduationCategorySQL whereGraduationCategoryId($value)
  * @method static Builder|ProgramGraduationCategorySQL whereId($value)
  * @method static Builder|ProgramGraduationCategorySQL whereProgramId($value)
  * @method static Builder|ProgramGraduationCategorySQL whereUpdatedAt($value)
- * @mixin Eloquent
- * @method static ProgramGraduationCategoryFactory factory(...$parameters)
- * @method static Builder|ProgramGraduationCategorySQL onlyTrashed()
- * @method static Builder|ProgramGraduationCategorySQL withTrashed()
- * @method static Builder|ProgramGraduationCategorySQL withoutTrashed()
- * @property float|null                              $credit
- * @method static Builder|ProgramGraduationCategorySQL whereCredit($value)
- * @property string|null                             $uuid
- * @property string|null                             $external_id
- * @method static Builder|ProgramGraduationCategorySQL whereExternalId($value)
  * @method static Builder|ProgramGraduationCategorySQL whereUuid($value)
- * @property-read Collection|GraduationCategorySQL[] $graduationCategories
- * @property-read int|null                           $graduation_categories_count
- * @property-read Collection|ProgramSQL[]            $programs
- * @property-read int|null                           $programs_count
+ * @mixin Eloquent
  */
 class ProgramGraduationCategorySQL extends Model implements ProgramGraduationCategory
 {

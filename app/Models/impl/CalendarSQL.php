@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,9 +11,11 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Calendar;
 
 /**
- * YaangVu\SisModel\App\Models\CalendarSQL
+ * YaangVu\SisModel\App\Models\impl\CalendarSQL
  *
  * @property int         $id
+ * @property string|null $uuid
+ * @property string|null $external_id
  * @property string|null $type Type of calendar: event, holiday, class schedule, activity
  * @property string|null $name event name
  * @property string|null $description
@@ -38,6 +40,7 @@ use YaangVu\SisModel\App\Models\Calendar;
  * @method static Builder|CalendarSQL whereDeletedAt($value)
  * @method static Builder|CalendarSQL whereDescription($value)
  * @method static Builder|CalendarSQL whereEnd($value)
+ * @method static Builder|CalendarSQL whereExternalId($value)
  * @method static Builder|CalendarSQL whereGroup($value)
  * @method static Builder|CalendarSQL whereId($value)
  * @method static Builder|CalendarSQL whereIsAllDay($value)
@@ -48,11 +51,8 @@ use YaangVu\SisModel\App\Models\Calendar;
  * @method static Builder|CalendarSQL whereTimezone($value)
  * @method static Builder|CalendarSQL whereType($value)
  * @method static Builder|CalendarSQL whereUpdatedAt($value)
- * @mixin Eloquent
- * @property string|null $uuid
- * @property string|null $external_id
- * @method static Builder|CalendarSQL whereExternalId($value)
  * @method static Builder|CalendarSQL whereUuid($value)
+ * @mixin Eloquent
  */
 class CalendarSQL extends Model implements Calendar
 {

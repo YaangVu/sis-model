@@ -2,10 +2,10 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Jenssegers\Mongodb\Eloquent\Model;
-use YaangVu\SisModel\App\Models\Sat;
-use YaangVu\Constant\DbConnectionConstant;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Jenssegers\Mongodb\Eloquent\Model;
+use YaangVu\Constant\DbConnectionConstant;
+use YaangVu\SisModel\App\Models\Sat;
 
 class SatNoSql extends Model implements Sat
 {

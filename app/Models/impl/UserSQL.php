@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -19,7 +19,6 @@ use Spatie\Permission\Traits\HasRoles;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\Constant\StatusConstant;
-use YaangVu\SisModel\App\Models\ChatRoom;
 use YaangVu\SisModel\App\Models\ClassAssignment;
 use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\SQLModel;
@@ -30,21 +29,30 @@ use YaangVu\SisModel\App\Models\UserProgram;
 
 
 /**
- * YaangVu\SisModel\App\Models\UserSQL
+ * YaangVu\SisModel\App\Models\impl\UserSQL
  *
- * @property int                          $id
- * @property string                       $username
- * @property string|null                  $uuid
- * @property int|null                     $grade_id
- * @property int|null                     $division_id
- * @property int|null                     $created_by
- * @property Carbon|null                  $created_at
- * @property Carbon|null                  $updated_at
- * @property Carbon|null                  $deleted_at
- * @property-read Collection|Permission[] $permissions
- * @property-read int|null                $permissions_count
- * @property-read Collection|Role[]       $roles
- * @property-read int|null                $roles_count
+ * @property int                               $id
+ * @property string|null                       $uuid
+ * @property string|null                       $external_id
+ * @property string                            $username
+ * @property int|null                          $created_by
+ * @property Carbon|null                       $created_at
+ * @property Carbon|null                       $updated_at
+ * @property Carbon|null                       $deleted_at
+ * @property-read Collection<int, ChatRoomSQL> $chatRooms
+ * @property-read int|null                     $chat_rooms_count
+ * @property-read Collection<int, ClassSQL>    $classes
+ * @property-read int|null                     $classes_count
+ * @property-read Collection<int, UserSQL>     $parents
+ * @property-read int|null                     $parents_count
+ * @property-read Collection<int, Permission>  $permissions
+ * @property-read int|null                     $permissions_count
+ * @property-read Collection<int, ProgramSQL>  $programs
+ * @property-read int|null                     $programs_count
+ * @property-read Collection<int, Role>        $roles
+ * @property-read int|null                     $roles_count
+ * @property-read Collection<int, UserSQL>     $students
+ * @property-read int|null                     $students_count
  * @method static Builder|UserSQL newModelQuery()
  * @method static Builder|UserSQL newQuery()
  * @method static Builder|UserSQL onlyTrashed()
@@ -54,38 +62,24 @@ use YaangVu\SisModel\App\Models\UserProgram;
  * @method static Builder|UserSQL whereCreatedAt($value)
  * @method static Builder|UserSQL whereCreatedBy($value)
  * @method static Builder|UserSQL whereDeletedAt($value)
- * @method static Builder|UserSQL whereDivisionId($value)
- * @method static Builder|UserSQL whereGradeId($value)
+ * @method static Builder|UserSQL whereExternalId($value)
  * @method static Builder|UserSQL whereId($value)
  * @method static Builder|UserSQL whereUpdatedAt($value)
  * @method static Builder|UserSQL whereUsername($value)
+ * @method static Builder|UserSQL whereUuid($value)
  * @method static Builder|UserSQL withTrashed()
  * @method static Builder|UserSQL withoutTrashed()
  * @mixin Eloquent
- * @property string|null                  $external_id
- * @method static Builder|UserSQL whereExternalId($value)
- * @method static Builder|UserSQL whereUuid($value)
- * @property-read Collection|ClassSQL[]   $classes
- * @property-read int|null                $classes_count
- * @property-read UserNoSQL|null          $userNoSql
- * @property-read Collection|\YaangVu\SisModel\App\Models\impl\ChatRoomSQL[] $chatRooms
- * @property-read int|null $chat_rooms_count
- * @property-read Collection|UserSQL[] $parents
- * @property-read int|null $parents_count
- * @property-read Collection|\YaangVu\SisModel\App\Models\impl\ProgramSQL[] $programs
- * @property-read int|null $programs_count
- * @property-read Collection|UserSQL[] $students
- * @property-read int|null $students_count
  */
 class UserSQL extends Model implements User
 {
     use Authenticatable, Authorizable, HasFactory, HasRoles, SoftDeletes;
 
-    public string $code = CodeConstant::UUID;
-    protected $connection = DbConnectionConstant::SQL;
-    protected $table = self::table;
+    public string    $code       = CodeConstant::UUID;
+    protected        $connection = DbConnectionConstant::SQL;
+    protected        $table      = self::table;
     protected string $guard_name = 'api';
-    protected $fillable = ['username', CodeConstant::UUID];
+    protected        $fillable   = ['username', CodeConstant::UUID];
 
     public function userNoSql(): MBelongTo
     {

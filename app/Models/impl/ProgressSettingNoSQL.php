@@ -3,6 +3,7 @@
 namespace YaangVu\SisModel\App\Models\impl;
 
 use Jenssegers\Mongodb\Eloquent\Model;
+use Jenssegers\Mongodb\Relations\BelongsTo;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\ProgressSetting;
 
@@ -17,7 +18,7 @@ class ProgressSettingNoSQL extends Model implements ProgressSetting
 
     protected $guarded = [];
 
-    public function staff(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function staff(): \Illuminate\Database\Eloquent\Relations\BelongsTo|BelongsTo
     {
         return $this->belongsTo(UserNoSQL::class, 'staff_id', '_id');
     }

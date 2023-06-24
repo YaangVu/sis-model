@@ -12,6 +12,7 @@ use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Builder;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+use Jenssegers\Mongodb\Relations\hasOne;
 use Laravel\Lumen\Auth\Authorizable;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -21,7 +22,6 @@ use YaangVu\LaravelAws\S3Service;
 use YaangVu\SisModel\App\Models\SQLModel;
 use YaangVu\SisModel\App\Models\User;
 use YaangVu\SisModel\App\Providers\SchoolServiceProvider;
-use YaangVu\SisModel\App\Models\impl\IeltsNoSQL;
 
 
 /**
@@ -91,7 +91,7 @@ class UserNoSQL extends Model implements User
      *
      * @var array
      */
-    protected $hidden = ['password','sync_rocket_chat_at'];
+    protected $hidden = ['password', 'sync_rocket_chat_at'];
 
     protected $guarded = [];
 
@@ -280,7 +280,7 @@ class UserNoSQL extends Model implements User
         return $this->hasMany(ToeflNoSQL::class, 'student_code', 'student_code');
     }
 
-    public function school(): HasMany|\Jenssegers\Mongodb\Relations\hasOne
+    public function school(): HasMany|hasOne
     {
         return $this->hasOne(SchoolNoSQL::class, 'uuid', 'sc_id');
     }

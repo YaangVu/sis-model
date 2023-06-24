@@ -8,6 +8,7 @@ namespace YaangVu\SisModel\App\Models\impl;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Jenssegers\Mongodb\Eloquent\Model;
+use Jenssegers\Mongodb\Relations\BelongsTo;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Survey;
 
@@ -36,7 +37,7 @@ class SurveyNoSql extends Model implements Survey
 
     protected $guarded = [];
 
-    public function createdBy(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function createdBy(): \Illuminate\Database\Eloquent\Relations\BelongsTo|BelongsTo
     {
         return $this->belongsTo(UserNoSQL::class, 'create_by', '_id');
     }
