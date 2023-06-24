@@ -20,26 +20,26 @@ use YaangVu\SisModel\App\Models\School;
 /**
  * YaangVu\SisModel\App\Models\impl\SchoolSQL
  *
- * @property int                                                             $id
- * @property string|null                                                     $uuid
- * @property string|null                                                     $external_id
- * @property string                                                          $name
- * @property string|null                                                     $year_founded Năm thành lập
- * @property string|null                   $description
- * @property string|null                   $created_by
- * @property Carbon|null                   $created_at
- * @property Carbon|null                   $updated_at
- * @property Carbon|null                   $deleted_at
- * @property string|null                   $address
- * @property string|null                   $fax
- * @property string|null                   $principal
- * @property string|null                   $phone
- * @property string|null                   $timezone
- * @property-read Collection|ChatRoomSQL[] $chatRooms
- * @property-read int|null                 $chat_rooms_count
+ * @property int                               $id
+ * @property string|null                       $uuid
+ * @property string|null                       $external_id
+ * @property string                            $name
+ * @property string|null                       $year_founded Năm thành lập
+ * @property string|null                       $description
+ * @property string|null                       $created_by
+ * @property Carbon|null                       $created_at
+ * @property Carbon|null                       $updated_at
+ * @property Carbon|null                       $deleted_at
+ * @property string|null                       $address
+ * @property string|null                       $fax
+ * @property string|null                       $principal
+ * @property string|null                       $phone
+ * @property string|null                       $timezone
+ * @property-read Collection<int, ChatRoomSQL> $chatRooms
+ * @property-read int|null                     $chat_rooms_count
  * @method static Builder|SchoolSQL newModelQuery()
  * @method static Builder|SchoolSQL newQuery()
- * @method static \Illuminate\Database\Query\Builder|SchoolSQL onlyTrashed()
+ * @method static Builder|SchoolSQL onlyTrashed()
  * @method static Builder|SchoolSQL query()
  * @method static Builder|SchoolSQL whereAddress($value)
  * @method static Builder|SchoolSQL whereCreatedAt($value)
@@ -56,8 +56,8 @@ use YaangVu\SisModel\App\Models\School;
  * @method static Builder|SchoolSQL whereUpdatedAt($value)
  * @method static Builder|SchoolSQL whereUuid($value)
  * @method static Builder|SchoolSQL whereYearFounded($value)
- * @method static \Illuminate\Database\Query\Builder|SchoolSQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|SchoolSQL withoutTrashed()
+ * @method static Builder|SchoolSQL withTrashed()
+ * @method static Builder|SchoolSQL withoutTrashed()
  * @mixin Eloquent
  */
 class SchoolSQL extends Model implements School

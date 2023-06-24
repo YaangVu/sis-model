@@ -18,21 +18,21 @@ use YaangVu\SisModel\App\Models\Role;
 /**
  * YaangVu\SisModel\App\Models\impl\RoleSQL
  *
- * @property int                                                         $id
- * @property string                                                      $name
- * @property string                                                      $guard_name
- * @property string|null                  $group
- * @property Carbon|null                  $created_at
- * @property Carbon|null                  $updated_at
- * @property string                       $status
- * @property string|null                  $description
- * @property int|null                     $created_by
- * @property bool                         $is_mutable
- * @property int|null                     $priority
- * @property-read Collection|Permission[] $permissions
- * @property-read int|null                $permissions_count
- * @property-read Collection|UserSQL[]    $users
- * @property-read int|null                $users_count
+ * @property int                              $id
+ * @property string                           $name
+ * @property string                           $guard_name
+ * @property string|null                      $group
+ * @property Carbon|null                      $created_at
+ * @property Carbon|null                      $updated_at
+ * @property string                           $status
+ * @property string|null                      $description
+ * @property int|null                         $created_by
+ * @property bool                             $is_mutable
+ * @property int|null                         $priority
+ * @property-read Collection<int, Permission> $permissions
+ * @property-read int|null                    $permissions_count
+ * @property-read Collection<int, UserSQL>    $users
+ * @property-read int|null                    $users_count
  * @method static Builder|RoleSQL newModelQuery()
  * @method static Builder|RoleSQL newQuery()
  * @method static Builder|Role permission($permissions)

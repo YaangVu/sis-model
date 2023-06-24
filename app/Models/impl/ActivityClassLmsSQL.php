@@ -18,24 +18,40 @@ use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\SQLModel;
 
+
 /**
  * YaangVu\SisModel\App\Models\impl\ActivityClassLmsSQL
  *
- * @property int                                                                     $id
- * @property string                                $name
- * @property int|null                              $max_point
- * @property int|null                              $class_id
- * @property int                                   $class_activity_category_id
- * @property string|null                           $description
- * @property int                                   $school_id
- * @property string|null                           $uuid
- * @property int|null                              $created_by
- * @property Carbon|null                           $created_at
- * @property Carbon|null                           $updated_at
- * @property-read ClassSQL|null                    $class
- * @property-read ClassActivityCategorySQL         $classActivityCategory
- * @property-read Collection|ScoreActivityLmsSQL[] $scoreActivity
- * @property-read int|null                         $score_activity_count
+ * @property int
+ *           $id
+ * @property string
+ *           $name
+ * @property int|null
+ *           $max_point
+ * @property int|null
+ *           $class_id
+ * @property int
+ *           $class_activity_category_id
+ * @property string|null
+ *           $description
+ * @property int
+ *           $school_id
+ * @property string|null
+ *           $uuid
+ * @property int|null
+ *           $created_by
+ * @property Carbon|null
+ *           $created_at
+ * @property Carbon|null
+ *           $updated_at
+ * @property-read ClassSQL|null
+ *                $class
+ * @property-read ClassActivityCategorySQL
+ *                $classActivityCategory
+ * @property-read Collection<int, ScoreActivityLmsSQL>
+ *                $scoreActivity
+ * @property-read int|null
+ *                $score_activity_count
  * @method static Builder|ActivityClassLmsSQL newModelQuery()
  * @method static Builder|ActivityClassLmsSQL newQuery()
  * @method static Builder|ActivityClassLmsSQL query()

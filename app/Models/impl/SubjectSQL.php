@@ -15,18 +15,18 @@ use YaangVu\SisModel\App\Models\Subject;
 /**
  * YaangVu\SisModel\App\Models\impl\SubjectSQL
  *
- * @property int                                                        $id
- * @property string|null                                                $uuid subject id
- * @property string|null                                                $external_id
- * @property string                                                     $name
- * @property string                                                     $credit
- * @property string|null                                                $description
- * @property string|null                                                $status
- * @property int|null                                                   $grade_id
- * @property int|null                                                   $school_id
- * @property string|null                                                $weight
- * @property int|null                                                   $created_by
- * @property Carbon|null                                                $created_at
+ * @property int                      $id
+ * @property string|null              $uuid subject id
+ * @property string|null              $external_id
+ * @property string                   $name
+ * @property string                   $credit
+ * @property string|null              $description
+ * @property string|null              $status
+ * @property int|null                 $grade_id
+ * @property int|null                 $school_id
+ * @property string|null              $weight
+ * @property int|null                 $created_by
+ * @property Carbon|null              $created_at
  * @property Carbon|null              $updated_at
  * @property string|null              $deleted_at
  * @property string|null              $code

@@ -16,13 +16,13 @@ use YaangVu\SisModel\Database\Factories\AttendanceFactory;
 /**
  * YaangVu\SisModel\App\Models\impl\AttendanceSQL
  *
- * @property int                                                        $id
- * @property int|null                                                   $class_id
- * @property string                                                     $calendar_id
- * @property string|null                                                $user_uuid
- * @property int|null                                                   $user_id
- * @property string|null                                                $description
- * @property int|null                                                   $created_by
+ * @property int                      $id
+ * @property int|null                 $class_id
+ * @property string                   $calendar_id
+ * @property string|null              $user_uuid
+ * @property int|null                 $user_id
+ * @property string|null              $description
+ * @property int|null                 $created_by
  * @property Carbon|null              $created_at
  * @property Carbon|null              $updated_at
  * @property string|null              $status

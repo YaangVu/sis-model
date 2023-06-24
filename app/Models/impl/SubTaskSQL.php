@@ -15,16 +15,16 @@ use YaangVu\SisModel\App\Models\SubTask;
 /**
  * YaangVu\SisModel\App\Models\impl\SubTaskSQL
  *
- * @property int                                                   $id
- * @property string                                                $task_name
- * @property string|null                                           $type
- * @property string                                                $deadline
- * @property string|null                                           $file
- * @property int|null                                              $assignee_id
- * @property int|null                                              $reviewer_id
- * @property int|null                                              $created_by
- * @property string|null                                           $description
- * @property int|null                                            $owner_id
+ * @property int                 $id
+ * @property string              $task_name
+ * @property string|null         $type
+ * @property string              $deadline
+ * @property string|null         $file
+ * @property int|null            $assignee_id
+ * @property int|null            $reviewer_id
+ * @property int|null            $created_by
+ * @property string|null         $description
+ * @property int|null            $owner_id
  * @property string|null         $owner_id_no_sql
  * @property string|null         $assignee_id_no_sql
  * @property string|null         $reviewer_id_no_sql

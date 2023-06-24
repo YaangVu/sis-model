@@ -16,8 +16,8 @@ use YaangVu\SisModel\App\Models\Course;
 /**
  * YaangVu\SisModel\App\Models\impl\CourseSQL
  *
- * @property int                                                $id
- * @property string|null                                        $uuid course id
+ * @property int              $id
+ * @property string|null      $uuid course id
  * @property string|null      $external_id
  * @property string           $name
  * @property int|null         $lms_id
@@ -31,7 +31,7 @@ use YaangVu\SisModel\App\Models\Course;
  * @property-read LmsSQL|null $lms
  * @method static Builder|CourseSQL newModelQuery()
  * @method static Builder|CourseSQL newQuery()
- * @method static \Illuminate\Database\Query\Builder|CourseSQL onlyTrashed()
+ * @method static Builder|CourseSQL onlyTrashed()
  * @method static Builder|CourseSQL query()
  * @method static Builder|CourseSQL whereCreatedAt($value)
  * @method static Builder|CourseSQL whereCreatedBy($value)
@@ -45,8 +45,8 @@ use YaangVu\SisModel\App\Models\Course;
  * @method static Builder|CourseSQL whereUpdatedAt($value)
  * @method static Builder|CourseSQL whereUuid($value)
  * @method static Builder|CourseSQL whereWeight($value)
- * @method static \Illuminate\Database\Query\Builder|CourseSQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|CourseSQL withoutTrashed()
+ * @method static Builder|CourseSQL withTrashed()
+ * @method static Builder|CourseSQL withoutTrashed()
  * @mixin Eloquent
  */
 class CourseSQL extends Model implements Course

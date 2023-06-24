@@ -16,17 +16,17 @@ use YaangVu\SisModel\Database\Factories\GpaFactory;
 /**
  * YaangVu\SisModel\App\Models\impl\GpaSQL
  *
- * @property int                                            $id
- * @property int|null                                       $created_by
- * @property Carbon|null                                    $created_at
- * @property Carbon|null                                    $updated_at
- * @property string|null                                    $uuid
- * @property string|null                                    $external_id
- * @property int                                            $user_id
- * @property int                                            $term_id
- * @property int                                            $school_id
- * @property float                                          $learned_credit
- * @property float                                          $earned_credit
+ * @property int          $id
+ * @property int|null     $created_by
+ * @property Carbon|null  $created_at
+ * @property Carbon|null  $updated_at
+ * @property string|null  $uuid
+ * @property string|null  $external_id
+ * @property int          $user_id
+ * @property int          $term_id
+ * @property int          $school_id
+ * @property float        $learned_credit
+ * @property float        $earned_credit
  * @property float        $gpa
  * @property float        $bonus_gpa
  * @property int|null     $rank

@@ -6,7 +6,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Eloquent;
+use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,20 +23,20 @@ use YaangVu\SisModel\App\Models\UserChatRoom;
 /**
  * YaangVu\SisModel\App\Models\impl\ChatRoomSQL
  *
- * @property int                                                         $id
- * @property string|null                                                 $room_id
- * @property int|null                  $created_by
- * @property string|null               $type
- * @property Carbon|null               $created_at
- * @property Carbon|null               $updated_at
- * @property int|null                  $school_id
- * @property string|null               $name
- * @property string|null               $image
- * @property string|null               $uuid
- * @property string|null               $last_message
- * @property string|null               $last_message_at
- * @property-read Collection|UserSQL[] $users
- * @property-read int|null             $users_count
+ * @property int                           $id
+ * @property string|null                   $room_id
+ * @property int|null                      $created_by
+ * @property string|null                   $type
+ * @property Carbon|null                   $created_at
+ * @property Carbon|null                   $updated_at
+ * @property int|null                      $school_id
+ * @property string|null                   $name
+ * @property string|null                   $image
+ * @property string|null                   $uuid
+ * @property string|null                   $last_message
+ * @property string|null                   $last_message_at
+ * @property-read Collection<int, UserSQL> $users
+ * @property-read int|null                 $users_count
  * @method static Builder|ChatRoomSQL newModelQuery()
  * @method static Builder|ChatRoomSQL newQuery()
  * @method static Builder|ChatRoomSQL query()

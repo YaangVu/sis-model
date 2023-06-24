@@ -14,8 +14,8 @@ use YaangVu\SisModel\App\Models\ClassAssignment;
 /**
  * YaangVu\SisModel\App\Models\impl\ClassAssignmentSQL
  *
- * @property int                                             $id
- * @property string|null                                     $uuid
+ * @property int           $id
+ * @property string|null   $uuid
  * @property string|null   $external_id
  * @property int           $user_id
  * @property int           $class_id

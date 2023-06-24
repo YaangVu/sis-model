@@ -83,6 +83,7 @@ class ScoreSQL extends Model implements Score
             'is_pass',
             'real_weight',
             'grade',
+            'current_grade_letter'
         ];
 
     protected $connection = DbConnectionConstant::SQL;

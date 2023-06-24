@@ -19,7 +19,7 @@ use YaangVu\SisModel\App\Models\SQLModel;
 /**
  * YaangVu\SisModel\App\Models\impl\ScoreActivityLmsSQL
  *
- * @property int                                                             $id
+ * @property int                           $id
  * @property float|null                    $score
  * @property string|null                   $user_nosql_id
  * @property int                           $user_id

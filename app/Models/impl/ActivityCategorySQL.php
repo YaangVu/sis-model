@@ -28,7 +28,7 @@ use YaangVu\SisModel\App\Models\ActivityCategory;
  * @property int|null    $created_by
  * @method static Builder|ActivityCategorySQL newModelQuery()
  * @method static Builder|ActivityCategorySQL newQuery()
- * @method static \Illuminate\Database\Query\Builder|ActivityCategorySQL onlyTrashed()
+ * @method static Builder|ActivityCategorySQL onlyTrashed()
  * @method static Builder|ActivityCategorySQL query()
  * @method static Builder|ActivityCategorySQL whereCreatedAt($value)
  * @method static Builder|ActivityCategorySQL whereCreatedBy($value)
@@ -41,8 +41,8 @@ use YaangVu\SisModel\App\Models\ActivityCategory;
  * @method static Builder|ActivityCategorySQL whereUpdatedAt($value)
  * @method static Builder|ActivityCategorySQL whereUuid($value)
  * @method static Builder|ActivityCategorySQL whereWeight($value)
- * @method static \Illuminate\Database\Query\Builder|ActivityCategorySQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|ActivityCategorySQL withoutTrashed()
+ * @method static Builder|ActivityCategorySQL withTrashed()
+ * @method static Builder|ActivityCategorySQL withoutTrashed()
  * @mixin Eloquent
  */
 class ActivityCategorySQL extends Model implements ActivityCategory

@@ -17,24 +17,24 @@ use YaangVu\SisModel\App\Models\ClassActivityCategory;
 /**
  * YaangVu\SisModel\App\Models\impl\ClassActivityCategorySQL
  *
- * @property int                                                                     $id
- * @property string                                                                  $name
- * @property string                                                                  $weight
- * @property string|null                           $description
- * @property string|null                           $uuid
- * @property string|null                           $external_id
- * @property int|null                              $activity_category_id
- * @property int                                   $class_id
- * @property Carbon|null                           $created_at
- * @property Carbon|null                           $updated_at
- * @property Carbon|null                           $deleted_at
- * @property bool|null                             $is_default
- * @property float|null                            $max_point
- * @property-read Collection|ActivityClassLmsSQL[] $activityClassLms
- * @property-read int|null                         $activity_class_lms_count
+ * @property int                                       $id
+ * @property string                                    $name
+ * @property string                                    $weight
+ * @property string|null                               $description
+ * @property string|null                               $uuid
+ * @property string|null                               $external_id
+ * @property int|null                                  $activity_category_id
+ * @property int                                       $class_id
+ * @property Carbon|null                               $created_at
+ * @property Carbon|null                               $updated_at
+ * @property Carbon|null                               $deleted_at
+ * @property bool|null                                 $is_default
+ * @property float|null                                $max_point
+ * @property-read Collection<int, ActivityClassLmsSQL> $activityClassLms
+ * @property-read int|null                             $activity_class_lms_count
  * @method static Builder|ClassActivityCategorySQL newModelQuery()
  * @method static Builder|ClassActivityCategorySQL newQuery()
- * @method static \Illuminate\Database\Query\Builder|ClassActivityCategorySQL onlyTrashed()
+ * @method static Builder|ClassActivityCategorySQL onlyTrashed()
  * @method static Builder|ClassActivityCategorySQL query()
  * @method static Builder|ClassActivityCategorySQL whereActivityCategoryId($value)
  * @method static Builder|ClassActivityCategorySQL whereClassId($value)
@@ -49,8 +49,8 @@ use YaangVu\SisModel\App\Models\ClassActivityCategory;
  * @method static Builder|ClassActivityCategorySQL whereUpdatedAt($value)
  * @method static Builder|ClassActivityCategorySQL whereUuid($value)
  * @method static Builder|ClassActivityCategorySQL whereWeight($value)
- * @method static \Illuminate\Database\Query\Builder|ClassActivityCategorySQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|ClassActivityCategorySQL withoutTrashed()
+ * @method static Builder|ClassActivityCategorySQL withTrashed()
+ * @method static Builder|ClassActivityCategorySQL withoutTrashed()
  * @mixin Eloquent
  */
 class ClassActivityCategorySQL extends Model implements ClassActivityCategory

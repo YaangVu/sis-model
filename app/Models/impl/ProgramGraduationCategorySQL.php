@@ -16,20 +16,20 @@ use YaangVu\SisModel\App\Models\ProgramGraduationCategory;
 /**
  * YaangVu\SisModel\App\Models\impl\ProgramGraduationCategorySQL
  *
- * @property int                                     $id
- * @property string|null                             $uuid
- * @property string|null                             $external_id
- * @property int|null                                $program_id
- * @property int|null                                $graduation_category_id
- * @property float|null                              $credit
- * @property int|null                                $created_by
- * @property Carbon|null                             $created_at
- * @property Carbon|null                             $updated_at
- * @property string|null                             $deleted_at
- * @property-read Collection|GraduationCategorySQL[] $graduationCategories
- * @property-read int|null                           $graduation_categories_count
- * @property-read Collection|ProgramSQL[]            $programs
- * @property-read int|null                           $programs_count
+ * @property int                                         $id
+ * @property string|null                                 $uuid
+ * @property string|null                                 $external_id
+ * @property int|null                                    $program_id
+ * @property int|null                                    $graduation_category_id
+ * @property float|null                                  $credit
+ * @property int|null                                    $created_by
+ * @property Carbon|null                                 $created_at
+ * @property Carbon|null                                 $updated_at
+ * @property string|null                                 $deleted_at
+ * @property-read Collection<int, GraduationCategorySQL> $graduationCategories
+ * @property-read int|null                               $graduation_categories_count
+ * @property-read Collection<int, ProgramSQL>            $programs
+ * @property-read int|null                               $programs_count
  * @method static Builder|ProgramGraduationCategorySQL newModelQuery()
  * @method static Builder|ProgramGraduationCategorySQL newQuery()
  * @method static Builder|ProgramGraduationCategorySQL query()

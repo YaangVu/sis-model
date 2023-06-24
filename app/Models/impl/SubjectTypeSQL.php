@@ -29,7 +29,7 @@ use YaangVu\SisModel\App\Models\SubjectType;
  * @property-read SchoolSQL $school
  * @method static Builder|SubjectTypeSQL newModelQuery()
  * @method static Builder|SubjectTypeSQL newQuery()
- * @method static \Illuminate\Database\Query\Builder|SubjectTypeSQL onlyTrashed()
+ * @method static Builder|SubjectTypeSQL onlyTrashed()
  * @method static Builder|SubjectTypeSQL query()
  * @method static Builder|SubjectTypeSQL whereCreatedAt($value)
  * @method static Builder|SubjectTypeSQL whereCreatedBy($value)
@@ -38,8 +38,8 @@ use YaangVu\SisModel\App\Models\SubjectType;
  * @method static Builder|SubjectTypeSQL whereName($value)
  * @method static Builder|SubjectTypeSQL whereSchoolId($value)
  * @method static Builder|SubjectTypeSQL whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|SubjectTypeSQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|SubjectTypeSQL withoutTrashed()
+ * @method static Builder|SubjectTypeSQL withTrashed()
+ * @method static Builder|SubjectTypeSQL withoutTrashed()
  * @mixin Eloquent
  */
 class SubjectTypeSQL extends Model implements SubjectType

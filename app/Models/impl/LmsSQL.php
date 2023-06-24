@@ -26,7 +26,7 @@ use YaangVu\SisModel\App\Models\Lms;
  * @property Carbon|null $deleted_at
  * @method static Builder|LmsSQL newModelQuery()
  * @method static Builder|LmsSQL newQuery()
- * @method static \Illuminate\Database\Query\Builder|LmsSQL onlyTrashed()
+ * @method static Builder|LmsSQL onlyTrashed()
  * @method static Builder|LmsSQL query()
  * @method static Builder|LmsSQL whereCreatedAt($value)
  * @method static Builder|LmsSQL whereCreatedBy($value)
@@ -37,8 +37,8 @@ use YaangVu\SisModel\App\Models\Lms;
  * @method static Builder|LmsSQL whereName($value)
  * @method static Builder|LmsSQL whereUpdatedAt($value)
  * @method static Builder|LmsSQL whereUuid($value)
- * @method static \Illuminate\Database\Query\Builder|LmsSQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|LmsSQL withoutTrashed()
+ * @method static Builder|LmsSQL withTrashed()
+ * @method static Builder|LmsSQL withoutTrashed()
  * @mixin Eloquent
  */
 class LmsSQL extends Model implements Lms

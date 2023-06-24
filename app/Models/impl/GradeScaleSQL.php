@@ -17,29 +17,29 @@ use YaangVu\SisModel\App\Models\GradeScale;
 /**
  * YaangVu\SisModel\App\Models\impl\GradeScaleSQL
  *
- * @property int                                                                $id
- * @property string|null                                                        $uuid
- * @property string|null                                                        $external_id
- * @property string                                                             $name
- * @property string|null                                                        $description
- * @property float|null                                                         $score_to_pass
- * @property bool                             $is_calculate_gpa
- * @property int|null                         $school_id
- * @property int|null                         $created_by
- * @property Carbon|null                      $created_at
- * @property Carbon|null                      $updated_at
- * @property Carbon|null                      $deleted_at
- * @property float|null                       $extra_point_honor    Extra points for
- *           honor class
- * @property float|null                       $extra_point_advanced Extra points for
- *           advanced class
- * @property-read Collection|GradeLetterSQL[] $gradeLetters
- * @property-read int|null                    $grade_letters_count
- * @property-read Collection|SubjectSQL[]     $subjects
- * @property-read int|null                    $subjects_count
+ * @property int                                  $id
+ * @property string|null                          $uuid
+ * @property string|null                          $external_id
+ * @property string                               $name
+ * @property string|null                          $description
+ * @property float|null                           $score_to_pass
+ * @property bool                                 $is_calculate_gpa
+ * @property int|null                             $school_id
+ * @property int|null                             $created_by
+ * @property Carbon|null                          $created_at
+ * @property Carbon|null                          $updated_at
+ * @property Carbon|null                          $deleted_at
+ * @property float|null                           $extra_point_honor    Extra points
+ *           for honor class
+ * @property float|null                           $extra_point_advanced Extra points
+ *           for advanced class
+ * @property-read Collection<int, GradeLetterSQL> $gradeLetters
+ * @property-read int|null                        $grade_letters_count
+ * @property-read Collection<int, SubjectSQL>     $subjects
+ * @property-read int|null                        $subjects_count
  * @method static Builder|GradeScaleSQL newModelQuery()
  * @method static Builder|GradeScaleSQL newQuery()
- * @method static \Illuminate\Database\Query\Builder|GradeScaleSQL onlyTrashed()
+ * @method static Builder|GradeScaleSQL onlyTrashed()
  * @method static Builder|GradeScaleSQL query()
  * @method static Builder|GradeScaleSQL whereCreatedAt($value)
  * @method static Builder|GradeScaleSQL whereCreatedBy($value)
@@ -55,8 +55,8 @@ use YaangVu\SisModel\App\Models\GradeScale;
  * @method static Builder|GradeScaleSQL whereScoreToPass($value)
  * @method static Builder|GradeScaleSQL whereUpdatedAt($value)
  * @method static Builder|GradeScaleSQL whereUuid($value)
- * @method static \Illuminate\Database\Query\Builder|GradeScaleSQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|GradeScaleSQL withoutTrashed()
+ * @method static Builder|GradeScaleSQL withTrashed()
+ * @method static Builder|GradeScaleSQL withoutTrashed()
  * @mixin Eloquent
  */
 class GradeScaleSQL extends Model implements GradeScale

@@ -19,11 +19,11 @@ use YaangVu\SisModel\App\Models\SmsParticipant;
 /**
  * YaangVu\SisModel\App\Models\impl\SmsParticipantSQL
  *
- * @property int                                                       $id
- * @property string|null                                               $user_uuid
- * @property string|null                                               $user_id
- * @property string|null                                               $phone_number
- * @property string|null                                               $status
+ * @property int                     $id
+ * @property string|null             $user_uuid
+ * @property string|null             $user_id
+ * @property string|null             $phone_number
+ * @property string|null             $status
  * @property string|null             $template_id
  * @property string|null             $external_id
  * @property string|null             $created_by

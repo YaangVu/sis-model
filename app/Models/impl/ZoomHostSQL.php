@@ -17,8 +17,8 @@ use YaangVu\SisModel\App\Models\ZoomHost;
 /**
  * YaangVu\SisModel\App\Models\impl\ZoomHostSQL
  *
- * @property int                                                        $id
- * @property string                                                     $host_id
+ * @property int                      $id
+ * @property string                   $host_id
  * @property string|null              $uuid
  * @property string                   $first_name
  * @property string                   $last_name

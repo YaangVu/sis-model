@@ -16,11 +16,11 @@ use YaangVu\SisModel\Database\Factories\CpaFactory;
 /**
  * YaangVu\SisModel\App\Models\impl\CpaSQL
  *
- * @property int                                            $id
- * @property int|null                                       $created_by
- * @property Carbon|null                                    $created_at
- * @property Carbon|null                                    $updated_at
- * @property string|null                                    $uuid
+ * @property int          $id
+ * @property int|null     $created_by
+ * @property Carbon|null  $created_at
+ * @property Carbon|null  $updated_at
+ * @property string|null  $uuid
  * @property string|null  $external_id
  * @property int          $user_id
  * @property int          $school_id

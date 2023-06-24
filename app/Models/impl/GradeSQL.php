@@ -28,7 +28,7 @@ use YaangVu\SisModel\App\Models\Grade;
  * @property int|null    $index
  * @method static Builder|GradeSQL newModelQuery()
  * @method static Builder|GradeSQL newQuery()
- * @method static \Illuminate\Database\Query\Builder|GradeSQL onlyTrashed()
+ * @method static Builder|GradeSQL onlyTrashed()
  * @method static Builder|GradeSQL query()
  * @method static Builder|GradeSQL whereCreatedAt($value)
  * @method static Builder|GradeSQL whereCreatedBy($value)
@@ -41,8 +41,8 @@ use YaangVu\SisModel\App\Models\Grade;
  * @method static Builder|GradeSQL whereSchoolId($value)
  * @method static Builder|GradeSQL whereUpdatedAt($value)
  * @method static Builder|GradeSQL whereUuid($value)
- * @method static \Illuminate\Database\Query\Builder|GradeSQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|GradeSQL withoutTrashed()
+ * @method static Builder|GradeSQL withTrashed()
+ * @method static Builder|GradeSQL withoutTrashed()
  * @mixin Eloquent
  */
 class GradeSQL extends Model implements Grade

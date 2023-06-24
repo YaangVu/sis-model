@@ -17,25 +17,25 @@ use YaangVu\SisModel\App\Models\Program;
 /**
  * YaangVu\SisModel\App\Models\impl\ProgramSQL
  *
- * @property int                                                                       $id
- * @property string|null                                                               $uuid
- * @property string|null                                                               $external_id
- * @property string                                                                    $name
- * @property string|null                             $description
- * @property string                                  $status
- * @property int|null                                $school_id
- * @property int|null                                $created_by
- * @property Carbon|null                             $created_at
- * @property Carbon|null                             $updated_at
- * @property Carbon|null                             $deleted_at
- * @property string|null                             $report_template
- * @property string|null                             $transcript_template
- * @property string|null                             $status_student_program
- * @property-read Collection|GraduationCategorySQL[] $graduationCategories
- * @property-read int|null                           $graduation_categories_count
+ * @property int                                         $id
+ * @property string|null                                 $uuid
+ * @property string|null                                 $external_id
+ * @property string                                      $name
+ * @property string|null                                 $description
+ * @property string                                      $status
+ * @property int|null                                    $school_id
+ * @property int|null                                    $created_by
+ * @property Carbon|null                                 $created_at
+ * @property Carbon|null                                 $updated_at
+ * @property Carbon|null                                 $deleted_at
+ * @property string|null                                 $report_template
+ * @property string|null                                 $transcript_template
+ * @property string|null                                 $status_student_program
+ * @property-read Collection<int, GraduationCategorySQL> $graduationCategories
+ * @property-read int|null                               $graduation_categories_count
  * @method static Builder|ProgramSQL newModelQuery()
  * @method static Builder|ProgramSQL newQuery()
- * @method static \Illuminate\Database\Query\Builder|ProgramSQL onlyTrashed()
+ * @method static Builder|ProgramSQL onlyTrashed()
  * @method static Builder|ProgramSQL query()
  * @method static Builder|ProgramSQL whereCreatedAt($value)
  * @method static Builder|ProgramSQL whereCreatedBy($value)
@@ -51,8 +51,8 @@ use YaangVu\SisModel\App\Models\Program;
  * @method static Builder|ProgramSQL whereTranscriptTemplate($value)
  * @method static Builder|ProgramSQL whereUpdatedAt($value)
  * @method static Builder|ProgramSQL whereUuid($value)
- * @method static \Illuminate\Database\Query\Builder|ProgramSQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|ProgramSQL withoutTrashed()
+ * @method static Builder|ProgramSQL withTrashed()
+ * @method static Builder|ProgramSQL withoutTrashed()
  * @mixin Eloquent
  */
 class ProgramSQL extends Model implements Program

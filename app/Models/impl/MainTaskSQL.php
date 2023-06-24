@@ -17,21 +17,21 @@ use YaangVu\SisModel\App\Models\MongoModel;
 /**
  * YaangVu\SisModel\App\Models\impl\MainTaskSQL
  *
- * @property int                                                            $id
- * @property string                       $project_name
- * @property int                          $owner_id
- * @property string|null                  $type
- * @property string|null                  $owner_id_no_sql
- * @property string|null                  $short_description
- * @property int|null                     $created_by
- * @property Carbon|null                  $created_at
- * @property Carbon|null                  $updated_at
- * @property string|null                  $school_id
- * @property int|null                     $task_status_id
- * @property-read UserSQL|null            $ownerMainTaskSql
- * @property-read UserNoSQL|null          $ownerMainTasks
- * @property-read Collection|SubTaskSQL[] $subtasks
- * @property-read int|null                $subtasks_count
+ * @property int                              $id
+ * @property string                           $project_name
+ * @property int                              $owner_id
+ * @property string|null                      $type
+ * @property string|null                      $owner_id_no_sql
+ * @property string|null                      $short_description
+ * @property int|null                         $created_by
+ * @property Carbon|null                      $created_at
+ * @property Carbon|null                      $updated_at
+ * @property string|null                      $school_id
+ * @property int|null                         $task_status_id
+ * @property-read UserSQL|null                $ownerMainTaskSql
+ * @property-read UserNoSQL|null              $ownerMainTasks
+ * @property-read Collection<int, SubTaskSQL> $subtasks
+ * @property-read int|null                    $subtasks_count
  * @method static Builder|MainTaskSQL newModelQuery()
  * @method static Builder|MainTaskSQL newQuery()
  * @method static Builder|MainTaskSQL query()

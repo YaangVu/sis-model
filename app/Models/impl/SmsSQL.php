@@ -19,17 +19,17 @@ use YaangVu\SisModel\App\Models\Sms;
 /**
  * YaangVu\SisModel\App\Models\impl\SmsSQL
  *
- * @property int                                 $id
- * @property string|null                         $template_id
- * @property string|null                         $count_user
- * @property int|null                            $created_by
- * @property Carbon|null                         $created_at
- * @property Carbon|null                         $updated_at
- * @property string|null                         $title
- * @property string|null                         $school_id
- * @property string|null                         $content
- * @property-read Collection|SmsParticipantSQL[] $smsParticipants
- * @property-read int|null                       $sms_participants_count
+ * @property int                                     $id
+ * @property string|null                             $template_id
+ * @property string|null                             $count_user
+ * @property int|null                                $created_by
+ * @property Carbon|null                             $created_at
+ * @property Carbon|null                             $updated_at
+ * @property string|null                             $title
+ * @property string|null                             $school_id
+ * @property string|null                             $content
+ * @property-read Collection<int, SmsParticipantSQL> $smsParticipants
+ * @property-read int|null                           $sms_participants_count
  * @method static Builder|SmsSQL newModelQuery()
  * @method static Builder|SmsSQL newQuery()
  * @method static Builder|SmsSQL query()

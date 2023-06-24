@@ -39,5 +39,5 @@ class UserChatRoomSQL extends Model implements UserChatRoom
 
     protected $table = self::table;
 
-    protected $fillable = ['user_id', 'chat_room_id'];
+    protected $fillable = ['user_id', 'chat_room_id', 'unread'];
 }

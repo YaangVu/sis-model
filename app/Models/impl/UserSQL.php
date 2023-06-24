@@ -31,31 +31,31 @@ use YaangVu\SisModel\App\Models\UserProgram;
 /**
  * YaangVu\SisModel\App\Models\impl\UserSQL
  *
- * @property int                           $id
- * @property string|null                   $uuid
- * @property string|null                   $external_id
- * @property string                        $username
- * @property int|null                      $created_by
- * @property Carbon|null                   $created_at
- * @property Carbon|null                   $updated_at
- * @property Carbon|null                   $deleted_at
- * @property-read Collection|ChatRoomSQL[] $chatRooms
- * @property-read int|null                 $chat_rooms_count
- * @property-read Collection|ClassSQL[]    $classes
- * @property-read int|null                 $classes_count
- * @property-read Collection|UserSQL[]     $parents
- * @property-read int|null                 $parents_count
- * @property-read Collection|Permission[]  $permissions
- * @property-read int|null                 $permissions_count
- * @property-read Collection|ProgramSQL[]  $programs
- * @property-read int|null                 $programs_count
- * @property-read Collection|Role[]        $roles
- * @property-read int|null                                                   $roles_count
- * @property-read Collection|UserSQL[]                                       $students
- * @property-read int|null                                                   $students_count
+ * @property int                               $id
+ * @property string|null                       $uuid
+ * @property string|null                       $external_id
+ * @property string                            $username
+ * @property int|null                          $created_by
+ * @property Carbon|null                       $created_at
+ * @property Carbon|null                       $updated_at
+ * @property Carbon|null                       $deleted_at
+ * @property-read Collection<int, ChatRoomSQL> $chatRooms
+ * @property-read int|null                     $chat_rooms_count
+ * @property-read Collection<int, ClassSQL>    $classes
+ * @property-read int|null                     $classes_count
+ * @property-read Collection<int, UserSQL>     $parents
+ * @property-read int|null                     $parents_count
+ * @property-read Collection<int, Permission>  $permissions
+ * @property-read int|null                     $permissions_count
+ * @property-read Collection<int, ProgramSQL>  $programs
+ * @property-read int|null                     $programs_count
+ * @property-read Collection<int, Role>        $roles
+ * @property-read int|null                     $roles_count
+ * @property-read Collection<int, UserSQL>     $students
+ * @property-read int|null                     $students_count
  * @method static Builder|UserSQL newModelQuery()
  * @method static Builder|UserSQL newQuery()
- * @method static \Illuminate\Database\Query\Builder|UserSQL onlyTrashed()
+ * @method static Builder|UserSQL onlyTrashed()
  * @method static Builder|UserSQL permission($permissions)
  * @method static Builder|UserSQL query()
  * @method static Builder|UserSQL role($roles, $guard = null)
@@ -67,8 +67,8 @@ use YaangVu\SisModel\App\Models\UserProgram;
  * @method static Builder|UserSQL whereUpdatedAt($value)
  * @method static Builder|UserSQL whereUsername($value)
  * @method static Builder|UserSQL whereUuid($value)
- * @method static \Illuminate\Database\Query\Builder|UserSQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|UserSQL withoutTrashed()
+ * @method static Builder|UserSQL withTrashed()
+ * @method static Builder|UserSQL withoutTrashed()
  * @mixin Eloquent
  */
 class UserSQL extends Model implements User

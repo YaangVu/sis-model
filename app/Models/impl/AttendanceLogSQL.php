@@ -16,15 +16,16 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\AttendanceLog;
 use YaangVu\SisModel\App\Models\MongoModel;
 
+
 /**
  * YaangVu\SisModel\App\Models\impl\AttendanceLogSQL
  *
- * @property int                                                        $id
- * @property string|null                                                $email
- * @property string|null                                                $participant_display_name
- * @property string|null                                                $join_time
- * @property string|null                                                $leave_time
- * @property string|null                                                $status
+ * @property int                      $id
+ * @property string|null              $email
+ * @property string|null              $participant_display_name
+ * @property string|null              $join_time
+ * @property string|null              $leave_time
+ * @property string|null              $status
  * @property int|null                 $created_by
  * @property Carbon|null              $created_at
  * @property Carbon|null              $updated_at

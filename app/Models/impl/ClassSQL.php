@@ -25,50 +25,48 @@ use YaangVu\SisModel\App\Models\SQLModel;
 /**
  * YaangVu\SisModel\App\Models\impl\ClassSQL
  *
- * @property int                                                                          $id
- * @property string|null                                                                  $uuid class id
- * @property string|null                                                                  $external_id
- * @property string                                                                       $name
- * @property string|null                                                                  $start_date
- * @property string|null                                                                  $end_date
- * @property string|null                                                                  $status
- * @property float|null                                                                   $credit
- * @property string|null                                                                  $description
- * @property string|null                                                                  $zone
- * @property int|null                                                                     $subject_id
- * @property int|null                                                                     $term_id
- * @property int|null                                   $course_id
- * @property int|null                                   $school_id
- * @property int|null                                   $lms_id
- * @property int|null                                   $created_by
- * @property Carbon|null                                $created_at
- * @property Carbon|null                                $updated_at
- * @property Carbon|null                                $deleted_at
- * @property bool|null                                  $is_transfer_school
- * @property string|null                                $transfer_school_information
- * @property string|null                                $transfer_school_note
- * @property-read Collection|AttendanceSQL[]            $attendances
- * @property-read int|null                              $attendances_count
- * @property-read Collection|ClassActivityCategorySQL[] $classActivityCategories
- * @property-read int|null
- *                $class_activity_categories_count
- * @property-read ClassNoSQL|null                       $classNoSql
- * @property-read CourseSQL|null                        $course
- * @property-read GraduationCategorySQL|null            $graduationCategories
- * @property-read LmsSQL|null                           $lms
- * @property-read Collection|ClassAssignmentSQL[]       $students
- * @property-read int|null                              $students_count
- * @property-read SubjectSQL|null                                              $subject
- * @property-read Collection|ClassAssignmentSQL[]                              $teacherOfClassAssignment
- * @property-read int|null
- *                $teacher_of_class_assignment_count
- * @property-read Collection|ClassAssignmentSQL[]                                         $teachers
- * @property-read int|null                                                                $teachers_count
- * @property-read TermSQL|null                                                            $terms
- * @property-read UserSQL|null                                                            $user
+ * @property int                                            $id
+ * @property string|null                                    $uuid class id
+ * @property string|null                                    $external_id
+ * @property string                                         $name
+ * @property string|null                                    $start_date
+ * @property string|null                                    $end_date
+ * @property string|null                                    $status
+ * @property float|null                                     $credit
+ * @property string|null                                    $description
+ * @property string|null                                    $zone
+ * @property int|null                                       $subject_id
+ * @property int|null                                       $term_id
+ * @property int|null                                       $course_id
+ * @property int|null                                       $school_id
+ * @property int|null                                       $lms_id
+ * @property int|null                                       $created_by
+ * @property Carbon|null                                    $created_at
+ * @property Carbon|null                                    $updated_at
+ * @property Carbon|null                                    $deleted_at
+ * @property bool|null                                      $is_transfer_school
+ * @property string|null                                    $transfer_school_information
+ * @property string|null                                    $transfer_school_note
+ * @property-read Collection<int, AttendanceSQL>            $attendances
+ * @property-read int|null                                  $attendances_count
+ * @property-read Collection<int, ClassActivityCategorySQL> $classActivityCategories
+ * @property-read int|null                                  $class_activity_categories_count
+ * @property-read ClassNoSQL|null                           $classNoSql
+ * @property-read CourseSQL|null                            $course
+ * @property-read GraduationCategorySQL|null                $graduationCategories
+ * @property-read LmsSQL|null                               $lms
+ * @property-read Collection<int, ClassAssignmentSQL>       $students
+ * @property-read int|null                                  $students_count
+ * @property-read SubjectSQL|null                           $subject
+ * @property-read Collection<int, ClassAssignmentSQL>       $teacherOfClassAssignment
+ * @property-read int|null                                  $teacher_of_class_assignment_count
+ * @property-read Collection<int, ClassAssignmentSQL>       $teachers
+ * @property-read int|null                                  $teachers_count
+ * @property-read TermSQL|null                              $terms
+ * @property-read UserSQL|null                              $user
  * @method static Builder|ClassSQL newModelQuery()
  * @method static Builder|ClassSQL newQuery()
- * @method static \Illuminate\Database\Query\Builder|ClassSQL onlyTrashed()
+ * @method static Builder|ClassSQL onlyTrashed()
  * @method static Builder|ClassSQL query()
  * @method static Builder|ClassSQL whereCourseId($value)
  * @method static Builder|ClassSQL whereCreatedAt($value)
@@ -92,8 +90,8 @@ use YaangVu\SisModel\App\Models\SQLModel;
  * @method static Builder|ClassSQL whereUpdatedAt($value)
  * @method static Builder|ClassSQL whereUuid($value)
  * @method static Builder|ClassSQL whereZone($value)
- * @method static \Illuminate\Database\Query\Builder|ClassSQL withTrashed()
- * @method static \Illuminate\Database\Query\Builder|ClassSQL withoutTrashed()
+ * @method static Builder|ClassSQL withTrashed()
+ * @method static Builder|ClassSQL withoutTrashed()
  * @mixin Eloquent
  */
 class ClassSQL extends Model implements Clazz
