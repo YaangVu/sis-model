@@ -85,6 +85,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|ScoreView whereFinalGradePoint($value)
  * @property string|null      $extra_point
  * @method static Builder|ScoreView whereExtraPoint($value)
+ * @property string|null $graduation_category_id
+ * @method static Builder|ScoreView whereGraduationCategoryId($value)
  */
 class ScoreView extends Model
 {
