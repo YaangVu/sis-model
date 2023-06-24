@@ -61,7 +61,8 @@ class AddMoreFieldsScoreView extends Migration
                 gs.id AS grade_scale_id,
                 gl.gpa,
                 g.id,
-                g.name AS grade_name
+                g.name AS grade_name,
+                gcs.graduation_category_id
                 FROM scores sc
                  LEFT JOIN classes c ON c.id = sc.class_id
                  LEFT JOIN users u ON u.id = sc.user_id
