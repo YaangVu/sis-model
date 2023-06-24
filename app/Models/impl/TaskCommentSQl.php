@@ -3,23 +3,41 @@
 namespace YaangVu\SisModel\App\Models\impl;
 
 use App\Models\Category;
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Comment;
 
 /**
- * Class TaskCommentSQl
- * @author  haidn <haidn@toprate.io>
+ * YaangVu\SisModel\App\Models\impl\TaskCommentSQl
+ *
+ * @property int                  $id
+ * @property string               $name
+ * @property string|null          $avatar
+ * @property int|null             $created_by
+ * @property string|null          $content
+ * @property int|null             $sub_task_id
+ * @property Carbon|null          $created_at
+ * @property Carbon|null          $updated_at
+ * @property int|null             $main_task_id
+ * @property-read SubTaskSQL|null $TaskComments
+ * @method static Builder|TaskCommentSQl newModelQuery()
+ * @method static Builder|TaskCommentSQl newQuery()
+ * @method static Builder|TaskCommentSQl query()
+ * @method static Builder|TaskCommentSQl whereAvatar($value)
+ * @method static Builder|TaskCommentSQl whereContent($value)
+ * @method static Builder|TaskCommentSQl whereCreatedAt($value)
+ * @method static Builder|TaskCommentSQl whereCreatedBy($value)
+ * @method static Builder|TaskCommentSQl whereId($value)
+ * @method static Builder|TaskCommentSQl whereMainTaskId($value)
+ * @method static Builder|TaskCommentSQl whereName($value)
+ * @method static Builder|TaskCommentSQl whereSubTaskId($value)
+ * @method static Builder|TaskCommentSQl whereUpdatedAt($value)
  * @mixin Eloquent
- * @property int         $id
- * @property string|null $name
- * @property string      $avatar
- * @property string      $content
- * @property int         $sub_task_id
- * @package YaangVu\SisModel\App\Models\impl
  */
 class TaskCommentSQl extends Model implements Comment
 {

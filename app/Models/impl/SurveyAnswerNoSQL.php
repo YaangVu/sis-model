@@ -9,6 +9,7 @@ namespace YaangVu\SisModel\App\Models\impl;
 use Carbon\Carbon;
 use Jenssegers\Mongodb\Eloquent\Builder;
 use Jenssegers\Mongodb\Eloquent\Model;
+use Jenssegers\Mongodb\Relations\BelongsTo;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\SurveyAnswer;
 
@@ -42,12 +43,12 @@ class SurveyAnswerNoSQL extends Model implements SurveyAnswer
 
     protected $guarded = [];
 
-    public function createdBy(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function createdBy(): \Illuminate\Database\Eloquent\Relations\BelongsTo|BelongsTo
     {
         return $this->belongsTo(UserSQL::class, 'created_by', 'id');
     }
 
-    public function survey(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\Jenssegers\Mongodb\Relations\BelongsTo
+    public function survey(): \Illuminate\Database\Eloquent\Relations\BelongsTo|BelongsTo
     {
         return $this->belongsTo(SurveyNoSql::class, 'survey_id', '_id');
     }

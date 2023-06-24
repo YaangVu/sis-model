@@ -6,8 +6,9 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -20,40 +21,36 @@ use YaangVu\SisModel\App\Models\SQLModel;
 /**
  * YaangVu\SisModel\App\Models\impl\ActivityClassLmsSQL
  *
- * @property int         $id
- * @property string|null $name
- * @property string|null $description
- * @property int|null    $school_id
- * @property int|null    $max_point
- * @property int|null    $class_id
- * @property int|null    $class_activity_category_id
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $deleted_at
- * @method static Builder|CalendarSQL newModelQuery()
- * @method static Builder|CalendarSQL newQuery()
- * @method static Builder|CalendarSQL query()
- * @method static Builder|CalendarSQL whereCreatedAt($value)
- * @method static Builder|CalendarSQL whereCreatedBy($value)
- * @method static Builder|CalendarSQL whereDeletedAt($value)
- * @method static Builder|CalendarSQL whereDescription($value)
- * @method static Builder|CalendarSQL whereId($value)
- * @method static Builder|CalendarSQL whereName($value)
- * @method static Builder|CalendarSQL whereMaxPoint($value)
- * @method static Builder|CalendarSQL whereClassId($value)
- * @method static Builder|CalendarSQL whereClassActivityCategoryId($value)
- * @method static Builder|CalendarSQL whereSchoolId($value)
- * @method static Builder|CalendarSQL whereWeight($value)
- * @method static Builder|CalendarSQL whereUpdatedAt($value)
+ * @property int                                                                     $id
+ * @property string                                $name
+ * @property int|null                              $max_point
+ * @property int|null                              $class_id
+ * @property int                                   $class_activity_category_id
+ * @property string|null                           $description
+ * @property int                                   $school_id
+ * @property string|null                           $uuid
+ * @property int|null                              $created_by
+ * @property Carbon|null                           $created_at
+ * @property Carbon|null                           $updated_at
+ * @property-read ClassSQL|null                    $class
+ * @property-read ClassActivityCategorySQL         $classActivityCategory
+ * @property-read Collection|ScoreActivityLmsSQL[] $scoreActivity
+ * @property-read int|null                         $score_activity_count
+ * @method static Builder|ActivityClassLmsSQL newModelQuery()
+ * @method static Builder|ActivityClassLmsSQL newQuery()
+ * @method static Builder|ActivityClassLmsSQL query()
+ * @method static Builder|ActivityClassLmsSQL whereClassActivityCategoryId($value)
+ * @method static Builder|ActivityClassLmsSQL whereClassId($value)
+ * @method static Builder|ActivityClassLmsSQL whereCreatedAt($value)
+ * @method static Builder|ActivityClassLmsSQL whereCreatedBy($value)
+ * @method static Builder|ActivityClassLmsSQL whereDescription($value)
+ * @method static Builder|ActivityClassLmsSQL whereId($value)
+ * @method static Builder|ActivityClassLmsSQL whereMaxPoint($value)
+ * @method static Builder|ActivityClassLmsSQL whereName($value)
+ * @method static Builder|ActivityClassLmsSQL whereSchoolId($value)
+ * @method static Builder|ActivityClassLmsSQL whereUpdatedAt($value)
+ * @method static Builder|ActivityClassLmsSQL whereUuid($value)
  * @mixin Eloquent
- * @property string|null $uuid
- * @property string|null $external_id
- * @method static Builder|CalendarSQL whereExternalId($value)
- * @method static Builder|CalendarSQL whereUuid($value)
- * @method static Builder|ActivityCategorySQL onlyTrashed()
- * @method static Builder|ActivityCategorySQL withTrashed()
- * @method static Builder|ActivityCategorySQL withoutTrashed()
- * @property int|null $created_by
  */
 class ActivityClassLmsSQL extends Model
 {

@@ -6,7 +6,7 @@
 
 namespace YaangVu\SisModel\App\Models;
 
-interface ProgressReport 
+interface ProgressReport
 {
     public const table = 'progress_reports';
 }

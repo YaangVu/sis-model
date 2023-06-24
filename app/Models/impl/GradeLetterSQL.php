@@ -3,22 +3,25 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\GradeLetter;
-use YaangVu\SisModel\Database\Factories\GradeLetterFactory;
 
 /**
- * YaangVu\SisModel\App\Models\GradeLetterSQL
+ * YaangVu\SisModel\App\Models\impl\GradeLetterSQL
  *
  * @property int         $id
+ * @property string|null $uuid
+ * @property string|null $external_id
  * @property string      $letter
  * @property float|null  $score
+ * @property float|null  $gpa
  * @property int|null    $grade_scale_id
+ * @property string|null $description
  * @property int|null    $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -29,24 +32,16 @@ use YaangVu\SisModel\Database\Factories\GradeLetterFactory;
  * @method static Builder|GradeLetterSQL whereCreatedAt($value)
  * @method static Builder|GradeLetterSQL whereCreatedBy($value)
  * @method static Builder|GradeLetterSQL whereDeletedAt($value)
+ * @method static Builder|GradeLetterSQL whereDescription($value)
+ * @method static Builder|GradeLetterSQL whereExternalId($value)
  * @method static Builder|GradeLetterSQL whereGpa($value)
  * @method static Builder|GradeLetterSQL whereGradeScaleId($value)
  * @method static Builder|GradeLetterSQL whereId($value)
  * @method static Builder|GradeLetterSQL whereLetter($value)
  * @method static Builder|GradeLetterSQL whereScore($value)
  * @method static Builder|GradeLetterSQL whereUpdatedAt($value)
- * @mixin Eloquent
- * @method static GradeLetterFactory factory(...$parameters)
- * @method static Builder|GradeLetterSQL onlyTrashed()
- * @method static Builder|GradeLetterSQL withTrashed()
- * @method static Builder|GradeLetterSQL withoutTrashed()
- * @property string|null $description
- * @method static Builder|GradeLetter whereDescription($value)
- * @property string|null $uuid
- * @property string|null $external_id
- * @method static Builder|GradeLetterSQL whereExternalId($value)
  * @method static Builder|GradeLetterSQL whereUuid($value)
- * @property float|null  $gpa
+ * @mixin Eloquent
  */
 class GradeLetterSQL extends Model implements GradeLetter
 {

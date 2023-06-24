@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,41 +14,39 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\GraduationCategory;
 
 /**
- * YaangVu\SisModel\App\Models\GraduationCategorySQL
+ * YaangVu\SisModel\App\Models\impl\GraduationCategorySQL
  *
  * @property int                          $id
+ * @property string|null                  $uuid
+ * @property string|null                  $external_id
  * @property string                       $name
  * @property string|null                  $description
- * @property float|null                   $credit
  * @property string|null                  $status
  * @property int|null                     $created_by
  * @property Carbon|null                  $created_at
  * @property Carbon|null                  $updated_at
- * @property string|null                  $deleted_at
+ * @property Carbon|null                  $deleted_at
+ * @property-read Collection|ProgramSQL[] $programs
+ * @property-read int|null                $programs_count
+ * @property-read Collection|SubjectSQL[] $subjects
+ * @property-read int|null                $subjects_count
  * @method static Builder|GraduationCategorySQL newModelQuery()
  * @method static Builder|GraduationCategorySQL newQuery()
+ * @method static \Illuminate\Database\Query\Builder|GraduationCategorySQL onlyTrashed()
  * @method static Builder|GraduationCategorySQL query()
  * @method static Builder|GraduationCategorySQL whereCreatedAt($value)
  * @method static Builder|GraduationCategorySQL whereCreatedBy($value)
- * @method static Builder|GraduationCategorySQL whereCredit($value)
  * @method static Builder|GraduationCategorySQL whereDeletedAt($value)
  * @method static Builder|GraduationCategorySQL whereDescription($value)
+ * @method static Builder|GraduationCategorySQL whereExternalId($value)
  * @method static Builder|GraduationCategorySQL whereId($value)
  * @method static Builder|GraduationCategorySQL whereName($value)
  * @method static Builder|GraduationCategorySQL whereStatus($value)
  * @method static Builder|GraduationCategorySQL whereUpdatedAt($value)
- * @mixin Eloquent
- * @method static Builder|GraduationCategorySQL onlyTrashed()
- * @method static Builder|GraduationCategorySQL withTrashed()
- * @method static Builder|GraduationCategorySQL withoutTrashed()
- * @property string|null                  $uuid
- * @property string|null                  $external_id
- * @method static Builder|GraduationCategorySQL whereExternalId($value)
  * @method static Builder|GraduationCategorySQL whereUuid($value)
- * @property-read Collection|ProgramSQL[] $programs
- * @property-read int|null                $programs_count
- * @property-read Collection|\YaangVu\SisModel\App\Models\impl\SubjectSQL[] $subjects
- * @property-read int|null $subjects_count
+ * @method static \Illuminate\Database\Query\Builder|GraduationCategorySQL withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|GraduationCategorySQL withoutTrashed()
+ * @mixin Eloquent
  */
 class GraduationCategorySQL extends Model implements GraduationCategory
 {

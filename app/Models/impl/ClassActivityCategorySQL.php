@@ -2,8 +2,9 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -16,42 +17,41 @@ use YaangVu\SisModel\App\Models\ClassActivityCategory;
 /**
  * YaangVu\SisModel\App\Models\impl\ClassActivityCategorySQL
  *
- * @property int         $id
- * @property string|null $name
- * @property string|null $description
- * @property int|null    $school_id
- * @property int|null    $class_id
- * @property int|null    $activity_category_id
- * @property int|null    $weight
- * @property boolean    $is_default
- * @property int|null    $max_point
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $deleted_at
- * @method static Builder|CalendarSQL newModelQuery()
- * @method static Builder|CalendarSQL newQuery()
- * @method static Builder|CalendarSQL query()
- * @method static Builder|CalendarSQL whereCreatedAt($value)
- * @method static Builder|CalendarSQL whereCreatedBy($value)
- * @method static Builder|CalendarSQL whereDeletedAt($value)
- * @method static Builder|CalendarSQL whereDescription($value)
- * @method static Builder|CalendarSQL whereId($value)
- * @method static Builder|CalendarSQL whereName($value)
- * @method static Builder|CalendarSQL whereSchoolId($value)
- * @method static Builder|CalendarSQL whereClassId($value)
- * @method static Builder|CalendarSQL whereActivityCategoryId($value)
- * @method static Builder|CalendarSQL whereWeight($value)
- * @method static Builder|CalendarSQL whereIsDefault($value)
- * @method static Builder|CalendarSQL whereMaxPoint($value)
- * @method static Builder|CalendarSQL whereUpdatedAt($value)
+ * @property int                                                                     $id
+ * @property string                                                                  $name
+ * @property string                                                                  $weight
+ * @property string|null                           $description
+ * @property string|null                           $uuid
+ * @property string|null                           $external_id
+ * @property int|null                              $activity_category_id
+ * @property int                                   $class_id
+ * @property Carbon|null                           $created_at
+ * @property Carbon|null                           $updated_at
+ * @property Carbon|null                           $deleted_at
+ * @property bool|null                             $is_default
+ * @property float|null                            $max_point
+ * @property-read Collection|ActivityClassLmsSQL[] $activityClassLms
+ * @property-read int|null                         $activity_class_lms_count
+ * @method static Builder|ClassActivityCategorySQL newModelQuery()
+ * @method static Builder|ClassActivityCategorySQL newQuery()
+ * @method static \Illuminate\Database\Query\Builder|ClassActivityCategorySQL onlyTrashed()
+ * @method static Builder|ClassActivityCategorySQL query()
+ * @method static Builder|ClassActivityCategorySQL whereActivityCategoryId($value)
+ * @method static Builder|ClassActivityCategorySQL whereClassId($value)
+ * @method static Builder|ClassActivityCategorySQL whereCreatedAt($value)
+ * @method static Builder|ClassActivityCategorySQL whereDeletedAt($value)
+ * @method static Builder|ClassActivityCategorySQL whereDescription($value)
+ * @method static Builder|ClassActivityCategorySQL whereExternalId($value)
+ * @method static Builder|ClassActivityCategorySQL whereId($value)
+ * @method static Builder|ClassActivityCategorySQL whereIsDefault($value)
+ * @method static Builder|ClassActivityCategorySQL whereMaxPoint($value)
+ * @method static Builder|ClassActivityCategorySQL whereName($value)
+ * @method static Builder|ClassActivityCategorySQL whereUpdatedAt($value)
+ * @method static Builder|ClassActivityCategorySQL whereUuid($value)
+ * @method static Builder|ClassActivityCategorySQL whereWeight($value)
+ * @method static \Illuminate\Database\Query\Builder|ClassActivityCategorySQL withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|ClassActivityCategorySQL withoutTrashed()
  * @mixin Eloquent
- * @property string|null $uuid
- * @property string|null $external_id
- * @method static Builder|CalendarSQL whereExternalId($value)
- * @method static Builder|CalendarSQL whereUuid($value)
- * @method static Builder|ClassActivityCategorySQL onlyTrashed()
- * @method static Builder|ClassActivityCategorySQL withTrashed()
- * @method static Builder|ClassActivityCategorySQL withoutTrashed()
  */
 class ClassActivityCategorySQL extends Model implements ClassActivityCategory
 {
@@ -59,7 +59,7 @@ class ClassActivityCategorySQL extends Model implements ClassActivityCategory
 
     protected $fillable
         = [
-            'name', 'weight', 'description', 'school_id', 'activity_category_id', 'class_id', CodeConstant::UUID, CodeConstant::EX_ID, 'is_default','max_point'
+            'name', 'weight', 'description', 'school_id', 'activity_category_id', 'class_id', CodeConstant::UUID, CodeConstant::EX_ID, 'is_default', 'max_point'
         ];
 
     protected $table = self::table;
@@ -68,6 +68,6 @@ class ClassActivityCategorySQL extends Model implements ClassActivityCategory
 
     public function activityClassLms(): HasMany
     {
-        return $this->hasMany(ActivityClassLmsSQL::class,'class_activity_category_id');
+        return $this->hasMany(ActivityClassLmsSQL::class, 'class_activity_category_id');
     }
 }

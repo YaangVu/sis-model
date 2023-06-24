@@ -2,19 +2,31 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\TaskStatus;
 
 /**
- * Class TaskStatusSQL
- * @author  haidn <haidn@toprate.io>
- * @mixin Eloquent
+ * YaangVu\SisModel\App\Models\impl\TaskStatusSQL
+ *
  * @property int         $id
  * @property string|null $name
- * @package YaangVu\SisModel\App\Models\impl
+ * @property int|null    $created_by
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @method static Builder|TaskStatusSQL newModelQuery()
+ * @method static Builder|TaskStatusSQL newQuery()
+ * @method static Builder|TaskStatusSQL query()
+ * @method static Builder|TaskStatusSQL whereCreatedAt($value)
+ * @method static Builder|TaskStatusSQL whereCreatedBy($value)
+ * @method static Builder|TaskStatusSQL whereId($value)
+ * @method static Builder|TaskStatusSQL whereName($value)
+ * @method static Builder|TaskStatusSQL whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class TaskStatusSQL extends Model implements TaskStatus
 {

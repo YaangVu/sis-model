@@ -6,23 +6,37 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\SmsSetting;
 
 /**
- * Class SmsSettingSQL
- * @author  haidn <haidn@toprate.io>
+ * YaangVu\SisModel\App\Models\impl\SmsSettingSQL
+ *
+ * @property int         $id
+ * @property string|null $provider
+ * @property string|null $external_id
+ * @property string|null $token
+ * @property string|null $phone_number
+ * @property string|null $created_by
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @method static Builder|SmsSettingSQL newModelQuery()
+ * @method static Builder|SmsSettingSQL newQuery()
+ * @method static Builder|SmsSettingSQL query()
+ * @method static Builder|SmsSettingSQL whereCreatedAt($value)
+ * @method static Builder|SmsSettingSQL whereCreatedBy($value)
+ * @method static Builder|SmsSettingSQL whereExternalId($value)
+ * @method static Builder|SmsSettingSQL whereId($value)
+ * @method static Builder|SmsSettingSQL wherePhoneNumber($value)
+ * @method static Builder|SmsSettingSQL whereProvider($value)
+ * @method static Builder|SmsSettingSQL whereToken($value)
+ * @method static Builder|SmsSettingSQL whereUpdatedAt($value)
  * @mixin Eloquent
- * @property int    $id
- * @property string $provider
- * @property string $account_sid
- * @property string $token
- * @property int    $phone_number
- * @property int    $created_by
- * @package YaangVu\SisModel\App\Models\impl
  */
 class SmsSettingSQL extends Model implements SmsSetting
 {

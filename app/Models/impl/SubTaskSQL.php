@@ -2,34 +2,67 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\MongoModel;
 use YaangVu\SisModel\App\Models\SubTask;
 
 /**
- * Class SubTaskSQL
- * @author  haidn <haidn@toprate.io>
+ * YaangVu\SisModel\App\Models\impl\SubTaskSQL
+ *
+ * @property int                                                   $id
+ * @property string                                                $task_name
+ * @property string|null                                           $type
+ * @property string                                                $deadline
+ * @property string|null                                           $file
+ * @property int|null                                              $assignee_id
+ * @property int|null                                              $reviewer_id
+ * @property int|null                                              $created_by
+ * @property string|null                                           $description
+ * @property int|null                                            $owner_id
+ * @property string|null         $owner_id_no_sql
+ * @property string|null         $assignee_id_no_sql
+ * @property string|null         $reviewer_id_no_sql
+ * @property int                 $main_task_id
+ * @property int                 $task_status_id
+ * @property Carbon|null         $created_at
+ * @property Carbon|null         $updated_at
+ * @property string|null         $school_id
+ * @property string|null         $download_file
+ * @property-read UserNoSQL|null $assigneeSubTasks
+ * @property-read MainTaskSQL    $mainTasks
+ * @property-read UserSQL|null   $ownerSubTaskSql
+ * @property-read UserNoSQL|null $ownerSubTasks
+ * @property-read UserNoSQL|null $reviewerSubTasks
+ * @property-read TaskStatusSQL  $subTaskStatus
+ * @method static Builder|SubTaskSQL newModelQuery()
+ * @method static Builder|SubTaskSQL newQuery()
+ * @method static Builder|SubTaskSQL query()
+ * @method static Builder|SubTaskSQL whereAssigneeId($value)
+ * @method static Builder|SubTaskSQL whereAssigneeIdNoSql($value)
+ * @method static Builder|SubTaskSQL whereCreatedAt($value)
+ * @method static Builder|SubTaskSQL whereCreatedBy($value)
+ * @method static Builder|SubTaskSQL whereDeadline($value)
+ * @method static Builder|SubTaskSQL whereDescription($value)
+ * @method static Builder|SubTaskSQL whereDownloadFile($value)
+ * @method static Builder|SubTaskSQL whereFile($value)
+ * @method static Builder|SubTaskSQL whereId($value)
+ * @method static Builder|SubTaskSQL whereMainTaskId($value)
+ * @method static Builder|SubTaskSQL whereOwnerId($value)
+ * @method static Builder|SubTaskSQL whereOwnerIdNoSql($value)
+ * @method static Builder|SubTaskSQL whereReviewerId($value)
+ * @method static Builder|SubTaskSQL whereReviewerIdNoSql($value)
+ * @method static Builder|SubTaskSQL whereSchoolId($value)
+ * @method static Builder|SubTaskSQL whereTaskName($value)
+ * @method static Builder|SubTaskSQL whereTaskStatusId($value)
+ * @method static Builder|SubTaskSQL whereType($value)
+ * @method static Builder|SubTaskSQL whereUpdatedAt($value)
  * @mixin Eloquent
- * @property int         $id
- * @property string|null $task_name
- * @property string      $type
- * @property string      $deadline
- * @property int         $assignee_id
- * @property int|null    $reviewer_id
- * @property string|null $description
- * @property int         $main_task_id
- * @property int         $task_status_id
- * @property int|null    $created_by
- * @property int|null    $owner_id
- * @property int|null    $owner_id_no_sql
- * @property int|null    $reviewer_id_no_sql
- * @property int|null    $assignee_id_no_sql
- * @property int|null    $file
- * @package YaangVu\SisModel\App\Models\impl
  */
 class SubTaskSQL extends Model implements SubTask
 {

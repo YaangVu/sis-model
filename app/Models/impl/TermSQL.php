@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,54 +12,58 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
-use YaangVu\SisModel\App\Models\Clazz;
 use YaangVu\SisModel\App\Models\SQLModel;
 use YaangVu\SisModel\App\Models\Term;
 
 
 /**
- * YaangVu\SisModel\App\Models\TermSQL
+ * YaangVu\SisModel\App\Models\impl\TermSQL
  *
- * @property int                         $id
- * @property string                      $name
- * @property string|null                 $start_date
- * @property string|null                 $end_date
+ * @property int                                                           $id
+ * @property string|null                                                   $uuid
+ * @property string|null                                                   $external_id
+ * @property string                                                        $name
+ * @property string|null                                                   $start_date
+ * @property string|null                                                   $end_date
+ * @property string|null                                                   $description
  * @property string|null                 $status
  * @property int|null                    $school_id
- * @property string|null                 $external_id
- * @property string|null                 $description
  * @property int|null                    $created_by
  * @property Carbon|null                 $created_at
  * @property Carbon|null                 $updated_at
  * @property Carbon|null                 $deleted_at
- * @property-read Collection|Clazz[]     $classes
- * @property-read int|null               $classes_count
  * @property string|null                 $term_course_code
- * @method static Builder|TermSQL newModelQuery()
- * @method static Builder|TermSQL newQuery()
+ * @property string|null                 $school_year
+ * @property string|null                 $semester_number
+ * @property int|null                    $ref_id
+ * @property-read Collection|ClassSQL[]  $classes
+ * @property-read int|null               $classes_count
+ * @property-read Collection|CourseSQL[] $courses
+ * @property-read int|null               $courses_count
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL newQuery()
  * @method static Builder|TermSQL onlyTrashed()
- * @method static Builder|TermSQL query()
- * @method static Builder|TermSQL whereCreatedAt($value)
- * @method static Builder|TermSQL whereCreatedBy($value)
- * @method static Builder|TermSQL whereDeletedAt($value)
- * @method static Builder|TermSQL whereEndDate($value)
- * @method static Builder|TermSQL whereExternalId($value)
- * @method static Builder|TermSQL whereDescription($value)
- * @method static Builder|TermSQL whereId($value)
- * @method static Builder|TermSQL whereName($value)
- * @method static Builder|TermSQL whereSchoolId($value)
- * @method static Builder|TermSQL whereStartDate($value)
- * @method static Builder|TermSQL whereStatus($value)
- * @method static Builder|TermSQL whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereEndDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereExternalId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereRefId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereSchoolId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereSchoolYear($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereSemesterNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereStartDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereTermCourseCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TermSQL whereUuid($value)
  * @method static Builder|TermSQL withTrashed()
  * @method static Builder|TermSQL withoutTrashed()
  * @mixin Eloquent
- * @property int|null                    $lms_id
- * @method static Builder|ProgramSQL whereLmsId($value)
- * @property string|null                 $uuid
- * @method static Builder|TermSQL whereUuid($value)
- * @property-read Collection|CourseSQL[] $courses
- * @property-read int|null               $courses_count
  */
 class TermSQL extends Model implements Term
 {

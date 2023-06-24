@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -11,12 +11,8 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\GraduationCategorySubject;
 
 /**
- * YaangVu\SisModel\App\Models\GraduationCategorySubjectSQL
+ * YaangVu\SisModel\App\Models\impl\GraduationCategorySubjectSQL
  *
- * @method static Builder|GraduationCategorySubjectSQL newModelQuery()
- * @method static Builder|GraduationCategorySubjectSQL newQuery()
- * @method static Builder|GraduationCategorySubjectSQL query()
- * @mixin Eloquent
  * @property int         $id
  * @property string|null $uuid
  * @property string|null $external_id
@@ -26,6 +22,9 @@ use YaangVu\SisModel\App\Models\GraduationCategorySubject;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @method static Builder|GraduationCategorySubjectSQL newModelQuery()
+ * @method static Builder|GraduationCategorySubjectSQL newQuery()
+ * @method static Builder|GraduationCategorySubjectSQL query()
  * @method static Builder|GraduationCategorySubjectSQL whereCreatedAt($value)
  * @method static Builder|GraduationCategorySubjectSQL whereCreatedBy($value)
  * @method static Builder|GraduationCategorySubjectSQL whereDeletedAt($value)
@@ -35,6 +34,7 @@ use YaangVu\SisModel\App\Models\GraduationCategorySubject;
  * @method static Builder|GraduationCategorySubjectSQL whereSubjectId($value)
  * @method static Builder|GraduationCategorySubjectSQL whereUpdatedAt($value)
  * @method static Builder|GraduationCategorySubjectSQL whereUuid($value)
+ * @mixin Eloquent
  */
 class GraduationCategorySubjectSQL extends Model implements GraduationCategorySubject
 {

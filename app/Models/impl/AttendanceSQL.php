@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,46 +16,56 @@ use YaangVu\SisModel\Database\Factories\AttendanceFactory;
 /**
  * YaangVu\SisModel\App\Models\impl\AttendanceSQL
  *
- * @property int               $id
- * @property int               $class_id
- * @property string            $calendar_id
- * @property string|null       $user_uuid
- * @property int|null          $user_id
- * @property string|null       $status
- * @property string|null       $description
- * @property Carbon|null       $created_at
- * @property int|null          $created_by
- * @property Carbon|null       $updated_at
+ * @property int                                                        $id
+ * @property int|null                                                   $class_id
+ * @property string                                                     $calendar_id
+ * @property string|null                                                $user_uuid
+ * @property int|null                                                   $user_id
+ * @property string|null                                                $description
+ * @property int|null                                                   $created_by
+ * @property Carbon|null              $created_at
+ * @property Carbon|null              $updated_at
+ * @property string|null              $status
+ * @property string|null              $group
+ * @property string|null              $start
+ * @property string|null              $end
+ * @property int|null                 $zoom_meeting_id
+ * @property string|null              $join_time
+ * @property string|null              $leave_time
+ * @property string|null              $date
+ * @property-read ClassSQL|null       $class
+ * @property-read UserSQL|null        $user
+ * @property-read ZoomMeetingSQL|null $zoomMeeting
+ * @method static AttendanceFactory factory(...$parameters)
  * @method static Builder|AttendanceSQL newModelQuery()
  * @method static Builder|AttendanceSQL newQuery()
  * @method static Builder|AttendanceSQL query()
+ * @method static Builder|AttendanceSQL whereCalendarId($value)
+ * @method static Builder|AttendanceSQL whereClassId($value)
  * @method static Builder|AttendanceSQL whereCreatedAt($value)
  * @method static Builder|AttendanceSQL whereCreatedBy($value)
- * @method static Builder|AttendanceSQL whereStatus($value)
+ * @method static Builder|AttendanceSQL whereDate($value)
  * @method static Builder|AttendanceSQL whereDescription($value)
- * @method static Builder|AttendanceSQL whereId($value)
- * @method static Builder|AttendanceSQL whereClassId($value)
- * @method static Builder|AttendanceSQL whereCalendarId($value)
- * @method static Builder|AttendanceSQL whereZoomMeetingId($value)
- * @method static Builder|AttendanceSQL whereUserUuid($value)
- * @method static Builder|AttendanceSQL whereUpdatedAt($value)
- * @mixin Eloquent
- * @property string|null       $group
- * @method static Builder|AttendanceSQL whereGroup($value)
- * @method static Builder|AttendanceSQL whereUserId($value)
- * @property-read UserSQL|null $user
- * @property string|null       $start
- * @method static Builder|AttendanceSQL whereStart($value)
- * @property string|null       $end
  * @method static Builder|AttendanceSQL whereEnd($value)
- * @method static \YaangVu\SisModel\Database\Factories\AttendanceFactory factory(...$parameters)
+ * @method static Builder|AttendanceSQL whereGroup($value)
+ * @method static Builder|AttendanceSQL whereId($value)
+ * @method static Builder|AttendanceSQL whereJoinTime($value)
+ * @method static Builder|AttendanceSQL whereLeaveTime($value)
+ * @method static Builder|AttendanceSQL whereStart($value)
+ * @method static Builder|AttendanceSQL whereStatus($value)
+ * @method static Builder|AttendanceSQL whereUpdatedAt($value)
+ * @method static Builder|AttendanceSQL whereUserId($value)
+ * @method static Builder|AttendanceSQL whereUserUuid($value)
+ * @method static Builder|AttendanceSQL whereZoomMeetingId($value)
+ * @mixin Eloquent
  */
 class AttendanceSQL extends SQLModel implements Attendance
 {
     use HasFactory;
 
-    protected $fillable = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description',
-                           'group', 'start', 'end','zoom_meeting_id', 'join_time', 'leave_time', 'date'];
+    protected $fillable
+        = ['class_id', 'calendar_id', 'user_uuid', 'user_id', 'status', 'description',
+           'group', 'start', 'end', 'zoom_meeting_id', 'join_time', 'leave_time', 'date'];
 
     protected $table = self::table;
 
@@ -84,7 +94,7 @@ class AttendanceSQL extends SQLModel implements Attendance
         return $this->hasOne(ClassSQL::class, 'id', 'class_id');
     }
 
-    public function userNoSql(): \Illuminate\Database\Eloquent\Relations\HasOne|\Jenssegers\Mongodb\Relations\HasOne
+    public function userNoSql(): HasOne|\Jenssegers\Mongodb\Relations\HasOne
     {
         return (new MongoModel())->hasOne(UserNoSQL::class, 'uuid', 'user_uuid');
     }

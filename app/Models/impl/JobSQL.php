@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -10,7 +10,7 @@ use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Job;
 
 /**
- * YaangVu\SisModel\App\Models\JobSQL
+ * YaangVu\SisModel\App\Models\impl\JobSQL
  *
  * @property int      $id
  * @property string   $queue

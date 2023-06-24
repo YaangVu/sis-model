@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,39 +11,35 @@ use Illuminate\Support\Carbon;
 use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Lms;
-use YaangVu\SisModel\Database\Factories\LmsFactory;
 
 /**
- * YaangVu\SisModel\App\Models\LmsSQL
+ * YaangVu\SisModel\App\Models\impl\LmsSQL
  *
  * @property int         $id
+ * @property string|null $uuid
+ * @property string|null $external_id
  * @property string      $name
+ * @property string|null $description
  * @property int|null    $created_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property string|null $deleted_at
+ * @property Carbon|null $deleted_at
  * @method static Builder|LmsSQL newModelQuery()
  * @method static Builder|LmsSQL newQuery()
+ * @method static \Illuminate\Database\Query\Builder|LmsSQL onlyTrashed()
  * @method static Builder|LmsSQL query()
  * @method static Builder|LmsSQL whereCreatedAt($value)
  * @method static Builder|LmsSQL whereCreatedBy($value)
  * @method static Builder|LmsSQL whereDeletedAt($value)
+ * @method static Builder|LmsSQL whereDescription($value)
+ * @method static Builder|LmsSQL whereExternalId($value)
  * @method static Builder|LmsSQL whereId($value)
  * @method static Builder|LmsSQL whereName($value)
  * @method static Builder|LmsSQL whereUpdatedAt($value)
- * @mixin Eloquent
- * @method static LmsFactory factory(...$parameters)
- * @method static Builder|LmsSQL onlyTrashed()
- * @method static Builder|LmsSQL withTrashed()
- * @method static Builder|LmsSQL withoutTrashed()
- * @property string|null $description
- * @method static Builder|LmsSQL whereDescription($value)
- * @property string|null $lid
- * @method static Builder|LmsSQL whereLid($value)
- * @property string|null $uuid
- * @property string|null $external_id
- * @method static Builder|LmsSQL whereExternalId($value)
  * @method static Builder|LmsSQL whereUuid($value)
+ * @method static \Illuminate\Database\Query\Builder|LmsSQL withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|LmsSQL withoutTrashed()
+ * @mixin Eloquent
  */
 class LmsSQL extends Model implements Lms
 {

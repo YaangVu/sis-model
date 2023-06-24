@@ -2,7 +2,7 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,29 +11,39 @@ use YaangVu\Constant\CodeConstant;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\SQLModel;
 use YaangVu\SisModel\App\Models\Subject;
-use YaangVu\SisModel\App\Models\SubjectType;
 
 /**
- * YaangVu\SisModel\App\Models\SubjectSQL
+ * YaangVu\SisModel\App\Models\impl\SubjectSQL
  *
- * @property int                     $id
- * @property string|null             $uuid SubjectSQL id
- * @property string|null             $external_id
- * @property string                  $name
- * @property string                  $credit
- * @property string|null             $description
- * @property string|null             $status
- * @property string|null             $subject_display_name
- * @property int|null                $grade_id
- * @property int|null                $subject_type_id
- * @property int|null                $school_id
- * @property int|null                $created_by
- * @property Carbon|null             $created_at
- * @property Carbon|null             $updated_at
- * @property string|null             $deleted_at
+ * @property int                                                        $id
+ * @property string|null                                                $uuid subject id
+ * @property string|null                                                $external_id
+ * @property string                                                     $name
+ * @property string                                                     $credit
+ * @property string|null                                                $description
+ * @property string|null                                                $status
+ * @property int|null                                                   $grade_id
+ * @property int|null                                                   $school_id
+ * @property string|null                                                $weight
+ * @property int|null                                                   $created_by
+ * @property Carbon|null                                                $created_at
+ * @property Carbon|null              $updated_at
+ * @property string|null              $deleted_at
+ * @property string|null              $code
+ * @property int|null                 $grade_scale_id
+ * @property string|null              $type
+ * @property int|null                 $subject_type_id
+ * @property string|null              $subject_display_name
+ * @property-read mixed               $grade_scales
+ * @property-read mixed               $graduation_category
+ * @property-read mixed               $rules
+ * @property-read GradeScaleSQL|null  $gradeScale
+ * @property-read GradeSQL|null       $grades
+ * @property-read SubjectTypeSQL|null $subjectType
  * @method static Builder|SubjectSQL newModelQuery()
  * @method static Builder|SubjectSQL newQuery()
  * @method static Builder|SubjectSQL query()
+ * @method static Builder|SubjectSQL whereCode($value)
  * @method static Builder|SubjectSQL whereCreatedAt($value)
  * @method static Builder|SubjectSQL whereCreatedBy($value)
  * @method static Builder|SubjectSQL whereCredit($value)
@@ -41,28 +51,18 @@ use YaangVu\SisModel\App\Models\SubjectType;
  * @method static Builder|SubjectSQL whereDescription($value)
  * @method static Builder|SubjectSQL whereExternalId($value)
  * @method static Builder|SubjectSQL whereGradeId($value)
+ * @method static Builder|SubjectSQL whereGradeScaleId($value)
  * @method static Builder|SubjectSQL whereId($value)
  * @method static Builder|SubjectSQL whereName($value)
- * @method static Builder|SubjectSQL whereSubjectDisplayName($value)
- * @method static Builder|SubjectSQL whereSubjectTypeId($value)
  * @method static Builder|SubjectSQL whereSchoolId($value)
  * @method static Builder|SubjectSQL whereStatus($value)
+ * @method static Builder|SubjectSQL whereSubjectDisplayName($value)
+ * @method static Builder|SubjectSQL whereSubjectTypeId($value)
+ * @method static Builder|SubjectSQL whereType($value)
  * @method static Builder|SubjectSQL whereUpdatedAt($value)
  * @method static Builder|SubjectSQL whereUuid($value)
- * @mixin Eloquent
- * @property int|null                $code
- * @method static Builder|SubjectSQL whereCode($value)
- * @property string|null             $weight
- * @property-read mixed              $rules
- * @property-read GradeSQL|null      $grades
  * @method static Builder|SubjectSQL whereWeight($value)
- * @property int|null                $grade_scale_id
- * @method static Builder|SubjectSQL whereGradeScaleId($value)
- * @property-read GradeScaleSQL|null $gradeScale
- * @property-read mixed              $grade_scales
- * @property string                  $type
- * @method static Builder|SubjectSQL whereType($value)
- * @property-read mixed              $graduation_category
+ * @mixin Eloquent
  */
 class SubjectSQL extends Model implements Subject
 {

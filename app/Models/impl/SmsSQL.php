@@ -6,24 +6,43 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Carbon;
 use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\Sms;
 
 /**
- * Class SmsSQL
- * @author  haidn <haidn@toprate.io>
+ * YaangVu\SisModel\App\Models\impl\SmsSQL
+ *
+ * @property int                                 $id
+ * @property string|null                         $template_id
+ * @property string|null                         $count_user
+ * @property int|null                            $created_by
+ * @property Carbon|null                         $created_at
+ * @property Carbon|null                         $updated_at
+ * @property string|null                         $title
+ * @property string|null                         $school_id
+ * @property string|null                         $content
+ * @property-read Collection|SmsParticipantSQL[] $smsParticipants
+ * @property-read int|null                       $sms_participants_count
+ * @method static Builder|SmsSQL newModelQuery()
+ * @method static Builder|SmsSQL newQuery()
+ * @method static Builder|SmsSQL query()
+ * @method static Builder|SmsSQL whereContent($value)
+ * @method static Builder|SmsSQL whereCountUser($value)
+ * @method static Builder|SmsSQL whereCreatedAt($value)
+ * @method static Builder|SmsSQL whereCreatedBy($value)
+ * @method static Builder|SmsSQL whereId($value)
+ * @method static Builder|SmsSQL whereSchoolId($value)
+ * @method static Builder|SmsSQL whereTemplateId($value)
+ * @method static Builder|SmsSQL whereTitle($value)
+ * @method static Builder|SmsSQL whereUpdatedAt($value)
  * @mixin Eloquent
- * @property int    $id
- * @property string $template_id
- * @property string $count_user
- * @property int    $created_by
- * @property int    $title
- * @property int    $content
- * @package YaangVu\SisModel\App\Models\impl
  */
 class SmsSQL extends Model implements Sms
 {

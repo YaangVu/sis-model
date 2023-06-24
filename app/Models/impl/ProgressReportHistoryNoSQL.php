@@ -2,8 +2,8 @@
 
 namespace YaangVu\SisModel\App\Models\impl;
 
-use YaangVu\Constant\DbConnectionConstant;
 use Jenssegers\Mongodb\Eloquent\Model;
+use YaangVu\Constant\DbConnectionConstant;
 use YaangVu\SisModel\App\Models\ProgressReportHistory;
 
 class ProgressReportHistoryNoSQL extends Model implements ProgressReportHistory
