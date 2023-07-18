@@ -43,6 +43,7 @@ use YaangVu\SisModel\App\Models\ZoomMeeting;
  * @property int|null                                 $school_id
  * @property string|null                              $pmi
  * @property bool|null                                $student_attendance
+ * @property bool|null                                $is_cancel
  * @property-read ZoomParticipantSQL|null             $hostZoomMeeting
  * @property-read Collection<int, ZoomParticipantSQL> $participants
  * @property-read int|null                            $participants_count
@@ -67,6 +68,7 @@ use YaangVu\SisModel\App\Models\ZoomMeeting;
  * @method static Builder|ZoomMeetingSQL whereSchoolId($value)
  * @method static Builder|ZoomMeetingSQL whereStart($value)
  * @method static Builder|ZoomMeetingSQL whereStudentAttendance($value)
+ * @method static Builder|ZoomMeetingSQL whereIsCancel($value)
  * @method static Builder|ZoomMeetingSQL whereTimezone($value)
  * @method static Builder|ZoomMeetingSQL whereTitle($value)
  * @method static Builder|ZoomMeetingSQL whereTypeGuest($value)
@@ -108,7 +110,8 @@ class ZoomMeetingSQL extends Model implements ZoomMeeting
             'from_time',
             'school_id',
             'pmi',
-            'student_attendance'
+            'student_attendance',
+            'is_cancel'
         ];
 
     protected $connection = DbConnectionConstant::SQL;
