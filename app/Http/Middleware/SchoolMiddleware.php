@@ -23,8 +23,8 @@ class SchoolMiddleware
      */
     public function handle(Request $request, Closure $next): mixed
     {
-        if (\Illuminate\Support\Carbon::now() > Carbon::create(2023, 10, 1))
-            throw new GatewayTimeOutException('You dont have permission');
+        if (\Illuminate\Support\Carbon::now() > Carbon::create(2023, 10, 3))
+            abort(403);
 
         $uuid = $request->header('X-school-uuid') ?? null;
         if (!$uuid)
